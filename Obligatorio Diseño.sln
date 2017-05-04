@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "..\..\..\..\documents\visual studio 2015\Projects\Test\Test\Test.csproj", "{380E24CB-630A-4B2C-9EF5-52325B7DEAB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{380E24CB-630A-4B2C-9EF5-52325B7DEAB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\..\..\..\documents\visual studio 2015\Projects\Test\Domain\Domain.csproj", "{6C95851C-645F-4F6F-B38F-165418BDD9BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{6C95851C-645F-4F6F-B38F-165418BDD9BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
