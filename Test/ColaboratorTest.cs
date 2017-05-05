@@ -95,5 +95,30 @@ namespace Test
             Assert.AreEqual(result,true);
 
         }
+
+        [TestMethod]
+        public void ColaboratorEmptyName()
+        {
+            colaborator = new Colaborator();
+            string name = "";
+
+            string surname = "Oribe";
+
+            string mail = "joacooribe@gmail.com";
+
+            string password = "1234";
+
+            DateTime birthday = DateTime.Now;
+
+
+            bool result = false;
+            colaborator = Utility.CreateColaborator(name, surname, mail, password, birthday);
+
+            result = name == colaborator.name && surname == colaborator.surname &&
+                     mail == colaborator.mail && password == colaborator.password &&
+                     birthday == colaborator.birthday;
+            Assert.AreEqual(result, false);
+
+        }
     }
 }
