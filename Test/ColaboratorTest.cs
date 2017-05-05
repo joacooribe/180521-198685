@@ -76,17 +76,18 @@ namespace Test
         {
             colaborator = new Colaborator();
             string name = "Joaquin";
-            colaborator.name = name;
+           
             string surname = "Oribe";
-            colaborator.surname = surname;
+
             string mail = "joacooribe@gmail.com";
-            colaborator.mail = mail;
+
             string password = "1234";
-            colaborator.password = password;
+
             DateTime birthday = DateTime.Now;
-            colaborator.birthday = birthday;
+
 
             bool result = false;
+            colaborator = Utility.CreateColaborator(name,surname,mail,password,birthday);
 
             result = name == colaborator.name && surname == colaborator.surname &&
                      mail == colaborator.mail && password == colaborator.password &&
