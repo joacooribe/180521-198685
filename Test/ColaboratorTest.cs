@@ -68,7 +68,7 @@ namespace Test
             string surname = "Oribe";
             colaborator.surname = surname;
 
-            Assert.AreEqual(surname, colaborator.Surname);
+            Assert.AreEqual(surname, colaborator.surname);
 
         }
         [TestMethod]
