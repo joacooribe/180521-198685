@@ -2,5 +2,9 @@
 {
     public class Colaborator:User
     {
+        public Colaborator()
+        {
+
+        }
     }
 }

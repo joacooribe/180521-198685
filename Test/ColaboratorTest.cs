@@ -6,9 +6,6 @@ using Domain;
 
 namespace Test
 {
-    /// <summary>
-    /// Summary description for ColaboratorTest
-    /// </summary>
     [TestClass]
     public class ColaboratorTest
     {
@@ -57,9 +54,11 @@ namespace Test
         [TestMethod]
         public void ColaboratorOKName()
         {
-            string Name = "Joaquin";
+            colaborator = new Colaborator();
+            string name = "Joaquin";
+            colaborator.name = name;
 
-            Assert.IsTrue(colaborator.ValidName(Name)); 
+            Assert.AreEqual(name,colaborator.name ); 
 
         }
     }

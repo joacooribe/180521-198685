@@ -1,0 +1,7 @@
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Test.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Test.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Domain.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Domain.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\obj\Debug\Test.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\obj\Debug\Test.pdb

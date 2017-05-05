@@ -8,5 +8,6 @@ namespace Domain
 {
     public abstract class User
     {
+        public string name { get; set; }
     }
 }
