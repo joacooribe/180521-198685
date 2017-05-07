@@ -8,10 +8,10 @@ namespace Domain
 {
     public class SystemList
     {
-        public List<Colaborator> ColaboratorList { get; }
+        public List<Colaborator> colaboratorList { get; }
 
         public SystemList() {
-            ColaboratorList = new List<Colaborator>();
+            colaboratorList = new List<Colaborator>();
         }
     }
 }

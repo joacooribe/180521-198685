@@ -1,0 +1,11 @@
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\Logic.dll
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\Logic.pdb
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\Domain.dll
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\Utility.dll
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\Exception.dll
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\Domain.pdb
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\Utility.pdb
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\Exception.pdb
+C:\Users\Fido\Documents\180521-198685\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\Users\Fido\Documents\180521-198685\Logic\obj\Debug\Logic.dll
+C:\Users\Fido\Documents\180521-198685\Logic\obj\Debug\Logic.pdb

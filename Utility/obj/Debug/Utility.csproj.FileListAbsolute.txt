@@ -1,0 +1,7 @@
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Utility.dll
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Utility.pdb
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Exception.dll
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Exception.pdb
+C:\Users\Fido\Documents\180521-198685\Utility\obj\Debug\Utility.csprojResolveAssemblyReference.cache
+C:\Users\Fido\Documents\180521-198685\Utility\obj\Debug\Utility.dll
+C:\Users\Fido\Documents\180521-198685\Utility\obj\Debug\Utility.pdb

@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "Exception\Exceptions.csproj", "{98C139E8-83CC-4E7F-9439-23DAACB5980C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{9F8FC04E-1A0C-4623-A028-73118A69138F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.csproj", "{42526951-C227-49DE-AAD9-98364843C39D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{98C139E8-83CC-4E7F-9439-23DAACB5980C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98C139E8-83CC-4E7F-9439-23DAACB5980C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98C139E8-83CC-4E7F-9439-23DAACB5980C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F8FC04E-1A0C-4623-A028-73118A69138F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F8FC04E-1A0C-4623-A028-73118A69138F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F8FC04E-1A0C-4623-A028-73118A69138F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F8FC04E-1A0C-4623-A028-73118A69138F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42526951-C227-49DE-AAD9-98364843C39D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42526951-C227-49DE-AAD9-98364843C39D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42526951-C227-49DE-AAD9-98364843C39D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42526951-C227-49DE-AAD9-98364843C39D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
