@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
-using Domain;
 using Exceptions;
 
-namespace Test
+namespace Utility
 {
-    class Utility
+    public class Utilites
     {
-        public static void ValidateColaborator(Colaborator colaborator)
+        public static void ValidateName(String name)
         {
-            if(colaborator.name == "")
+            if (String.IsNullOrEmpty(name))
             {
                 throw new ColaboratorException();
             }

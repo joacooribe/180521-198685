@@ -5,20 +5,23 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
 using Persistence;
 using Exceptions;
+using Logic;
 
 namespace Test
 {
     [TestClass]
-    public class ColaboratorTest
+    public class ColaboratorLogicTest
     {
         private Colaborator colaborator;
         private SystemList systemList;
         private ColaboratorPersistenceHandler colaboratorPersistence;
+        private ColaboratorHandler colaboratorHandler;
 
-        public ColaboratorTest()
+        public ColaboratorLogicTest()
         {
             systemList = new SystemList();
             colaboratorPersistence = new ColaboratorPersistenceHandler(systemList);
+            colaboratorHandler = new ColaboratorHandler() { colaboratorFunctions = colaboratorPersistence };
         }
 
         private TestContext testContextInstance;
@@ -64,7 +67,7 @@ namespace Test
             string name = "Joaquin";
             colaborator.name = name;
 
-            Assert.AreEqual(name,colaborator.name ); 
+            Assert.AreEqual(name,colaborator.name); 
 
         }
         [TestMethod]
@@ -91,8 +94,8 @@ namespace Test
 
             colaborator.birthday = DateTime.Now;
 
-            colaboratorPersistence.AddColaborator(colaborator);
-            Assert.AreEqual(1,systemList.colaboratorList.Count);
+            colaboratorHandler.AddColaborator(colaborator);
+            Assert.AreEqual(colaborator,colaboratorHandler.colaboratorFunctions.GetColaboratorFromList(colaborator));
 
         }
 
@@ -111,7 +114,7 @@ namespace Test
 
             colaborator.birthday = DateTime.Now;
 
-            Utility.ValidateColaborator(colaborator);
+            colaboratorHandler.AddColaborator(colaborator);
 
         }
     }

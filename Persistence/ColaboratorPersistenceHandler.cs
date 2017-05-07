@@ -20,6 +20,11 @@ namespace Persistence
         {
             SystemList.colaboratorList.Add(colaborator);
         }
-       
+
+        public Colaborator GetColaboratorFromList(Colaborator colaborator)
+        {
+            Colaborator colaboratorFromList = SystemList.colaboratorList.Find(colaborator.Equals);
+            return colaboratorFromList;
+        }       
     }
 }

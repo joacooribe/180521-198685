@@ -53,9 +53,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AdministratorTest.cs" />
-    <Compile Include="ColaboratorTest.cs" />
+    <Compile Include="Domain\ColaboratorTest.cs" />
+    <Compile Include="Logic\ColaboratorLogicTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
@@ -66,11 +66,16 @@
       <Project>{98c139e8-83cc-4e7f-9439-23daacb5980c}</Project>
       <Name>Exceptions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{9f8fc04e-1a0c-4623-a028-73118a69138f}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Persistence\Persistence.csproj">
       <Project>{c32a011b-7894-4436-914a-565eb303dd9b}</Project>
       <Name>Persistence</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
