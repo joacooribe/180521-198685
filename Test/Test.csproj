@@ -53,7 +53,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AdministratorTest.cs" />
-    <Compile Include="ColaboratorTest.cs" />
+    <Compile Include="Domain\ColaboratorTest.cs" />
+    <Compile Include="Logic\ColaboratorLogicTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +75,7 @@
       <Name>Persistence</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

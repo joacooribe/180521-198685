@@ -10,14 +10,14 @@ using Logic;
 namespace Test
 {
     [TestClass]
-    public class ColaboratorTest
+    public class ColaboratorLogicTest
     {
         private Colaborator colaborator;
         private SystemList systemList;
         private ColaboratorPersistenceHandler colaboratorPersistence;
         private ColaboratorHandler colaboratorHandler;
 
-        public ColaboratorTest()
+        public ColaboratorLogicTest()
         {
             systemList = new SystemList();
             colaboratorPersistence = new ColaboratorPersistenceHandler(systemList);
