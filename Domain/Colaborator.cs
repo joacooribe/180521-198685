@@ -7,24 +7,18 @@
 
         }
 
-        //public override bool Equals(object obj)
-        //{
-        //    if (obj != null && obj.GetType().Equals(this.GetType()))
-        //    {
-        //        Colaborator colaborator = (Colaborator)obj;
-        //        if (this.mail.Equals(colaborator.mail))
-        //        {
-        //            return true;
-        //        }
-
-        //    }
-        //    return false;
-        //}
-
         public override bool Equals(object obj)
         {
-            Colaborator colaborator = (Colaborator)obj;
-            return colaborator.mail.Equals(this.mail);
+            if (obj != null && obj.GetType().Equals(this.GetType()))
+            {
+                Colaborator colaborator = (Colaborator)obj;
+                if (this.mail.Equals(colaborator.mail))
+                {
+                    return true;
+                }
+
+            }
+            return false;
         }
 
     }
