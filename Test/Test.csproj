@@ -61,6 +61,14 @@
       <Project>{6C95851C-645F-4F6F-B38F-165418BDD9BB}</Project>
       <Name>Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Exception\Exceptions.csproj">
+      <Project>{98c139e8-83cc-4e7f-9439-23daacb5980c}</Project>
+      <Name>Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Persistence\Persistence.csproj">
+      <Project>{c32a011b-7894-4436-914a-565eb303dd9b}</Project>
+      <Name>Persistence</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

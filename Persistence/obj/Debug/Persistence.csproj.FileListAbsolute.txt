@@ -1,0 +1,7 @@
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Persistence.pdb
+C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.csprojResolveAssemblyReference.cache
+C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.pdb
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Persistence.dll
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Domain.dll
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Domain.pdb
+C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.dll

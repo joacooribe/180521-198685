@@ -2,19 +2,18 @@
 using System.Text;
 using System.Collections.Generic;
 using Domain;
+using Exceptions;
+
 namespace Test
 {
     class Utility
     {
-        public static Colaborator CreateColaborator(string name, string surname, string mail, string password, DateTime birthday)
+        public static void ValidateColaborator(Colaborator colaborator)
         {
-            Colaborator colaborator = new Colaborator();
-            colaborator.name = name;
-            colaborator.surname = surname;
-            colaborator.mail = mail;
-            colaborator.password = password;
-            colaborator.birthday = birthday;
-            return colaborator;
+            if(colaborator.name == "")
+            {
+                throw new ColaboratorException();
+            }
         }
     }
 }

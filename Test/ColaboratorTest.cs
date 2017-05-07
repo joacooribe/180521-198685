@@ -3,6 +3,8 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
+using Persistence;
+using Exceptions;
 
 namespace Test
 {
@@ -10,9 +12,13 @@ namespace Test
     public class ColaboratorTest
     {
         private Colaborator colaborator;
+        private SystemList systemList;
+        private ColaboratorPersistenceHandler colaboratorPersistence;
+
         public ColaboratorTest()
         {
-
+            systemList = new SystemList();
+            colaboratorPersistence = new ColaboratorPersistenceHandler(systemList);
         }
 
         private TestContext testContextInstance;
@@ -75,49 +81,37 @@ namespace Test
         public void ColaboratorOK()
         {
             colaborator = new Colaborator();
-            string name = "Joaquin";
+            colaborator.name = "Joaquin";
            
-            string surname = "Oribe";
+            colaborator.surname = "Oribe";
 
-            string mail = "joacooribe@gmail.com";
+            colaborator.mail = "joacooribe@gmail.com";
 
-            string password = "1234";
+            colaborator.password = "1234";
 
-            DateTime birthday = DateTime.Now;
+            colaborator.birthday = DateTime.Now;
 
-
-            bool result = false;
-            colaborator = Utility.CreateColaborator(name,surname,mail,password,birthday);
-
-            result = name == colaborator.name && surname == colaborator.surname &&
-                     mail == colaborator.mail && password == colaborator.password &&
-                     birthday == colaborator.birthday;
-            Assert.AreEqual(result,true);
+            colaboratorPersistence.AddColaborator(colaborator);
+            Assert.AreEqual(1,systemList.ColaboratorList.Count);
 
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
         public void ColaboratorEmptyName()
         {
             colaborator = new Colaborator();
-            string name = "";
+            colaborator.name = "";
 
-            string surname = "Oribe";
+            colaborator.surname = "Oribe";
 
-            string mail = "joacooribe@gmail.com";
+            colaborator.mail = "joacooribe@gmail.com";
 
-            string password = "1234";
+            colaborator.password = "1234";
 
-            DateTime birthday = DateTime.Now;
+            colaborator.birthday = DateTime.Now;
 
-
-            bool result = false;
-            colaborator = Utility.CreateColaborator(name, surname, mail, password, birthday);
-
-            result = name == colaborator.name && surname == colaborator.surname &&
-                     mail == colaborator.mail && password == colaborator.password &&
-                     birthday == colaborator.birthday;
-            Assert.AreEqual(result, false);
+            Utility.ValidateColaborator(colaborator);
 
         }
     }

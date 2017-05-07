@@ -5,3 +5,14 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Domain.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\obj\Debug\Test.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\obj\Debug\Test.pdb
+C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Test.dll
+C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Test.pdb
+C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Domain.dll
+C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Domain.pdb
+C:\Users\Fido\Documents\180521-198685\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\Fido\Documents\180521-198685\Test\obj\Debug\Test.dll
+C:\Users\Fido\Documents\180521-198685\Test\obj\Debug\Test.pdb
+C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Persistence.pdb
+C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Persistence.dll
+C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Exception.dll
+C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Exception.pdb
