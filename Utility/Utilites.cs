@@ -5,7 +5,7 @@ using Exceptions;
 
 namespace Utility
 {
-    public class ColaboratorUtility
+    public class Utilites
     {
         public static void ValidateName(String name)
         {

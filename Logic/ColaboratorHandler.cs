@@ -20,7 +20,7 @@ namespace Logic
 
         public void ValidateColaborator(Colaborator colaborator)
         {
-            Utility.ColaboratorUtility.ValidateName(colaborator.name);
+            Utility.Utilites.ValidateName(colaborator.name);
         }
     }
 }
