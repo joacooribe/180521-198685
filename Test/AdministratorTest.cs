@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
 using Persistence;
+using Exceptions;
 
 namespace Test
 {
@@ -83,6 +84,24 @@ namespace Test
 
             administratorPersistence.AddAdministrator(administrator);
             Assert.AreEqual(1, systemList.administratorList.Count);
+
+        }
+        [TestMethod]
+        [ExpectedException(typeof(AdministratorException))]
+        public void AdministratorEmptyName()
+        {
+            administrator = new Administrator();
+            administrator.name = "";
+
+            administrator.surname = "Oribe";
+
+            administrator.mail = "joacooribe@gmail.com";
+
+            administrator.password = "1234";
+
+            administrator.birthday = DateTime.Now;
+
+            Utility.ValidateAdministrator(administrator);
 
         }
     }

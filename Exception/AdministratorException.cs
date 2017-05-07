@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exceptions
 {
-    class AdministratorException : Exception
+    public class AdministratorException : Exception
     {
     }
 }

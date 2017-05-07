@@ -15,5 +15,12 @@ namespace Test
                 throw new ColaboratorException();
             }
         }
+        public static void ValidateAdministrator(Administrator administrator)
+        {
+            if (administrator.name == "")
+            {
+                throw new AdministratorException();
+            }
+        }
     }
 }
