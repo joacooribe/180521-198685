@@ -61,5 +61,25 @@ namespace Test
             Assert.AreEqual(name, administrator.name);
 
         }
+
+        [TestMethod]
+        public void AdminisitratorOK()
+        {
+            administrator = new Administrator();
+
+            administrator.name = "Joaquin";
+
+            administrator.surname = "Oribe";
+
+            administrator.mail = "joacooribe@gmail.com";
+
+            administrator.password = "1234";
+
+            administrator.birthday = DateTime.Now;
+
+            colaboratorPersistence.AddColaborator(colaborator);
+            Assert.AreEqual(1, systemList.ColaboratorList.Count);
+
+        }
     }
 }
