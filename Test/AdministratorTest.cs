@@ -58,7 +58,6 @@ namespace Test
             administrator = new Administrator();
             string name = "Joaquin";
             administrator.name = name;
-
             Assert.AreEqual(name, administrator.name);
 
         }
