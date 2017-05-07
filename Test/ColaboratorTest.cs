@@ -92,7 +92,7 @@ namespace Test
             colaborator.birthday = DateTime.Now;
 
             colaboratorPersistence.AddColaborator(colaborator);
-            Assert.AreEqual(1,systemList.ColaboratorList.Count);
+            Assert.AreEqual(1,systemList.colaboratorList.Count);
 
         }
 

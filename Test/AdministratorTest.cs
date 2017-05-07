@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
+using Persistence;
 
 namespace Test
 {
@@ -11,9 +12,12 @@ namespace Test
     public class AdministratorTest
     {
         Administrator administrator;
+        private SystemList systemList;
+        private AdministratorPersistenceHandler administratorPersistence;
         public AdministratorTest()
         {
-        
+            systemList = new SystemList();
+            administratorPersistence = new AdministratorPersistenceHandler(systemList);
         }
 
         private TestContext testContextInstance;
@@ -77,8 +81,8 @@ namespace Test
 
             administrator.birthday = DateTime.Now;
 
-            colaboratorPersistence.AddColaborator(colaborator);
-            Assert.AreEqual(1, systemList.ColaboratorList.Count);
+            administratorPersistence.AddAdministrator(administrator);
+            Assert.AreEqual(1, systemList.administratorList.Count);
 
         }
     }

@@ -18,7 +18,7 @@ namespace Persistence
 
         public void AddColaborator(Colaborator colaborator)
         {
-            SystemList.ColaboratorList.Add(colaborator);
+            SystemList.colaboratorList.Add(colaborator);
         }
        
     }

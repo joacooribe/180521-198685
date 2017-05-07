@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrator.cs" />
+    <Compile Include="AdministratorPersistenceProvider.cs" />
     <Compile Include="Colaborator.cs" />
     <Compile Include="ColaboratorPersistenceProvider.cs" />
     <Compile Include="SystemList.cs" />
