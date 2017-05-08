@@ -385,6 +385,89 @@ namespace Test
             colaboratorHandler.AddColaborator(colaborator);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorPasswordNull()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
+
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = mailOK;
+
+            colaborator.password = null;
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorPasswordEmpty()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
+
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = mailOK;
+
+            colaborator.password = "";
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorPasswordNoNumbers()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
+
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = mailOK;
+
+            colaborator.password = "ThisIsPassword";
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorPasswordNoLetters()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
+
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = mailOK;
+
+            colaborator.password = "123456789";
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorPasswordTooSmall()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
+
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = mailOK;
+
+            colaborator.password = "pass1";
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
 
     }
 }
