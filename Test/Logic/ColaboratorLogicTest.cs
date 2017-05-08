@@ -240,6 +240,145 @@ namespace Test
             colaboratorHandler.AddColaborator(colaborator);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorEmptySurname()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "Joaquin";
+
+            colaborator.surname = "";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+
+            colaboratorHandler.AddColaborator(colaborator);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorNullSurname()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "Joaquin";
+
+            colaborator.surname = null;
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+
+            colaboratorHandler.AddColaborator(colaborator);
+
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorSurnameWithSpacesInTheEnd()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "Joaquin";
+
+            colaborator.surname = "Oribe     ";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorSurnameWithSpacesInTheBegining()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "Joaquin";
+
+            colaborator.surname = "           Oribe";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorSurnameWithOnlyEmptySpaces()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "Joaquin";
+
+            colaborator.surname = "     ";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorSurnameWithNumbers()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "Joaquin";
+
+            colaborator.surname = "0rib3";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorSurnameWithSpecialCharacters()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "Joaquin";
+
+            colaborator.surname = "#@?_";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorSurnameWithMoreThanOneSpaceInTheMiddle()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "Joaquin";
+
+            colaborator.surname = "Oribe   Bajac";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
 
     }
 }
