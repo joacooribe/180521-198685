@@ -9,7 +9,8 @@ namespace Utility
 {
     public class Utilites
     {
-        private static readonly string validChars = "^[a-zA-Z]*$";
+        private static readonly string validCharsName = "^[a-zA-Z]*$";
+        private static readonly string validCharsPassword = "^(?=.*[a-zA-Z])(?=.*[0-9])";
 
 
         public static void ValidateNameOrSurname(string name)
@@ -30,12 +31,21 @@ namespace Utility
         }
         private static bool ValidationOfStrings(string element)
         {
-            Regex regularExpresion = new Regex(validChars);
+            Regex regularExpresion = new Regex(validCharsName);
             if (element == null || !(regularExpresion.IsMatch(element)) || element == "")
             {
                 return true;
             }
             return false;
         }
+        public static void ValidatePassword(string password)
+        {
+            Regex regularExpresionNumbers = new Regex(validCharsPassword);
+            if (password == null || !(regularExpresionNumbers.IsMatch(password)) || password.Length < 6 || password == "")
+            {
+                throw new ColaboratorException();
+            }
+        }
+
     }
 }
