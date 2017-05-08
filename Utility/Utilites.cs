@@ -31,20 +31,33 @@ namespace Utility
         }
         private static bool ValidationOfStrings(string element)
         {
+            bool invalidName = false;
             Regex regularExpresion = new Regex(validCharsName);
             if (element == null || !(regularExpresion.IsMatch(element)) || element == "")
             {
-                return true;
+                invalidName = true;
             }
-            return false;
+            return invalidName;
         }
         public static void ValidatePassword(string password)
         {
-            Regex regularExpresionNumbers = new Regex(validCharsPassword);
-            if (password == null || !(regularExpresionNumbers.IsMatch(password)) || password.Length < 6 || password == "")
+            if (ValidationOfPassword(password))
             {
                 throw new ColaboratorException();
             }
+        }
+        
+        private static bool ValidationOfPassword(string element)
+        {
+            bool invalidPassword=false;
+
+            Regex regularExpresionNumbers = new Regex(validCharsPassword);
+
+            if (element == null || !(regularExpresionNumbers.IsMatch(element)) || element.Length < 6 || element == "")
+            {
+                invalidPassword = true;
+            }
+            return invalidPassword;
         }
 
     }
