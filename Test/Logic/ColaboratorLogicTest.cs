@@ -17,6 +17,12 @@ namespace Test
         private ColaboratorPersistenceHandler colaboratorPersistence;
         private ColaboratorHandler colaboratorHandler;
 
+        private readonly string passwordOK = "securePassword123";
+        private readonly string mailOK = "user@gmail.com";
+        private readonly string nameOK = "Joaquin";
+        private readonly string surnameOK = "Oribe";
+
+
         public ColaboratorLogicTest()
         {
             systemList = new SystemList();
@@ -64,7 +70,7 @@ namespace Test
         public void ColaboratorOKName()
         {
             colaborator = new Colaborator();
-            string name = "Joaquin";
+            string name = nameOK;
             colaborator.name = name;
 
             Assert.AreEqual(name, colaborator.name);
@@ -74,7 +80,7 @@ namespace Test
         public void ColaboratorOKSurname()
         {
             colaborator = new Colaborator();
-            string surname = "Oribe";
+            string surname = surnameOK;
             colaborator.surname = surname;
 
             Assert.AreEqual(surname, colaborator.surname);
@@ -84,13 +90,13 @@ namespace Test
         public void ColaboratorOK()
         {
             colaborator = new Colaborator();
-            colaborator.name = "Joaquin";
+            colaborator.name = nameOK;
 
-            colaborator.surname = "Oribe";
+            colaborator.surname = surnameOK;
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
 
@@ -106,11 +112,11 @@ namespace Test
             colaborator = new Colaborator();
             colaborator.name = "";
 
-            colaborator.surname = "Oribe";
+            colaborator.surname = surnameOK;
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
 
@@ -126,11 +132,11 @@ namespace Test
 
             colaborator.name = null;
 
-            colaborator.surname = "Oribe";
+            colaborator.surname = surnameOK;
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
 
@@ -145,11 +151,11 @@ namespace Test
             colaborator = new Colaborator();
             colaborator.name = "Joaco      ";
 
-            colaborator.surname = "Oribe";
+            colaborator.surname = surnameOK;
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
@@ -162,11 +168,11 @@ namespace Test
             colaborator = new Colaborator();
             colaborator.name = "     Joaco";
 
-            colaborator.surname = "Oribe";
+            colaborator.surname = surnameOK;
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
@@ -179,11 +185,11 @@ namespace Test
             colaborator = new Colaborator();
             colaborator.name = "     ";
 
-            colaborator.surname = "Oribe";
+            colaborator.surname = surnameOK;
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
@@ -196,11 +202,11 @@ namespace Test
             colaborator = new Colaborator();
             colaborator.name = "J04c0";
 
-            colaborator.surname = "Oribe";
+            colaborator.surname = surnameOK;
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
@@ -213,11 +219,11 @@ namespace Test
             colaborator = new Colaborator();
             colaborator.name = "#Jo@co";
 
-            colaborator.surname = "Oribe";
+            colaborator.surname = surnameOK;
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
@@ -230,11 +236,11 @@ namespace Test
             colaborator = new Colaborator();
             colaborator.name = "Joaco   Sabe";
 
-            colaborator.surname = "Oribe";
+            colaborator.surname = surnameOK;
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
@@ -245,13 +251,13 @@ namespace Test
         public void ColaboratorEmptySurname()
         {
             colaborator = new Colaborator();
-            colaborator.name = "Joaquin";
+            colaborator.name = nameOK;
 
             colaborator.surname = "";
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
 
@@ -264,13 +270,13 @@ namespace Test
         public void ColaboratorNullSurname()
         {
             colaborator = new Colaborator();
-            colaborator.name = "Joaquin";
+            colaborator.name = nameOK;
 
             colaborator.surname = null;
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
 
@@ -282,13 +288,13 @@ namespace Test
         public void ColaboratorSurnameWithSpacesInTheEnd()
         {
             colaborator = new Colaborator();
-            colaborator.name = "Joaquin";
+            colaborator.name = nameOK;
 
             colaborator.surname = "Oribe     ";
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
@@ -299,13 +305,13 @@ namespace Test
         public void ColaboratorSurnameWithSpacesInTheBegining()
         {
             colaborator = new Colaborator();
-            colaborator.name = "Joaquin";
+            colaborator.name = nameOK;
 
             colaborator.surname = "           Oribe";
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
@@ -316,13 +322,13 @@ namespace Test
         public void ColaboratorSurnameWithOnlyEmptySpaces()
         {
             colaborator = new Colaborator();
-            colaborator.name = "Joaquin";
+            colaborator.name = nameOK;
 
             colaborator.surname = "     ";
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
@@ -333,13 +339,13 @@ namespace Test
         public void ColaboratorSurnameWithNumbers()
         {
             colaborator = new Colaborator();
-            colaborator.name = "Joaquin";
+            colaborator.name = nameOK;
 
             colaborator.surname = "0rib3";
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
@@ -350,13 +356,13 @@ namespace Test
         public void ColaboratorSurnameWithSpecialCharacters()
         {
             colaborator = new Colaborator();
-            colaborator.name = "Joaquin";
+            colaborator.name = nameOK;
 
             colaborator.surname = "#@?_";
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
@@ -367,13 +373,13 @@ namespace Test
         public void ColaboratorSurnameWithMoreThanOneSpaceInTheMiddle()
         {
             colaborator = new Colaborator();
-            colaborator.name = "Joaquin";
+            colaborator.name = nameOK;
 
             colaborator.surname = "Oribe   Bajac";
 
-            colaborator.mail = "joacooribe@gmail.com";
+            colaborator.mail = mailOK;
 
-            colaborator.password = "1234";
+            colaborator.password = passwordOK;
 
             colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
