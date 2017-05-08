@@ -16,7 +16,8 @@ namespace Utility
         }
         public static void ValidateAdministrator(String name)
         {
-            if (name == "")
+            if (string.IsNullOrEmpty(name))
+
             {
                 throw new AdministratorException();
             }
