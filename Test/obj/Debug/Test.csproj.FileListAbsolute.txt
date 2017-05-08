@@ -16,14 +16,15 @@ C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Persistence.pdb
 C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Persistence.dll
 C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Exception.dll
 C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Exception.pdb
-<<<<<<< HEAD
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Exception.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Persistence.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Exception.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Persistence.pdb
-=======
 C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Logic.dll
 C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Utility.dll
 C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Logic.pdb
 C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Utility.pdb
->>>>>>> 8b8d83dc244ccb64991f2e496e10f889c924a2ae
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Logic.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Utility.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Logic.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Utility.pdb

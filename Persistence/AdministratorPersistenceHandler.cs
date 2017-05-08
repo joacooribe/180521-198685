@@ -7,7 +7,7 @@ using Domain;
 
 namespace Persistence
 {
-    public class AdministratorPersistenceHandler
+    public class AdministratorPersistenceHandler : AdministratorPersistenceProvider
     {
             public SystemList systemList;
 

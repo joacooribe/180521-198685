@@ -14,9 +14,9 @@ namespace Utility
                 throw new ColaboratorException();
             }
         }
-        public static void ValidateAdministrator(Administrator administrator)
+        public static void ValidateAdministrator(String name)
         {
-            if (administrator.name == "")
+            if (string.IsNullOrEmpty(name))
             {
                 throw new AdministratorException();
             }

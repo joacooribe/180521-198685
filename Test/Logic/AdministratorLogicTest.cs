@@ -5,20 +5,24 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
 using Persistence;
 using Exceptions;
+using Logic;
+
 
 namespace Test
 {
 
     [TestClass]
-    public class AdministratorTest
+    public class AdministratorLogicTest
     {
         Administrator administrator;
         private SystemList systemList;
         private AdministratorPersistenceHandler administratorPersistence;
-        public AdministratorTest()
+        private AdministratorHandler administratorHandler;
+        public AdministratorLogicTest()
         {
             systemList = new SystemList();
             administratorPersistence = new AdministratorPersistenceHandler(systemList);
+            administratorHandler = new AdministratorHandler() { administratorFunctions = administratorPersistence };
         }
 
         private TestContext testContextInstance;
@@ -101,7 +105,7 @@ namespace Test
 
             administrator.birthday = DateTime.Now;
 
-            Utility.ValidateAdministrator(administrator);
+            administratorHandler.AddAdministrator(administrator);
 
         }
     }
