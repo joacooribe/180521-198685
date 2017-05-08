@@ -9,11 +9,13 @@ namespace Utility
 {
     public class Utilites
     {
-        
+        private static readonly string validChars = "^[a-zA-Z]*$";
+
+
         public static void ValidateName(string name)
         {
-            Regex rg = new Regex("^[a-zA-Z]*$");
-            if (name == null || name.Any(char.IsDigit) || !(rg.IsMatch(name)) || name == "")
+            
+            if (ValidationOfStrings(name))
             {
                 throw new ColaboratorException();
             }
@@ -25,6 +27,15 @@ namespace Utility
             {
                 throw new AdministratorException();
             }
+        }
+        private static bool ValidationOfStrings(string element)
+        {
+            Regex regularExpresion = new Regex(validChars);
+            if (element == null || !(regularExpresion.IsMatch(element)) || element == "")
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
