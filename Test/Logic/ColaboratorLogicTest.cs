@@ -123,6 +123,7 @@ namespace Test
         public void ColaboratorNullName()
         {
             colaborator = new Colaborator();
+
             colaborator.name = null;
 
             colaborator.surname = "Oribe";
@@ -151,6 +152,7 @@ namespace Test
             colaborator.password = "1234";
 
             colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
         }
 
         [TestMethod]
@@ -167,6 +169,7 @@ namespace Test
             colaborator.password = "1234";
 
             colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
         }
 
         [TestMethod]
@@ -183,6 +186,7 @@ namespace Test
             colaborator.password = "1234";
 
             colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
         }
 
         [TestMethod]
@@ -199,6 +203,7 @@ namespace Test
             colaborator.password = "1234";
 
             colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
         }
 
         [TestMethod]
@@ -215,6 +220,7 @@ namespace Test
             colaborator.password = "1234";
 
             colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
         }
 
         [TestMethod]
@@ -231,6 +237,7 @@ namespace Test
             colaborator.password = "1234";
 
             colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
         }
 
 
