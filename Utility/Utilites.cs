@@ -12,7 +12,7 @@ namespace Utility
         private static readonly string validChars = "^[a-zA-Z]*$";
 
 
-        public static void ValidateName(string name)
+        public static void ValidateNameOrSurname(string name)
         {
             
             if (ValidationOfStrings(name))
