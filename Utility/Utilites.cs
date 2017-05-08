@@ -9,14 +9,14 @@ namespace Utility
     {
         public static void ValidateName(String name)
         {
-            if (String.IsNullOrEmpty(name))
+            if (name == "")
             {
                 throw new ColaboratorException();
             }
         }
-        public static void ValidateAdministrator(Administrator administrator)
+        public static void ValidateAdministrator(String name)
         {
-            if (administrator.name == "")
+            if (name == "")
             {
                 throw new AdministratorException();
             }

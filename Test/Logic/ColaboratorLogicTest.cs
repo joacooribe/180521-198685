@@ -67,7 +67,7 @@ namespace Test
             string name = "Joaquin";
             colaborator.name = name;
 
-            Assert.AreEqual(name,colaborator.name); 
+            Assert.AreEqual(name, colaborator.name);
 
         }
         [TestMethod]
@@ -85,7 +85,7 @@ namespace Test
         {
             colaborator = new Colaborator();
             colaborator.name = "Joaquin";
-           
+
             colaborator.surname = "Oribe";
 
             colaborator.mail = "joacooribe@gmail.com";
@@ -95,7 +95,7 @@ namespace Test
             colaborator.birthday = DateTime.Now;
 
             colaboratorHandler.AddColaborator(colaborator);
-            Assert.AreEqual(colaborator,colaboratorHandler.colaboratorFunctions.GetColaboratorFromList(colaborator));
+            Assert.AreEqual(colaborator, colaboratorHandler.colaboratorFunctions.GetColaboratorFromList(colaborator));
 
         }
 
@@ -117,5 +117,122 @@ namespace Test
             colaboratorHandler.AddColaborator(colaborator);
 
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorNullName()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = null;
+
+            colaborator.surname = "Oribe";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+
+            colaboratorHandler.AddColaborator(colaborator);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorNameWithSpacesInTheEnd()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "Joaco      ";
+
+            colaborator.surname = "Oribe";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorNameWithSpacesInTheBegining()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "     Joaco";
+
+            colaborator.surname = "Oribe";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorNameWithOnlyEmptySpaces()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "     ";
+
+            colaborator.surname = "Oribe";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorNameWithNumbers()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "J04c0";
+
+            colaborator.surname = "Oribe";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorNameWithSpecialCharacters()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "#Jo@co";
+
+            colaborator.surname = "Oribe";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorNameWithMoreThanOneSpaceInTheMiddle()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = "Joaco   Sabe";
+
+            colaborator.surname = "Oribe";
+
+            colaborator.mail = "joacooribe@gmail.com";
+
+            colaborator.password = "1234";
+
+            colaborator.birthday = DateTime.Now;
+        }
+
+
     }
 }

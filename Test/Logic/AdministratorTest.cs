@@ -101,7 +101,7 @@ namespace Test
 
             administrator.birthday = DateTime.Now;
 
-            Utility.ValidateAdministrator(administrator);
+            //Utility.ValidateAdministrator(administrator);
 
         }
     }
