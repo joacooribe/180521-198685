@@ -19,7 +19,10 @@ namespace Logic
 
         public void ValidateAdministrator(Administrator administrator)
         {
-            Utility.Utilites.ValidateAdministrator(administrator.name);
+            Utility.Utilites.ValidateNameOrSurname(administrator.name);
+            Utility.Utilites.ValidateNameOrSurname(administrator.surname);
+            Utility.Utilites.ValidatePassword(administrator.password);
+            Utility.Utilites.ValidateMail(administrator.mail);
         }
     }
 }

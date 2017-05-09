@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exceptions
 {
-    public class ColaboratorException : Exception
+    public class UserException : Exception
     {
 
     }

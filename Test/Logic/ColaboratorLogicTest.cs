@@ -106,7 +106,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorEmptyName()
         {
             colaborator = new Colaborator();
@@ -125,7 +125,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorNullName()
         {
             colaborator = new Colaborator();
@@ -145,7 +145,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithSpacesInTheEnd()
         {
             colaborator = new Colaborator();
@@ -162,7 +162,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithSpacesInTheBegining()
         {
             colaborator = new Colaborator();
@@ -179,7 +179,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithOnlyEmptySpaces()
         {
             colaborator = new Colaborator();
@@ -196,7 +196,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithNumbers()
         {
             colaborator = new Colaborator();
@@ -213,7 +213,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithSpecialCharacters()
         {
             colaborator = new Colaborator();
@@ -230,7 +230,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithMoreThanOneSpaceInTheMiddle()
         {
             colaborator = new Colaborator();
@@ -247,7 +247,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorEmptySurname()
         {
             colaborator = new Colaborator();
@@ -266,7 +266,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorNullSurname()
         {
             colaborator = new Colaborator();
@@ -284,7 +284,7 @@ namespace Test
 
         }
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithSpacesInTheEnd()
         {
             colaborator = new Colaborator();
@@ -301,7 +301,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithSpacesInTheBegining()
         {
             colaborator = new Colaborator();
@@ -318,7 +318,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithOnlyEmptySpaces()
         {
             colaborator = new Colaborator();
@@ -335,7 +335,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithNumbers()
         {
             colaborator = new Colaborator();
@@ -352,7 +352,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithSpecialCharacters()
         {
             colaborator = new Colaborator();
@@ -369,7 +369,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithMoreThanOneSpaceInTheMiddle()
         {
             colaborator = new Colaborator();
@@ -386,7 +386,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordNull()
         {
             colaborator = new Colaborator();
@@ -403,7 +403,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordEmpty()
         {
             colaborator = new Colaborator();
@@ -420,7 +420,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordNoNumbers()
         {
             colaborator = new Colaborator();
@@ -436,7 +436,7 @@ namespace Test
             colaboratorHandler.AddColaborator(colaborator);
         }
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordNoLetters()
         {
             colaborator = new Colaborator();
@@ -452,7 +452,7 @@ namespace Test
             colaboratorHandler.AddColaborator(colaborator);
         }
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordTooSmall()
         {
             colaborator = new Colaborator();
@@ -469,7 +469,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorEmptyMail()
         {
             colaborator = new Colaborator();
@@ -485,7 +485,7 @@ namespace Test
             colaboratorHandler.AddColaborator(colaborator);
         }
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorNullMail()
         {
             colaborator = new Colaborator();
@@ -502,7 +502,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorMailWithNoAt()
         {
             colaborator = new Colaborator();
@@ -519,7 +519,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorMailNoDot()
         {
             colaborator = new Colaborator();
@@ -536,7 +536,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorMailNoAddres()
         {
             colaborator = new Colaborator();
@@ -552,7 +552,7 @@ namespace Test
             colaboratorHandler.AddColaborator(colaborator);
         }
         [TestMethod]
-        [ExpectedException(typeof(ColaboratorException))]
+        [ExpectedException(typeof(UserException))]
         public void ColaboratorMailNoName()
         {
             colaborator = new Colaborator();

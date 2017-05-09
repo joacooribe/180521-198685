@@ -14,7 +14,7 @@ namespace Test
     [TestClass]
     public class AdministratorLogicTest
     {
-        Administrator administrator;
+        private Administrator administrator;
         private SystemList systemList;
         private AdministratorPersistenceHandler administratorPersistence;
         private AdministratorHandler administratorHandler;
@@ -96,7 +96,7 @@ namespace Test
 
         }
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
+        [ExpectedException(typeof(UserException))]
         public void AdministratorEmptyName()
         {
             administrator = new Administrator();
@@ -116,7 +116,7 @@ namespace Test
 
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
+        [ExpectedException(typeof(UserException))]
         public void AdministratorNullName()
         {
             administrator = new Administrator();
@@ -136,8 +136,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorNameWithSpacesInTheEnd()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorNameWithSpacesInTheEnd()
         {
             administrator = new Administrator();
             administrator.name = "Joaco      ";
@@ -153,8 +153,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorNameWithSpacesInTheBegining()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorNameWithSpacesInTheBegining()
         {
             administrator = new Administrator();
             administrator.name = "     Joaco";
@@ -170,8 +170,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorNameWithOnlyEmptySpaces()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorNameWithOnlyEmptySpaces()
         {
             administrator = new Administrator();
             administrator.name = "     ";
@@ -187,8 +187,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorNameWithNumbers()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorNameWithNumbers()
         {
             administrator = new Administrator();
             administrator.name = "J04c0";
@@ -204,8 +204,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorNameWithSpecialCharacters()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorNameWithSpecialCharacters()
         {
             administrator = new Administrator();
             administrator.name = "#Jo@co";
@@ -221,8 +221,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorNameWithMoreThanOneSpaceInTheMiddle()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorNameWithMoreThanOneSpaceInTheMiddle()
         {
             administrator = new Administrator();
             administrator.name = "Joaco   Sabe";
@@ -238,8 +238,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorEmptySurname()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorEmptySurname()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -257,8 +257,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorNullSurname()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorNullSurname()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -275,8 +275,8 @@ namespace Test
 
         }
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorSurnameWithSpacesInTheEnd()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorSurnameWithSpacesInTheEnd()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -292,8 +292,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorSurnameWithSpacesInTheBegining()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorSurnameWithSpacesInTheBegining()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -309,8 +309,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorSurnameWithOnlyEmptySpaces()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorSurnameWithOnlyEmptySpaces()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -326,8 +326,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorSurnameWithNumbers()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorSurnameWithNumbers()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -343,8 +343,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorSurnameWithSpecialCharacters()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorSurnameWithSpecialCharacters()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -360,8 +360,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorSurnameWithMoreThanOneSpaceInTheMiddle()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorSurnameWithMoreThanOneSpaceInTheMiddle()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -377,8 +377,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorPasswordNull()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorPasswordNull()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -394,8 +394,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorPasswordEmpty()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorPasswordEmpty()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -411,8 +411,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorPasswordNoNumbers()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorPasswordNoNumbers()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -427,8 +427,8 @@ namespace Test
             administratorHandler.AddAdministrator(administrator);
         }
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorPasswordNoLetters()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorPasswordNoLetters()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -443,8 +443,8 @@ namespace Test
             administratorHandler.AddAdministrator(administrator);
         }
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorPasswordTooSmall()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorPasswordTooSmall()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -460,8 +460,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorEmptyMail()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorEmptyMail()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -476,8 +476,8 @@ namespace Test
             administratorHandler.AddAdministrator(administrator);
         }
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorNullMail()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorNullMail()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -493,8 +493,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorMailWithNoAt()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorMailWithNoAt()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -510,8 +510,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorMailNoDot()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorMailNoDot()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -527,8 +527,8 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorMailNoAddres()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorMailNoAddres()
         {
             administrator = new Administrator();
             administrator.name = nameOK;
@@ -543,8 +543,8 @@ namespace Test
             administratorHandler.AddAdministrator(administrator);
         }
         [TestMethod]
-        [ExpectedException(typeof(AdministratorException))]
-        public void administratorMailNoName()
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorMailNoName()
         {
             administrator = new Administrator();
             administrator.name = nameOK;

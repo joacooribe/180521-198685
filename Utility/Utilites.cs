@@ -18,7 +18,7 @@ namespace Utility
             
             if (ValidationOfStrings(name))
             {
-                throw new ColaboratorException();
+                throw new UserException();
             }
         }
         public static void ValidateAdministrator(String name)
@@ -26,7 +26,7 @@ namespace Utility
             if (string.IsNullOrEmpty(name))
 
             {
-                throw new AdministratorException();
+                throw new UserException();
             }
         }
         private static bool ValidationOfStrings(string element)
@@ -43,7 +43,7 @@ namespace Utility
         {
             if (ValidationOfPassword(password))
             {
-                throw new ColaboratorException();
+                throw new UserException();
             }
         }
         
@@ -65,7 +65,7 @@ namespace Utility
             
             if (ValidationOfMail(mail))
             {
-                throw new ColaboratorException();
+                throw new UserException();
             }
             
         }
