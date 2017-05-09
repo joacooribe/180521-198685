@@ -11,7 +11,7 @@ namespace Utility
     {
         private static readonly string validCharsName = "^[a-zA-Z]*$";
         private static readonly string validCharsPassword = "^(?=.*[a-zA-Z])(?=.*[0-9])";
-
+        private static readonly string VALID_CHARS_MAIL = @"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$";
 
         public static void ValidateNameOrSurname(string name)
         {
@@ -58,6 +58,16 @@ namespace Utility
                 invalidPassword = true;
             }
             return invalidPassword;
+        }
+
+        public static void ValidateMail(string mail)
+        {
+            Regex regularExpresionMail = new Regex(VALID_CHARS_MAIL);
+            if (mail == null || !(regularExpresionMail.IsMatch(mail)) || mail == "")
+            {
+                throw new ColaboratorException();
+            }
+            
         }
 
     }
