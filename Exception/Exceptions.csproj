@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdministratorException.cs" />
+    <Compile Include="ColaboratorException.cs" />
     <Compile Include="UserException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
