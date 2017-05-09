@@ -468,6 +468,108 @@ namespace Test
             colaboratorHandler.AddColaborator(colaborator);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorEmptyMail()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
+
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = "";
+
+            colaborator.password = passwordOK;
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorNullMail()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
+
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = null;
+
+            colaborator.password = passwordOK;
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorMailWithNoAt()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
+
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = "joacooribegmail.com";
+
+            colaborator.password = passwordOK;
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorMailNoDot()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
+
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = "joaco@gmailcom";
+
+            colaborator.password = passwordOK;
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorMailNoAddres()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
+
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = "joaco@.com";
+
+            colaborator.password = passwordOK;
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ColaboratorException))]
+        public void ColaboratorMailNoName()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
+
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = "@gmail.com";
+
+            colaborator.password = passwordOK;
+
+            colaborator.birthday = DateTime.Now;
+            colaboratorHandler.AddColaborator(colaborator);
+        }
+
+
+
 
     }
 }
