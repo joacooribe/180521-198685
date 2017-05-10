@@ -12,10 +12,3 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\Exception.p
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\obj\Debug\Utility.csprojResolveAssemblyReference.cache
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\obj\Debug\Utility.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\obj\Debug\Utility.pdb
-C:\Users\Usuario\Documents\180521-198685\Utility\bin\Debug\Utility.dll
-C:\Users\Usuario\Documents\180521-198685\Utility\bin\Debug\Utility.pdb
-C:\Users\Usuario\Documents\180521-198685\Utility\bin\Debug\Exception.dll
-C:\Users\Usuario\Documents\180521-198685\Utility\bin\Debug\Exception.pdb
-C:\Users\Usuario\Documents\180521-198685\Utility\obj\Debug\Utility.csprojResolveAssemblyReference.cache
-C:\Users\Usuario\Documents\180521-198685\Utility\obj\Debug\Utility.dll
-C:\Users\Usuario\Documents\180521-198685\Utility\obj\Debug\Utility.pdb

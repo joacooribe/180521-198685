@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain;
 
-namespace Persistence
+namespace Domain
 {
-    public class Repository
+    public class SystemList
     {
-        public ICollection<Colaborator> colaboratorList { get; }
-        public ICollection<Administrator> administratorList { get; }
-        public ICollection<Team> teamList { get; }
+        public List<Colaborator> colaboratorList { get; }
 
-        public Repository() {
+        public List<Administrator> administratorList { get; }
+        public List<Team> teamList { get; }
+
+        public SystemList() {
             colaboratorList = new List<Colaborator>();
             administratorList = new List<Administrator>();
             teamList = new List<Team>();

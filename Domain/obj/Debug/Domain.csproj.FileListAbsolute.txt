@@ -8,8 +8,3 @@ C:\Users\Fido\Documents\180521-198685\Domain\bin\Debug\Domain.pdb
 C:\Users\Fido\Documents\180521-198685\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
 C:\Users\Fido\Documents\180521-198685\Domain\obj\Debug\Domain.dll
 C:\Users\Fido\Documents\180521-198685\Domain\obj\Debug\Domain.pdb
-C:\Users\Usuario\Documents\180521-198685\Domain\bin\Debug\Domain.dll
-C:\Users\Usuario\Documents\180521-198685\Domain\bin\Debug\Domain.pdb
-C:\Users\Usuario\Documents\180521-198685\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
-C:\Users\Usuario\Documents\180521-198685\Domain\obj\Debug\Domain.dll
-C:\Users\Usuario\Documents\180521-198685\Domain\obj\Debug\Domain.pdb
