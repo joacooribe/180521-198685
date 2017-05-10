@@ -73,7 +73,6 @@ namespace Test.Logic
             creator.password = "a1234556";
             creator.birthday = DateTime.Now;
             return creator;
-
         }
         private Administrator CreateAdministrator()
         {
