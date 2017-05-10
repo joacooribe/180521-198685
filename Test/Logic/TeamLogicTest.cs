@@ -14,11 +14,11 @@ namespace Test.Logic
     {
         private TeamPersistenceHandler teamPersistence;
         private TeamHandler teamHandler;
-        private SystemList systemList;
+        private Repository systemList;
         private Team team;
         public TeamLogicTest()
         {
-            systemList = new SystemList();
+            systemList = new Repository();
             teamPersistence = new TeamPersistenceHandler(systemList);
             teamHandler = new TeamHandler() { teamFunctions = teamPersistence };
         }

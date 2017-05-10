@@ -12,3 +12,10 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\Domain.
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\obj\Debug\Persistence.csprojResolveAssemblyReference.cache
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\obj\Debug\Persistence.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\obj\Debug\Persistence.pdb
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Debug\Persistence.dll
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Debug\Persistence.pdb
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Debug\Domain.dll
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Debug\Domain.pdb
+C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Debug\Persistence.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Debug\Persistence.dll
+C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Debug\Persistence.pdb

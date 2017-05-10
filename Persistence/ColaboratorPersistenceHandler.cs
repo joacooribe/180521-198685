@@ -9,22 +9,31 @@ namespace Persistence
 {
     public class ColaboratorPersistenceHandler : ColaboratorPersistenceProvider
     {
-        public SystemList SystemList;
+        public Repository systemCollection;
 
-        public ColaboratorPersistenceHandler(SystemList systemList)
+        public ColaboratorPersistenceHandler(Repository collection)
         {
-            SystemList = systemList;
+            systemCollection = collection;
         }
 
         public void AddColaborator(Colaborator colaborator)
         {
-            SystemList.colaboratorList.Add(colaborator);
+            systemCollection.colaboratorList.Add(colaborator);
         }
 
-        public Colaborator GetColaboratorFromList(Colaborator colaborator)
+        public Colaborator GetColaboratorFromList(Colaborator colaboratorToFind)
         {
-            Colaborator colaboratorFromList = SystemList.colaboratorList.Find(colaborator.Equals);
-            return colaboratorFromList;
+
+            Colaborator colaborator = new Colaborator();
+            foreach (Colaborator colaboratorFromList in systemCollection.colaboratorList)
+            {
+                if (colaboratorToFind.Equals(colaboratorFromList))
+                {
+                    colaborator = colaboratorFromList;
+                    return colaborator;
+                }
+            }
+            throw new Exception();
         }       
     }
 }

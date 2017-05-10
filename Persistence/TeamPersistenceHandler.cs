@@ -9,15 +9,15 @@ namespace Persistence
 {
     public class TeamPersistenceHandler : TeamPersistenceProvider
     {
-        public SystemList SystemList;
+        public Repository systemCollection;
 
-        public TeamPersistenceHandler(SystemList systemList)
+        public TeamPersistenceHandler(Repository collection)
         {
-            SystemList = systemList;
+            systemCollection = collection;
         }
         public void AddTeam(Team team)
         {
-            SystemList.teamList.Add(team);
+            systemCollection.teamList.Add(team);
         }
     }
 }
