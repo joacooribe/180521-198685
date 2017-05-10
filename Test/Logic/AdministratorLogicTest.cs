@@ -15,7 +15,7 @@ namespace Test
     public class AdministratorLogicTest
     {
         private Administrator administrator;
-        private SystemList systemList;
+        private Repository systemList;
         private AdministratorPersistenceHandler administratorPersistence;
         private AdministratorHandler administratorHandler;
 
@@ -25,7 +25,7 @@ namespace Test
         private readonly string surnameOK = "Oribe";
         public AdministratorLogicTest()
         {
-            systemList = new SystemList();
+            systemList = new Repository();
             administratorPersistence = new AdministratorPersistenceHandler(systemList);
             administratorHandler = new AdministratorHandler() { administratorFunctions = administratorPersistence };
         }

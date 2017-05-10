@@ -14,7 +14,7 @@ namespace Test.Logic
     {
         private TeamPersistenceHandler teamPersistence;
         private TeamHandler teamHandler;
-        private SystemList systemList;
+        private Repository systemList;
         private Team team;
 
         private readonly string nameOK = "Team 1";
@@ -23,7 +23,7 @@ namespace Test.Logic
         private readonly int maxUsersOK = 5;
         public TeamLogicTest()
         {
-            systemList = new SystemList();
+            systemList = new Repository();
             teamPersistence = new TeamPersistenceHandler(systemList);
             teamHandler = new TeamHandler() { teamFunctions = teamPersistence };
         }
@@ -105,7 +105,6 @@ namespace Test.Logic
         public void TeamOKCreatedByAdministrator()
         {
             Administrator creator = CreateAdministrator();
-
             team = new Team();
             team.name = nameOK;
             team.creationDate = dateOK;

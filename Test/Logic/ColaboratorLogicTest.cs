@@ -13,7 +13,7 @@ namespace Test
     public class ColaboratorLogicTest
     {
         private Colaborator colaborator;
-        private SystemList systemList;
+        private Repository systemList;
         private ColaboratorPersistenceHandler colaboratorPersistence;
         private ColaboratorHandler colaboratorHandler;
 
@@ -25,7 +25,7 @@ namespace Test
 
         public ColaboratorLogicTest()
         {
-            systemList = new SystemList();
+            systemList = new Repository();
             colaboratorPersistence = new ColaboratorPersistenceHandler(systemList);
             colaboratorHandler = new ColaboratorHandler() { colaboratorFunctions = colaboratorPersistence };
         }
