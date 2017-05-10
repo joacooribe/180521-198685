@@ -69,7 +69,6 @@ namespace Test.Logic
             team.description = "This is a team";
             team.maxUsers = 5;
             //FALTA AGREGAR USUARIO
-
             teamHandler.AddTeam(team);
         }
     }
