@@ -16,6 +16,11 @@ namespace Test.Logic
         private TeamHandler teamHandler;
         private SystemList systemList;
         private Team team;
+
+        private readonly string nameOK = "Team 1";
+        private readonly DateTime dateOK = DateTime.Now;
+        private readonly string descriptionOK = "this is team 1";
+        private readonly int maxUsersOK = 5;
         public TeamLogicTest()
         {
             systemList = new SystemList();
@@ -59,17 +64,58 @@ namespace Test.Logic
         // public void MyTestCleanup() { }
         //
         #endregion
+        private Colaborator CreateColaborator()
+        {
+           Colaborator creator = new Colaborator();
+            creator.name = "Joaquin";
+            creator.surname = "Oribe";
+            creator.mail = "Hola@gmail.com";
+            creator.password = "a1234556";
+            creator.birthday = DateTime.Now;
+            return creator;
+
+        }
+        private Administrator CreateAdministrator()
+        {
+            Administrator creator = new Administrator();
+            creator.name = "Joaquin";
+            creator.surname = "Oribe";
+            creator.mail = "Hola@gmail.com";
+            creator.password = "a1234556";
+            creator.birthday = DateTime.Now;
+            return creator;
+
+        }
+        [TestMethod]
+        public void TeamOKCreatedByColaborator()
+        {
+            Colaborator creator = CreateColaborator();
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.userList = new List<User>();
+            team.userList.Add(creator);
+            teamHandler.AddTeam(team);
+
+            Assert.AreEqual(1,systemList.teamList.Count);
+        }
 
         [TestMethod]
-        public void TeamOK()
+        public void TeamOKCreatedByAdministrator()
         {
+            Administrator creator = CreateAdministrator();
             team = new Team();
-            team.name = "Team 1";
-            team.creationDate = DateTime.Now;
-            team.description = "This is a team";
-            team.maxUsers = 5;
-            //FALTA AGREGAR USUARIO
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.userList = new List<User>();
+            team.userList.Add(creator);
             teamHandler.AddTeam(team);
+
+            Assert.AreEqual(1, systemList.teamList.Count);
         }
     }
 }
