@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exceptions
+namespace Domain
 {
-    class ColaboratorException : Exception
+    public interface TeamPersistenceProvider
     {
+        void AddTeam(Team team);
     }
 }

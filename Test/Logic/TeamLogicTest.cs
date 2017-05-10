@@ -3,6 +3,8 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
+using Logic;
+using Persistence;
 
 namespace Test.Logic
 {
@@ -10,10 +12,15 @@ namespace Test.Logic
     [TestClass]
     public class TeamLogicTest
     {
+        private TeamPersistenceHandler teamPersistence;
+        private TeamHandler teamHandler;
+        private SystemList systemList;
         private Team team;
         public TeamLogicTest()
         {
-           
+            systemList = new SystemList();
+            teamPersistence = new TeamPersistenceHandler(systemList);
+            teamHandler = new TeamHandler() { teamFunctions = teamPersistence };
         }
 
         private TestContext testContextInstance;
@@ -63,7 +70,7 @@ namespace Test.Logic
             team.maxUsers = 5;
             //FALTA AGREGAR USUARIO
 
-            teamPersistence.AddTeam(team);
+            teamHandler.AddTeam(team);
         }
     }
 }

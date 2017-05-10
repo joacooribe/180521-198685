@@ -9,7 +9,7 @@ namespace Logic
 {
    public  class AdministratorHandler
     {
-        public AdministratorPersistenceProvider administratorFunctions;
+        public AdministratorPersistenceProvider administratorFunctions { get; set; }
 
         public void AddAdministrator(Administrator administrator)
         {

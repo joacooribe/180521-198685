@@ -10,7 +10,7 @@ namespace Logic
 {
     public class ColaboratorHandler
     {
-        public ColaboratorPersistenceProvider colaboratorFunctions;
+        public ColaboratorPersistenceProvider colaboratorFunctions { get; set; }
 
         public void AddColaborator(Colaborator colaborator)
         {

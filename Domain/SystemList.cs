@@ -11,10 +11,12 @@ namespace Domain
         public List<Colaborator> colaboratorList { get; }
 
         public List<Administrator> administratorList { get; }
+        public List<Team> teamList { get; }
 
         public SystemList() {
             colaboratorList = new List<Colaborator>();
             administratorList = new List<Administrator>();
+            teamList = new List<Team>();
 
         }
     }

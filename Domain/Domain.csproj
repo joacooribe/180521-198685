@@ -45,6 +45,8 @@
     <Compile Include="Colaborator.cs" />
     <Compile Include="ColaboratorPersistenceProvider.cs" />
     <Compile Include="SystemList.cs" />
+    <Compile Include="Team.cs" />
+    <Compile Include="TeamPersistenceProvider.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
