@@ -106,6 +106,7 @@ namespace Test.Logic
         public void TeamOKCreatedByAdministrator()
         {
             Administrator creator = CreateAdministrator();
+
             team = new Team();
             team.name = nameOK;
             team.creationDate = dateOK;
