@@ -9,16 +9,16 @@ namespace Persistence
 {
     public class AdministratorPersistenceHandler : AdministratorPersistenceProvider
     {
-            public Repository systemCollection;
+            public SystemList systemList;
 
-            public AdministratorPersistenceHandler(Repository collection)
+            public AdministratorPersistenceHandler(SystemList sList)
             {
-                systemCollection = collection;
+                systemList = sList;
             }
 
             public void AddAdministrator(Administrator administrator)
             {
-                systemCollection.administratorList.Add(administrator);
+                systemList.administratorList.Add(administrator);
             }
 
         
