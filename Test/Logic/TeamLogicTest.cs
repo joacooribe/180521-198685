@@ -222,5 +222,21 @@ namespace Test.Logic
             team.usersInTeam.Add(colaborator);
             teamHandler.AddTeam(team);
         }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamInvalidDate()
+        {
+            Administrator creator = CreateAdministrator();
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = new DateTime(2020, 1, 1);
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(creator);
+            teamHandler.AddTeam(team);
+
+        }
+
     }
 }

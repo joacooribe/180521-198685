@@ -88,5 +88,12 @@ namespace Logic
         {
             return users.Count > max;
         }
+        private static void ValidateCreationDate(DateTime date)
+        {
+            if (date > DateTime.Now)
+            {
+                throw new TeamException();
+            }
+        }
     }
 }
