@@ -3,7 +3,7 @@
     public interface AdministratorPersistenceProvider
     {
         void AddAdministrator(Administrator administrator);
-        Administrator GetAdministratorFromColecction(Administrator administratorToFind);
+        Administrator GetAdministratorFromColecction(string mailOfAdministratorToFind);
         void LoginAdministrator(string emial, string password);
     }
 }

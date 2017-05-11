@@ -17,10 +17,9 @@ namespace Logic
             administratorFunctions.AddAdministrator(administrator);
         }
 
-        public Administrator GetAdministratorFromColecction(Administrator administratorToFind)
+        public Administrator GetAdministratorFromColecction(string mailOfAdministrator)
         {
-            ValidateAdministrator(administratorToFind);
-            return administratorFunctions.GetAdministratorFromColecction(administratorToFind);
+            return administratorFunctions.GetAdministratorFromColecction(mailOfAdministrator);
         }
 
         public void ValidateAdministrator(Administrator administrator)

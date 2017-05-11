@@ -73,7 +73,7 @@ namespace Test.Domain
         }
 
         [TestMethod]
-        public void ColaboratorDifferentEmail()
+        public void AdministratorDifferentEmail()
         {
             administrator1 = new Administrator();
             administrator1.name = "Diego";
