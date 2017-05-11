@@ -82,12 +82,15 @@ namespace Utility
         }
         public static void ValidateBirthDate(DateTime date)
         {
-            if (date>DateTime.Now)
+            if (ValidateIsNotFutureDate(date))
             {
                 throw new UserException();
             }
         }
-      
+      private static bool ValidateIsNotFutureDate(DateTime date)
+        {
+            return date > DateTime.Now;
+        }
 
     }
 }
