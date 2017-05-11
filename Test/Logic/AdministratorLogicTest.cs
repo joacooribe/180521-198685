@@ -81,13 +81,13 @@ namespace Test
         {
             administrator = new Administrator();
 
-            administrator.name = "Joaquin";
+            administrator.name = nameOK;
 
-            administrator.surname = "Oribe";
+            administrator.surname = surnameOK;
 
-            administrator.mail = "joacooribe@gmail.com";
+            administrator.mail = mailOK;
 
-            administrator.password = "1234";
+            administrator.password = passwordOK;
 
             administrator.birthday = DateTime.Now;
 
