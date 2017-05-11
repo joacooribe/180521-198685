@@ -70,7 +70,7 @@ namespace Utility
             
         }
 
-        private static bool ValidationOfMail(String element)
+        private static bool ValidationOfMail(string element)
         {
             Regex regularExpresionMail = new Regex(VALID_CHARS_MAIL);
             bool invalidMail = false;
@@ -80,7 +80,13 @@ namespace Utility
             }
             return invalidMail;
         }
-
+        public static void ValidateBirthDate(DateTime date)
+        {
+            if (date>DateTime.Now)
+            {
+                throw new UserException();
+            }
+        }
       
 
     }
