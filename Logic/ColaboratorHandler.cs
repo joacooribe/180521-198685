@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
-using Utility;
 
 namespace Logic
 {
@@ -16,6 +15,12 @@ namespace Logic
         {
             ValidateColaborator(colaborator);
             colaboratorFunctions.AddColaborator(colaborator);
+        }
+
+        public Colaborator GetColaboratorFromColecction(Colaborator colaboratorToFind)
+        {
+            ValidateColaborator(colaboratorToFind);
+            return colaboratorFunctions.GetColaboratorFromColecction(colaboratorToFind);
         }
 
         public void ValidateColaborator(Colaborator colaborator)

@@ -18,22 +18,27 @@ namespace Persistence
 
         public void AddColaborator(Colaborator colaborator)
         {
-            systemCollection.colaboratorList.Add(colaborator);
+            systemCollection.colaboratorCollection.Add(colaborator);
         }
 
-        public Colaborator GetColaboratorFromList(Colaborator colaboratorToFind)
+        public Colaborator GetColaboratorFromColecction(Colaborator colaboratorToFind)
         {
 
             Colaborator colaborator = new Colaborator();
-            foreach (Colaborator colaboratorFromList in systemCollection.colaboratorList)
+            foreach (Colaborator colaboratorFromColecction in systemCollection.colaboratorCollection)
             {
-                if (colaboratorToFind.Equals(colaboratorFromList))
+                if (colaboratorToFind.Equals(colaboratorFromColecction))
                 {
-                    colaborator = colaboratorFromList;
+                    colaborator = colaboratorFromColecction;
                     return colaborator;
                 }
             }
             throw new Exception();
-        }       
+        }
+
+        public void LoginColaborator(string email, string password)
+        {
+            
+        }
     }
 }

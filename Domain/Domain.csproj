@@ -40,13 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrator.cs" />
-    <Compile Include="AdministratorPersistenceProvider.cs" />
-    <Compile Include="Colaborator.cs" />
-    <Compile Include="ColaboratorPersistenceProvider.cs" />
+    <Compile Include="Users\Administrator\Administrator.cs" />
+    <Compile Include="Users\Administrator\AdministratorPersistenceProvider.cs" />
+    <Compile Include="Users\Colaborator\Colaborator.cs" />
+    <Compile Include="Users\Colaborator\ColaboratorPersistenceProvider.cs" />
     <Compile Include="Team.cs" />
     <Compile Include="TeamPersistenceProvider.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Users\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

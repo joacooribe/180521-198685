@@ -33,7 +33,7 @@ namespace Utility
         {
             bool invalidName = false;
             Regex regularExpresion = new Regex(VALID_CHARS_NAME);
-            if (element == null || !(regularExpresion.IsMatch(element)) || element == "")
+            if (string.IsNullOrEmpty(element) || !(regularExpresion.IsMatch(element)))
             {
                 invalidName = true;
             }
@@ -53,7 +53,7 @@ namespace Utility
 
             Regex regularExpresionNumbers = new Regex(VALID_CHARS_PASSWORD);
 
-            if (element == null || !(regularExpresionNumbers.IsMatch(element)) || element.Length < 6 || element == "")
+            if (string.IsNullOrEmpty(element) || !(regularExpresionNumbers.IsMatch(element)) || element.Length < 6)
             {
                 invalidPassword = true;
             }
@@ -74,7 +74,7 @@ namespace Utility
         {
             Regex regularExpresionMail = new Regex(VALID_CHARS_MAIL);
             bool invalidMail = false;
-            if (element == null || !(regularExpresionMail.IsMatch(element)) || element == "")
+            if (string.IsNullOrEmpty(element) || !(regularExpresionMail.IsMatch(element)))
             {
                 invalidMail = true;
             }

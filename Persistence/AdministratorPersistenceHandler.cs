@@ -9,18 +9,36 @@ namespace Persistence
 {
     public class AdministratorPersistenceHandler : AdministratorPersistenceProvider
     {
-            public Repository systemCollection;
+        public Repository systemCollection;
 
-            public AdministratorPersistenceHandler(Repository collection)
+        public AdministratorPersistenceHandler(Repository collection)
+        {
+            systemCollection = collection;
+        }
+
+        public void AddAdministrator(Administrator administrator)
+        {
+            systemCollection.administratorCollection.Add(administrator);
+        }
+
+        public Administrator GetAdministratorFromColecction(Administrator administratorToFind)
+        {
+            Administrator administrator = new Administrator();
+            foreach (Administrator administratorFromColecction in systemCollection.administratorCollection)
             {
-                systemCollection = collection;
+                if (administratorToFind.Equals(administratorFromColecction))
+                {
+                    administrator = administratorFromColecction;
+                    return administrator;
+                }
             }
+            throw new Exception();
+        }
 
-            public void AddAdministrator(Administrator administrator)
-            {
-                systemCollection.administratorList.Add(administrator);
-            }
+        public void LoginAdministrator(string email, string password)
+        {
 
-        
+        }
+
     }
 }

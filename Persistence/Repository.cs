@@ -9,13 +9,13 @@ namespace Persistence
 {
     public class Repository
     {
-        public ICollection<Colaborator> colaboratorList { get; }
-        public ICollection<Administrator> administratorList { get; }
+        public ICollection<Colaborator> colaboratorCollection { get; }
+        public ICollection<Administrator> administratorCollection { get; }
         public ICollection<Team> teamList { get; }
 
         public Repository() {
-            colaboratorList = new List<Colaborator>();
-            administratorList = new List<Administrator>();
+            colaboratorCollection = new List<Colaborator>();
+            administratorCollection = new List<Administrator>();
             teamList = new List<Team>();
 
         }

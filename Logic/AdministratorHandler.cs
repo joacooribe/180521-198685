@@ -17,6 +17,12 @@ namespace Logic
             administratorFunctions.AddAdministrator(administrator);
         }
 
+        public Administrator GetAdministratorFromColecction(Administrator administratorToFind)
+        {
+            ValidateAdministrator(administratorToFind);
+            return administratorFunctions.GetAdministratorFromColecction(administratorToFind);
+        }
+
         public void ValidateAdministrator(Administrator administrator)
         {
             Utility.Utilites.ValidateNameOrSurname(administrator.name);
