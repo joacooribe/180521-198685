@@ -222,7 +222,5 @@ namespace Test.Logic
             team.usersInTeam.Add(colaborator);
             teamHandler.AddTeam(team);
         }
-
-
     }
 }

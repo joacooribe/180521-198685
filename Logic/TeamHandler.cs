@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
-
+using Exceptions;
 namespace Logic
 {
-   public class TeamHandler
+    public class TeamHandler
     {
         public TeamPersistenceProvider teamFunctions { get; set; }
 
@@ -26,49 +26,67 @@ namespace Logic
             ValidateAmountOnListNotOverMax(team.usersInTeam, team.maxUsers);
 
         }
-        public static void ValidateNameOfTeam(string name)
+        private static void ValidateNameOfTeam(string name)
         {
 
-            if (string.IsNullOrEmpty(name))
+            if (ValidateNullOrEmpty(name))
+            {
+                throw new TeamException();
+            }
+        }
+        private static bool ValidateNullOrEmpty(string element)
+        {
+            return string.IsNullOrEmpty(element);
+        }
+
+
+        private static void ValidateDescriptionOfTeam(string description)
+        {
+
+            if (ValidateNullOrEmpty(description) || ValidateCorrectLenghtDescription(description.Length))
             {
                 throw new TeamException();
             }
         }
 
-        public static void ValidateDescriptionOfTeam(string description)
+        private static bool ValidateCorrectLenghtDescription(int element)
+        {
+            return element > 50;
+        }
+
+        private static void ValidateEmptyTeam(List<User> users)
         {
 
-            if (string.IsNullOrEmpty(description) || description.Length > 50)
+            if (ValidateNumberIsZero(users.Count))
+            {
+                throw new TeamException();
+            }
+        }
+        private static bool ValidateNumberIsZero(int element)
+        {
+            return element == 0;
+        }
+
+        private static void ValidateMaxUsers(int max)
+        {
+
+            if (ValidateNumberIsZero(max))
             {
                 throw new TeamException();
             }
         }
 
-        public static void ValidateEmptyTeam(List<User> users)
+        private static void ValidateAmountOnListNotOverMax(List<User> users, int max)
         {
 
-            if (users.Count==0)
+            if (ValidateMoreUsersThanMaximum(users,max))
             {
                 throw new TeamException();
             }
         }
-
-        public static void ValidateMaxUsers(int max)
+        private static bool ValidateMoreUsersThanMaximum(List<User> users, int max)
         {
-
-            if (max == 0)
-            {
-                throw new TeamException();
-            }
-        }
-
-        public static void ValidateAmountOnListNotOverMax(List<User> users, int max)
-        {
-
-            if (users.Count > max )
-            {
-                throw new TeamException();
-            }
+            return users.Count > max;
         }
     }
 }
