@@ -91,10 +91,14 @@ namespace Logic
         }
         private static void ValidateCreationDate(DateTime date)
         {
-            if (date > DateTime.Now)
+            if (ValidateIsNotFutureDate(date))
             {
                 throw new TeamException();
             }
+        }
+        private static bool ValidateIsNotFutureDate(DateTime date)
+        {
+            return date > DateTime.Now;
         }
     }
 }
