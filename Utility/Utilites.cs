@@ -21,7 +21,7 @@ namespace Utility
                 throw new UserException();
             }
         }
-        public static void ValidateAdministrator(String name)
+        public static void ValidateAdministrator(string name)
         {
             if (string.IsNullOrEmpty(name))
 
@@ -80,6 +80,8 @@ namespace Utility
             }
             return invalidMail;
         }
+
+      
 
     }
 }

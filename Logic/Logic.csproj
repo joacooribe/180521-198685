@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AdministratorHandler.cs" />
     <Compile Include="ColaboratorHandler.cs" />
+    <Compile Include="Exceptions\TeamException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TeamHandler.cs" />
   </ItemGroup>

@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministratorException.cs" />
-    <Compile Include="ColaboratorException.cs" />
-    <Compile Include="UserException.cs" />
+    <Compile Include="User Exceptions\AdministratorException.cs" />
+    <Compile Include="User Exceptions\ColaboratorException.cs" />
+    <Compile Include="User Exceptions\UserException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

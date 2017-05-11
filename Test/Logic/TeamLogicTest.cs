@@ -95,8 +95,8 @@ namespace Test.Logic
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
-            team.userList = new List<User>();
-            team.userList.Add(creator);
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(creator);
             teamHandler.AddTeam(team);
 
             Assert.AreEqual(1,systemList.teamList.Count);
@@ -111,8 +111,8 @@ namespace Test.Logic
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
-            team.userList = new List<User>();
-            team.userList.Add(creator);
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(creator);
             teamHandler.AddTeam(team);
 
             Assert.AreEqual(1, systemList.teamList.Count);
@@ -127,8 +127,8 @@ namespace Test.Logic
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
-            team.userList = new List<User>();
-            team.userList.Add(creator);
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(creator);
 
             teamHandler.AddTeam(team);
         }
@@ -142,8 +142,8 @@ namespace Test.Logic
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
-            team.userList = new List<User>();
-            team.userList.Add(creator);
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(creator);
 
             teamHandler.AddTeam(team);
         }
@@ -157,8 +157,8 @@ namespace Test.Logic
             team.creationDate = dateOK;
             team.description = "";
             team.maxUsers = maxUsersOK;
-            team.userList = new List<User>();
-            team.userList.Add(creator);
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(creator);
 
             teamHandler.AddTeam(team);
         }
@@ -172,8 +172,8 @@ namespace Test.Logic
             team.creationDate = dateOK;
             team.description = null;
             team.maxUsers = maxUsersOK;
-            team.userList = new List<User>();
-            team.userList.Add(creator);
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(creator);
 
             teamHandler.AddTeam(team);
         }
@@ -181,13 +181,12 @@ namespace Test.Logic
         [ExpectedException(typeof(TeamException))]
         public void TeamNoUsers()
         {
-            Administrator creator = CreateAdministrator();
             team = new Team();
-            team.name = null;
+            team.name = nameOK;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
-            team.userList = new List<User>();
+            team.usersInTeam = new List<User>();
 
             teamHandler.AddTeam(team);
         }
@@ -202,8 +201,8 @@ namespace Test.Logic
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = 0;
-            team.userList = new List<User>();
-            team.userList.Add(creator);
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(creator);
 
             teamHandler.AddTeam(team);
         }
@@ -218,9 +217,9 @@ namespace Test.Logic
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = 1;
-            team.userList = new List<User>();
-            team.userList.Add(creator);
-            team.userList.Add(colaborator);
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(creator);
+            team.usersInTeam.Add(colaborator);
             teamHandler.AddTeam(team);
         }
 

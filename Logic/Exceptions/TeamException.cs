@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exceptions
+namespace Logic
 {
-    class ColaboratorException : Exception
+   public class TeamException : Exception
     {
     }
 }
