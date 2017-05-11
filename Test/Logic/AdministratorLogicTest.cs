@@ -92,7 +92,7 @@ namespace Test
             administrator.birthday = DateTime.Now;
 
             administratorPersistence.AddAdministrator(administrator);
-            Assert.AreEqual(1, systemList.administratorCollection.Count);
+            Assert.AreEqual(administrator, administratorHandler.administratorFunctions.GetAdministratorFromColecction(administrator));
 
         }
         [TestMethod]
