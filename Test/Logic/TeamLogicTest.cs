@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
 using Logic;
 using Persistence;
+using Exceptions;
 
 namespace Test.Logic
 {
@@ -116,5 +117,113 @@ namespace Test.Logic
 
             Assert.AreEqual(1, systemList.teamList.Count);
         }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamEmptyName()
+        {
+            Administrator creator = CreateAdministrator();
+            team = new Team();
+            team.name = "";
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.userList = new List<User>();
+            team.userList.Add(creator);
+
+            teamHandler.AddTeam(team);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamNullName()
+        {
+            Administrator creator = CreateAdministrator();
+            team = new Team();
+            team.name = null;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.userList = new List<User>();
+            team.userList.Add(creator);
+
+            teamHandler.AddTeam(team);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamEmptyDescription()
+        {
+            Administrator creator = CreateAdministrator();
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = "";
+            team.maxUsers = maxUsersOK;
+            team.userList = new List<User>();
+            team.userList.Add(creator);
+
+            teamHandler.AddTeam(team);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamNullDescription()
+        {
+            Administrator creator = CreateAdministrator();
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = null;
+            team.maxUsers = maxUsersOK;
+            team.userList = new List<User>();
+            team.userList.Add(creator);
+
+            teamHandler.AddTeam(team);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamNoUsers()
+        {
+            Administrator creator = CreateAdministrator();
+            team = new Team();
+            team.name = null;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.userList = new List<User>();
+
+            teamHandler.AddTeam(team);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamMaxUsersZero()
+        {
+            Administrator creator = CreateAdministrator();
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = 0;
+            team.userList = new List<User>();
+            team.userList.Add(creator);
+
+            teamHandler.AddTeam(team);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamUsersOverMax()
+        {
+            Administrator creator = CreateAdministrator();
+            Colaborator colaborator = CreateColaborator();
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = 1;
+            team.userList = new List<User>();
+            team.userList.Add(creator);
+            team.userList.Add(colaborator);
+            teamHandler.AddTeam(team);
+        }
+
+
     }
 }
