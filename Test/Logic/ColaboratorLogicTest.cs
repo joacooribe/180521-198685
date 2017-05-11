@@ -568,7 +568,24 @@ namespace Test
             colaboratorHandler.AddColaborator(colaborator);
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void ColaboratorInvalidBirthDate()
+        {
+            colaborator = new Colaborator();
+            colaborator.name = nameOK;
 
+            colaborator.surname = surnameOK;
+
+            colaborator.mail = mailOK;
+
+            colaborator.password = passwordOK;
+
+            colaborator.birthday = new DateTime(999,1,1);
+
+            colaboratorHandler.AddColaborator(colaborator);
+
+        }
 
 
     }
