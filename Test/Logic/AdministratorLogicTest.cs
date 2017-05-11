@@ -102,11 +102,11 @@ namespace Test
             administrator = new Administrator();
             administrator.name = "";
 
-            administrator.surname = "Oribe";
+            administrator.surname = surnameOK;
 
-            administrator.mail = "joacooribe@gmail.com";
+            administrator.mail = mailOK;
 
-            administrator.password = "1234";
+            administrator.password = passwordOK;
 
             administrator.birthday = DateTime.Now;
 
@@ -558,7 +558,25 @@ namespace Test
             administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorInvalidBirthDate()
+        {
+            administrator = new Administrator();
 
+            administrator.name = nameOK;
+
+            administrator.surname = surnameOK;
+
+            administrator.mail = mailOK;
+
+            administrator.password = passwordOK;
+
+            administrator.birthday = new DateTime(9999,1,1);
+
+            administratorHandler.AddAdministrator(administrator);
+
+        }
 
     }
 }
