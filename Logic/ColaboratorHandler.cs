@@ -29,6 +29,7 @@ namespace Logic
             Utility.Utilites.ValidateNameOrSurname(colaborator.surname);
             Utility.Utilites.ValidatePassword(colaborator.password);
             Utility.Utilites.ValidateMail(colaborator.mail);
+            Utility.Utilites.ValidateBirthDate(colaborator.birthday);
         }
     }
 }

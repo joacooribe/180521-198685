@@ -581,7 +581,7 @@ namespace Test
 
             colaborator.password = passwordOK;
 
-            colaborator.birthday = new DateTime(999,1,1);
+            colaborator.birthday = new DateTime(9999,1,1);
 
             colaboratorHandler.AddColaborator(colaborator);
 
