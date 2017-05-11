@@ -24,6 +24,7 @@ namespace Logic
             ValidateEmptyTeam(team.usersInTeam);
             ValidateMaxUsers(team.maxUsers);
             ValidateAmountOnListNotOverMax(team.usersInTeam, team.maxUsers);
+            ValidateCreationDate(team.creationDate);
 
         }
         private static void ValidateNameOfTeam(string name)
