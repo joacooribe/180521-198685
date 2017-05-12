@@ -17,10 +17,10 @@ namespace Logic
             administratorFunctions.AddAdministrator(administrator);
         }
 
-        public Administrator GetAdministratorFromColecction(string mailOfAdministrator)
+        public User GetUserFromColecction(string mailOfAdministrator)
         {
             Utility.Utilites.ValidateMail(mailOfAdministrator);
-            return administratorFunctions.GetAdministratorFromColecction(mailOfAdministrator);
+            return administratorFunctions.GetUserFromColecction(mailOfAdministrator);
         }
 
         public void ValidateAdministrator(Administrator administrator)

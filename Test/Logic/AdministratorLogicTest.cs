@@ -75,24 +75,23 @@ namespace Test
             Assert.AreEqual(name, administrator.name);
 
         }
+        private Administrator CreateAdministrator()
+        {
+            Administrator administrator = new Administrator();
+            administrator.name = nameOK;
+            administrator.surname = surnameOK;
+            administrator.mail = mailOK;
+            administrator.password = passwordOK;
+            administrator.birthday = DateTime.Now;
+            return administrator;
 
+        }
         [TestMethod]
         public void AdminisitratorOK()
         {
-            administrator = new Administrator();
-
-            administrator.name = nameOK;
-
-            administrator.surname = surnameOK;
-
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
-
+            administrator = CreateAdministrator();
             administratorPersistence.AddAdministrator(administrator);
-            Assert.AreEqual(administrator, administratorHandler.administratorFunctions.GetAdministratorFromColecction(administrator.mail));
+            Assert.AreEqual(administrator, administratorHandler.administratorFunctions.GetUserFromColecction(administrator.mail));
 
         }
         [TestMethod]
@@ -563,20 +562,25 @@ namespace Test
         public void AdministratorInvalidBirthDate()
         {
             administrator = new Administrator();
-
             administrator.name = nameOK;
-
             administrator.surname = surnameOK;
-
             administrator.mail = mailOK;
-
             administrator.password = passwordOK;
-
             administrator.birthday = new DateTime(9999,1,1);
-
             administratorHandler.AddAdministrator(administrator);
+        }
+
+        [TestMethod]
+        public void AdministratorModification()
+        {
+            administrator = CreateAdministrator();
+            administratorHandler.AddAdministrator(administrator);
+            string newPassword = "NewPassword123";
+            administratorHandler.ModifyPassword(administrator.mail, newPassword);
+            Assert.AreEqual(newPassword,administrator.password);
 
         }
+
 
     }
 }

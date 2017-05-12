@@ -21,9 +21,9 @@ namespace Persistence
             systemCollection.administratorCollection.Add(administrator);
         }
 
-        public Administrator GetAdministratorFromColecction(string mailOfAdministrator)
+        public User GetUserFromColecction(string mailOfAdministrator)
         {
-            Administrator administrator = new Administrator();
+            User administrator = new Administrator();
             foreach (Administrator administratorFromColecction in systemCollection.administratorCollection)
             {
                 if (mailOfAdministrator.Equals(administratorFromColecction.mail))

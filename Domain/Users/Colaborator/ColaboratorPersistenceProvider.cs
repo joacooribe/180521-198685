@@ -1,9 +1,9 @@
 ﻿namespace Domain
 {
-    public interface ColaboratorPersistenceProvider
+    public interface ColaboratorPersistenceProvider : UserPersistenceProvider
     {
         void AddColaborator(Colaborator colaborator);
-        Colaborator GetColaboratorFromColecction(string mailOfColaborator);
+       new User GetUserFromColecction(string mailOfColaborator);
         void LoginColaborator(string mail, string password);
     }
 }

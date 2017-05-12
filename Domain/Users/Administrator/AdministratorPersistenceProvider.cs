@@ -1,9 +1,9 @@
 ﻿namespace Domain
 {
-    public interface AdministratorPersistenceProvider
+    public interface AdministratorPersistenceProvider : UserPersistenceProvider
     {
         void AddAdministrator(Administrator administrator);
-        Administrator GetAdministratorFromColecction(string mailOfAdministrator);
+        new User GetUserFromColecction(string mailOfAdministrator);
         void LoginAdministrator(string mail, string password);
     }
 }

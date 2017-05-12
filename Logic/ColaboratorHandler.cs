@@ -17,10 +17,10 @@ namespace Logic
             colaboratorFunctions.AddColaborator(colaborator);
         }
 
-        public Colaborator GetColaboratorFromColecction(string mailOfColaborator)
+        public User GetUserFromColecction(string mailOfColaborator)
         {
             Utility.Utilites.ValidateMail(mailOfColaborator);
-            return colaboratorFunctions.GetColaboratorFromColecction(mailOfColaborator);
+            return colaboratorFunctions.GetUserFromColecction(mailOfColaborator);
         }
 
         public void ValidateColaborator(Colaborator colaborator)

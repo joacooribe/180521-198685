@@ -21,10 +21,10 @@ namespace Persistence
             systemCollection.colaboratorCollection.Add(colaborator);
         }
 
-        public Colaborator GetColaboratorFromColecction(string mailOfColaborator)
+        public User GetUserFromColecction(string mailOfColaborator)
         {
 
-            Colaborator colaborator = new Colaborator();
+            User colaborator = new Colaborator();
             foreach (Colaborator colaboratorFromColecction in systemCollection.colaboratorCollection)
             {
                 if (mailOfColaborator.Equals(colaboratorFromColecction.mail))
