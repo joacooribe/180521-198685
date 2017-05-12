@@ -39,6 +39,11 @@ namespace Persistence
         {
 
         }
+        public void ModifyPassword(string mailOfAdministrator,string newPassword)
+        {
+            User adminToChangePassword = GetUserFromColecction(mailOfAdministrator);
+            adminToChangePassword.password = newPassword;
+        }
 
     }
 }

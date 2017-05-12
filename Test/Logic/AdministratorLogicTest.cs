@@ -402,6 +402,15 @@ namespace Test
             Assert.AreEqual(newPassword,administrator.password);
 
         }
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorInvalidModification()
+        {
+            administrator = CreateAdministrator();
+            administratorHandler.AddAdministrator(administrator);
+            string newPassword = "";
+            administratorHandler.ModifyPassword(administrator.mail, newPassword);
+        }
 
 
     }

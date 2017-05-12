@@ -31,5 +31,11 @@ namespace Logic
             Utility.Utilites.ValidateMail(colaborator.mail);
             Utility.Utilites.ValidateBirthDate(colaborator.birthday);
         }
+        public void ModifyPassword(string mailOfColaborator, string newPassword)
+        {
+            Utility.Utilites.ValidatePassword(newPassword);
+
+            colaboratorFunctions.ModifyPassword(mailOfColaborator, newPassword);
+        }
     }
 }

@@ -588,5 +588,26 @@ namespace Test
         }
 
 
+        [TestMethod]
+        public void ColaboratorModification()
+        {
+            colaborator = CreateColaborator();
+            colaboratorHandler.AddColaborator(colaborator);
+            string newPassword = "NewPassword123";
+            colaboratorHandler.ModifyPassword(colaborator.mail, newPassword);
+            Assert.AreEqual(newPassword, colaborator.password);
+
+        }
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void colaboratorInvalidModification()
+        {
+            colaborator = CreateColaborator();
+            colaboratorHandler.AddColaborator(colaborator);
+            string newPassword = "";
+            colaboratorHandler.ModifyPassword(colaborator.mail, newPassword);
+        }
+
+
     }
 }
