@@ -24,7 +24,7 @@ namespace Test
 
         private Colaborator CreateColaborator()
         {
-            Colaborator creator = new Colaborator();
+           Colaborator creator = new Colaborator();
             creator.name = "Joaquin";
             creator.surname = "Oribe";
             creator.mail = "Hola@gmail.com";
