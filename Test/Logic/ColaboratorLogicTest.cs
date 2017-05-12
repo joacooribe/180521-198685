@@ -22,6 +22,16 @@ namespace Test
         private readonly string nameOK = "Joaquin";
         private readonly string surnameOK = "Oribe";
 
+        private Colaborator CreateColaborator()
+        {
+            Colaborator creator = new Colaborator();
+            creator.name = "Joaquin";
+            creator.surname = "Oribe";
+            creator.mail = "Hola@gmail.com";
+            creator.password = "a1234556";
+            creator.birthday = DateTime.Now;
+            return creator;
+        }
 
         public ColaboratorLogicTest()
         {
@@ -585,6 +595,27 @@ namespace Test
 
             colaboratorHandler.AddColaborator(colaborator);
 
+        }
+
+
+        [TestMethod]
+        public void ColaboratorModification()
+        {
+            colaborator = CreateColaborator();
+            colaboratorHandler.AddColaborator(colaborator);
+            string newPassword = "NewPassword123";
+            colaboratorHandler.ModifyPassword(colaborator.mail, newPassword);
+            Assert.AreEqual(newPassword, colaborator.password);
+
+        }
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void colaboratorInvalidModification()
+        {
+            colaborator = CreateColaborator();
+            colaboratorHandler.AddColaborator(colaborator);
+            string newPassword = "";
+            colaboratorHandler.ModifyPassword(colaborator.mail, newPassword);
         }
 
 
