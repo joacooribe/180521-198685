@@ -8,6 +8,7 @@ namespace Domain
 {
     public class Blackboard
     {
+        public User ownerUser { get; set; }
         public string description { get; set; }
         public int high { get; set; }
         public string name { get; set; }

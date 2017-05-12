@@ -23,6 +23,8 @@ namespace Test
         private readonly string mailOK = "user@gmail.com";
         private readonly string nameOK = "Joaquin";
         private readonly string surnameOK = "Oribe";
+        private readonly DateTime birthdayOk = new DateTime(1992, 9, 10);
+
         public AdministratorLogicTest()
         {
             systemList = new Repository();
@@ -73,23 +75,12 @@ namespace Test
             string name = "Joaquin";
             administrator.name = name;
             Assert.AreEqual(name, administrator.name);
-
         }
-        private Administrator CreateAdministrator()
-        {
-            Administrator administrator = new Administrator();
-            administrator.name = nameOK;
-            administrator.surname = surnameOK;
-            administrator.mail = mailOK;
-            administrator.password = passwordOK;
-            administrator.birthday = DateTime.Now;
-            return administrator;
 
-        }
         [TestMethod]
         public void AdminisitratorOK()
         {
-            administrator = CreateAdministrator();
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorPersistence.AddAdministrator(administrator);
             Assert.AreEqual(administrator, administratorHandler.administratorFunctions.GetUserFromColecction(administrator.mail));
 
@@ -98,16 +89,9 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorEmptyName()
         {
-            administrator = new Administrator();
-            administrator.name = "";
+            string invalidName = "";
 
-            administrator.surname = surnameOK;
-
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
+            administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
 
@@ -118,17 +102,9 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorNullName()
         {
-            administrator = new Administrator();
+            string invalidName = null;
 
-            administrator.name = null;
-
-            administrator.surname = surnameOK;
-
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
+            administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
 
@@ -138,16 +114,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorNameWithSpacesInTheEnd()
         {
-            administrator = new Administrator();
-            administrator.name = "Joaco      ";
+            string invalidName = "Joaco     ";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -155,16 +125,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorNameWithSpacesInTheBegining()
         {
-            administrator = new Administrator();
-            administrator.name = "     Joaco";
+            string invalidName = "     Joaco";
 
-            administrator.surname = surnameOK;
-
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
+            administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
+            
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -172,16 +136,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorNameWithOnlyEmptySpaces()
         {
-            administrator = new Administrator();
-            administrator.name = "     ";
+            string invalidName = "     ";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -189,16 +147,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorNameWithNumbers()
         {
-            administrator = new Administrator();
-            administrator.name = "J04c0";
+            string invalidName = "J04c0";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -206,16 +158,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorNameWithSpecialCharacters()
         {
-            administrator = new Administrator();
-            administrator.name = "#Jo@co";
+            string invalidName = "#Jo@co";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -223,16 +169,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorNameWithMoreThanOneSpaceInTheMiddle()
         {
-            administrator = new Administrator();
-            administrator.name = "Joaco   Sabe";
+            string invalidName = "Joaco   Sabe";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -240,16 +180,9 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorEmptySurname()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidSurname = "";
 
-            administrator.surname = "";
-
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
+            administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
 
@@ -259,16 +192,9 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorNullSurname()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidSurname = null;
 
-            administrator.surname = null;
-
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
+            administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
 
@@ -277,16 +203,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorSurnameWithSpacesInTheEnd()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidSurname = "Oribe     ";
 
-            administrator.surname = "Oribe     ";
+            administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -294,16 +214,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorSurnameWithSpacesInTheBegining()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidSurname = "           Oribe";
 
-            administrator.surname = "           Oribe";
+            administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -311,16 +225,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorSurnameWithOnlyEmptySpaces()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidSurname = "     ";
 
-            administrator.surname = "     ";
+            administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -328,16 +236,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorSurnameWithNumbers()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidSurname = "0rib3";
 
-            administrator.surname = "0rib3";
+            administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -345,16 +247,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorSurnameWithSpecialCharacters()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidSurname = "#@?_";
 
-            administrator.surname = "#@?_";
+            administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -362,16 +258,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorSurnameWithMoreThanOneSpaceInTheMiddle()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidSurname = "Oribe   Bajac";
 
-            administrator.surname = "Oribe   Bajac";
+            administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -379,16 +269,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorPasswordNull()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidPassword = null;
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = null;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -396,16 +280,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorPasswordEmpty()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidPassword = "";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = "";
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -413,48 +291,30 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorPasswordNoNumbers()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidPassword = "ThisIsPassword";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = "ThisIsPassword";
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void AdministratorPasswordNoLetters()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidPassword = "123456789";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = "123456789";
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void AdministratorPasswordTooSmall()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidPassword = "pass1";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
-            administrator.mail = mailOK;
-
-            administrator.password = "pass1";
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -462,32 +322,20 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorEmptyMail()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidMail = "";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            administrator.mail = "";
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void AdministratorNullMail()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidMail = null;
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            administrator.mail = null;
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -495,16 +343,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorMailWithNoAt()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidMail = "joacooribegmail.com";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            administrator.mail = "joacooribegmail.com";
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -512,16 +354,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorMailNoDot()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidMail = "joaco@gmailcom";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            administrator.mail = "joaco@gmailcom";
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
 
@@ -529,54 +365,40 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorMailNoAddres()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidMail = "joaco@.com";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            administrator.mail = "joaco@.com";
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void AdministratorMailNoName()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
+            string invalidMail = "@gmail.com";
 
-            administrator.surname = surnameOK;
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            administrator.mail = "@gmail.com";
-
-            administrator.password = passwordOK;
-
-            administrator.birthday = DateTime.Now;
             administratorHandler.AddAdministrator(administrator);
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void AdministratorInvalidBirthDate()
         {
-            administrator = new Administrator();
-            administrator.name = nameOK;
-            administrator.surname = surnameOK;
-            administrator.mail = mailOK;
-            administrator.password = passwordOK;
-            administrator.birthday = new DateTime(9999,1,1);
+            DateTime invalidBirthday = new DateTime(9999,1,1);
+
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, invalidBirthday);
+
             administratorHandler.AddAdministrator(administrator);
         }
 
         [TestMethod]
         public void AdministratorModification()
         {
-            administrator = CreateAdministrator();
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
             string newPassword = "NewPassword123";
-            administratorHandler.ModifyPassword(administrator.mail, newPassword);
+            //administratorHandler.ModifyPassword(administrator.mail, newPassword);
             Assert.AreEqual(newPassword,administrator.password);
 
         }

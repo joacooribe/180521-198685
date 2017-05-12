@@ -52,6 +52,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DataCreation.cs" />
     <Compile Include="Domain\AdministratorTest.cs" />
     <Compile Include="Logic\AdministratorLogicTest.cs" />
     <Compile Include="Domain\ColaboratorTest.cs" />

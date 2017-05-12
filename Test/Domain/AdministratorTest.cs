@@ -17,6 +17,13 @@ namespace Test.Domain
         }
 
         private TestContext testContextInstance;
+        
+        private readonly string nameOK = "Joaquin";
+        private readonly string surnameOK = "Oribe";
+        private readonly string mailOK = "user@gmail.com";
+        private readonly string anotherMailOK = "pepito@gmail.com";
+        private readonly string passwordOK = "securePassword123";
+        private readonly DateTime birthdayOk = new DateTime(1992, 9, 10);
 
         public TestContext TestContext
         {
@@ -55,19 +62,9 @@ namespace Test.Domain
         [TestMethod]
         public void AdministratorSameEmail()
         {
-           administrator1 = new Administrator();
-            administrator1.name = "Diego";
-            administrator1.surname = "Balbi";
-            administrator1.mail = "diegobalbi1993@gmail.com";
-            administrator1.password = "12345";
-            administrator1.birthday = DateTime.Today;
+            administrator1 = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            administrator2 = new Administrator();
-            administrator2.name = "Joaquin";
-            administrator2.surname = "Oribe";
-            administrator2.mail = "diegobalbi1993@gmail.com";
-            administrator2.password = "1234";
-            administrator2.birthday = DateTime.Today;
+            administrator2 = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
 
             Assert.IsTrue(administrator1.Equals(administrator2));
         }
@@ -75,19 +72,9 @@ namespace Test.Domain
         [TestMethod]
         public void AdministratorDifferentEmail()
         {
-            administrator1 = new Administrator();
-            administrator1.name = "Diego";
-            administrator1.surname = "Balbi";
-            administrator1.mail = "diegobalbi1993@gmail.com";
-            administrator1.password = "12345";
-            administrator1.birthday = DateTime.Today;
+            administrator1 = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            administrator2 = new Administrator();
-            administrator2.name = "Joaquin";
-            administrator2.surname = "Oribe";
-            administrator2.mail = "joacooribe@gmail.com";
-            administrator2.password = "1234";
-            administrator2.birthday = DateTime.Today;
+            administrator2 = DataCreation.CreateAdministrator(nameOK, surnameOK, anotherMailOK, passwordOK, birthdayOk);
 
             Assert.IsFalse(administrator1.Equals(administrator2));
         }

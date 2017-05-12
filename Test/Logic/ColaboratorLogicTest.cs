@@ -21,7 +21,7 @@ namespace Test
         private readonly string mailOK = "user@gmail.com";
         private readonly string nameOK = "Joaquin";
         private readonly string surnameOK = "Oribe";
-
+        private readonly DateTime birthdayOk = new DateTime(1992, 9, 10);
 
         public ColaboratorLogicTest()
         {
@@ -98,7 +98,7 @@ namespace Test
 
             colaborator.password = passwordOK;
 
-            colaborator.birthday = DateTime.Now;
+            colaborator.birthday = birthdayOk;
 
             colaboratorHandler.AddColaborator(colaborator);
             Assert.AreEqual(colaborator, colaboratorHandler.colaboratorFunctions.GetUserFromColecction(colaborator.mail));

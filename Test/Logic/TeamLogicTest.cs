@@ -17,11 +17,19 @@ namespace Test.Logic
         private TeamHandler teamHandler;
         private Repository systemList;
         private Team team;
+        private Administrator administratoCreator;
+        private Colaborator colaboratorCreator;
 
         private readonly string nameOK = "Team 1";
         private readonly DateTime dateOK = DateTime.Now;
         private readonly string descriptionOK = "this is team 1";
         private readonly int maxUsersOK = 5;
+        
+        private readonly string userNameOK = "Joaquin";
+        private readonly string userSurnameOK = "Oribe";
+        private readonly string userPasswordOK = "securePassword123";
+        private readonly string userMailOK = "user@gmail.com";
+        private readonly DateTime userBirthdayOk = new DateTime(1992, 9, 10);
         public TeamLogicTest()
         {
             systemList = new Repository();
@@ -65,38 +73,18 @@ namespace Test.Logic
         // public void MyTestCleanup() { }
         //
         #endregion
-        private Colaborator CreateColaborator()
-        {
-           Colaborator creator = new Colaborator();
-            creator.name = "Joaquin";
-            creator.surname = "Oribe";
-            creator.mail = "Hola@gmail.com";
-            creator.password = "a1234556";
-            creator.birthday = DateTime.Now;
-            return creator;
-        }
-        private Administrator CreateAdministrator()
-        {
-            Administrator creator = new Administrator();
-            creator.name = "Joaquin";
-            creator.surname = "Oribe";
-            creator.mail = "Hola@gmail.com";
-            creator.password = "a1234556";
-            creator.birthday = DateTime.Now;
-            return creator;
 
-        }
         [TestMethod]
         public void TeamOKCreatedByColaborator()
         {
-            Colaborator creator = CreateColaborator();
+            colaboratorCreator = DataCreation.CreateColaborator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
             team.usersInTeam = new List<User>();
-            team.usersInTeam.Add(creator);
+            team.usersInTeam.Add(colaboratorCreator);
             teamHandler.AddTeam(team);
 
             Assert.AreEqual(1,systemList.teamList.Count);
@@ -105,14 +93,14 @@ namespace Test.Logic
         [TestMethod]
         public void TeamOKCreatedByAdministrator()
         {
-            Administrator creator = CreateAdministrator();
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
             team.usersInTeam = new List<User>();
-            team.usersInTeam.Add(creator);
+            team.usersInTeam.Add(administratoCreator);
             teamHandler.AddTeam(team);
 
             Assert.AreEqual(1, systemList.teamList.Count);
@@ -121,14 +109,14 @@ namespace Test.Logic
         [ExpectedException(typeof(TeamException))]
         public void TeamEmptyName()
         {
-            Administrator creator = CreateAdministrator();
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = "";
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
             team.usersInTeam = new List<User>();
-            team.usersInTeam.Add(creator);
+            team.usersInTeam.Add(administratoCreator);
 
             teamHandler.AddTeam(team);
         }
@@ -136,14 +124,14 @@ namespace Test.Logic
         [ExpectedException(typeof(TeamException))]
         public void TeamNullName()
         {
-            Administrator creator = CreateAdministrator();
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = null;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
             team.usersInTeam = new List<User>();
-            team.usersInTeam.Add(creator);
+            team.usersInTeam.Add(administratoCreator);
 
             teamHandler.AddTeam(team);
         }
@@ -151,14 +139,14 @@ namespace Test.Logic
         [ExpectedException(typeof(TeamException))]
         public void TeamEmptyDescription()
         {
-            Administrator creator = CreateAdministrator();
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
             team.creationDate = dateOK;
             team.description = "";
             team.maxUsers = maxUsersOK;
             team.usersInTeam = new List<User>();
-            team.usersInTeam.Add(creator);
+            team.usersInTeam.Add(administratoCreator);
 
             teamHandler.AddTeam(team);
         }
@@ -166,14 +154,14 @@ namespace Test.Logic
         [ExpectedException(typeof(TeamException))]
         public void TeamNullDescription()
         {
-            Administrator creator = CreateAdministrator();
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
             team.creationDate = dateOK;
             team.description = null;
             team.maxUsers = maxUsersOK;
             team.usersInTeam = new List<User>();
-            team.usersInTeam.Add(creator);
+            team.usersInTeam.Add(administratoCreator);
 
             teamHandler.AddTeam(team);
         }
@@ -195,14 +183,14 @@ namespace Test.Logic
         [ExpectedException(typeof(TeamException))]
         public void TeamMaxUsersZero()
         {
-            Administrator creator = CreateAdministrator();
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = 0;
             team.usersInTeam = new List<User>();
-            team.usersInTeam.Add(creator);
+            team.usersInTeam.Add(administratoCreator);
 
             teamHandler.AddTeam(team);
         }
@@ -210,30 +198,30 @@ namespace Test.Logic
         [ExpectedException(typeof(TeamException))]
         public void TeamUsersOverMax()
         {
-            Administrator creator = CreateAdministrator();
-            Colaborator colaborator = CreateColaborator();
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            colaboratorCreator = DataCreation.CreateColaborator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = 1;
             team.usersInTeam = new List<User>();
-            team.usersInTeam.Add(creator);
-            team.usersInTeam.Add(colaborator);
+            team.usersInTeam.Add(administratoCreator);
+            team.usersInTeam.Add(colaboratorCreator);
             teamHandler.AddTeam(team);
         }
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
         public void TeamInvalidDate()
         {
-            Administrator creator = CreateAdministrator();
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
             team.creationDate = new DateTime(2020, 1, 1);
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
             team.usersInTeam = new List<User>();
-            team.usersInTeam.Add(creator);
+            team.usersInTeam.Add(administratoCreator);
             teamHandler.AddTeam(team);
 
         }

@@ -6,25 +6,23 @@ using Domain;
 
 namespace Test.Logic
 {
-    /// <summary>
-    /// Summary description for BlackboardTest
-    /// </summary>
     [TestClass]
     public class BlackboardTest
     {
+        private Colaborator colaboratorCreator;
+        private readonly string nameOK = "Joaquin";
+        private readonly string surnameOK = "Oribe";
+        private readonly string mailOK = "user@gmail.com";
+        private readonly string passwordOK = "securePassword123";
+        private readonly DateTime birthdayOk = new DateTime(1992, 9, 10);
+
         public BlackboardTest()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+
         }
 
         private TestContext testContextInstance;
 
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
         public TestContext TestContext
         {
             get
@@ -70,13 +68,14 @@ namespace Test.Logic
             int high = 20;
             string description = "Pizarron equipo 1";
             Team ownerTeam = team;
+            colaboratorCreator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
 
             blackboard.name = name;
             blackboard.width = width;
             blackboard.high = high;
             blackboard.description = description;
             blackboard.ownerTeam = ownerTeam;
-            //blackboard.ownerUser
+            blackboard.ownerUser = colaboratorCreator;
 
             Assert.AreEqual(name, blackboard.name);
         }
