@@ -42,7 +42,8 @@ namespace Persistence
         }
         public void ModifyPassword(string mailOfColaborator, string newPassword)
         {
-            
+            User colaboratorToChangePassword = GetUserFromColecction(mailOfColaborator);
+            colaboratorToChangePassword.password = newPassword;
         }
     }
 }
