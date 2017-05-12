@@ -34,8 +34,8 @@ namespace Logic
         public void ModifyPassword(string mailOfAdministrator,string newPassword)
         {
             Utility.Utilites.ValidatePassword(newPassword);
-            User adminToChangePassword = administratorFunctions.GetUserFromColecction(mailOfAdministrator);
-            adminToChangePassword.password  = newPassword;
+            
+            administratorFunctions.ModifyPassword(mailOfAdministrator, newPassword);
         }
     }
 }

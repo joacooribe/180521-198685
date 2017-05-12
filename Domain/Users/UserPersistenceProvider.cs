@@ -9,6 +9,6 @@ namespace Domain
    public interface UserPersistenceProvider
     {
        User GetUserFromColecction(string mailOfUser);
-
+        void ModifyPassword(string mailOfUser, string newPassword);
     }
 }

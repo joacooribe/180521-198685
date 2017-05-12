@@ -40,5 +40,9 @@ namespace Persistence
         {
             
         }
+        public void ModifyPassword(string mailOfColaborator, string newPassword)
+        {
+            
+        }
     }
 }
