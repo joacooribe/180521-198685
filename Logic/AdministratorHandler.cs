@@ -19,6 +19,7 @@ namespace Logic
 
         public Administrator GetAdministratorFromColecction(string mailOfAdministrator)
         {
+            Utility.Utilites.ValidateMail(mailOfAdministrator);
             return administratorFunctions.GetAdministratorFromColecction(mailOfAdministrator);
         }
 

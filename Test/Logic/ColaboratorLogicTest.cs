@@ -101,7 +101,7 @@ namespace Test
             colaborator.birthday = DateTime.Now;
 
             colaboratorHandler.AddColaborator(colaborator);
-            Assert.AreEqual(colaborator, colaboratorHandler.colaboratorFunctions.GetColaboratorFromColecction(colaborator));
+            Assert.AreEqual(colaborator, colaboratorHandler.colaboratorFunctions.GetColaboratorFromColecction(colaborator.mail));
 
         }
 

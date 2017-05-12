@@ -3,7 +3,7 @@
     public interface ColaboratorPersistenceProvider
     {
         void AddColaborator(Colaborator colaborator);
-        Colaborator GetColaboratorFromColecction(Colaborator colaboratorToFind);
-        void LoginColaborator(string email, string password); 
+        Colaborator GetColaboratorFromColecction(string mailOfColaborator);
+        void LoginColaborator(string mail, string password);
     }
 }

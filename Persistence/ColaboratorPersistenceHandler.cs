@@ -21,13 +21,13 @@ namespace Persistence
             systemCollection.colaboratorCollection.Add(colaborator);
         }
 
-        public Colaborator GetColaboratorFromColecction(Colaborator colaboratorToFind)
+        public Colaborator GetColaboratorFromColecction(string mailOfColaborator)
         {
 
             Colaborator colaborator = new Colaborator();
             foreach (Colaborator colaboratorFromColecction in systemCollection.colaboratorCollection)
             {
-                if (colaboratorToFind.Equals(colaboratorFromColecction))
+                if (mailOfColaborator.Equals(colaboratorFromColecction.mail))
                 {
                     colaborator = colaboratorFromColecction;
                     return colaborator;
@@ -36,7 +36,7 @@ namespace Persistence
             throw new Exception();
         }
 
-        public void LoginColaborator(string email, string password)
+        public void LoginColaborator(string mail, string password)
         {
             
         }

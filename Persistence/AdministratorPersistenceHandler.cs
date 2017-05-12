@@ -35,7 +35,7 @@ namespace Persistence
             throw new Exception();
         }
 
-        public void LoginAdministrator(string email, string password)
+        public void LoginAdministrator(string mail, string password)
         {
 
         }
