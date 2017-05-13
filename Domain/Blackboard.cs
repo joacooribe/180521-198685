@@ -8,11 +8,11 @@ namespace Domain
 {
     public class Blackboard
     {
-        public User ownerUser { get; set; }
+        public User userOwner { get; set; }
         public string description { get; set; }
         public int high { get; set; }
         public string name { get; set; }
-        public Team ownerTeam { get; set; }
+        public Team teamOwner { get; set; }
         public int width { get; set; }
     }
 }

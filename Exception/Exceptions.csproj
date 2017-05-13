@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlackboardException.cs" />
     <Compile Include="TeamException.cs" />
     <Compile Include="User Exceptions\AdministratorException.cs" />
     <Compile Include="User Exceptions\ColaboratorException.cs" />

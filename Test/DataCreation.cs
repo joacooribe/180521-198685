@@ -31,5 +31,27 @@ namespace Test
             return colaborator;
         }
 
+        public static Team CreateTeam(string name, DateTime creationDate, string description, int maxUsers, List<User> usersInTeam)
+        {
+            Team team = new Team();
+            team.name = name;
+            team.creationDate = creationDate;
+            team.description = description;
+            team.maxUsers = maxUsers;
+            team.usersInTeam = usersInTeam;
+            return team;
+        }
+
+        public static Blackboard CreateBlackboard(string name, string description, int high, int width, User userOwner, Team teamOwner)
+        {
+            Blackboard blackboard = new Blackboard();
+            blackboard.name = name;
+            blackboard.description = description;
+            blackboard.high = high;
+            blackboard.width = width;
+            blackboard.userOwner = userOwner;
+            blackboard.teamOwner = teamOwner;
+            return blackboard;
+        }
     }
 }

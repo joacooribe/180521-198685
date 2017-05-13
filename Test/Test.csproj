@@ -56,7 +56,7 @@
     <Compile Include="Domain\AdministratorTest.cs" />
     <Compile Include="Logic\AdministratorLogicTest.cs" />
     <Compile Include="Domain\ColaboratorTest.cs" />
-    <Compile Include="Logic\BlackboardTest.cs" />
+    <Compile Include="Logic\BlackboardLogicTest.cs" />
     <Compile Include="Logic\ColaboratorLogicTest.cs" />
     <Compile Include="Logic\TeamLogicTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
