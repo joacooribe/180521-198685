@@ -116,11 +116,20 @@ namespace Logic
         private bool ValidateNewMaxUsers(Team team, int newMax)
         {
             bool invalidNewMax = false;
-            if (team.usersInTeam.Count > newMax || newMax <= 0)
+            if (team.usersInTeam.Count > newMax || ValidateNumberIsZero(newMax))
             {
                 invalidNewMax = true;
             }
             return invalidNewMax;
+        }
+        public void ModifyDescription(string nameOfTeam, string newDescription)
+        {
+            Team teamToModify = GetTeamFromCollection(nameOfTeam);
+            if (ValidateCorrectLenghtDescription(newDescription.Length))
+            {
+                throw new TeamException();
+            }
+            teamFunctions.ModifyDescription(teamToModify, newDescription);
         }
             
     }

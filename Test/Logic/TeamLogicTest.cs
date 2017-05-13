@@ -291,5 +291,22 @@ namespace Test.Logic
             Assert.AreEqual(newDescription, team.description);
 
         }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamInvalidModificationOfDescription()
+        {
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(administratoCreator);
+            teamHandler.AddTeam(team);
+            string newDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            teamHandler.ModifyDescription(team.name, newDescription);
+
+        }
     }
 }

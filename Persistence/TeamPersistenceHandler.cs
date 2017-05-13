@@ -36,5 +36,9 @@ namespace Persistence
         {
             teamToModify.maxUsers = newMax;
         }
+        public void ModifyDescription(Team teamToModify, string newDescription)
+        {
+            teamToModify.description = newDescription;
+        }
     }
 }
