@@ -87,7 +87,7 @@ namespace Test.Logic
             team.usersInTeam.Add(colaboratorCreator);
             teamHandler.AddTeam(team);
 
-            Assert.AreEqual(1,systemList.teamList.Count);
+            Assert.AreEqual(1,systemList.teamCollection.Count);
         }
 
         [TestMethod]
@@ -103,7 +103,7 @@ namespace Test.Logic
             team.usersInTeam.Add(administratoCreator);
             teamHandler.AddTeam(team);
 
-            Assert.AreEqual(1, systemList.teamList.Count);
+            Assert.AreEqual(1, systemList.teamCollection.Count);
         }
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
@@ -225,6 +225,87 @@ namespace Test.Logic
             teamHandler.AddTeam(team);
 
         }
+        [TestMethod]
+        public void TeamModificationOfMaxUsersOK()
+        {
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(administratoCreator);
+            teamHandler.AddTeam(team);
+            int newMax = 10;
+            teamHandler.ModifyMaxUsers(team.name,newMax);
+            Assert.AreEqual(newMax,team.maxUsers);
 
+        }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamInvalidModificationOfMaxUsers()
+        {
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(administratoCreator);
+            teamHandler.AddTeam(team);
+            int newMax = 0;
+            teamHandler.ModifyMaxUsers(team.name, newMax);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamInvalidModificationOfMaxUsersNegative()
+        {
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(administratoCreator);
+            teamHandler.AddTeam(team);
+            int newMax = -1;
+            teamHandler.ModifyMaxUsers(team.name, newMax);
+        }
+        [TestMethod]
+        public void TeamModificationOfDescriptionOK()
+        {
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(administratoCreator);
+            teamHandler.AddTeam(team);
+            string newDescription = "This is a new description";
+            teamHandler.ModifyDescription(team.name, newDescription);
+            Assert.AreEqual(newDescription, team.description);
+
+        }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamInvalidModificationOfDescription()
+        {
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(administratoCreator);
+            teamHandler.AddTeam(team);
+            string newDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            teamHandler.ModifyDescription(team.name, newDescription);
+        }
     }
 }
