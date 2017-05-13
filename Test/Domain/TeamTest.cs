@@ -13,7 +13,7 @@ namespace Test.Domain
         private Team team;
         private Team anotherTeam;
         private readonly string nameOK = "Team 1";
-        private readonly string anotherNameOK = "Team 1";
+        private readonly string anotherNameOK = "Team 2";
         private readonly DateTime dateOK = DateTime.Now;
         private readonly string descriptionOK = "this is team 1";
         private readonly int maxUsersOK = 5;
