@@ -100,5 +100,18 @@ namespace Logic
         {
             return date > DateTime.Now;
         }
+        public Team GetTeamFromCollection(string nameOfTeam)
+        {
+            return teamFunctions.GetTeamFromCollection(nameOfTeam);
+        }
+        public void ModifyMaxUsers(string nameOfTeam, int newMax)
+        {
+            Team teamToModify = GetTeamFromCollection(nameOfTeam);
+            if (teamToModify.usersInTeam.Count > newMax || newMax <= 0)
+            {
+                throw new TeamException();
+            }
+            teamFunctions.ModifyMaxUsers(teamToModify, newMax);
+        }
     }
 }

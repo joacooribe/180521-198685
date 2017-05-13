@@ -87,7 +87,7 @@ namespace Test.Logic
             team.usersInTeam.Add(colaboratorCreator);
             teamHandler.AddTeam(team);
 
-            Assert.AreEqual(1,systemList.teamList.Count);
+            Assert.AreEqual(1,systemList.teamCollection.Count);
         }
 
         [TestMethod]
@@ -103,7 +103,7 @@ namespace Test.Logic
             team.usersInTeam.Add(administratoCreator);
             teamHandler.AddTeam(team);
 
-            Assert.AreEqual(1, systemList.teamList.Count);
+            Assert.AreEqual(1, systemList.teamCollection.Count);
         }
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
@@ -238,7 +238,7 @@ namespace Test.Logic
             team.usersInTeam.Add(administratoCreator);
             teamHandler.AddTeam(team);
             int newMax = 10;
-            teamHandler.ModifyMaxUsers(newMax);
+            teamHandler.ModifyMaxUsers(team.name,newMax);
             Assert.AreEqual(newMax,team.maxUsers);
 
         }

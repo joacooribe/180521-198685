@@ -17,7 +17,24 @@ namespace Persistence
         }
         public void AddTeam(Team team)
         {
-            systemCollection.teamList.Add(team);
+            systemCollection.teamCollection.Add(team);
+        }
+        public Team GetTeamFromCollection(string nameOfTeam)
+        {
+            Team team = new Team();
+            foreach (Team teamFromColecction in systemCollection.teamCollection)
+            {
+                if (nameOfTeam.Equals(teamFromColecction.name))
+                {
+                    team = teamFromColecction;
+                    return team;
+                }
+            }
+            throw new Exception();
+        }
+        public void ModifyMaxUsers(Team teamToModify, int newMax)
+        {
+            teamToModify.maxUsers = newMax;
         }
     }
 }
