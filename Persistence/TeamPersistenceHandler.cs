@@ -15,10 +15,12 @@ namespace Persistence
         {
             systemCollection = collection;
         }
+
         public void AddTeam(Team team)
         {
             systemCollection.teamCollection.Add(team);
         }
+
         public Team GetTeamFromCollection(string nameOfTeam)
         {
             Team team = new Team();
@@ -32,10 +34,12 @@ namespace Persistence
             }
             throw new Exception();
         }
+
         public void ModifyMaxUsers(Team teamToModify, int newMax)
         {
             teamToModify.maxUsers = newMax;
         }
+
         public void ModifyDescription(Team teamToModify, string newDescription)
         {
             teamToModify.description = newDescription;

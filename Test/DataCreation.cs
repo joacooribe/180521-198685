@@ -31,10 +31,11 @@ namespace Test
             return colaborator;
         }
 
-        public static Team CreateTeam(string name, DateTime creationDate, string description, int maxUsers, List<User> usersInTeam)
+        public static Team CreateTeam(string name, DateTime creationDate, Administrator creator, string description, int maxUsers, List<User> usersInTeam)
         {
             Team team = new Team();
             team.name = name;
+            team.creator = creator;
             team.creationDate = creationDate;
             team.description = description;
             team.maxUsers = maxUsers;

@@ -88,7 +88,7 @@ namespace Test
             colaboratorCreator = DataCreation.CreateColaborator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(colaboratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, colaboratorCreator, teamOwner);
 
@@ -105,7 +105,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
 
@@ -123,7 +123,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             string invalidName = "";
 
@@ -141,7 +141,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             string invalidName = null;
 
@@ -159,7 +159,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             string invalidName = "This name is not valid because it is too long";
 
@@ -177,7 +177,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             string invalidDescription = "";
 
@@ -195,7 +195,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             string invalidDescription = null;
 
@@ -213,7 +213,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             string invalidDescription = "This is not a valid description because it is to long, you can write max 50 letters";
 
@@ -231,7 +231,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, null, teamOwner);
 
@@ -247,7 +247,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             int invalidHigh = -1;
 
@@ -265,7 +265,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             int invalidHigh = 0;
 
@@ -283,7 +283,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             int invalidWidth = -1;
 
@@ -301,7 +301,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             int invalidWidth = 0;
 
@@ -319,7 +319,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, null);
 

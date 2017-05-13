@@ -19,7 +19,7 @@ namespace Test.Domain
         private readonly int maxUsersOK = 5;
         private List<User> usersInTeam;
 
-        private Colaborator colaboratorCreator;
+        private Administrator administratorCreator;
         private readonly string userNameOK = "Joaquin";
         private readonly string userSurnameOK = "Oribe";
         private readonly string userPasswordOK = "securePassword123";
@@ -70,14 +70,14 @@ namespace Test.Domain
         [TestMethod]
         public void TeamSameName()
         {
-            colaboratorCreator = DataCreation.CreateColaborator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam = new List<User>();
 
-            usersInTeam.Add(colaboratorCreator);
+            usersInTeam.Add(administratorCreator);
 
-            team = DataCreation.CreateTeam(nameOK, dateOK, descriptionOK, maxUsersOK, usersInTeam);
+            team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
-            anotherTeam = DataCreation.CreateTeam(nameOK, dateOK, descriptionOK, maxUsersOK, usersInTeam);
+            anotherTeam = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             Assert.IsTrue(team.Equals(anotherTeam));
         }
@@ -85,14 +85,14 @@ namespace Test.Domain
         [TestMethod]
         public void TeamDifferentName()
         {
-            colaboratorCreator = DataCreation.CreateColaborator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam = new List<User>();
 
-            usersInTeam.Add(colaboratorCreator);
+            usersInTeam.Add(administratorCreator);
 
-            team = DataCreation.CreateTeam(nameOK, dateOK, descriptionOK, maxUsersOK, usersInTeam);
+            team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
-            anotherTeam = DataCreation.CreateTeam(anotherNameOK, dateOK, descriptionOK, maxUsersOK, usersInTeam);
+            anotherTeam = DataCreation.CreateTeam(anotherNameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             Assert.IsFalse(team.Equals(anotherTeam));
         }

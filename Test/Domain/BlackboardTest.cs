@@ -84,7 +84,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
 
@@ -101,9 +101,9 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            anotherTeamOwner = DataCreation.CreateTeam(anotherTeamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            anotherTeamOwner = DataCreation.CreateTeam(anotherTeamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
 
@@ -120,7 +120,7 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
 
@@ -137,9 +137,9 @@ namespace Test
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam.Add(administratorCreator);
 
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            anotherTeamOwner = DataCreation.CreateTeam(anotherTeamNameOK, teamDateOK, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+            anotherTeamOwner = DataCreation.CreateTeam(anotherTeamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
 
