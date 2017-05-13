@@ -41,10 +41,6 @@ namespace Persistence
             throw new Exception();
         }
 
-        public void LoginColaborator(string mail, string password)
-        {
-            
-        }
         public void ModifyPassword(string mailOfColaborator, string newPassword)
         {
             User colaboratorToChangePassword = GetUserFromColecction(mailOfColaborator);
@@ -61,6 +57,6 @@ namespace Persistence
             }
             return false;
         }
-
+      
     }
 }
