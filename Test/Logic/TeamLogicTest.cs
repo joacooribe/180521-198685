@@ -242,6 +242,37 @@ namespace Test.Logic
             Assert.AreEqual(newMax,team.maxUsers);
 
         }
-
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamInvalidModificationOfMaxUsers()
+        {
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(administratoCreator);
+            teamHandler.AddTeam(team);
+            int newMax = 0;
+            teamHandler.ModifyMaxUsers(team.name, newMax);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamInvalidModificationOfMaxUsersNegative()
+        {
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(administratoCreator);
+            teamHandler.AddTeam(team);
+            int newMax = -1;
+            teamHandler.ModifyMaxUsers(team.name, newMax);
+        }
     }
 }
