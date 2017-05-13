@@ -75,27 +75,12 @@ namespace Test.Logic
         #endregion
 
         [TestMethod]
-        public void TeamOKCreatedByColaborator()
-        {
-            colaboratorCreator = DataCreation.CreateColaborator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
-            team = new Team();
-            team.name = nameOK;
-            team.creationDate = dateOK;
-            team.description = descriptionOK;
-            team.maxUsers = maxUsersOK;
-            team.usersInTeam = new List<User>();
-            team.usersInTeam.Add(colaboratorCreator);
-            teamHandler.AddTeam(team);
-
-            Assert.AreEqual(1,systemList.teamCollection.Count);
-        }
-
-        [TestMethod]
         public void TeamOKCreatedByAdministrator()
         {
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
@@ -112,6 +97,7 @@ namespace Test.Logic
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = "";
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
@@ -127,6 +113,7 @@ namespace Test.Logic
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = null;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
@@ -142,6 +129,7 @@ namespace Test.Logic
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = "";
             team.maxUsers = maxUsersOK;
@@ -157,6 +145,7 @@ namespace Test.Logic
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = null;
             team.maxUsers = maxUsersOK;
@@ -171,6 +160,7 @@ namespace Test.Logic
         {
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
@@ -186,6 +176,7 @@ namespace Test.Logic
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = 0;
@@ -202,6 +193,7 @@ namespace Test.Logic
             colaboratorCreator = DataCreation.CreateColaborator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = 1;
@@ -217,6 +209,7 @@ namespace Test.Logic
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = new DateTime(2020, 1, 1);
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
@@ -231,6 +224,7 @@ namespace Test.Logic
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
@@ -249,6 +243,7 @@ namespace Test.Logic
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
@@ -265,6 +260,7 @@ namespace Test.Logic
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
@@ -280,6 +276,7 @@ namespace Test.Logic
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
@@ -298,13 +295,14 @@ namespace Test.Logic
             administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             team = new Team();
             team.name = nameOK;
+            team.creator = administratoCreator;
             team.creationDate = dateOK;
             team.description = descriptionOK;
             team.maxUsers = maxUsersOK;
             team.usersInTeam = new List<User>();
             team.usersInTeam.Add(administratoCreator);
             teamHandler.AddTeam(team);
-            string newDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            string newDescription = "This is an invalid description since it passes the limit of 50 characters.";
             teamHandler.ModifyDescription(team.name, newDescription);
         }
     }

@@ -20,6 +20,7 @@ namespace Logic
         private void ValidateTeam(Team team)
         {
             ValidateNameOfTeam(team.name);
+            ValidateCreator(team.creator);
             ValidateDescriptionOfTeam(team.description);
             ValidateEmptyTeam(team.usersInTeam);
             ValidateMaxUsers(team.maxUsers);
@@ -27,6 +28,7 @@ namespace Logic
             ValidateCreationDate(team.creationDate);
 
         }
+        
         private static void ValidateNameOfTeam(string name)
         {
 
@@ -40,7 +42,13 @@ namespace Logic
             return string.IsNullOrEmpty(element);
         }
 
-
+        private static void ValidateCreator(Administrator adminCreator)
+        {
+            if (adminCreator==null)
+            {
+                throw new TeamException();
+            }
+        }
         private static void ValidateDescriptionOfTeam(string description)
         {
 
