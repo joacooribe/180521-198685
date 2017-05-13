@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Blackboard\Blackboard.cs" />
     <Compile Include="Blackboard\BlackboardPersistenceProvider.cs" />
+    <Compile Include="Session.cs" />
     <Compile Include="Users\Administrator\Administrator.cs" />
     <Compile Include="Users\Administrator\AdministratorPersistenceProvider.cs" />
     <Compile Include="Users\Colaborator\Colaborator.cs" />

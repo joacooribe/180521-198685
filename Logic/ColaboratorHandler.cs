@@ -38,7 +38,7 @@ namespace Logic
 
             colaboratorFunctions.ModifyPassword(mailOfColaborator, newPassword);
         }
-        public void LogIn(string email, string password)
+        public void LogInColaborator(string email, string password)
         {   
             User colaborator = GetUserFromColecction(email);
             if (AreNotEqual(colaborator.password,password))

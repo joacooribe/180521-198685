@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-   public class Session
+    public class Session
     {
         public Session()
         {
