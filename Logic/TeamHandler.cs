@@ -107,11 +107,21 @@ namespace Logic
         public void ModifyMaxUsers(string nameOfTeam, int newMax)
         {
             Team teamToModify = GetTeamFromCollection(nameOfTeam);
-            if (teamToModify.usersInTeam.Count > newMax || newMax <= 0)
+            if (ValidateNewMaxUsers(teamToModify,newMax))
             {
                 throw new TeamException();
             }
             teamFunctions.ModifyMaxUsers(teamToModify, newMax);
         }
+        private bool ValidateNewMaxUsers(Team team, int newMax)
+        {
+            bool invalidNewMax = false;
+            if (team.usersInTeam.Count > newMax || newMax <= 0)
+            {
+                invalidNewMax = true;
+            }
+            return invalidNewMax;
+        }
+            
     }
 }
