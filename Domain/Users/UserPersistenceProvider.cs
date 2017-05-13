@@ -8,7 +8,8 @@ namespace Domain
 {
    public interface UserPersistenceProvider
     {
-       User GetUserFromColecction(string mailOfUser);
+        User GetUserFromColecction(string mailOfUser);
         void ModifyPassword(string mailOfUser, string newPassword);
+        bool ExistsUser(string mailOfUser);
     }
 }

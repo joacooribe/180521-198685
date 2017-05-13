@@ -20,6 +20,7 @@ namespace Logic
         private void ValidateTeam(Team team)
         {
             ValidateNameOfTeam(team.name);
+            ValidateCreator(team.creator);
             ValidateDescriptionOfTeam(team.description);
             ValidateEmptyTeam(team.usersInTeam);
             ValidateMaxUsers(team.maxUsers);
@@ -27,6 +28,7 @@ namespace Logic
             ValidateCreationDate(team.creationDate);
 
         }
+        
         private static void ValidateNameOfTeam(string name)
         {
 
@@ -40,7 +42,13 @@ namespace Logic
             return string.IsNullOrEmpty(element);
         }
 
-
+        private static void ValidateCreator(Administrator adminCreator)
+        {
+            if (adminCreator==null)
+            {
+                throw new TeamException();
+            }
+        }
         private static void ValidateDescriptionOfTeam(string description)
         {
 
@@ -100,5 +108,37 @@ namespace Logic
         {
             return date > DateTime.Now;
         }
+        public Team GetTeamFromCollection(string nameOfTeam)
+        {
+            return teamFunctions.GetTeamFromCollection(nameOfTeam);
+        }
+        public void ModifyMaxUsers(string nameOfTeam, int newMax)
+        {
+            Team teamToModify = GetTeamFromCollection(nameOfTeam);
+            if (ValidateNewMaxUsers(teamToModify,newMax))
+            {
+                throw new TeamException();
+            }
+            teamFunctions.ModifyMaxUsers(teamToModify, newMax);
+        }
+        private bool ValidateNewMaxUsers(Team team, int newMax)
+        {
+            bool invalidNewMax = false;
+            if (team.usersInTeam.Count > newMax || ValidateNumberIsZero(newMax))
+            {
+                invalidNewMax = true;
+            }
+            return invalidNewMax;
+        }
+        public void ModifyDescription(string nameOfTeam, string newDescription)
+        {
+            Team teamToModify = GetTeamFromCollection(nameOfTeam);
+            if (ValidateNullOrEmpty(newDescription) || ValidateCorrectLenghtDescription(newDescription.Length))
+            {
+                throw new TeamException();
+            }
+            teamFunctions.ModifyDescription(teamToModify, newDescription);
+        }
+            
     }
 }
