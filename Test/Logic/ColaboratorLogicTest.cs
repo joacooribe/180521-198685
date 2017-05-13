@@ -89,18 +89,10 @@ namespace Test
         [TestMethod]
         public void ColaboratorOK()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
-
-            colaborator.surname = surnameOK;
-
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = birthdayOk;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+
             Assert.AreEqual(colaborator, colaboratorHandler.colaboratorFunctions.GetUserFromColecction(colaborator.mail));
 
         }
@@ -109,16 +101,9 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorEmptyName()
         {
-            colaborator = new Colaborator();
-            colaborator.name = "";
+            string invalidName = "";
 
-            colaborator.surname = surnameOK;
-
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
+            colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
 
@@ -128,17 +113,9 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorNullName()
         {
-            colaborator = new Colaborator();
+            string invalidName = null;
 
-            colaborator.name = null;
-
-            colaborator.surname = surnameOK;
-
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
+            colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
 
@@ -148,16 +125,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithSpacesInTheEnd()
         {
-            colaborator = new Colaborator();
-            colaborator.name = "Joaco      ";
+            string invalidName = "Joaco      ";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -165,16 +136,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithSpacesInTheBegining()
         {
-            colaborator = new Colaborator();
-            colaborator.name = "     Joaco";
+            string invalidName = "     Joaco";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -182,16 +147,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithOnlyEmptySpaces()
         {
-            colaborator = new Colaborator();
-            colaborator.name = "     ";
+            string invalidName = "     ";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -199,16 +158,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithNumbers()
         {
-            colaborator = new Colaborator();
-            colaborator.name = "J04c0";
+            string invalidName = "J04c0";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -216,16 +169,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithSpecialCharacters()
         {
-            colaborator = new Colaborator();
-            colaborator.name = "#Jo@co";
+            string invalidName = "#Jo@co";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -233,16 +180,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorNameWithMoreThanOneSpaceInTheMiddle()
         {
-            colaborator = new Colaborator();
-            colaborator.name = "Joaco   Sabe";
+            string invalidName = "Joaco   Sabe";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -250,16 +191,9 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorEmptySurname()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidSurname = "";
 
-            colaborator.surname = "";
-
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
+            colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
 
@@ -269,16 +203,9 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorNullSurname()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidSurname = null;
 
-            colaborator.surname = null;
-
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
+            colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
 
@@ -287,16 +214,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithSpacesInTheEnd()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidSurname = "Oribe     ";
 
-            colaborator.surname = "Oribe     ";
+            colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -304,16 +225,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithSpacesInTheBegining()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidSurname = "           Oribe";
 
-            colaborator.surname = "           Oribe";
+            colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -321,16 +236,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithOnlyEmptySpaces()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidSurname = "     ";
 
-            colaborator.surname = "     ";
+            colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -338,16 +247,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithNumbers()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidSurname = "0rib3";
 
-            colaborator.surname = "0rib3";
+            colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -355,16 +258,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithSpecialCharacters()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidSurname = "#@?_";
 
-            colaborator.surname = "#@?_";
+            colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -372,16 +269,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithMoreThanOneSpaceInTheMiddle()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidSurname = "Oribe   Bajac";
 
-            colaborator.surname = "Oribe   Bajac";
+            colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -389,16 +280,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordNull()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidPassword = null;
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = null;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -406,16 +291,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordEmpty()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidPassword = "";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = "";
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -423,48 +302,30 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordNoNumbers()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidPassword = "ThisIsPassword";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = "ThisIsPassword";
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordNoLetters()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidPassword = "123456789";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = "123456789";
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordTooSmall()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidPassword = "pass1";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
-            colaborator.mail = mailOK;
-
-            colaborator.password = "pass1";
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -472,32 +333,20 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorEmptyMail()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidMail = "";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            colaborator.mail = "";
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorNullMail()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidMail = null;
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            colaborator.mail = null;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -505,16 +354,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorMailWithNoAt()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidMail = "joacooribegmail.com";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            colaborator.mail = "joacooribegmail.com";
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -522,16 +365,10 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorMailNoDot()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidMail = "joaco@gmailcom";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            colaborator.mail = "joaco@gmailcom";
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -539,32 +376,20 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorMailNoAddres()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidMail = "joaco@.com";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            colaborator.mail = "joaco@.com";
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorMailNoName()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            string invalidMail = "@gmail.com";
 
-            colaborator.surname = surnameOK;
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
-            colaborator.mail = "@gmail.com";
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = DateTime.Now;
             colaboratorHandler.AddColaborator(colaborator);
         }
 
@@ -572,16 +397,9 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorInvalidBirthDate()
         {
-            colaborator = new Colaborator();
-            colaborator.name = nameOK;
+            DateTime invalidBirthday = new DateTime(9999,1,1);
 
-            colaborator.surname = surnameOK;
-
-            colaborator.mail = mailOK;
-
-            colaborator.password = passwordOK;
-
-            colaborator.birthday = new DateTime(9999,1,1);
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, invalidBirthday);
 
             colaboratorHandler.AddColaborator(colaborator);
 
@@ -591,7 +409,7 @@ namespace Test
         [TestMethod]
         public void ColaboratorModification()
         {
-            colaborator = CreateColaborator();
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
             string newPassword = "NewPassword123";
             colaboratorHandler.ModifyPassword(colaborator.mail, newPassword);
@@ -602,7 +420,7 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void colaboratorInvalidModification()
         {
-            colaborator = CreateColaborator();
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
             string newPassword = "";
             colaboratorHandler.ModifyPassword(colaborator.mail, newPassword);
