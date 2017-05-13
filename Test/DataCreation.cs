@@ -31,7 +31,7 @@ namespace Test
             return colaborator;
         }
 
-        public static Team CreateTeam(string name, DateTime creationDate, Administrator creator, string description, int maxUsers, List<User> usersInTeam)
+        public static Team CreateTeam(string name, DateTime creationDate, Administrator creator, string description, int maxUsers, ICollection<User> usersInTeam)
         {
             Team team = new Team();
             team.name = name;
@@ -43,12 +43,12 @@ namespace Test
             return team;
         }
 
-        public static Blackboard CreateBlackboard(string name, string description, int high, int width, User userOwner, Team teamOwner)
+        public static Blackboard CreateBlackboard(string name, string description, int height, int width, User userOwner, Team teamOwner)
         {
             Blackboard blackboard = new Blackboard();
             blackboard.name = name;
             blackboard.description = description;
-            blackboard.high = high;
+            blackboard.height = height;
             blackboard.width = width;
             blackboard.userCreator = userOwner;
             blackboard.teamOwner = teamOwner;

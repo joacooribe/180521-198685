@@ -19,7 +19,7 @@ namespace Test
 
         private Team teamOwner;
         private Team anotherTeamOwner;
-        private List<User> usersInTeam;
+        private ICollection<User> usersInTeam;
         private readonly string teamNameOK = "Team 1";
         private readonly string anotherTeamNameOK = "Team 2";
         private readonly DateTime teamDateOK = DateTime.Now;
@@ -32,7 +32,7 @@ namespace Test
         private readonly string blackboardNameOk = "Blackboard 1";
         private readonly string anotherBlackboardNameOk = "Blackboard 2";
         private readonly int widthOk = 23;
-        private readonly int highOk = 20;
+        private readonly int heightOk = 20;
         private readonly string blackboardDescriptionOk = "Blackboard Team 1";
 
         public BlackboardTest()
@@ -86,9 +86,9 @@ namespace Test
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
-            blackboard2 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard2 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
             Assert.IsTrue(blackboard1.Equals(blackboard2));
         }
@@ -105,9 +105,9 @@ namespace Test
 
             anotherTeamOwner = DataCreation.CreateTeam(anotherTeamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
-            blackboard2 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, anotherTeamOwner);
+            blackboard2 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, anotherTeamOwner);
 
             Assert.IsFalse(blackboard1.Equals(blackboard2));
         }
@@ -122,9 +122,9 @@ namespace Test
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
-            blackboard2 = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard2 = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
             Assert.IsFalse(blackboard1.Equals(blackboard2));
         }
@@ -141,9 +141,9 @@ namespace Test
 
             anotherTeamOwner = DataCreation.CreateTeam(anotherTeamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
-            blackboard2 = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, anotherTeamOwner);
+            blackboard2 = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, anotherTeamOwner);
 
             Assert.IsFalse(blackboard1.Equals(blackboard2));
         }

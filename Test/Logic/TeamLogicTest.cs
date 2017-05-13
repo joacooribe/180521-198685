@@ -24,7 +24,7 @@ namespace Test.Logic
         private readonly DateTime dateOK = DateTime.Now;
         private readonly string descriptionOK = "this is team 1";
         private readonly int maxUsersOK = 5;
-        private List<User> usersInTeam;
+        private ICollection<User> usersInTeam;
 
         private readonly string userNameOK = "Joaquin";
         private readonly string userSurnameOK = "Oribe";

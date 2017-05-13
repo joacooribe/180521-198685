@@ -24,7 +24,7 @@ namespace Logic
             ValidateDescriptionOfTeam(team.description);
             ValidateEmptyTeam(team.usersInTeam);
             ValidateMaxUsers(team.maxUsers);
-            ValidateAmountOnListNotOverMax(team.usersInTeam, team.maxUsers);
+            ValidateAmountOnCollectionNotOverMax(team.usersInTeam, team.maxUsers);
             ValidateCreationDate(team.creationDate);
 
         }
@@ -63,7 +63,7 @@ namespace Logic
             return element > 50;
         }
 
-        private static void ValidateEmptyTeam(List<User> users)
+        private static void ValidateEmptyTeam(ICollection<User> users)
         {
 
             if (ValidateNumberIsZero(users.Count))
@@ -85,7 +85,7 @@ namespace Logic
             }
         }
 
-        private static void ValidateAmountOnListNotOverMax(List<User> users, int max)
+        private static void ValidateAmountOnCollectionNotOverMax(ICollection<User> users, int max)
         {
 
             if (ValidateMoreUsersThanMaximum(users,max))
@@ -93,7 +93,7 @@ namespace Logic
                 throw new TeamException();
             }
         }
-        private static bool ValidateMoreUsersThanMaximum(List<User> users, int max)
+        private static bool ValidateMoreUsersThanMaximum(ICollection<User> users, int max)
         {
             return users.Count > max;
         }

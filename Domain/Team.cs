@@ -13,7 +13,7 @@ namespace Domain
         public DateTime creationDate { get; set; }
         public string description { get; set; }
         public int maxUsers { get; set; }
-        public List<User> usersInTeam { get; set; }
+        public ICollection<User> usersInTeam { get; set; }
 
         public override bool Equals(object obj)
         {

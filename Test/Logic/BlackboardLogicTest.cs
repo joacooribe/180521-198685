@@ -21,7 +21,7 @@ namespace Test
         private readonly DateTime userBirthdayOk = new DateTime(1992, 9, 10);
 
         private Team teamOwner;
-        private List<User> usersInTeam;
+        private ICollection<User> usersInTeam;
         private readonly string teamNameOK = "Team 1";
         private readonly DateTime teamDateOK = DateTime.Now;
         private readonly string teamDescriptionOK = "this is Team 1";
@@ -30,7 +30,7 @@ namespace Test
         private Blackboard blackboard;
         private readonly string blackboardNameOk = "Blackboard";
         private readonly int widthOk = 23;
-        private readonly int highOk = 20;
+        private readonly int heightOk = 20;
         private readonly string blackboardDescriptionOk = "Blackboard Team 1";
 
         private Repository systemList;
@@ -90,7 +90,7 @@ namespace Test
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, colaboratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, colaboratorCreator, teamOwner);
 
             blackboardPersistence.AddBlackboard(blackboard);
 
@@ -107,7 +107,7 @@ namespace Test
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
             blackboardPersistence.AddBlackboard(blackboard);
 
@@ -127,7 +127,7 @@ namespace Test
 
             string invalidName = "";
 
-            blackboard = DataCreation.CreateBlackboard(invalidName, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(invalidName, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
         }
@@ -145,7 +145,7 @@ namespace Test
 
             string invalidName = null;
 
-            blackboard = DataCreation.CreateBlackboard(invalidName, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(invalidName, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
         }
@@ -163,7 +163,7 @@ namespace Test
 
             string invalidName = "This name is not valid because it is too long";
 
-            blackboard = DataCreation.CreateBlackboard(invalidName, blackboardDescriptionOk, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(invalidName, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
         }
@@ -181,7 +181,7 @@ namespace Test
 
             string invalidDescription = "";
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, invalidDescription, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, invalidDescription, heightOk, widthOk, administratorCreator, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
         }
@@ -199,7 +199,7 @@ namespace Test
 
             string invalidDescription = null;
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, invalidDescription, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, invalidDescription, heightOk, widthOk, administratorCreator, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
         }
@@ -217,7 +217,7 @@ namespace Test
 
             string invalidDescription = "This is not a valid description because it is to long, you can write max 50 letters";
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, invalidDescription, highOk, widthOk, administratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, invalidDescription, heightOk, widthOk, administratorCreator, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
         }
@@ -233,14 +233,14 @@ namespace Test
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, null, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, null, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
         }
 
         [TestMethod]
         [ExpectedException(typeof(BlackboardException))]
-        public void BlackboardNegativeHigh()
+        public void BlackboardNegativeheight()
         {
             usersInTeam = new List<User>();
 
@@ -249,16 +249,16 @@ namespace Test
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            int invalidHigh = -1;
+            int invalidheight = -1;
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, invalidHigh, widthOk, administratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, invalidheight, widthOk, administratorCreator, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
         }
 
         [TestMethod]
         [ExpectedException(typeof(BlackboardException))]
-        public void BlackboardZeroHigh()
+        public void BlackboardZeroheight()
         {
             usersInTeam = new List<User>();
 
@@ -267,9 +267,9 @@ namespace Test
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            int invalidHigh = 0;
+            int invalidheight = 0;
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, invalidHigh, widthOk, administratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, invalidheight, widthOk, administratorCreator, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
         }
@@ -287,7 +287,7 @@ namespace Test
 
             int invalidWidth = -1;
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, invalidWidth, administratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, invalidWidth, administratorCreator, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
         }
@@ -305,7 +305,7 @@ namespace Test
 
             int invalidWidth = 0;
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, invalidWidth, administratorCreator, teamOwner);
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, invalidWidth, administratorCreator, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
         }
@@ -321,7 +321,7 @@ namespace Test
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, highOk, widthOk, administratorCreator, null);
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, null);
 
             blackboardHandler.AddBlackboard(blackboard);
         }

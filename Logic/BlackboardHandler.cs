@@ -23,7 +23,7 @@ namespace Logic
             ValidateName(blackboard.name);
             ValidateDescription(blackboard.description);
             ValidateUser(blackboard.userCreator);
-            ValidateHigh(blackboard.high);
+            Validateheight(blackboard.height);
             ValidateWidth(blackboard.width);
             ValidateTeam(blackboard.teamOwner);
         }
@@ -42,23 +42,23 @@ namespace Logic
             ValidateNegativeNumber(width);
         }
 
-        private void ValidateHigh(int high)
+        private void Validateheight(int height)
         {
-            ValidateZero(high);
-            ValidateNegativeNumber(high);
+            ValidateZero(height);
+            ValidateNegativeNumber(height);
         }
 
-        private void ValidateNegativeNumber(int high)
+        private void ValidateNegativeNumber(int height)
         {
-            if(high < 0)
+            if(height < 0)
             {
                 throw new BlackboardException();
             }
         }
 
-        private void ValidateZero(int high)
+        private void ValidateZero(int height)
         {
-            if(high == 0)
+            if(height == 0)
             {
                 throw new BlackboardException();
             }

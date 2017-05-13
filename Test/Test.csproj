@@ -60,6 +60,7 @@
     <Compile Include="Domain\ColaboratorTest.cs" />
     <Compile Include="Logic\BlackboardLogicTest.cs" />
     <Compile Include="Logic\ColaboratorLogicTest.cs" />
+    <Compile Include="Logic\ElementLogicTest.cs" />
     <Compile Include="Logic\TeamLogicTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

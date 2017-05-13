@@ -3,30 +3,37 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
+using Exceptions;
+using Logic;
 
 namespace Test
 {
-
     [TestClass]
-    public class TeamTest
+    public class ImageLogicTest
     {
-        private Team team;
-        private Team anotherTeam;
-        private readonly string nameOK = "Team 1";
-        private readonly string anotherNameOK = "Team 2";
-        private readonly DateTime dateOK = DateTime.Now;
-        private readonly string descriptionOK = "this is team 1";
-        private readonly int maxUsersOK = 5;
-        private ICollection<User> usersInTeam;
 
+        private Colaborator colaboratorCreator;
         private Administrator administratorCreator;
         private readonly string userNameOK = "Joaquin";
         private readonly string userSurnameOK = "Oribe";
-        private readonly string userPasswordOK = "securePassword123";
         private readonly string userMailOK = "user@gmail.com";
+        private readonly string userPasswordOK = "securePassword123";
         private readonly DateTime userBirthdayOk = new DateTime(1992, 9, 10);
 
-        public TeamTest()
+        private Team teamOwner;
+        private ICollection<User> usersInTeam;
+        private readonly string teamNameOK = "Team 1";
+        private readonly DateTime teamDateOK = DateTime.Now;
+        private readonly string teamDescriptionOK = "this is Team 1";
+        private readonly int teamMaxUsersOK = 5;
+
+        private Blackboard blackboard;
+        private readonly string blackboardNameOk = "Blackboard";
+        private readonly int widthOk = 23;
+        private readonly int heightOk = 20;
+        private readonly string blackboardDescriptionOk = "Blackboard Team 1";
+
+        public ImageLogicTest()
         {
 
         }
@@ -68,33 +75,24 @@ namespace Test
         #endregion
 
         [TestMethod]
-        public void TeamSameName()
+        public void ImageTestOk()
         {
-            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam = new List<User>();
 
-            usersInTeam.Add(administratorCreator);
+            colaboratorCreator = DataCreation.CreateColaborator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(colaboratorCreator);
 
-            team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            anotherTeam = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
-
-            Assert.IsTrue(team.Equals(anotherTeam));
-        }
-
-        [TestMethod]
-        public void TeamDifferentName()
-        {
-            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
-            usersInTeam = new List<User>();
-
-            usersInTeam.Add(administratorCreator);
-
-            team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
-
-            anotherTeam = DataCreation.CreateTeam(anotherNameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
-
-            Assert.IsFalse(team.Equals(anotherTeam));
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, colaboratorCreator, teamOwner);
+            Image image = new Image();
+            int id = 1;
+            User creator = colaboratorCreator;
+            Blackboard blackboardOwner = blackboard;
+            int width = 30;
+            int height = 30;
+            int originPoint = 0;
+            Assert.AreEqual(id, image.id);
         }
     }
 }
