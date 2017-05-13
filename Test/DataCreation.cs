@@ -49,7 +49,7 @@ namespace Test
             blackboard.description = description;
             blackboard.high = high;
             blackboard.width = width;
-            blackboard.userOwner = userOwner;
+            blackboard.userCreator = userOwner;
             blackboard.teamOwner = teamOwner;
             return blackboard;
         }

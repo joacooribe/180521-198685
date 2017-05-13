@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exceptions
 {
-    class BlackboardException : Exception
+    public class BlackboardException : Exception
     {
     }
 }

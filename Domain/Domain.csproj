@@ -40,7 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Blackboard.cs" />
+    <Compile Include="Blackboard\Blackboard.cs" />
+    <Compile Include="Blackboard\BlackboardPersistenceProvider.cs" />
     <Compile Include="Users\Administrator\Administrator.cs" />
     <Compile Include="Users\Administrator\AdministratorPersistenceProvider.cs" />
     <Compile Include="Users\Colaborator\Colaborator.cs" />

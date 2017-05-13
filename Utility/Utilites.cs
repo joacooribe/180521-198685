@@ -21,14 +21,7 @@ namespace Utility
                 throw new UserException();
             }
         }
-        public static void ValidateAdministrator(string name)
-        {
-            if (string.IsNullOrEmpty(name))
 
-            {
-                throw new UserException();
-            }
-        }
         private static bool ValidationOfStrings(string element)
         {
             bool invalidName = false;
@@ -39,6 +32,7 @@ namespace Utility
             }
             return invalidName;
         }
+
         public static void ValidatePassword(string password)
         {
             if (ValidationOfPassword(password))
@@ -80,6 +74,7 @@ namespace Utility
             }
             return invalidMail;
         }
+
         public static void ValidateBirthDate(DateTime date)
         {
             if (ValidateIsNotFutureDate(date))
@@ -87,7 +82,8 @@ namespace Utility
                 throw new UserException();
             }
         }
-      private static bool ValidateIsNotFutureDate(DateTime date)
+
+        private static bool ValidateIsNotFutureDate(DateTime date)
         {
             return date > DateTime.Now;
         }
