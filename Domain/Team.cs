@@ -14,5 +14,16 @@ namespace Domain
         public int maxUsers { get; set; }
         public List<User> usersInTeam { get; set; }
 
+        public override bool Equals(object obj)
+        {
+            bool equals = false;
+            if (obj != null && obj.GetType().Equals(this.GetType()))
+            {
+                Team team = (Team)obj;
+                equals = team.name.Equals(this.name);
+            }
+            return equals;
+        }
+
     }
 }

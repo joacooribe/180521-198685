@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="DataCreation.cs" />
     <Compile Include="Domain\AdministratorTest.cs" />
+    <Compile Include="Domain\BlackboardTest.cs" />
     <Compile Include="Logic\AdministratorLogicTest.cs" />
     <Compile Include="Domain\ColaboratorTest.cs" />
     <Compile Include="Logic\BlackboardLogicTest.cs" />

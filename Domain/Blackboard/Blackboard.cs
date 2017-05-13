@@ -14,5 +14,16 @@ namespace Domain
         public string name { get; set; }
         public Team teamOwner { get; set; }
         public int width { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            bool equals = false;
+            if (obj != null && obj.GetType().Equals(this.GetType()))
+            {
+                Blackboard blackboard = (Blackboard)obj;
+                equals = blackboard.name.Equals(this.name) && blackboard.teamOwner.Equals(this.teamOwner);
+            }
+            return equals;
+        }
     }
 }
