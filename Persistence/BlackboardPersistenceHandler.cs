@@ -19,7 +19,7 @@ namespace Persistence
 
         public void AddBlackboard(Blackboard blackboard)
         {
-            systemCollection.blackboardColecction.Add(blackboard);
+            systemCollection.blackboardCollection.Add(blackboard);
         }
     }
 }

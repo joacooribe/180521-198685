@@ -258,7 +258,7 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(BlackboardException))]
-        public void BlackboardCeroHigh()
+        public void BlackboardZeroHigh()
         {
             usersInTeam = new List<User>();
 
@@ -294,7 +294,7 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(BlackboardException))]
-        public void BlackboardCeroWidth()
+        public void BlackboardZeroWidth()
         {
             usersInTeam = new List<User>();
 

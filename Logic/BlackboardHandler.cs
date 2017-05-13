@@ -38,13 +38,13 @@ namespace Logic
 
         private void ValidateWidth(int width)
         {
-            ValidateCero(width);
+            ValidateZero(width);
             ValidateNegativeNumber(width);
         }
 
         private void ValidateHigh(int high)
         {
-            ValidateCero(high);
+            ValidateZero(high);
             ValidateNegativeNumber(high);
         }
 
@@ -56,7 +56,7 @@ namespace Logic
             }
         }
 
-        private void ValidateCero(int high)
+        private void ValidateZero(int high)
         {
             if(high == 0)
             {
