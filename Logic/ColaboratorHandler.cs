@@ -38,13 +38,9 @@ namespace Logic
 
             colaboratorFunctions.ModifyPassword(mailOfColaborator, newPassword);
         }
-        public void LogInColaborator(string email, string password)
-        {   
-            User colaborator = GetUserFromColecction(email);
-            if (AreNotEqual(colaborator.password,password))
-            {
-                throw new UserException();
-            }
+        public void LogIn(string mail, string password)
+        {
+            colaboratorFunctions.LoginColaborator(mail, password);
         }
         private bool AreNotEqual(string element1, string element2)
         {

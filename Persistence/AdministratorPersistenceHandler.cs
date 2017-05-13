@@ -41,7 +41,15 @@ namespace Persistence
 
         public void LoginAdministrator(string mail, string password)
         {
-
+            User administratorLogIn = GetUserFromColecction(mail);
+            if (administratorLogIn.password.Equals(password))
+            {
+                systemCollection.session.user = administratorLogIn;
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
         public void ModifyPassword(string mailOfAdministrator,string newPassword)
         {
