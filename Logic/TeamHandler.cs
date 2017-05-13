@@ -125,7 +125,7 @@ namespace Logic
         public void ModifyDescription(string nameOfTeam, string newDescription)
         {
             Team teamToModify = GetTeamFromCollection(nameOfTeam);
-            if (ValidateCorrectLenghtDescription(newDescription.Length))
+            if (ValidateNullOrEmpty(newDescription) || ValidateCorrectLenghtDescription(newDescription.Length))
             {
                 throw new TeamException();
             }

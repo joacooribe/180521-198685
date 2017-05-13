@@ -306,7 +306,6 @@ namespace Test.Logic
             teamHandler.AddTeam(team);
             string newDescription = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             teamHandler.ModifyDescription(team.name, newDescription);
-
         }
     }
 }
