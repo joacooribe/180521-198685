@@ -274,5 +274,22 @@ namespace Test.Logic
             int newMax = -1;
             teamHandler.ModifyMaxUsers(team.name, newMax);
         }
+        [TestMethod]
+        public void TeamModificationOfDescriptionOK()
+        {
+            administratoCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            team = new Team();
+            team.name = nameOK;
+            team.creationDate = dateOK;
+            team.description = descriptionOK;
+            team.maxUsers = maxUsersOK;
+            team.usersInTeam = new List<User>();
+            team.usersInTeam.Add(administratoCreator);
+            teamHandler.AddTeam(team);
+            string newDescription = "This is a new description";
+            teamHandler.ModifyDescription(team.name, newDescription);
+            Assert.AreEqual(newDescription, team.description);
+
+        }
     }
 }
