@@ -398,7 +398,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
             string newPassword = "NewPassword123";
-            //administratorHandler.ModifyPassword(administrator.mail, newPassword);
+            administratorHandler.ModifyPassword(administrator.mail, newPassword);
             Assert.AreEqual(newPassword,administrator.password);
 
         }
@@ -406,7 +406,7 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorInvalidModification()
         {
-            administrator = CreateAdministrator();
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
             string newPassword = "";
             administratorHandler.ModifyPassword(administrator.mail, newPassword);

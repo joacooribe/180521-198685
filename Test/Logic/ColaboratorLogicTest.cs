@@ -591,7 +591,7 @@ namespace Test
         [TestMethod]
         public void ColaboratorModification()
         {
-            colaborator = CreateColaborator();
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
             string newPassword = "NewPassword123";
             colaboratorHandler.ModifyPassword(colaborator.mail, newPassword);
@@ -602,7 +602,7 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void colaboratorInvalidModification()
         {
-            colaborator = CreateColaborator();
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
             string newPassword = "";
             colaboratorHandler.ModifyPassword(colaborator.mail, newPassword);
