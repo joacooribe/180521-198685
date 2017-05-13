@@ -18,7 +18,12 @@ namespace Persistence
 
         public void AddColaborator(Colaborator colaborator)
         {
-            systemCollection.colaboratorCollection.Add(colaborator);
+            if (ExistsUser(colaborator.mail))
+            {
+                throw new Exception();
+                
+            }
+                systemCollection.colaboratorCollection.Add(colaborator);
         }
 
         public User GetUserFromColecction(string mailOfColaborator)
@@ -45,5 +50,17 @@ namespace Persistence
             User colaboratorToChangePassword = GetUserFromColecction(mailOfColaborator);
             colaboratorToChangePassword.password = newPassword;
         }
+        public bool ExistsUser(string mailOfUser)
+        {
+            foreach (Colaborator colaboratorFromColecction in systemCollection.colaboratorCollection)
+            {
+                if (mailOfUser.Equals(colaboratorFromColecction.mail))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

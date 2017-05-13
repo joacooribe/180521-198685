@@ -23,7 +23,7 @@ namespace Logic
             return colaboratorFunctions.GetUserFromColecction(mailOfColaborator);
         }
 
-        public void ValidateColaborator(Colaborator colaborator)
+        private void ValidateColaborator(Colaborator colaborator)
         {
             Utility.Utilites.ValidateNameOrSurname(colaborator.name);
             Utility.Utilites.ValidateNameOrSurname(colaborator.surname);

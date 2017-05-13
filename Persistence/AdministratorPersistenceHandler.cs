@@ -18,6 +18,10 @@ namespace Persistence
 
         public void AddAdministrator(Administrator administrator)
         {
+            if (ExistsUser(administrator.mail))
+            {
+                throw new Exception();
+            }
             systemCollection.administratorCollection.Add(administrator);
         }
 
@@ -44,6 +48,19 @@ namespace Persistence
             User adminToChangePassword = GetUserFromColecction(mailOfAdministrator);
             adminToChangePassword.password = newPassword;
         }
+        
+        public bool ExistsUser(string mailOfUser)
+        {
+            foreach (Administrator administratorFromColecction in systemCollection.administratorCollection)
+            {
+                if (mailOfUser.Equals(administratorFromColecction.mail))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+       
 
     }
 }

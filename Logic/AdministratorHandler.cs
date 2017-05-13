@@ -23,7 +23,7 @@ namespace Logic
             return administratorFunctions.GetUserFromColecction(mailOfAdministrator);
         }
 
-        public void ValidateAdministrator(Administrator administrator)
+        private void ValidateAdministrator(Administrator administrator)
         {
             Utility.Utilites.ValidateNameOrSurname(administrator.name);
             Utility.Utilites.ValidateNameOrSurname(administrator.surname);
