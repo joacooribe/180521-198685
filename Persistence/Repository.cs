@@ -12,13 +12,11 @@ namespace Persistence
         public ICollection<Colaborator> colaboratorCollection { get; }
         public ICollection<Administrator> administratorCollection { get; }
         public ICollection<Team> teamCollection { get; }
-        public ICollection<Blackboard> blackboardColecction { get; }
 
         public Repository() {
             colaboratorCollection = new List<Colaborator>();
             administratorCollection = new List<Administrator>();
             teamCollection = new List<Team>();
-            blackboardColecction = new List<Blackboard>();
         }
     }
 }
