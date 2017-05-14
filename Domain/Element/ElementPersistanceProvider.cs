@@ -9,5 +9,6 @@ namespace Domain
     public interface ElementPersistanceProvider
     {
         void AddElement(Element element);
+        //Element GetElementFromCollection();
     }
 }

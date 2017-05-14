@@ -52,6 +52,7 @@ namespace Test
             blackboard.width = width;
             blackboard.userCreator = userOwner;
             blackboard.teamOwner = teamOwner;
+            blackboard.elementsInBlackboard = new List<Element>();
             return blackboard;
         }
 

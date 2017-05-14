@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public interface ImagePersistenceProvider 
+    public interface ImagePersistenceProvider : ElementPersistanceProvider
     {
-        void AddElement(Image image);
+        new void AddElement(Element element);
     }
 }

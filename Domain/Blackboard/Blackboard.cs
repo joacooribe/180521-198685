@@ -14,6 +14,7 @@ namespace Domain
         public string name { get; set; }
         public Team teamOwner { get; set; }
         public int width { get; set; }
+        public ICollection<Element> elementsInBlackboard { get; set; }
 
         public override bool Equals(object obj)
         {

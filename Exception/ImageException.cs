@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Exceptions
 {
-    public class TeamException : Exception
+    public class ImageException : Exception
     {
+
     }
 }

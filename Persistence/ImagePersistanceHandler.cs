@@ -16,9 +16,9 @@ namespace Persistence
             systemCollection = collection;
         }
 
-        public void AddElement(Image image)
+        public void AddElement(Element element)
         {
-            systemCollection.imageCollection.Add(image);
+            element.blackboardOwner.elementsInBlackboard.Add(element);
         }
     }
 }

@@ -26,6 +26,15 @@ namespace Logic
             Validateheight(blackboard.height);
             ValidateWidth(blackboard.width);
             ValidateTeam(blackboard.teamOwner);
+            ValidateElementColecction(blackboard.elementsInBlackboard);
+        }
+
+        private void ValidateElementColecction(ICollection<Element> elementsInBlackboard)
+        {
+            if(elementsInBlackboard == null)
+            {
+                throw new BlackboardException();
+            }
         }
 
         private void ValidateTeam(Team teamOwner)
@@ -92,9 +101,9 @@ namespace Logic
             ValidateNameToLong(name);
         }
 
-        private void ValidateNullOrEmpty(string name)
+        private void ValidateNullOrEmpty(string text)
         {
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(text))
             {
                 throw new BlackboardException();
             }
