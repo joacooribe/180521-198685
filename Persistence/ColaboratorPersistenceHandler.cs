@@ -23,7 +23,7 @@ namespace Persistence
                 throw new Exception();
                 
             }
-                systemCollection.colaboratorCollection.Add(colaborator);
+            systemCollection.colaboratorCollection.Add(colaborator);
         }
 
         public User GetUserFromColecction(string mailOfColaborator)

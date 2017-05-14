@@ -49,6 +49,7 @@
     <Compile Include="AdministratorPersistenceHandler.cs" />
     <Compile Include="BlackboardPersistenceHandler.cs" />
     <Compile Include="ColaboratorPersistenceHandler.cs" />
+    <Compile Include="ImagePersistanceHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="TeamPersistenceHandler.cs" />

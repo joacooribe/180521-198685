@@ -43,7 +43,9 @@
     <Compile Include="Blackboard\Blackboard.cs" />
     <Compile Include="Blackboard\BlackboardPersistenceProvider.cs" />
     <Compile Include="Element\Element.cs" />
-    <Compile Include="Element\Image.cs" />
+    <Compile Include="Element\ElementPersistanceProvider.cs" />
+    <Compile Include="Element\Image\Image.cs" />
+    <Compile Include="Element\Image\ImagePersistenceProvider.cs" />
     <Compile Include="Users\Administrator\Administrator.cs" />
     <Compile Include="Users\Administrator\AdministratorPersistenceProvider.cs" />
     <Compile Include="Users\Colaborator\Colaborator.cs" />

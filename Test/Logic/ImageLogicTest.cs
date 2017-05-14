@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
 using Exceptions;
 using Logic;
+using Persistence;
 
 namespace Test
 {
@@ -40,9 +41,15 @@ namespace Test
         private readonly string formatOk = ".jpg";
         private readonly string urlOk = "/image/hola.jpg";
 
+        private Repository systemList;
+        private ImagePersistanceHandler imagePersistence;
+        private ImageHandler imageHandler;
+
         public ImageLogicTest()
         {
-
+            systemList = new Repository();
+            imagePersistence = new ImagePersistanceHandler(systemList);
+            imageHandler = new ImageHandler() { imageFunctions = imagePersistence };
         }
 
         private TestContext testContextInstance;
@@ -92,10 +99,89 @@ namespace Test
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, colaboratorCreator, teamOwner);
-            Image image = DataCreation.CreateImage(idOk, colaboratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
-            
-            User creator = colaboratorCreator;
+            image = DataCreation.CreateImage(idOk, colaboratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
+
+            imageHandler.imageFunctions.AddElement(image);
+
             Assert.AreEqual(idOk, image.id);
+        }
+
+        [TestMethod]
+        public void ImageWidthZero()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageWidthNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageWidthGreaterThanWidthBlackboard()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageHeightZero()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageHeightNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageHeightGreaterThanWidthBlackboard()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageFormatNull()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageFormatEmpty()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageUrlNUll()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageUrlEmpty()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageOriginPointZero()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageOriginPointNegative()
+        {
+
+        }
+
+        [TestMethod]
+        public void ImageUserCreatorNotBelongToTheTeam()
+        {
+
         }
     }
 }
