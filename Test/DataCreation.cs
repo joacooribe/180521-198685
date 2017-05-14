@@ -54,5 +54,19 @@ namespace Test
             blackboard.teamOwner = teamOwner;
             return blackboard;
         }
+
+        public static Image CreateImage(int id, User creator, Blackboard blackboardOwner, int width, int height, int originPoint, string url, string format)
+        {
+            Image image = new Image();
+            image.id = id;
+            image.creator = creator;
+            image.blackboardOwner = blackboardOwner;
+            image.width = width;
+            image.height = height;
+            image.originPoint = originPoint;
+            image.url = url;
+            image.format = format;
+            return image;
+        }
     }
 }

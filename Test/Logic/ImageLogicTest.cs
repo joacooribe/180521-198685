@@ -11,7 +11,6 @@ namespace Test
     [TestClass]
     public class ImageLogicTest
     {
-
         private Colaborator colaboratorCreator;
         private Administrator administratorCreator;
         private readonly string userNameOK = "Joaquin";
@@ -27,11 +26,19 @@ namespace Test
         private readonly string teamDescriptionOK = "this is Team 1";
         private readonly int teamMaxUsersOK = 5;
 
-        private Blackboard blackboard;
+        private Blackboard blackboardOwner;
         private readonly string blackboardNameOk = "Blackboard";
-        private readonly int widthOk = 23;
-        private readonly int heightOk = 20;
+        private readonly int blackboardWidthOk = 23;
+        private readonly int blackboardHeightOk = 20;
         private readonly string blackboardDescriptionOk = "Blackboard Team 1";
+
+        private Image image;
+        private readonly int idOk = 1;
+        private readonly int widthOk = 10;
+        private readonly int heightOk = 12;
+        private readonly int originPointOk = 0;
+        private readonly string formatOk = ".jpg";
+        private readonly string urlOk = "/image/hola.jpg";
 
         public ImageLogicTest()
         {
@@ -84,15 +91,11 @@ namespace Test
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, colaboratorCreator, teamOwner);
-            Image image = new Image();
-            int id = 1;
+            blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, colaboratorCreator, teamOwner);
+            Image image = DataCreation.CreateImage(idOk, colaboratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
+            
             User creator = colaboratorCreator;
-            Blackboard blackboardOwner = blackboard;
-            int width = 30;
-            int height = 30;
-            int originPoint = 0;
-            Assert.AreEqual(id, image.id);
+            Assert.AreEqual(idOk, image.id);
         }
     }
 }
