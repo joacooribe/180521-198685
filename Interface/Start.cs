@@ -21,6 +21,7 @@ namespace Interface
         public AdministratorHandler administratorHandler { get; set; }
         public ColaboratorHandler colaboratorHandler { get; set; }
         public TeamHandler teamHandler { get; set; }
+        public BlackboardHandler blackboardHandler { get; set; }
         public Start()
         {
             InitializeComponent();
@@ -57,6 +58,7 @@ namespace Interface
                 colaboratorUI.administratorHandler = this.administratorHandler;
                 colaboratorUI.colaboratorHandler = this.colaboratorHandler;
                 colaboratorUI.teamHandler = this.teamHandler;
+                colaboratorUI.blackboardHandler = this.blackboardHandler;
 
             }
             else if(RdoAdmin.Checked)

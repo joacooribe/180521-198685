@@ -69,6 +69,10 @@ namespace Persistence
             }
             return false;
         }
-      
+        public void LogOut()
+        {
+            systemCollection.session.user = null;
+        }
+
     }
 }

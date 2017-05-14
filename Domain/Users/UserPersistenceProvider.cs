@@ -11,5 +11,6 @@ namespace Domain
         User GetUserFromColecction(string mailOfUser);
         void ModifyPassword(string mailOfUser, string newPassword);
         bool ExistsUser(string mailOfUser);
+        void LogOut();
     }
 }

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label3 = new System.Windows.Forms.Label();
-            this.BtnRegister = new System.Windows.Forms.Button();
             this.TxtPassword = new System.Windows.Forms.TextBox();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -42,28 +40,6 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(532, 386);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 14);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "¿No esta registrado?";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // BtnRegister
-            // 
-            this.BtnRegister.BackColor = System.Drawing.SystemColors.Info;
-            this.BtnRegister.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRegister.Location = new System.Drawing.Point(550, 403);
-            this.BtnRegister.Name = "BtnRegister";
-            this.BtnRegister.Size = new System.Drawing.Size(87, 25);
-            this.BtnRegister.TabIndex = 5;
-            this.BtnRegister.Text = "Registrarse";
-            this.BtnRegister.UseVisualStyleBackColor = false;
-            // 
             // TxtPassword
             // 
             this.TxtPassword.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTabList;
@@ -75,7 +51,7 @@
             // 
             // TxtEmail
             // 
-            this.TxtEmail.Location = new System.Drawing.Point(248, 107);
+            this.TxtEmail.Location = new System.Drawing.Point(248, 106);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(184, 20);
             this.TxtEmail.TabIndex = 7;
@@ -119,20 +95,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(303, 89);
+            this.label1.Location = new System.Drawing.Point(201, 109);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 14);
+            this.label1.Size = new System.Drawing.Size(45, 14);
             this.label1.TabIndex = 9;
-            this.label1.Text = "E-mail";
+            this.label1.Text = "E-mail:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(303, 165);
+            this.label2.Location = new System.Drawing.Point(169, 185);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 14);
+            this.label2.Size = new System.Drawing.Size(77, 14);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Contraseña";
+            this.label2.Text = "Contraseña:";
             // 
             // label4
             // 
@@ -169,8 +145,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TxtEmail);
             this.Controls.Add(this.TxtPassword);
-            this.Controls.Add(this.BtnRegister);
-            this.Controls.Add(this.label3);
             this.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Start";
             this.Text = "Start";
@@ -183,8 +157,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button BtnRegister;
         private System.Windows.Forms.TextBox TxtPassword;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.GroupBox groupBox1;

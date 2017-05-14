@@ -20,6 +20,7 @@ namespace Interface
         public ColaboratorHandler colaboratorHandler { get; set; }
         public TeamHandler teamHandler { get; set; }
         public Repository repository { get; set; }
+        public BlackboardHandler blackboardHandler { get; set; }
         public ColaboratorUI(Session session, Repository repository)
         {
             this.session = session;
@@ -33,6 +34,16 @@ namespace Interface
         }
 
         private void ColaboratorUI_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnLogOut_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
