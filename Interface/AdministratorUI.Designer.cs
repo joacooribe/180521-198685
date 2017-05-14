@@ -57,7 +57,7 @@
             // BtnModify
             // 
             this.BtnModify.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModify.Location = new System.Drawing.Point(361, 25);
+            this.BtnModify.Location = new System.Drawing.Point(325, 25);
             this.BtnModify.Name = "BtnModify";
             this.BtnModify.Size = new System.Drawing.Size(75, 23);
             this.BtnModify.TabIndex = 2;
@@ -73,11 +73,12 @@
             this.BtnLogOut.TabIndex = 3;
             this.BtnLogOut.Text = "Cerrar Sesión";
             this.BtnLogOut.UseVisualStyleBackColor = true;
+            this.BtnLogOut.Click += new System.EventHandler(this.BtnLogOut_Click);
             // 
             // BtnReports
             // 
             this.BtnReports.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReports.Location = new System.Drawing.Point(213, 24);
+            this.BtnReports.Location = new System.Drawing.Point(188, 24);
             this.BtnReports.Name = "BtnReports";
             this.BtnReports.Size = new System.Drawing.Size(75, 23);
             this.BtnReports.TabIndex = 4;
@@ -107,6 +108,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "AdministratorUI";
             this.Text = "AdministratorUI";
+            this.Load += new System.EventHandler(this.AdministratorUI_Load);
             this.ResumeLayout(false);
 
         }

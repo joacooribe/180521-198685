@@ -73,6 +73,7 @@
             this.Location = new System.Drawing.Point(35, 86);
             this.Name = "TeamUI";
             this.Size = new System.Drawing.Size(680, 361);
+            this.Load += new System.EventHandler(this.TeamUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

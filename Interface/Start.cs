@@ -59,11 +59,18 @@ namespace Interface
                 colaboratorUI.colaboratorHandler = this.colaboratorHandler;
                 colaboratorUI.teamHandler = this.teamHandler;
                 colaboratorUI.blackboardHandler = this.blackboardHandler;
+                colaboratorUI.Show();
 
             }
             else if(RdoAdmin.Checked)
             {
                 this.administratorHandler.LogIn(email, password);
+                AdministratorUI administratorUI = new AdministratorUI(this.session, this.repository);
+                administratorUI.administratorHandler = this.administratorHandler;
+                administratorUI.colaboratorHandler = this.colaboratorHandler;
+                administratorUI.teamHandler = this.teamHandler;
+                administratorUI.blackboardHandler = this.blackboardHandler;
+                administratorUI.Show();
             }
         }
 

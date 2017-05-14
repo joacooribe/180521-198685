@@ -38,6 +38,7 @@
             this.ClientSize = new System.Drawing.Size(757, 478);
             this.Name = "BlackboardUI";
             this.Text = "BlackboardUI";
+            this.Load += new System.EventHandler(this.BlackboardUI_Load);
             this.ResumeLayout(false);
 
         }

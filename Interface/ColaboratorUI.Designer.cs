@@ -28,22 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnTeams = new System.Windows.Forms.Button();
             this.BtnModify = new System.Windows.Forms.Button();
             this.BtnLogOut = new System.Windows.Forms.Button();
             this.ColaboratorUIPanel = new System.Windows.Forms.Panel();
+            this.BtnTeams = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // BtnTeams
-            // 
-            this.BtnTeams.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTeams.Location = new System.Drawing.Point(35, 35);
-            this.BtnTeams.Name = "BtnTeams";
-            this.BtnTeams.Size = new System.Drawing.Size(75, 23);
-            this.BtnTeams.TabIndex = 0;
-            this.BtnTeams.Text = "Equipos";
-            this.BtnTeams.UseVisualStyleBackColor = true;
-            this.BtnTeams.Click += new System.EventHandler(this.button1_Click);
             // 
             // BtnModify
             // 
@@ -54,6 +43,7 @@
             this.BtnModify.TabIndex = 1;
             this.BtnModify.Text = "Modificar Usuario";
             this.BtnModify.UseVisualStyleBackColor = true;
+            this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
             // 
             // BtnLogOut
             // 
@@ -75,16 +65,27 @@
             this.ColaboratorUIPanel.TabIndex = 4;
             this.ColaboratorUIPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ColaboratorUIPanel_Paint);
             // 
+            // BtnTeams
+            // 
+            this.BtnTeams.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTeams.Location = new System.Drawing.Point(54, 35);
+            this.BtnTeams.Name = "BtnTeams";
+            this.BtnTeams.Size = new System.Drawing.Size(75, 23);
+            this.BtnTeams.TabIndex = 5;
+            this.BtnTeams.Text = "Equipos";
+            this.BtnTeams.UseVisualStyleBackColor = true;
+            this.BtnTeams.Click += new System.EventHandler(this.BtnTeams_Click);
+            // 
             // ColaboratorUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(757, 478);
+            this.Controls.Add(this.BtnTeams);
             this.Controls.Add(this.ColaboratorUIPanel);
             this.Controls.Add(this.BtnLogOut);
             this.Controls.Add(this.BtnModify);
-            this.Controls.Add(this.BtnTeams);
             this.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Name = "ColaboratorUI";
             this.Text = "ColaboratorUI";
@@ -94,10 +95,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button BtnTeams;
         private System.Windows.Forms.Button BtnModify;
         private System.Windows.Forms.Button BtnLogOut;
         private System.Windows.Forms.Panel ColaboratorUIPanel;
+        private System.Windows.Forms.Button BtnTeams;
     }
 }

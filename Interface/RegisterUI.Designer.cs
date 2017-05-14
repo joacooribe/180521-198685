@@ -162,6 +162,7 @@
             this.BtnCancel.TabIndex = 24;
             this.BtnCancel.Text = "Cancelar";
             this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // groupBox1
             // 
@@ -222,6 +223,7 @@
             this.Controls.Add(this.TxtName);
             this.Name = "RegisterUI";
             this.Text = "RegisterAdministratorUI";
+            this.Load += new System.EventHandler(this.RegisterUI_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
