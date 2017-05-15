@@ -35,7 +35,6 @@ namespace Test.Logic
         private readonly string blackboardDescriptionOk = "Blackboard Team 1";
 
         private TextBox textBox;
-        private readonly int idOk = 1;
         private readonly int widthOk = 10;
         private readonly int heightOk = 12;
         private readonly int originPointOk = 0;
