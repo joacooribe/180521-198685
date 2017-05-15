@@ -55,7 +55,9 @@
     <Compile Include="DataCreation.cs" />
     <Compile Include="Domain\AdministratorTest.cs" />
     <Compile Include="Domain\BlackboardTest.cs" />
+    <Compile Include="Domain\ImageTest.cs" />
     <Compile Include="Domain\TeamTest.cs" />
+    <Compile Include="Domain\TextBoxTest.cs" />
     <Compile Include="Logic\AdministratorLogicTest.cs" />
     <Compile Include="Domain\ColaboratorTest.cs" />
     <Compile Include="Logic\BlackboardLogicTest.cs" />
