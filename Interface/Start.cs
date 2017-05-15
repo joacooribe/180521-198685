@@ -53,7 +53,7 @@ namespace Interface
             string password = this.TxtPassword.Text;
             if(RdoColaborator.Checked)
             {
-                this.colaboratorHandler.LogIn(email,password);
+                this.colaboratorHandler.LoginColaborator(email,password);
                 ColaboratorUI colaboratorUI = new ColaboratorUI(this.session, this.repository);
                 colaboratorUI.administratorHandler = this.administratorHandler;
                 colaboratorUI.colaboratorHandler = this.colaboratorHandler;
@@ -64,7 +64,7 @@ namespace Interface
             }
             else if(RdoAdmin.Checked)
             {
-                this.administratorHandler.LogIn(email, password);
+                this.administratorHandler.LoginAdministrator(email, password);
                 AdministratorUI administratorUI = new AdministratorUI(this.session, this.repository);
                 administratorUI.administratorHandler = this.administratorHandler;
                 administratorUI.colaboratorHandler = this.colaboratorHandler;

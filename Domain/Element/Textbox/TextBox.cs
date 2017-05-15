@@ -21,7 +21,6 @@ namespace Domain
                 {
                     return true;
                 }
-
             }
             return false;
         }

@@ -38,17 +38,20 @@ namespace Logic
 
             colaboratorFunctions.ModifyPassword(mailOfColaborator, newPassword);
         }
-        public void LogIn(string mail, string password)
+        public void LoginColaborator(string mail, string password)
         {
+            User colaboratorLogIn = GetUserFromColecction(mail);
+            ValidateDifferentPassword(colaboratorLogIn.password, password);
             colaboratorFunctions.LoginColaborator(mail, password);
         }
-        private bool AreNotEqual(string element1, string element2)
+
+        private void ValidateDifferentPassword(string userPassword, string passwordRecived)
         {
-            if (element1.Equals(element2))
+            if (!userPassword.Equals(passwordRecived))
             {
-                return false;
+                throw new UserException(ExceptionMessage.userLogInInvalidPassword);
             }
-            return true;
+
         }
     }
 }

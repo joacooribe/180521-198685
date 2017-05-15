@@ -325,5 +325,22 @@ namespace Test
 
             blackboardHandler.AddBlackboard(blackboard);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(BlackboardException))]
+        public void AddTheSameBlackboard()
+        {
+            usersInTeam = new List<User>();
+
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(administratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
+
+            blackboardPersistence.AddBlackboard(blackboard);
+            blackboardPersistence.AddBlackboard(blackboard);
+        }
     }
 }

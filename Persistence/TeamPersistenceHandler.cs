@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using Exceptions;
 
 namespace Persistence
 {
@@ -18,7 +19,16 @@ namespace Persistence
 
         public void AddTeam(Team team)
         {
+            if (ExistsTeam(team))
+            {
+                throw new TeamException(ExceptionMessage.teamAlreadyExist);
+            }
             systemCollection.teamCollection.Add(team);
+        }
+
+        private bool ExistsTeam(Team team)
+        {
+            return systemCollection.teamCollection.Contains(team);
         }
 
         public Team GetTeamFromCollection(string nameOfTeam)

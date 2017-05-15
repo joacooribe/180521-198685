@@ -7,7 +7,7 @@ using Exceptions;
 using Logic;
 using Persistence;
 
-namespace Test.Logic
+namespace Test
 {
     [TestClass]
     public class TextBoxLogicTest

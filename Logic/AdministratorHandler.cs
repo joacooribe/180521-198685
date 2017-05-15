@@ -32,11 +32,22 @@ namespace Logic
             Utility.Utilites.ValidateMail(administrator.mail);
             Utility.Utilites.ValidateBirthDate(administrator.birthday);
         }
-        public void LogIn(string mail,string password)
+        public void LoginAdministrator(string mail,string password)
         {
-            administratorFunctions.LoginAdministrator(mail,password);
-
+            User administratorLogIn = GetUserFromColecction(mail);
+            ValidateDifferentPassword(administratorLogIn.password, password);
+            administratorFunctions.LoginAdministrator(mail, password);
         }
+
+        private void ValidateDifferentPassword(string userPassword, string passwordRecived)
+        {
+            if (!userPassword.Equals(passwordRecived))
+            {
+                throw new UserException(ExceptionMessage.userLogInInvalidPassword);
+            }
+            
+        }
+
         public void ModifyPassword(string mailOfAdministrator,string newPassword)
         {
             Utility.Utilites.ValidatePassword(newPassword);

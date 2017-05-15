@@ -7,9 +7,8 @@ using Logic;
 using Persistence;
 using Exceptions;
 
-namespace Test.Logic
+namespace Test
 {
-
     [TestClass]
     public class TeamLogicTest
     {
@@ -273,6 +272,20 @@ namespace Test.Logic
             teamHandler.AddTeam(team);
             string newDescription = "This is an invalid description since it passes the limit of 50 characters.";
             teamHandler.ModifyDescription(team.name, newDescription);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void AddTheSameTeam()
+        {
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam = new List<User>();
+            usersInTeam.Add(administratorCreator);
+
+            team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
+
+            teamHandler.AddTeam(team);
+            teamHandler.AddTeam(team);
         }
     }
 }

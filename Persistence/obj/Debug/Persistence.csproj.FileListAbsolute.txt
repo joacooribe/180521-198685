@@ -19,3 +19,5 @@ C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Debug\Domain.pdb
 C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Debug\Persistence.csprojResolveAssemblyReference.cache
 C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Debug\Persistence.dll
 C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Debug\Persistence.pdb
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Debug\Exceptions.dll
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Debug\Exceptions.pdb

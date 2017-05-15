@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using Exceptions;
 
 namespace Persistence
 {
@@ -19,7 +20,16 @@ namespace Persistence
 
         public void AddBlackboard(Blackboard blackboard)
         {
+            if (ExistBlackboard(blackboard))
+            {
+                throw new BlackboardException(ExceptionMessage.blackboardAlreadyExist);
+            }
             systemCollection.blackboardCollection.Add(blackboard);
+        }
+
+        private bool ExistBlackboard(Blackboard blackboard)
+        {
+            return systemCollection.blackboardCollection.Contains(blackboard);
         }
     }
 }
