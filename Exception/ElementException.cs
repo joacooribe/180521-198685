@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Exceptions
 {
+    [Serializable]
     public class ElementException : Exception
     {
-
+        public ElementException(string message) : base(message)
+        {
+        }
     }
 }

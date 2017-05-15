@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Exceptions
 {
+    [Serializable]
     public class TeamException : Exception
     {
+        public TeamException(string message) : base(message)
+        {
+        }
     }
 }

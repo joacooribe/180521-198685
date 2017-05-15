@@ -14,7 +14,7 @@ namespace Utility
         {
             if (blackboardOwner == null)
             {
-                throw new ElementException();
+                throw new ElementException(ExceptionMessage.elementBlackboardNull);
             }
         }
 
@@ -28,7 +28,7 @@ namespace Utility
         {
             if (DoesNotBelongToTheUserList(teamOwner.usersInTeam, creator))
             {
-                throw new ElementException();
+                throw new ElementException(ExceptionMessage.elementUserDoesNotBelongToTheTeam);
             }
         }
 
@@ -41,7 +41,7 @@ namespace Utility
         {
             if (creator == null)
             {
-                throw new ElementException();
+                throw new ElementException(ExceptionMessage.elementUserNull);
             }
         }
 
@@ -54,7 +54,7 @@ namespace Utility
         {
             if (number < 0)
             {
-                throw new ElementException();
+                throw new ElementException(ExceptionMessage.elementNegativeNumber);
             }
         }
 
@@ -69,7 +69,7 @@ namespace Utility
         {
             if (number == 0)
             {
-                throw new ElementException();
+                throw new ElementException(ExceptionMessage.elementHeightOrWidthZero);
             }
         }
 
@@ -77,7 +77,7 @@ namespace Utility
         {
             if (elementSize > blackboardSize)
             {
-                throw new ElementException();
+                throw new ElementException(ExceptionMessage.elementGreaterThanBlackboard);
             }
         }
 

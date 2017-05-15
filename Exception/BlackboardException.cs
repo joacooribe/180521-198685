@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Exceptions
 {
+    [Serializable]
     public class BlackboardException : Exception
     {
+        public BlackboardException(string message) : base(message)
+        {
+        }
     }
 }

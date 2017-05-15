@@ -13,11 +13,19 @@ namespace Utility
         private static readonly string VALID_CHARS_PASSWORD = "^(?=.*[a-zA-Z])(?=.*[0-9])";
         private static readonly string VALID_CHARS_MAIL = @"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$";
 
-        public static void ValidateNameOrSurname(string name)
+        public static void ValidateName(string name)
         {
             if (ValidationOfStrings(name))
             {
-                throw new UserException();
+                throw new UserException(ExceptionMessage.userNameNull);
+            }
+        }
+
+        public static void ValidateSurname(string name)
+        {
+            if (ValidationOfStrings(name))
+            {
+                throw new UserException(ExceptionMessage.userSurnameNull);
             }
         }
 
@@ -36,7 +44,7 @@ namespace Utility
         {
             if (ValidationOfPassword(password))
             {
-                throw new UserException();
+                throw new UserException(ExceptionMessage.userPasswordInvalid);
             }
         }
         
@@ -58,7 +66,7 @@ namespace Utility
             
             if (ValidationOfMail(mail))
             {
-                throw new UserException();
+                throw new UserException(ExceptionMessage.userMailInvail);
             }
             
         }
@@ -78,7 +86,7 @@ namespace Utility
         {
             if (ValidateIsNotFutureDate(date))
             {
-                throw new UserException();
+                throw new UserException(ExceptionMessage.userBirthdateInvalid);
             }
         }
 

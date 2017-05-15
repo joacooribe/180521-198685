@@ -46,7 +46,7 @@ namespace Logic
         {
             if (String.IsNullOrEmpty(font))
             {
-                throw new TextBoxException();
+                throw new TextBoxException(ExceptionMessage.textBoxFontNullOrEmpty);
             }
         }
 
@@ -60,7 +60,7 @@ namespace Logic
         {
             if(fontSize < 0)
             {
-                throw new TextBoxException();
+                throw new TextBoxException(ExceptionMessage.textBoxNegativeFontSize);
             }
         }
 
@@ -68,7 +68,7 @@ namespace Logic
         {
             if(fontSize == 0)
             {
-                throw new TextBoxException();
+                throw new TextBoxException(ExceptionMessage.textBoxFontSizeZero);
             }
         }
 
@@ -81,7 +81,7 @@ namespace Logic
         {
             if(content == null)
             {
-                throw new TextBoxException();
+                throw new TextBoxException(ExceptionMessage.textBoxContentNull);
             }
         }
     }

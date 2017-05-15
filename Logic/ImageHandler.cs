@@ -56,7 +56,7 @@ namespace Logic
         {
             if (NotAcceptedFormat(format))
             {
-                throw new ImageException();
+                throw new ImageException(ExceptionMessage.imageNotAcceptedFormat);
             }
         }
 
@@ -70,7 +70,7 @@ namespace Logic
         {
             if (String.IsNullOrEmpty(text))
             {
-                throw new ImageException();
+                throw new ImageException(ExceptionMessage.imageFormatOrUrlNullOrEmpty);
             }
         }
 

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Exceptions
 {
+    [Serializable]
     public class AdministratorException : Exception
     {
+        public AdministratorException(string message) : base(message)
+        {
+        }
     }
 }

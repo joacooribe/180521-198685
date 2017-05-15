@@ -33,7 +33,7 @@ namespace Logic
         {
             if(elementsInBlackboard == null)
             {
-                throw new BlackboardException();
+                throw new BlackboardException(ExceptionMessage.blackboardElementCollecionNull);
             }
         }
 
@@ -41,7 +41,7 @@ namespace Logic
         {
             if(teamOwner == null)
             {
-                throw new BlackboardException();
+                throw new BlackboardException(ExceptionMessage.blackboardTeamOwnerNull);
             }
         }
 
@@ -61,7 +61,7 @@ namespace Logic
         {
             if(height < 0)
             {
-                throw new BlackboardException();
+                throw new BlackboardException(ExceptionMessage.blackboardHeightOrWidthNegative);
             }
         }
 
@@ -69,7 +69,7 @@ namespace Logic
         {
             if(height == 0)
             {
-                throw new BlackboardException();
+                throw new BlackboardException(ExceptionMessage.blackboardHeightOrWidthZero);
             }
         }
 
@@ -77,7 +77,7 @@ namespace Logic
         {
             if(userOwner == null)
             {
-                throw new BlackboardException();
+                throw new BlackboardException(ExceptionMessage.blackboardUserCreatorNull);
             }
         }
 
@@ -91,7 +91,7 @@ namespace Logic
         {
             if(description.Length > 50)
             {
-                throw new BlackboardException();
+                throw new BlackboardException(ExceptionMessage.blackboardDescriptionSize);
             }
         }
 
@@ -105,7 +105,7 @@ namespace Logic
         {
             if (string.IsNullOrEmpty(text))
             {
-                throw new BlackboardException();
+                throw new BlackboardException(ExceptionMessage.blackboardDescriptionAndNameNull);
             }
         }
 
@@ -113,7 +113,7 @@ namespace Logic
         {
             if(name.Length > 20)
             {
-                throw new BlackboardException();
+                throw new BlackboardException(ExceptionMessage.blackboardNameSize);
             }
         }
     }

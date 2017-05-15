@@ -25,8 +25,8 @@ namespace Logic
 
         private void ValidateAdministrator(Administrator administrator)
         {
-            Utility.Utilites.ValidateNameOrSurname(administrator.name);
-            Utility.Utilites.ValidateNameOrSurname(administrator.surname);
+            Utility.Utilites.ValidateName(administrator.name);
+            Utility.Utilites.ValidateSurname(administrator.surname);
             Utility.Utilites.ValidatePassword(administrator.password);
             Utility.Utilites.ValidateMail(administrator.mail);
             Utility.Utilites.ValidateBirthDate(administrator.birthday);

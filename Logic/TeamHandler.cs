@@ -34,7 +34,7 @@ namespace Logic
 
             if (ValidateNullOrEmpty(name))
             {
-                throw new TeamException();
+                throw new TeamException(ExceptionMessage.teamNameNullOrEmpty);
             }
         }
         private static bool ValidateNullOrEmpty(string element)
@@ -46,7 +46,7 @@ namespace Logic
         {
             if (adminCreator==null)
             {
-                throw new TeamException();
+                throw new TeamException(ExceptionMessage.teamOwnerNull);
             }
         }
         private static void ValidateDescriptionOfTeam(string description)
@@ -54,7 +54,7 @@ namespace Logic
 
             if (ValidateNullOrEmpty(description) || ValidateCorrectLenghtDescription(description.Length))
             {
-                throw new TeamException();
+                throw new TeamException(ExceptionMessage.teamDescriptionInvalid);
             }
         }
 
@@ -68,7 +68,7 @@ namespace Logic
 
             if (ValidateNumberIsZero(users.Count))
             {
-                throw new TeamException();
+                throw new TeamException(ExceptionMessage.teamUserListEmpty);
             }
         }
         private static bool ValidateNumberIsZero(int element)
@@ -81,7 +81,7 @@ namespace Logic
 
             if (ValidateNumberIsZero(max))
             {
-                throw new TeamException();
+                throw new TeamException(ExceptionMessage.teamMaxUsers);
             }
         }
 
@@ -90,7 +90,7 @@ namespace Logic
 
             if (ValidateMoreUsersThanMaximum(users,max))
             {
-                throw new TeamException();
+                throw new TeamException(ExceptionMessage.teamUsersListFull);
             }
         }
         private static bool ValidateMoreUsersThanMaximum(ICollection<User> users, int max)
@@ -101,7 +101,7 @@ namespace Logic
         {
             if (ValidateIsNotFutureDate(date))
             {
-                throw new TeamException();
+                throw new TeamException(ExceptionMessage.teamFutureDate);
             }
         }
         private static bool ValidateIsNotFutureDate(DateTime date)
@@ -117,7 +117,7 @@ namespace Logic
             Team teamToModify = GetTeamFromCollection(nameOfTeam);
             if (ValidateNewMaxUsers(teamToModify,newMax))
             {
-                throw new TeamException();
+                throw new TeamException(ExceptionMessage.teamModifyMaxUsers);
             }
             teamFunctions.ModifyMaxUsers(teamToModify, newMax);
         }
@@ -135,7 +135,7 @@ namespace Logic
             Team teamToModify = GetTeamFromCollection(nameOfTeam);
             if (ValidateNullOrEmpty(newDescription) || ValidateCorrectLenghtDescription(newDescription.Length))
             {
-                throw new TeamException();
+                throw new TeamException(ExceptionMessage.teamDescriptionInvalid);
             }
             teamFunctions.ModifyDescription(teamToModify, newDescription);
         }

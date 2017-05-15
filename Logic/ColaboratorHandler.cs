@@ -25,8 +25,8 @@ namespace Logic
 
         private void ValidateColaborator(Colaborator colaborator)
         {
-            Utility.Utilites.ValidateNameOrSurname(colaborator.name);
-            Utility.Utilites.ValidateNameOrSurname(colaborator.surname);
+            Utility.Utilites.ValidateName(colaborator.name);
+            Utility.Utilites.ValidateSurname(colaborator.surname);
             Utility.Utilites.ValidatePassword(colaborator.password);
             Utility.Utilites.ValidateMail(colaborator.mail);
             Utility.Utilites.ValidateBirthDate(colaborator.birthday);

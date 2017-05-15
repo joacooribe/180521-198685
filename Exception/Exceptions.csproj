@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BlackboardException.cs" />
     <Compile Include="ElementException.cs" />
+    <Compile Include="ExceptionMessage.cs" />
     <Compile Include="ImageException.cs" />
     <Compile Include="TeamException.cs" />
     <Compile Include="TextBoxException.cs" />

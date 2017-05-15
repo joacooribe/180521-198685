@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Exceptions
 {
+    [Serializable]
     public class ColaboratorException : Exception
     {
+        public ColaboratorException(string message) : base(message)
+        {
+        }
     }
 }
