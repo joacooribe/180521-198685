@@ -16,7 +16,7 @@ namespace Interface
 {
     public partial class Start : Form
     {
-        public Session session { get; set; }
+        ///public Session session { get; set; }
         public Repository repository { get; set; }
         public AdministratorHandler administratorHandler { get; set; }
         public ColaboratorHandler colaboratorHandler { get; set; }
@@ -27,10 +27,9 @@ namespace Interface
         public ColaboratorPersistenceHandler colaboratorPersistence { get; set; }
         public TeamPersistenceHandler teamPersistence { get; set; }
         public BlackboardPersistenceHandler blackboardPersistence { get; set; }
-        public Start()
+        public Start(Repository repository)
         {
-            this.repository = new Repository();
-            repository.session = session;
+            this.repository = repository;
             this.administratorPersistence = new AdministratorPersistenceHandler(this.repository);
             this.colaboratorPersistence = new ColaboratorPersistenceHandler(this.repository);
             this.teamPersistence = new TeamPersistenceHandler(this.repository);
@@ -54,23 +53,25 @@ namespace Interface
             if(RdoColaborator.Checked)
             {
                 this.colaboratorHandler.LoginColaborator(email,password);
-                ColaboratorUI colaboratorUI = new ColaboratorUI(this.session, this.repository);
+                ColaboratorUI colaboratorUI = new ColaboratorUI(this.repository.session, this.repository);
                 colaboratorUI.administratorHandler = this.administratorHandler;
                 colaboratorUI.colaboratorHandler = this.colaboratorHandler;
                 colaboratorUI.teamHandler = this.teamHandler;
                 colaboratorUI.blackboardHandler = this.blackboardHandler;
                 colaboratorUI.Show();
+                this.Hide();
 
             }
             else if(RdoAdmin.Checked)
             {
                 this.administratorHandler.LoginAdministrator(email, password);
-                AdministratorUI administratorUI = new AdministratorUI(this.session, this.repository);
+                AdministratorUI administratorUI = new AdministratorUI(this.repository.session, this.repository);
                 administratorUI.administratorHandler = this.administratorHandler;
                 administratorUI.colaboratorHandler = this.colaboratorHandler;
                 administratorUI.teamHandler = this.teamHandler;
                 administratorUI.blackboardHandler = this.blackboardHandler;
                 administratorUI.Show();
+                this.Hide();
             }
         }
 
@@ -82,12 +83,22 @@ namespace Interface
         private void BtnGenerate_Click(object sender, EventArgs e)
         {
             Colaborator colaborator1 = new Colaborator();
-            colaborator1.name = "Joaquin";
-            colaborator1.surname = "Oribe";
-            colaborator1.mail = "joaco@gmail.com";
-            colaborator1.password = "joaquin1";
+            colaborator1.name = "Colab";
+            colaborator1.surname = "Orator";
+            colaborator1.mail = "colab@gmail.com";
+            colaborator1.password = "colaborator1";
             colaborator1.birthday = new DateTime(1992, 9, 10);
             repository.colaboratorCollection.Add(colaborator1);
+
+            Administrator administrator1 = new Administrator();
+            administrator1.name = "Admin";
+            administrator1.surname = "Istrator";
+            administrator1.mail = "admin@admin.com";
+            administrator1.password = "administrator1";
+            administrator1.birthday = new DateTime(1992, 9, 10);
+            repository.administratorCollection.Add(administrator1);
+
+            this.label5.Visible= true;
         }
     }
 }

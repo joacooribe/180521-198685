@@ -23,8 +23,8 @@ namespace Interface
         public BlackboardHandler blackboardHandler { get; set; }
         public ColaboratorUI(Session session, Repository repository)
         {
-            this.session = session;
             this.repository = repository;
+
             InitializeComponent();
         }
 
@@ -40,14 +40,14 @@ namespace Interface
 
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
-            Start start = new Start();
+            Start start = new Start(this.repository);
             start.administratorHandler = this.administratorHandler;
             start.colaboratorHandler = this.colaboratorHandler;
             start.teamHandler = this.teamHandler;
             start.blackboardHandler = this.blackboardHandler;
 
-            this.session.user = null;
-            start.session = this.session;
+            this.repository.session.user = null;
+            start.repository.session = this.repository.session;
             this.Hide();
             start.Show();
 

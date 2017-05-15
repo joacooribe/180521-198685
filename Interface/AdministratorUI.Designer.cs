@@ -43,6 +43,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(680, 361);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // BtnTeams
             // 
@@ -53,6 +54,7 @@
             this.BtnTeams.TabIndex = 1;
             this.BtnTeams.Text = "Equipos";
             this.BtnTeams.UseVisualStyleBackColor = true;
+            this.BtnTeams.Click += new System.EventHandler(this.BtnTeams_Click);
             // 
             // BtnModify
             // 
@@ -93,6 +95,7 @@
             this.BtnRegister.TabIndex = 5;
             this.BtnRegister.Text = "Crear Usuario";
             this.BtnRegister.UseVisualStyleBackColor = true;
+            this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
             // 
             // AdministratorUI
             // 

@@ -39,6 +39,7 @@
             this.BtnLogIn = new System.Windows.Forms.Button();
             this.BtnGenerate = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,12 +154,24 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Generar datos de prueba";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label5.Location = new System.Drawing.Point(546, 429);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(195, 14);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Se generaron los datos de prueba";
+            this.label5.Visible = false;
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(784, 475);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnGenerate);
             this.Controls.Add(this.BtnLogIn);
@@ -191,5 +204,6 @@
         private System.Windows.Forms.Button BtnLogIn;
         private System.Windows.Forms.Button BtnGenerate;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
     }
 }
