@@ -28,7 +28,7 @@ namespace Test
         private readonly int teamMaxUsersOK = 5;
 
         private Blackboard blackboardOwner;
-        private Blackboard anotherBlackboard;
+        private Blackboard anotherBlackboardOwner;
         private readonly string blackboardNameOk = "Blackboard";
         private readonly string anotherBlackboardNameOk = "Another Blackboard";
         private readonly int blackboardWidthOk = 23;
@@ -109,7 +109,73 @@ namespace Test
             anotherTextBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
             anotherTextBox.id = textBox.id;
 
-            Assert.IsTrue(textBox.Equals(anotherTextBox));            
+            Assert.IsTrue(textBox.Equals(anotherTextBox));        
+        }
+
+        [TestMethod]
+        public void TextBoxDifferentIdAndSameBlackboard()
+        {
+            usersInTeam = new List<User>();
+
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(administratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
+
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBoxHandler.AddElement(textBox);
+
+            anotherTextBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBoxHandler.AddElement(anotherTextBox);
+
+            Assert.IsFalse(textBox.Equals(anotherTextBox));
+        }
+
+        [TestMethod]
+        public void TextBoxSameIdAndDifferentBlackboard()
+        {
+            usersInTeam = new List<User>();
+
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(administratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
+            anotherBlackboardOwner = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
+
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBoxHandler.AddElement(textBox);
+
+            anotherTextBox = DataCreation.CreateTextBox(administratorCreator, anotherBlackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            anotherTextBox.id = textBox.id;
+
+            Assert.IsFalse(textBox.Equals(anotherTextBox));
+        }
+
+
+        [TestMethod]
+        public void TextBoxDifferentIdAndDifferentBlackboard()
+        {
+            usersInTeam = new List<User>();
+
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(administratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
+            anotherBlackboardOwner = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
+
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBoxHandler.AddElement(textBox);
+
+            anotherTextBox = DataCreation.CreateTextBox(administratorCreator, anotherBlackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBoxHandler.AddElement(anotherTextBox);
+
+            Assert.IsFalse(textBox.Equals(anotherTextBox));
         }
     }
 }
