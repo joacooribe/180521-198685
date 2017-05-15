@@ -110,7 +110,6 @@
             this.Controls.Add(this.BtnDeleteTeam);
             this.Controls.Add(this.BtnSelect);
             this.Controls.Add(this.LstTeams);
-            this.Location = new System.Drawing.Point(35, 86);
             this.Name = "TeamAdministratorUI";
             this.Size = new System.Drawing.Size(680, 361);
             this.Load += new System.EventHandler(this.TeamAdministratorUI_Load);

@@ -21,6 +21,7 @@ namespace Interface
         public TeamHandler teamHandler { get; set; }
         public Repository repository { get; set; }
         public BlackboardHandler blackboardHandler { get; set; }
+
         public RegisterUI(Session session, Repository repository)
         {
             InitializeComponent();
@@ -41,6 +42,35 @@ namespace Interface
             administratorUI.blackboardHandler = this.blackboardHandler;
             this.Hide();
             administratorUI.Show();
+        }
+
+        private void BtnRegister_Click(object sender, EventArgs e)
+        {
+            string name = TxtName.ToString();
+            string surname = TxtSurname.ToString();
+            string mail = TxtEmail.ToString();
+            string password = TxtPassword.ToString();
+            DateTime birthdate = DTBirthdate.Value;
+            if (RdoAdmin.Checked)
+            {
+                Administrator adminToAdd = new Administrator();
+                adminToAdd.name = name;
+                adminToAdd.surname = surname;
+                adminToAdd.mail = mail;
+                adminToAdd.password = password;
+                adminToAdd.birthday = birthdate;
+                this.administratorHandler.AddAdministrator(adminToAdd);
+            }
+            else if (RdoColaborator.Checked)
+            {
+                Colaborator colabToAdd = new Colaborator();
+                colabToAdd.name = name;
+                colabToAdd.surname = surname;
+                colabToAdd.mail = mail;
+                colabToAdd.password = password;
+                colabToAdd.birthday = birthdate;
+                this.colaboratorHandler.AddColaborator(colabToAdd);
+            }
         }
     }
 }
