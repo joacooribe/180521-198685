@@ -82,5 +82,14 @@ namespace Test
             textBox.font = font;
             return textBox;
         }
+
+        internal static Comment CreateComment(string descriptionOk, DateTime creationDateOk, User userCreator)
+        {
+            Comment comment = new Comment();
+            comment.creationDate = creationDateOk;
+            comment.userCreator = userCreator;
+            comment.description = descriptionOk;
+            return comment;
+        }
     }
 }

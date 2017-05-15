@@ -43,6 +43,7 @@
     <Compile Include="Blackboard\Blackboard.cs" />
     <Compile Include="Blackboard\BlackboardPersistenceProvider.cs" />
     <Compile Include="Comment.cs" />
+    <Compile Include="CommentPersistenceProvider.cs" />
     <Compile Include="Element\Element.cs" />
     <Compile Include="Element\ElementPersistanceProvider.cs" />
     <Compile Include="Element\Image\Image.cs" />

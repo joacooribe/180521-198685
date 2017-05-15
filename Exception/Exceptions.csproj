@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlackboardException.cs" />
+    <Compile Include="CommentException.cs" />
     <Compile Include="ElementException.cs" />
     <Compile Include="ExceptionMessage.cs" />
     <Compile Include="ImageException.cs" />
