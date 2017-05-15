@@ -94,7 +94,22 @@ namespace Test
         [TestMethod]
         public void TextBoxSameIdAndSameBlackboard()
         {
+            usersInTeam = new List<User>();
 
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(administratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
+
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBoxHandler.AddElement(textBox);
+
+            anotherTextBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            anotherTextBox.id = textBox.id;
+
+            Assert.IsTrue(textBox.Equals(anotherTextBox));            
         }
     }
 }
