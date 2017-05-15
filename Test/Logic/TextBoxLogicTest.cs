@@ -418,5 +418,25 @@ namespace Test
 
             textBoxHandler.AddElement(textBox);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ElementException))]
+        public void TextBoxCommentCollectionNull()
+        {
+            usersInTeam = new List<User>();
+
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(administratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
+
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+
+            textBox.commentCollection = null;
+
+            textBoxHandler.AddElement(textBox);
+        }
     }
 }

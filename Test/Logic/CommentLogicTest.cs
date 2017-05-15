@@ -37,15 +37,28 @@ namespace Test
 
         private Comment comment;
         private DateTime creationDateOk = new DateTime(2017, 3, 3);
-        private DateTime resolvedDate;
-        private User userCreator;
-        private User userSolver;
-        private readonly bool commentResolved;
         private readonly string commentDescriptionOk = "This is the description of the comment";
+
+        private Image image;
+        private TextBox textBox;
+        private readonly int imageWidthOk = 10;
+        private readonly int imageHeightOk = 12;
+        private readonly int originPointOk = 0;
+        private readonly string formatOk = ".jpg";
+        private readonly string urlOk = "/image/hola.jpg";
+        private readonly string contentOk = "This is an example";
+        private readonly string fontOk = "Times New Roman";
+        private readonly int fontSizeOk = 14;
+
+        private Repository systemList;
+        private CommentPersistanceHandler commentPersistence;
+        private CommentHandler commentHandler;
 
         public CommentLogicTest()
         {
-
+            systemList = new Repository();
+            commentPersistence = new CommentPersistanceHandler(systemList);
+            commentHandler = new CommentHandler() { commentFunctions = commentPersistence };
         }
 
         private TestContext testContextInstance;
@@ -85,7 +98,7 @@ namespace Test
         #endregion
 
         [TestMethod]
-        public void commentOkCreatedByColaborator()
+        public void commentOkCreatedByColaboratorForImage()
         {
             usersInTeam = new List<User>();
 
@@ -97,13 +110,17 @@ namespace Test
 
             blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, colaboratorCreator, teamOwner);
 
-            comment = DataCreation.CreateComment(commentDescriptionOk, creationDateOk, colaboratorCreator);
+            image = DataCreation.CreateImage(administratorCreator, blackboard, imageWidthOk, imageHeightOk, originPointOk, urlOk, formatOk);
 
-            Assert.IsTrue(true);
+            comment = DataCreation.CreateComment(commentDescriptionOk, creationDateOk, colaboratorCreator, image);
+
+            commentHandler.AddComment(comment);
+
+            Assert.AreEqual(commentDescriptionOk,comment.description);
         }
 
         [TestMethod]
-        public void commentOkCreatedByAdministrator()
+        public void commentOkCreatedByAdministratorForTextBox()
         {
             usersInTeam = new List<User>();
 
@@ -114,52 +131,121 @@ namespace Test
 
             blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
-            comment = DataCreation.CreateComment(commentDescriptionOk, creationDateOk, administratorCreator);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboard, imageWidthOk, imageHeightOk, originPointOk, contentOk, fontOk, fontSizeOk);
 
-            Assert.IsTrue(true);
+            comment = DataCreation.CreateComment(commentDescriptionOk, creationDateOk, administratorCreator, textBox);
+
+            commentHandler.AddComment(comment);
+
+            Assert.AreEqual(commentDescriptionOk, comment.description);
         }
 
         [TestMethod]
         [ExpectedException(typeof(CommentException))]
         public void commentInvaliCreationDate()
         {
+            usersInTeam = new List<User>();
 
-        }
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(colaboratorCreator);
 
-        [TestMethod]
-        [ExpectedException(typeof(CommentException))]
-        public void commentInvaliResolvedDate()
-        {
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-        }
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
-        [TestMethod]
-        [ExpectedException(typeof(CommentException))]
-        public void commentDescriptionNull()
-        {
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboard, imageWidthOk, imageHeightOk, originPointOk, contentOk, fontOk, fontSizeOk);
 
+            DateTime invalidDate = new DateTime(2018, 10, 5);
+
+            comment = DataCreation.CreateComment(commentDescriptionOk, invalidDate, administratorCreator, textBox);
+
+            commentHandler.AddComment(comment);
         }
 
         [TestMethod]
         [ExpectedException(typeof(CommentException))]
         public void commentDescriptionEmpty()
         {
+            usersInTeam = new List<User>();
 
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(colaboratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
+
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboard, imageWidthOk, imageHeightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+
+            string invalidDescription = "";
+
+            comment = DataCreation.CreateComment(invalidDescription, creationDateOk, administratorCreator, textBox);
+
+            commentHandler.AddComment(comment);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(CommentException))]
+        public void commentDescriptionNull()
+        {
+            usersInTeam = new List<User>();
+
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(colaboratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
+
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboard, imageWidthOk, imageHeightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+
+            string invalidDescription = null;
+
+            comment = DataCreation.CreateComment(invalidDescription, creationDateOk, administratorCreator, textBox);
+
+            commentHandler.AddComment(comment);
         }
 
         [TestMethod]
         [ExpectedException(typeof(CommentException))]
         public void commentDescriptionInvalidSize()
         {
+            usersInTeam = new List<User>();
 
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(colaboratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
+
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboard, imageWidthOk, imageHeightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+
+            string invalidDescription = "This is an invalid size of description because it is to long, only accept 50 characters";
+
+            comment = DataCreation.CreateComment(invalidDescription, creationDateOk, administratorCreator, textBox);
+
+            commentHandler.AddComment(comment);
         }
 
         [TestMethod]
         [ExpectedException(typeof(CommentException))]
         public void commentUserCreatorNull()
         {
+            usersInTeam = new List<User>();
 
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(colaboratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
+
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboard, imageWidthOk, imageHeightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+
+            comment = DataCreation.CreateComment(commentDescriptionOk, creationDateOk, null, textBox);
+
+            commentHandler.AddComment(comment);
         }
-
     }
 }

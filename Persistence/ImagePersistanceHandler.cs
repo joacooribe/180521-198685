@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using Exceptions;
 
 namespace Persistence
 {
@@ -35,7 +36,7 @@ namespace Persistence
                     return image;
                 }
             }
-            throw new Exception();
+            throw new ImageException(ExceptionMessage.imageNotFound);
         }
     }
 }

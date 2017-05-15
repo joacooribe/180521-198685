@@ -22,11 +22,10 @@ namespace Logic
             ValidateNameOfTeam(team.name);
             ValidateCreator(team.creator);
             ValidateDescriptionOfTeam(team.description);
-            ValidateEmptyTeam(team.usersInTeam);
+            ValidateUsersInTeam(team.usersInTeam);
             ValidateMaxUsers(team.maxUsers);
             ValidateAmountOnCollectionNotOverMax(team.usersInTeam, team.maxUsers);
             ValidateCreationDate(team.creationDate);
-
         }
         
         private static void ValidateNameOfTeam(string name)
@@ -63,14 +62,28 @@ namespace Logic
             return element > 50;
         }
 
+        private static void ValidateUsersInTeam(ICollection<User> users)
+        {
+            ValiadteNullUserInTeam(users);
+            ValidateEmptyTeam(users);
+        }
+
         private static void ValidateEmptyTeam(ICollection<User> users)
         {
-
             if (ValidateNumberIsZero(users.Count))
             {
                 throw new TeamException(ExceptionMessage.teamUserListEmpty);
             }
         }
+
+        private static void ValiadteNullUserInTeam(ICollection<User> users)
+        {
+            if(users == null)
+            {
+                throw new TeamException(ExceptionMessage.usersInTeamNull);
+            }
+        }
+
         private static bool ValidateNumberIsZero(int element)
         {
             return element == 0;

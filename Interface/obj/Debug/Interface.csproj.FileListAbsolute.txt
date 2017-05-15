@@ -46,7 +46,6 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.TeamUI.resources
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\Interface.exe
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.exe
-C:\Users\Usuario\Documents\180521-198685\Interface\bin\Debug\Interface.dll
 C:\Users\Usuario\Documents\180521-198685\Interface\bin\Debug\Interface.pdb
 C:\Users\Usuario\Documents\180521-198685\Interface\bin\Debug\Domain.dll
 C:\Users\Usuario\Documents\180521-198685\Interface\bin\Debug\Logic.dll
@@ -68,5 +67,6 @@ C:\Users\Usuario\Documents\180521-198685\Interface\obj\Debug\Interface.Start.res
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Debug\Interface.TeamAdministratorUI.resources
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Debug\Interface.TeamUI.resources
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Debug\Interface.csproj.GenerateResource.Cache
-C:\Users\Usuario\Documents\180521-198685\Interface\obj\Debug\Interface.dll
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Debug\Interface.pdb
+C:\Users\Usuario\Documents\180521-198685\Interface\bin\Debug\Interface.exe
+C:\Users\Usuario\Documents\180521-198685\Interface\obj\Debug\Interface.exe

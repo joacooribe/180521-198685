@@ -28,6 +28,7 @@ namespace Exceptions
         public static string teamFutureDate = "La fecha de creacio no puede mayor a la fecha actual";
         public static string teamModifyMaxUsers = "La cantidad maxima de usuarios no puede ser menor a la cantidad actual";
         public static string teamAlreadyExist = "El nombre del equipo ya existe";
+        public static string usersInTeamNull = "No se ha inicializado la lista de usuarios";
 
         //Blackboard Exceptions
         public static string blackboardElementCollecionNull = "La lista de elementos del pizarron no puede ser nula";
@@ -47,6 +48,7 @@ namespace Exceptions
         public static string elementNegativeNumber = "El largo, ancho y punto de origen del elemento no pueden ser negativos";
         public static string elementHeightOrWidthZero = "El largo y el ancho del elemento no pueden ser cero";
         public static string elementGreaterThanBlackboard = "El tamaño del elemento no puede mayor al del pizarron";
+        public static string elementCommentCollectionNull = "No se ha inicializado la lista de comentarios";
 
         //TextBox Exceptions
         public static string textBoxFontNullOrEmpty = "La fuente del cuadro de texto no puede ser nula o vacia";
@@ -57,7 +59,7 @@ namespace Exceptions
         //Image Exceptions
         public static string imageNotAcceptedFormat = "El formato de la imagen debe ser: .jgp, .png, .gif o .jpeg";
         public static string imageFormatOrUrlNullOrEmpty = "El formato y la url no puede ser nulos o vacios";
-
+        public static string imageNotFound = "No existe la imagen solicitada";
     }
 
 }

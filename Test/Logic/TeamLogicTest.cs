@@ -276,6 +276,18 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
+        public void TeamUserCollectionNull()
+        {
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam = null;
+
+            team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
+
+            teamHandler.AddTeam(team);  
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
         public void AddTheSameTeam()
         {
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);

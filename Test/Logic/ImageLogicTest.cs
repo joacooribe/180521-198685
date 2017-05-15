@@ -416,5 +416,25 @@ namespace Test
 
             imageHandler.AddElement(image);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ElementException))]
+        public void ImageCommentCollectionNull()
+        {
+            usersInTeam = new List<User>();
+
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(administratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
+
+            image = DataCreation.CreateImage(null, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
+
+            image.commentCollection = null;
+
+            imageHandler.AddElement(image);
+        }
     }
 }

@@ -37,6 +37,7 @@ namespace Logic
         private void ValidateImage(Element element)
         {
             Image image = (Image)element;
+            Utility.UtilityElement.ValidateCommentCollection(image.commentCollection);
             Utility.UtilityElement.ValidateBlackboard(image.blackboardOwner);
             Utility.UtilityElement.ValidateUser(image.blackboardOwner, image.creator);
             Utility.UtilityElement.ValidateWidth(image.width, image.blackboardOwner);

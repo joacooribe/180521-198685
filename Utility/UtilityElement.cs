@@ -32,6 +32,14 @@ namespace Utility
             }
         }
 
+        public static void ValidateCommentCollection(ICollection<Comment> commentCollection)
+        {
+            if(commentCollection == null)
+            {
+                throw new ElementException(ExceptionMessage.elementCommentCollectionNull);
+            }
+        }
+
         private static bool DoesNotBelongToTheUserList(ICollection<User> usersInTeam, User creator)
         {
             return !usersInTeam.Contains(creator);

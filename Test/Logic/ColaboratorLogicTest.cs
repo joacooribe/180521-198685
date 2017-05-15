@@ -473,7 +473,7 @@ namespace Test
 
         [ExpectedException(typeof(UserException))]
         [TestMethod]
-        public void AddTheSameAdministrator()
+        public void AddTheSameColaborator()
         {
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);

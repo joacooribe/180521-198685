@@ -14,5 +14,6 @@ namespace Domain
         public int width { get; set; }
         public int height { get; set; }
         public int originPoint { get; set; }
+        public ICollection<Comment> commentCollection { get; set; }
     }
 }

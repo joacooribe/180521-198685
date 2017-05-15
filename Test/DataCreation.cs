@@ -66,6 +66,7 @@ namespace Test
             image.originPoint = originPoint;
             image.url = url;
             image.format = format;
+            image.commentCollection = new List<Comment>();
             return image;
         }
 
@@ -80,15 +81,17 @@ namespace Test
             textBox.content = content;
             textBox.fontSize = fontSize;
             textBox.font = font;
+            textBox.commentCollection = new List<Comment>();
             return textBox;
         }
 
-        internal static Comment CreateComment(string descriptionOk, DateTime creationDateOk, User userCreator)
+        internal static Comment CreateComment(string descriptionOk, DateTime creationDateOk, User userCreator, Element element)
         {
             Comment comment = new Comment();
             comment.creationDate = creationDateOk;
             comment.userCreator = userCreator;
             comment.description = descriptionOk;
+            comment.elementOwner = element;
             return comment;
         }
     }

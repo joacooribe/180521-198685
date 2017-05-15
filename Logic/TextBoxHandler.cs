@@ -27,6 +27,7 @@ namespace Logic
         private void ValidateTextBox(Element element)
         {
             TextBox textBox = (TextBox)element;
+            Utility.UtilityElement.ValidateCommentCollection(textBox.commentCollection);
             Utility.UtilityElement.ValidateBlackboard(textBox.blackboardOwner);
             Utility.UtilityElement.ValidateUser(textBox.blackboardOwner, textBox.creator);
             Utility.UtilityElement.ValidateWidth(textBox.width, textBox.blackboardOwner);
