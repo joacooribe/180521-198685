@@ -15,7 +15,6 @@ namespace Utility
 
         public static void ValidateNameOrSurname(string name)
         {
-            
             if (ValidationOfStrings(name))
             {
                 throw new UserException();

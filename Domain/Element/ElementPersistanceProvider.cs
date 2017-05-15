@@ -9,6 +9,6 @@ namespace Domain
     public interface ElementPersistanceProvider
     {
         void AddElement(Element element);
-        //Element GetElementFromCollection();
+        Element GetElementFromCollection(int idElement, Blackboard blackboardOwner);
     }
 }

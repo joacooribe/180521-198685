@@ -7,11 +7,11 @@ using Domain;
 
 namespace Persistence
 {
-    public class ImagePersistanceHandler : ImagePersistenceProvider
+    public class TextBoxPersistanceHandler : TextBoxPersistenceProvider
     {
         public Repository systemCollection;
 
-        public ImagePersistanceHandler(Repository collection)
+        public TextBoxPersistanceHandler(Repository collection)
         {
             systemCollection = collection;
         }
@@ -23,8 +23,8 @@ namespace Persistence
 
         public Element GetElementFromCollection(int idElement, Blackboard blackboardOwner)
         {
-            Element image = new Image();
-            return image;
+            Element textBox = new TextBox();
+            return textBox;
         }
     }
 }

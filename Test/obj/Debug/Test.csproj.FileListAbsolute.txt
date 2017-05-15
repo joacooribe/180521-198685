@@ -14,8 +14,6 @@ C:\Users\Fido\Documents\180521-198685\Test\obj\Debug\Test.dll
 C:\Users\Fido\Documents\180521-198685\Test\obj\Debug\Test.pdb
 C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Persistence.pdb
 C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Persistence.dll
-C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Exception.dll
-C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Exception.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Exception.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Persistence.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Exception.pdb
@@ -43,3 +41,5 @@ C:\Users\Usuario\Documents\180521-198685\Test\bin\Debug\Utility.pdb
 C:\Users\Usuario\Documents\180521-198685\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 C:\Users\Usuario\Documents\180521-198685\Test\obj\Debug\Test.dll
 C:\Users\Usuario\Documents\180521-198685\Test\obj\Debug\Test.pdb
+C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Exceptions.dll
+C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Exceptions.pdb

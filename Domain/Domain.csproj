@@ -46,6 +46,8 @@
     <Compile Include="Element\ElementPersistanceProvider.cs" />
     <Compile Include="Element\Image\Image.cs" />
     <Compile Include="Element\Image\ImagePersistenceProvider.cs" />
+    <Compile Include="Element\Textbox\TextBox.cs" />
+    <Compile Include="Element\Textbox\TextBoxPersistenceProvider.cs" />
     <Compile Include="Users\Administrator\Administrator.cs" />
     <Compile Include="Users\Administrator\AdministratorPersistenceProvider.cs" />
     <Compile Include="Users\Colaborator\Colaborator.cs" />
@@ -56,6 +58,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\UserPersistenceProvider.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

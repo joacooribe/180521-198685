@@ -46,6 +46,7 @@
     <Compile Include="ImageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TeamHandler.cs" />
+    <Compile Include="TextBoxHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public interface ImagePersistenceProvider : ElementPersistanceProvider
+    public interface TextBoxPersistenceProvider : ElementPersistanceProvider
     {
         new void AddElement(Element element);
         new Element GetElementFromCollection(int idElement, Blackboard blackboardOwner);

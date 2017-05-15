@@ -7,8 +7,8 @@
     <ProjectGuid>{98C139E8-83CC-4E7F-9439-23DAACB5980C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Exception</RootNamespace>
-    <AssemblyName>Exception</AssemblyName>
+    <RootNamespace>Exceptions</RootNamespace>
+    <AssemblyName>Exceptions</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,6 +43,7 @@
     <Compile Include="BlackboardException.cs" />
     <Compile Include="ImageException.cs" />
     <Compile Include="TeamException.cs" />
+    <Compile Include="TextBoxException.cs" />
     <Compile Include="User Exceptions\AdministratorException.cs" />
     <Compile Include="User Exceptions\ColaboratorException.cs" />
     <Compile Include="User Exceptions\UserException.cs" />

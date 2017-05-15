@@ -9,7 +9,7 @@ namespace Test
 {
     class DataCreation
     {
-        public static Administrator CreateAdministrator(string name, string surname, string mail, string password, DateTime birthday)
+        internal static Administrator CreateAdministrator(string name, string surname, string mail, string password, DateTime birthday)
         {
             Administrator administrator = new Administrator();
             administrator.name = name;
@@ -20,7 +20,7 @@ namespace Test
             return administrator;
         }
 
-        public static Colaborator CreateColaborator(string name, string surname, string mail, string password, DateTime birthday)
+        internal static Colaborator CreateColaborator(string name, string surname, string mail, string password, DateTime birthday)
         {
             Colaborator colaborator = new Colaborator();
             colaborator.name = name;
@@ -31,7 +31,7 @@ namespace Test
             return colaborator;
         }
 
-        public static Team CreateTeam(string name, DateTime creationDate, Administrator creator, string description, int maxUsers, ICollection<User> usersInTeam)
+        internal static Team CreateTeam(string name, DateTime creationDate, Administrator creator, string description, int maxUsers, ICollection<User> usersInTeam)
         {
             Team team = new Team();
             team.name = name;
@@ -43,7 +43,7 @@ namespace Test
             return team;
         }
 
-        public static Blackboard CreateBlackboard(string name, string description, int height, int width, User userOwner, Team teamOwner)
+        internal static Blackboard CreateBlackboard(string name, string description, int height, int width, User userOwner, Team teamOwner)
         {
             Blackboard blackboard = new Blackboard();
             blackboard.name = name;
@@ -56,7 +56,7 @@ namespace Test
             return blackboard;
         }
 
-        public static Image CreateImage(int id, User creator, Blackboard blackboardOwner, int width, int height, int originPoint, string url, string format)
+        internal static Image CreateImage(int id, User creator, Blackboard blackboardOwner, int width, int height, int originPoint, string url, string format)
         {
             Image image = new Image();
             image.id = id;
@@ -68,6 +68,21 @@ namespace Test
             image.url = url;
             image.format = format;
             return image;
+        }
+
+        internal static TextBox CreateTextBox(int id, User creator, Blackboard blackboardOwner, int width, int height, int originPoint, string content, string font, int fontSize)
+        {
+            TextBox textBox = new TextBox();
+            textBox.id = id;
+            textBox.creator = creator;
+            textBox.blackboardOwner = blackboardOwner;
+            textBox.width = width;
+            textBox.height = height;
+            textBox.originPoint = originPoint;
+            textBox.content = content;
+            textBox.fontSize = fontSize;
+            textBox.font = font;
+            return textBox;
         }
     }
 }
