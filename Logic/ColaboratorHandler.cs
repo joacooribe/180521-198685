@@ -38,9 +38,21 @@ namespace Logic
 
             colaboratorFunctions.ModifyPassword(mailOfColaborator, newPassword);
         }
-        public void LogIn(string mail, string password)
+        public void LoginColaborator(string mail, string password)
         {
+            User colaboratorLogIn = GetUserFromColecction(mail);
+            ValidateDifferentPassword(colaboratorLogIn.password, password);
             colaboratorFunctions.LoginColaborator(mail, password);
         }
+
+        private void ValidateDifferentPassword(string userPassword, string passwordRecived)
+        {
+            if (!userPassword.Equals(passwordRecived))
+            {
+                throw new UserException(ExceptionMessage.userLogInInvalidPassword);
+            }
+
+        }
+
     }
 }

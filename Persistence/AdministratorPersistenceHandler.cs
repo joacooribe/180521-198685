@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using Exceptions;
 
 namespace Persistence
 {
@@ -20,7 +21,7 @@ namespace Persistence
         {
             if (ExistsUser(administrator.mail))
             {
-                throw new Exception();
+                throw new UserException(ExceptionMessage.userAlreadyExist);
             }
             systemCollection.administratorCollection.Add(administrator);
         }
@@ -36,20 +37,13 @@ namespace Persistence
                     return administrator;
                 }
             }
-            throw new Exception();
+            throw new UserException(ExceptionMessage.userNotExist);
         }
 
         public void LoginAdministrator(string mail, string password)
         {
             User administratorLogIn = GetUserFromColecction(mail);
-            if (administratorLogIn.password.Equals(password))
-            {
-                systemCollection.session.user = administratorLogIn;
-            }
-            else
-            {
-                throw new Exception();
-            }
+            systemCollection.session.user = administratorLogIn;
         }
         public void ModifyPassword(string mailOfAdministrator,string newPassword)
         {

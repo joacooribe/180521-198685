@@ -426,6 +426,59 @@ namespace Test
             colaboratorHandler.ModifyPassword(colaborator.mail, newPassword);
         }
 
+        [TestMethod]
+        public void ColaboratorLoginOk()
+        {
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+            colaboratorHandler.AddColaborator(colaborator);
 
+            colaboratorHandler.LoginColaborator(colaborator.mail, colaborator.password);
+            Assert.AreEqual(colaborator, systemList.session.user);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void ColaboratorLoginWrongPassword()
+        {
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+            colaboratorHandler.AddColaborator(colaborator);
+
+            string invalidPassword = "invalid";
+
+            colaboratorHandler.LoginColaborator(colaborator.mail, invalidPassword);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void ColaboratorLoginWrongMail()
+        {
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+            colaboratorHandler.AddColaborator(colaborator);
+
+            string invalidMail = "invalidMail";
+
+            colaboratorHandler.LoginColaborator(invalidMail, colaborator.password);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void ColaboratorLoginUserNotExist()
+        {
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+            colaboratorHandler.AddColaborator(colaborator);
+
+            string notExistUser = "diego@gmail.com";
+
+            colaboratorHandler.LoginColaborator(notExistUser, colaborator.mail);
+        }
+
+        [ExpectedException(typeof(UserException))]
+        [TestMethod]
+        public void AddTheSameAdministrator()
+        {
+            colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+            colaboratorHandler.AddColaborator(colaborator);
+            colaboratorHandler.AddColaborator(colaborator);
+        }
     }
 }

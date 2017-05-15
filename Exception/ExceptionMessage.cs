@@ -14,7 +14,9 @@ namespace Exceptions
         public static string userBirthdateInvalid = "La fecha de nacimiento no puede ser mayor a la fecha acutal";
         public static string userPasswordInvalid = "La contraseña no puede ser nula o vacia y debe tener almenos 6 caracteres, inlcuyendo numeros y letras";
         public static string userMailInvail = "El mail no puede ser nulo o vacio, y debe se del estilo: nombreMail@gmail.com";
-
+        public static string userLogInInvalidPassword = "La contraseña ingresada es incorrecta";
+        public static string userAlreadyExist = "El mail que ingreso ya esta registrado";
+        public static string userNotExist = "El mail que ingreso no existe";
 
         //Team Exceptions
         public static string teamNameNullOrEmpty = "El nombre del equipo no puede ser nulo o vacio";
@@ -25,7 +27,7 @@ namespace Exceptions
         public static string teamUsersListFull = "No se puden ingresar mas usuario, cantidad maxima alcanzada";
         public static string teamFutureDate = "La fecha de creacio no puede mayor a la fecha actual";
         public static string teamModifyMaxUsers = "La cantidad maxima de usuarios no puede ser menor a la cantidad actual";
-
+        public static string teamAlreadyExist = "El nombre del equipo ya existe";
 
         //Blackboard Exceptions
         public static string blackboardElementCollecionNull = "La lista de elementos del pizarron no puede ser nula";
@@ -36,6 +38,7 @@ namespace Exceptions
         public static string blackboardDescriptionAndNameNull = "El nombre y descripcion del pizarron no pueden ser nulos o vacios";
         public static string blackboardNameSize = "El nombre del pizarron no puede superar los 20 caracteres";
         public static string blackboardUserCreatorNull = "El pizarron debe tener un usuario creador";
+        public static string blackboardAlreadyExist = "El nombre de pizarron ingresado ya existe en este equipo";
 
         //Element Exceptions
         public static string elementBlackboardNull = "El elemento debe pertenecer a un pizarron";

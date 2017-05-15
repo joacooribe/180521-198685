@@ -11,6 +11,8 @@ namespace Domain
         public DateTime creationDate { get; set; }
         public DateTime resolvedDate { get; set; }
         public User userCreator { get; set; }
-        public User userResolving { get; set; }
+        public User userSolver { get; set; }
+        public bool commentResolved { get; set; }
+        public string description { get; set; }
     }
 }

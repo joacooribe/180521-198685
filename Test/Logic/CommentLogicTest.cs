@@ -3,7 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Test.Logic
+namespace Test
 {
     [TestClass]
     public class CommentLogicTest

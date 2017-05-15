@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
 
-namespace Test.Domain
+namespace Test
 {
-
     [TestClass]
     public class ColaboratorTest
     {

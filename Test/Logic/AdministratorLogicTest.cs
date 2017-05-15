@@ -10,7 +10,6 @@ using Logic;
 
 namespace Test
 {
-
     [TestClass]
     public class AdministratorLogicTest
     {
@@ -412,6 +411,59 @@ namespace Test
             administratorHandler.ModifyPassword(administrator.mail, newPassword);
         }
 
+        [TestMethod]
+        public void AdministratorLoginOk()
+        {
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+            administratorHandler.AddAdministrator(administrator);
 
+            administratorHandler.LoginAdministrator(administrator.mail, administrator.password);
+            Assert.AreEqual(administrator, systemList.session.user);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorLoginWrongPassword()
+        {
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+            administratorHandler.AddAdministrator(administrator);
+
+            string invalidPassword = "invalid";
+
+            administratorHandler.LoginAdministrator(administrator.mail, invalidPassword);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorLoginWrongMail()
+        {
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+            administratorHandler.AddAdministrator(administrator);
+
+            string invalidMail = "invalidMail";
+
+            administratorHandler.LoginAdministrator(invalidMail, administrator.mail);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void AdministratorLoginUserNotExist()
+        {
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+            administratorHandler.AddAdministrator(administrator);
+
+            string notExistUser= "diego@gmail.com";
+
+            administratorHandler.LoginAdministrator(notExistUser, administrator.mail);
+        }
+
+        [ExpectedException(typeof(UserException))]
+        [TestMethod]
+        public void AddTheSameAdministrator()
+        {
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+            administratorHandler.AddAdministrator(administrator);
+            administratorHandler.AddAdministrator(administrator);
+        }
     }
 }

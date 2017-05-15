@@ -46,9 +46,7 @@
     <Compile Include="ImageException.cs" />
     <Compile Include="TeamException.cs" />
     <Compile Include="TextBoxException.cs" />
-    <Compile Include="User Exceptions\AdministratorException.cs" />
-    <Compile Include="User Exceptions\ColaboratorException.cs" />
-    <Compile Include="User Exceptions\UserException.cs" />
+    <Compile Include="UserException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
