@@ -9,6 +9,7 @@ namespace Persistence
 {
     public class Repository
     {
+        public Session session { get; set; }
         public ICollection<Colaborator> colaboratorCollection { get; }
         public ICollection<Administrator> administratorCollection { get; }
         public ICollection<Team> teamCollection { get; }
@@ -16,6 +17,7 @@ namespace Persistence
         private int idElement;
         
         public Repository() {
+            session = new Session();
             colaboratorCollection = new List<Colaborator>();
             administratorCollection = new List<Administrator>();
             teamCollection = new List<Team>();

@@ -48,6 +48,7 @@
     <Compile Include="Element\Image\ImagePersistenceProvider.cs" />
     <Compile Include="Element\Textbox\TextBox.cs" />
     <Compile Include="Element\Textbox\TextBoxPersistenceProvider.cs" />
+    <Compile Include="Session.cs" />
     <Compile Include="Users\Administrator\Administrator.cs" />
     <Compile Include="Users\Administrator\AdministratorPersistenceProvider.cs" />
     <Compile Include="Users\Colaborator\Colaborator.cs" />

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using Exceptions;
 
 namespace Logic
 {
@@ -36,6 +37,18 @@ namespace Logic
             Utility.Utilites.ValidatePassword(newPassword);
 
             colaboratorFunctions.ModifyPassword(mailOfColaborator, newPassword);
+        }
+        public void LogIn(string mail, string password)
+        {
+            colaboratorFunctions.LoginColaborator(mail, password);
+        }
+        private bool AreNotEqual(string element1, string element2)
+        {
+            if (element1.Equals(element2))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

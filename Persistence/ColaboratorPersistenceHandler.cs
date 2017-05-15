@@ -40,11 +40,19 @@ namespace Persistence
             }
             throw new Exception();
         }
-
-        public void LoginColaborator(string mail, string password)
+        public void LoginColaborator(string mail,string password)
         {
-            
+            User ColaboradorLogIn = GetUserFromColecction(mail);
+            if (ColaboradorLogIn.password.Equals(password))
+            {
+                systemCollection.session.user = ColaboradorLogIn;
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
+
         public void ModifyPassword(string mailOfColaborator, string newPassword)
         {
             User colaboratorToChangePassword = GetUserFromColecction(mailOfColaborator);
@@ -60,6 +68,10 @@ namespace Persistence
                 }
             }
             return false;
+        }
+        public void LogOut()
+        {
+            systemCollection.session.user = null;
         }
 
     }
