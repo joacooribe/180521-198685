@@ -22,30 +22,30 @@ namespace Interface
         public ColaboratorHandler colaboratorHandler { get; set; }
         public TeamHandler teamHandler { get; set; }
         public BlackboardHandler blackboardHandler { get; set; }
+
+        public AdministratorPersistenceHandler administratorPersistence{get;set;}
+        public ColaboratorPersistenceHandler colaboratorPersistence { get; set; }
+        public TeamPersistenceHandler teamPersistence { get; set; }
+        public BlackboardPersistenceHandler blackboardPersistence { get; set; }
         public Start()
         {
+            this.repository = new Repository();
+            repository.session = session;
+            this.administratorPersistence = new AdministratorPersistenceHandler(this.repository);
+            this.colaboratorPersistence = new ColaboratorPersistenceHandler(this.repository);
+            this.teamPersistence = new TeamPersistenceHandler(this.repository);
+            this.blackboardPersistence = new BlackboardPersistenceHandler(this.repository);
+
+            this.administratorHandler = new AdministratorHandler() { administratorFunctions = administratorPersistence };
+            this.colaboratorHandler = new ColaboratorHandler() { colaboratorFunctions = colaboratorPersistence };
+            this.teamHandler = new TeamHandler() { teamFunctions = teamPersistence };
+            this.blackboardHandler = new BlackboardHandler() { blackboardFunctions = blackboardPersistence };
+
+            
+
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnColabSession_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void BtnLogIn_Click(object sender, EventArgs e)
         {
@@ -77,6 +77,17 @@ namespace Interface
         private void Start_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnGenerate_Click(object sender, EventArgs e)
+        {
+            Colaborator colaborator1 = new Colaborator();
+            colaborator1.name = "Joaquin";
+            colaborator1.surname = "Oribe";
+            colaborator1.mail = "joaco@gmail.com";
+            colaborator1.password = "joaquin1";
+            colaborator1.birthday = new DateTime(1992, 9, 10);
+            repository.colaboratorCollection.Add(colaborator1);
         }
     }
 }

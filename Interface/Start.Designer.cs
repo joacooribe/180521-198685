@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnLogIn = new System.Windows.Forms.Button();
+            this.BtnGenerate = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,12 +134,33 @@
             this.BtnLogIn.UseVisualStyleBackColor = false;
             this.BtnLogIn.Click += new System.EventHandler(this.BtnLogIn_Click);
             // 
+            // BtnGenerate
+            // 
+            this.BtnGenerate.Location = new System.Drawing.Point(598, 403);
+            this.BtnGenerate.Name = "BtnGenerate";
+            this.BtnGenerate.Size = new System.Drawing.Size(75, 23);
+            this.BtnGenerate.TabIndex = 13;
+            this.BtnGenerate.Text = "Generar";
+            this.BtnGenerate.UseVisualStyleBackColor = true;
+            this.BtnGenerate.Click += new System.EventHandler(this.BtnGenerate_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(565, 386);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(148, 14);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Generar datos de prueba";
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(784, 475);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.BtnGenerate);
             this.Controls.Add(this.BtnLogIn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -166,5 +189,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnLogIn;
+        private System.Windows.Forms.Button BtnGenerate;
+        private System.Windows.Forms.Label label3;
     }
 }

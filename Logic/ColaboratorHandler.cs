@@ -42,13 +42,5 @@ namespace Logic
         {
             colaboratorFunctions.LoginColaborator(mail, password);
         }
-        private bool AreNotEqual(string element1, string element2)
-        {
-            if (element1.Equals(element2))
-            {
-                return false;
-            }
-            return true;
-        }
     }
 }

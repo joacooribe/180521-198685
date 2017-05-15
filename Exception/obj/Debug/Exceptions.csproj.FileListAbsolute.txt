@@ -1,9 +1,5 @@
 C:\Users\Fido\Documents\180521-198685\Exception\obj\Debug\Exceptions.csprojResolveAssemblyReference.cache
-C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Debug\Exception.dll
-C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Debug\Exception.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\obj\Debug\Exceptions.csprojResolveAssemblyReference.cache
-C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\obj\Debug\Exception.dll
-C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\obj\Debug\Exception.pdb
 C:\Users\Usuario\Documents\180521-198685\Exception\bin\Debug\Exception.dll
 C:\Users\Usuario\Documents\180521-198685\Exception\bin\Debug\Exception.pdb
 C:\Users\Usuario\Documents\180521-198685\Exception\obj\Debug\Exceptions.csprojResolveAssemblyReference.cache
@@ -13,3 +9,7 @@ C:\Users\Fido\Documents\180521-198685\Exception\bin\Debug\Exceptions.dll
 C:\Users\Fido\Documents\180521-198685\Exception\bin\Debug\Exceptions.pdb
 C:\Users\Fido\Documents\180521-198685\Exception\obj\Debug\Exceptions.dll
 C:\Users\Fido\Documents\180521-198685\Exception\obj\Debug\Exceptions.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Debug\Exceptions.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Debug\Exceptions.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\obj\Debug\Exceptions.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\obj\Debug\Exceptions.pdb

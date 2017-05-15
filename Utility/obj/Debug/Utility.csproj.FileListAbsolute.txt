@@ -5,8 +5,6 @@ C:\Users\Fido\Documents\180521-198685\Utility\obj\Debug\Utility.dll
 C:\Users\Fido\Documents\180521-198685\Utility\obj\Debug\Utility.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\Utility.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\Utility.pdb
-C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\Exception.dll
-C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\Exception.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\obj\Debug\Utility.csprojResolveAssemblyReference.cache
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\obj\Debug\Utility.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\obj\Debug\Utility.pdb
@@ -21,3 +19,7 @@ C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Exceptions.dll
 C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Exceptions.pdb
 C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Domain.dll
 C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Domain.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\Domain.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\Exceptions.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\Domain.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\Exceptions.pdb
