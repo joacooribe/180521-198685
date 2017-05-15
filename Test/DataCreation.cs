@@ -56,10 +56,9 @@ namespace Test
             return blackboard;
         }
 
-        internal static Image CreateImage(int id, User creator, Blackboard blackboardOwner, int width, int height, int originPoint, string url, string format)
+        internal static Image CreateImage(User creator, Blackboard blackboardOwner, int width, int height, int originPoint, string url, string format)
         {
             Image image = new Image();
-            image.id = id;
             image.creator = creator;
             image.blackboardOwner = blackboardOwner;
             image.width = width;
@@ -70,10 +69,9 @@ namespace Test
             return image;
         }
 
-        internal static TextBox CreateTextBox(int id, User creator, Blackboard blackboardOwner, int width, int height, int originPoint, string content, string font, int fontSize)
+        internal static TextBox CreateTextBox(User creator, Blackboard blackboardOwner, int width, int height, int originPoint, string content, string font, int fontSize)
         {
             TextBox textBox = new TextBox();
-            textBox.id = id;
             textBox.creator = creator;
             textBox.blackboardOwner = blackboardOwner;
             textBox.width = width;

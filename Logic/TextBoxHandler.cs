@@ -18,6 +18,12 @@ namespace Logic
             textBoxFunctions.AddElement(textBox);
         }
 
+        public Element GetElementFromCollection(int idElement, Blackboard blackboardOwner)
+        {
+            Utility.UtilityElement.ValidateBlackboard(blackboardOwner);
+            return textBoxFunctions.GetElementFromCollection(idElement, blackboardOwner);
+        }
+
         private void ValidateTextBox(Element element)
         {
             TextBox textBox = (TextBox)element;
@@ -46,12 +52,37 @@ namespace Logic
 
         private void ValidateFontSize(int fontSize)
         {
-            throw new NotImplementedException();
+            ValidateZero(fontSize);
+            ValidateNegativeNumber(fontSize);
+        }
+
+        private void ValidateNegativeNumber(int fontSize)
+        {
+            if(fontSize < 0)
+            {
+                throw new TextBoxException();
+            }
+        }
+
+        private void ValidateZero(int fontSize)
+        {
+            if(fontSize == 0)
+            {
+                throw new TextBoxException();
+            }
         }
 
         private void ValidateContent(string content)
         {
-            throw new NotImplementedException();
+            ValidateNull(content);
+        }
+
+        private void ValidateNull(string content)
+        {
+            if(content == null)
+            {
+                throw new TextBoxException();
+            }
         }
     }
 }

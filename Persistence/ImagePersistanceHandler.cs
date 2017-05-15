@@ -18,13 +18,24 @@ namespace Persistence
 
         public void AddElement(Element element)
         {
+            element.id = systemCollection.AsignNumberToElement();
             element.blackboardOwner.elementsInBlackboard.Add(element);
         }
 
         public Element GetElementFromCollection(int idElement, Blackboard blackboardOwner)
         {
             Element image = new Image();
-            return image;
+            image.id = idElement;
+            image.blackboardOwner = blackboardOwner;
+            foreach (Element elementFromColecction in blackboardOwner.elementsInBlackboard)
+            {
+                if (elementFromColecction.Equals(image))
+                {
+                    image = elementFromColecction;
+                    return image;
+                }
+            }
+            throw new Exception();
         }
     }
 }

@@ -35,7 +35,6 @@ namespace Test
         private readonly string blackboardDescriptionOk = "Blackboard Team 1";
 
         private Image image;
-        private readonly int idOk = 1;
         private readonly int widthOk = 10;
         private readonly int heightOk = 12;
         private readonly int originPointOk = 0;
@@ -100,11 +99,11 @@ namespace Test
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
 
             imageHandler.AddElement(image);
 
-            Assert.AreEqual(idOk, image.id);
+            Assert.AreEqual(image,imageHandler.GetElementFromCollection(image.id,image.blackboardOwner));
         }
 
         [TestMethod]
@@ -119,11 +118,11 @@ namespace Test
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, colaboratorCreator, teamOwner);
-            image = DataCreation.CreateImage(idOk, colaboratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
+            image = DataCreation.CreateImage(colaboratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
 
             imageHandler.AddElement(image);
 
-            Assert.AreEqual(idOk, image.id);
+            Assert.AreEqual(image, imageHandler.GetElementFromCollection(image.id, image.blackboardOwner));
         }
 
         [TestMethod]
@@ -141,7 +140,7 @@ namespace Test
 
             int invalidWidth = 0;
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, urlOk, formatOk);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, urlOk, formatOk);
 
             imageHandler.AddElement(image);
         }
@@ -161,7 +160,7 @@ namespace Test
 
             int invalidWidth = -1;
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, urlOk, formatOk);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, urlOk, formatOk);
 
             imageHandler.AddElement(image);
         }
@@ -181,7 +180,7 @@ namespace Test
 
             int invalidWidth = 100;
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, urlOk, formatOk);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, urlOk, formatOk);
 
             imageHandler.AddElement(image);
         }
@@ -201,7 +200,7 @@ namespace Test
 
             int invalidHeight = 0;
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, urlOk, formatOk);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, urlOk, formatOk);
 
             imageHandler.AddElement(image);
         }
@@ -221,7 +220,7 @@ namespace Test
 
             int invalidHeight = -1;
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, urlOk, formatOk);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, urlOk, formatOk);
 
             imageHandler.AddElement(image);
         }
@@ -241,7 +240,7 @@ namespace Test
 
             int invalidHeight = 100;
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, urlOk, formatOk);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, urlOk, formatOk);
 
             imageHandler.AddElement(image);
         }
@@ -261,7 +260,7 @@ namespace Test
 
             string invalidFormat = null;
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, invalidFormat);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, invalidFormat);
 
             imageHandler.AddElement(image);
         }
@@ -281,7 +280,7 @@ namespace Test
 
             string invalidFormat = "";
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, invalidFormat);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, invalidFormat);
 
             imageHandler.AddElement(image);
         }
@@ -301,7 +300,7 @@ namespace Test
 
             string invalidFormat = ".mp4";
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, invalidFormat);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, invalidFormat);
 
             imageHandler.AddElement(image);
         }
@@ -321,7 +320,7 @@ namespace Test
 
             string invalidUrl = null;
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, invalidUrl, formatOk);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, invalidUrl, formatOk);
 
             imageHandler.AddElement(image);
         }
@@ -341,7 +340,7 @@ namespace Test
 
             string invalidUrl = "";
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, invalidUrl, formatOk);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, invalidUrl, formatOk);
 
             imageHandler.AddElement(image);
         }
@@ -361,7 +360,7 @@ namespace Test
 
             int invalidOriginPoint = -1;
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, invalidOriginPoint, urlOk, formatOk);
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, invalidOriginPoint, urlOk, formatOk);
 
             imageHandler.AddElement(image);
         }
@@ -379,7 +378,7 @@ namespace Test
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
-            image = DataCreation.CreateImage(idOk, colaboratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
+            image = DataCreation.CreateImage(colaboratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
 
             imageHandler.AddElement(image);
         }
@@ -395,7 +394,7 @@ namespace Test
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            image = DataCreation.CreateImage(idOk, administratorCreator, null, widthOk, heightOk, originPointOk, urlOk, formatOk);
+            image = DataCreation.CreateImage(administratorCreator, null, widthOk, heightOk, originPointOk, urlOk, formatOk);
 
             imageHandler.AddElement(image);
         }
@@ -413,7 +412,7 @@ namespace Test
 
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
 
-            image = DataCreation.CreateImage(idOk, null, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
+            image = DataCreation.CreateImage(null, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
 
             imageHandler.AddElement(image);
         }

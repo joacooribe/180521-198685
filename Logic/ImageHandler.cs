@@ -28,6 +28,12 @@ namespace Logic
             imageFunctions.AddElement(image);
         }
 
+        public Element GetElementFromCollection(int idElement, Blackboard blackboardOwner)
+        {
+            Utility.UtilityElement.ValidateBlackboard(blackboardOwner);
+            return imageFunctions.GetElementFromCollection(idElement, blackboardOwner);
+        }
+
         private void ValidateImage(Element element)
         {
             Image image = (Image)element;

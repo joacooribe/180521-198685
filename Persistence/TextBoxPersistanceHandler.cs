@@ -18,13 +18,29 @@ namespace Persistence
 
         public void AddElement(Element element)
         {
-            element.blackboardOwner.elementsInBlackboard.Add(element);
+            AddElementToTheBlackboard(element, element.blackboardOwner);
+        }
+
+        private void AddElementToTheBlackboard(Element element, Blackboard blackboardOwner)
+        {
+            element.id = systemCollection.AsignNumberToElement();
+            blackboardOwner.elementsInBlackboard.Add(element);
         }
 
         public Element GetElementFromCollection(int idElement, Blackboard blackboardOwner)
         {
             Element textBox = new TextBox();
-            return textBox;
+            textBox.id = idElement;
+            textBox.blackboardOwner = blackboardOwner;
+            foreach (Element elementFromColecction in blackboardOwner.elementsInBlackboard)
+            {
+                if (elementFromColecction.Equals(textBox))
+                {
+                    textBox = elementFromColecction;
+                    return textBox;
+                }
+            }
+            throw new Exception();
         }
     }
 }

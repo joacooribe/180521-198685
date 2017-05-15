@@ -10,5 +10,19 @@ namespace Domain
     {
         public string format { get; set; }
         public string url { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj != null && obj.GetType().Equals(this.GetType()))
+            {
+                Image image = (Image)obj;
+                if (this.id.Equals(image.id) && this.blackboardOwner.Equals(image.blackboardOwner))
+                {
+                    return true;
+                }
+
+            }
+            return false;
+        }
     }
 }

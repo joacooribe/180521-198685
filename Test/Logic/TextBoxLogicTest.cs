@@ -101,9 +101,11 @@ namespace Test.Logic
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
 
-            Assert.AreEqual(idOk, textBox.id);
+            textBoxHandler.AddElement(textBox);
+
+            Assert.AreEqual(textBox,textBoxHandler.GetElementFromCollection(textBox.id,textBox.blackboardOwner));
         }
 
         [TestMethod]
@@ -118,9 +120,11 @@ namespace Test.Logic
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, colaboratorCreator, teamOwner);
-            textBox = DataCreation.CreateTextBox(idOk, colaboratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(colaboratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
 
-            Assert.AreEqual(idOk, textBox.id);
+            textBoxHandler.AddElement(textBox);
+
+            Assert.AreEqual(textBox, textBoxHandler.GetElementFromCollection(textBox.id, textBox.blackboardOwner));
         }
 
         [TestMethod]
@@ -138,7 +142,7 @@ namespace Test.Logic
 
             int invalidWidth = 0;
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -158,7 +162,7 @@ namespace Test.Logic
 
             int invalidWidth = -1;
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -178,7 +182,7 @@ namespace Test.Logic
 
             int invalidWidth = 100;
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, invalidWidth, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -198,7 +202,7 @@ namespace Test.Logic
 
             int invalidHeight= 0;
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, contentOk, fontOk, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -218,7 +222,7 @@ namespace Test.Logic
 
             int invalidHeight = -1;
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, contentOk, fontOk, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -238,7 +242,7 @@ namespace Test.Logic
 
             int invalidHeight = 100;
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, invalidHeight, originPointOk, contentOk, fontOk, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -258,7 +262,7 @@ namespace Test.Logic
 
             int invalidOriginPoint = -1;
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, invalidOriginPoint, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, invalidOriginPoint, contentOk, fontOk, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -277,7 +281,7 @@ namespace Test.Logic
 
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
 
-            textBox = DataCreation.CreateTextBox(idOk, colaboratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(colaboratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -293,7 +297,7 @@ namespace Test.Logic
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, null, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, null, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -311,7 +315,7 @@ namespace Test.Logic
 
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
 
-            textBox = DataCreation.CreateTextBox(idOk, null, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(null, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -331,7 +335,7 @@ namespace Test.Logic
 
             string invalidContent = null;
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, invalidContent, fontOk, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, invalidContent, fontOk, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -351,7 +355,7 @@ namespace Test.Logic
 
             int invalidFontSize = 0;
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, invalidFontSize);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, invalidFontSize);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -371,7 +375,7 @@ namespace Test.Logic
 
             int invalidFontSize = -1;
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, invalidFontSize);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, invalidFontSize);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -391,7 +395,7 @@ namespace Test.Logic
 
             string invalidFont = null;
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, invalidFont, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, invalidFont, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
@@ -411,7 +415,7 @@ namespace Test.Logic
 
             string invalidFont = "";
 
-            textBox = DataCreation.CreateTextBox(idOk, administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, invalidFont, fontSizeOk);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, invalidFont, fontSizeOk);
 
             textBoxHandler.AddElement(textBox);
         }
