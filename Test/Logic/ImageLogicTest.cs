@@ -127,7 +127,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ImageException))]
+        [ExpectedException(typeof(ElementException))]
         public void ImageWidthZero()
         {
             usersInTeam = new List<User>();
@@ -147,7 +147,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ImageException))]
+        [ExpectedException(typeof(ElementException))]
         public void ImageWidthNegative()
         {
             usersInTeam = new List<User>();
@@ -167,7 +167,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ImageException))]
+        [ExpectedException(typeof(ElementException))]
         public void ImageWidthGreaterThanBlackboardWidth()
         {
             usersInTeam = new List<User>();
@@ -187,7 +187,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ImageException))]
+        [ExpectedException(typeof(ElementException))]
         public void ImageHeightZero()
         {
             usersInTeam = new List<User>();
@@ -207,7 +207,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ImageException))]
+        [ExpectedException(typeof(ElementException))]
         public void ImageHeightNegative()
         {
             usersInTeam = new List<User>();
@@ -227,7 +227,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ImageException))]
+        [ExpectedException(typeof(ElementException))]
         public void ImageHeightGreaterThanBlackboardHeight()
         {
             usersInTeam = new List<User>();
@@ -347,7 +347,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ImageException))]
+        [ExpectedException(typeof(ElementException))]
         public void ImageOriginPointNegative()
         {
             usersInTeam = new List<User>();
@@ -367,7 +367,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ImageException))]
+        [ExpectedException(typeof(ElementException))]
         public void ImageUserCreatorNotBelongingToTheTeam()
         {
             usersInTeam = new List<User>();
@@ -385,7 +385,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ImageException))]
+        [ExpectedException(typeof(ElementException))]
         public void ImageBlackboardNull()
         {
             usersInTeam = new List<User>();
@@ -401,7 +401,7 @@ namespace Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ImageException))]
+        [ExpectedException(typeof(ElementException))]
         public void ImageUserOwnerNull()
         {
             usersInTeam = new List<User>();

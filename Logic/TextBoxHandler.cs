@@ -21,15 +21,37 @@ namespace Logic
         private void ValidateTextBox(Element element)
         {
             TextBox textBox = (TextBox)element;
-            //ValidateBlackboard(image.blackboardOwner);
-            //ValidateUser(image.blackboardOwner, image.creator);
-            //ValidateWidth(image.width, image.blackboardOwner);
-            //ValidateHeight(image.height, image.blackboardOwner);
-            //ValidateOriginPoint(image.originPoint);
-            //ValidateContent(textBox.content);
-            //ValidateFontSize(textBox.fontSize);
-            //ValidateFont(textBox.font);
+            Utility.UtilityElement.ValidateBlackboard(textBox.blackboardOwner);
+            Utility.UtilityElement.ValidateUser(textBox.blackboardOwner, textBox.creator);
+            Utility.UtilityElement.ValidateWidth(textBox.width, textBox.blackboardOwner);
+            Utility.UtilityElement.ValidateHeight(textBox.height, textBox.blackboardOwner);
+            Utility.UtilityElement.ValidateOriginPoint(textBox.originPoint);
+            ValidateContent(textBox.content);
+            ValidateFontSize(textBox.fontSize);
+            ValidateFont(textBox.font);
         }
 
+        private void ValidateFont(string font)
+        {
+            ValidateNullOrEmpty(font);
+        }
+
+        private void ValidateNullOrEmpty(string font)
+        {
+            if (String.IsNullOrEmpty(font))
+            {
+                throw new TextBoxException();
+            }
+        }
+
+        private void ValidateFontSize(int fontSize)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ValidateContent(string content)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

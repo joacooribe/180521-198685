@@ -45,6 +45,10 @@
     <Compile Include="UtilityElement.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{6c95851c-645f-4f6f-b38f-165418bdd9bb}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Exception\Exceptions.csproj">
       <Project>{98c139e8-83cc-4e7f-9439-23daacb5980c}</Project>
       <Name>Exceptions</Name>

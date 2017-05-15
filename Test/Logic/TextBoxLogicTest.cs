@@ -124,7 +124,7 @@ namespace Test.Logic
         }
 
         [TestMethod]
-        [ExpectedException(typeof(TextBoxException))]
+        [ExpectedException(typeof(ElementException))]
         public void TextBoxWidthZero()
         {
             usersInTeam = new List<User>();
@@ -144,7 +144,7 @@ namespace Test.Logic
         }
 
         [TestMethod]
-        [ExpectedException(typeof(TextBoxException))]
+        [ExpectedException(typeof(ElementException))]
         public void TextBoxWidthNegative()
         {
             usersInTeam = new List<User>();
@@ -164,7 +164,7 @@ namespace Test.Logic
         }
 
         [TestMethod]
-        [ExpectedException(typeof(TextBoxException))]
+        [ExpectedException(typeof(ElementException))]
         public void TextBoxWidthGreaterThanBlackboardWidth()
         {
             usersInTeam = new List<User>();
@@ -184,7 +184,7 @@ namespace Test.Logic
         }
 
         [TestMethod]
-        [ExpectedException(typeof(TextBoxException))]
+        [ExpectedException(typeof(ElementException))]
         public void TextBoxHeightZero()
         {
             usersInTeam = new List<User>();
@@ -204,7 +204,7 @@ namespace Test.Logic
         }
 
         [TestMethod]
-        [ExpectedException(typeof(TextBoxException))]
+        [ExpectedException(typeof(ElementException))]
         public void TextBoxHeightNegative()
         {
             usersInTeam = new List<User>();
@@ -224,7 +224,7 @@ namespace Test.Logic
         }
 
         [TestMethod]
-        [ExpectedException(typeof(TextBoxException))]
+        [ExpectedException(typeof(ElementException))]
         public void TextBoxHeightGreaterThanBlackboardHeight()
         {
             usersInTeam = new List<User>();
@@ -244,7 +244,7 @@ namespace Test.Logic
         }
 
         [TestMethod]
-        [ExpectedException(typeof(TextBoxException))]
+        [ExpectedException(typeof(ElementException))]
         public void TextBoxOriginPointNegative()
         {
             usersInTeam = new List<User>();
@@ -264,7 +264,7 @@ namespace Test.Logic
         }
 
         [TestMethod]
-        [ExpectedException(typeof(TextBoxException))]
+        [ExpectedException(typeof(ElementException))]
         public void TextBoxUserCreatorNotBelongingToTheTeam()
         {
             usersInTeam = new List<User>();
@@ -283,7 +283,7 @@ namespace Test.Logic
         }
 
         [TestMethod]
-        [ExpectedException(typeof(TextBoxException))]
+        [ExpectedException(typeof(ElementException))]
         public void TextBoxBlackboardNull()
         {
             usersInTeam = new List<User>();
@@ -299,7 +299,7 @@ namespace Test.Logic
         }
 
         [TestMethod]
-        [ExpectedException(typeof(TextBoxException))]
+        [ExpectedException(typeof(ElementException))]
         public void TextBoxUserOwnerNull()
         {
             usersInTeam = new List<User>();
