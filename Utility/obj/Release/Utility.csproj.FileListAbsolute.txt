@@ -1,0 +1,9 @@
+C:\Users\Usuario\Documents\180521-198685\Utility\bin\Release\Utility.dll
+C:\Users\Usuario\Documents\180521-198685\Utility\bin\Release\Utility.pdb
+C:\Users\Usuario\Documents\180521-198685\Utility\bin\Release\Domain.dll
+C:\Users\Usuario\Documents\180521-198685\Utility\bin\Release\Exceptions.dll
+C:\Users\Usuario\Documents\180521-198685\Utility\bin\Release\Domain.pdb
+C:\Users\Usuario\Documents\180521-198685\Utility\bin\Release\Exceptions.pdb
+C:\Users\Usuario\Documents\180521-198685\Utility\obj\Release\Utility.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\180521-198685\Utility\obj\Release\Utility.dll
+C:\Users\Usuario\Documents\180521-198685\Utility\obj\Release\Utility.pdb

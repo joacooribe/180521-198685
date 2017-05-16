@@ -1,0 +1,5 @@
+C:\Users\Usuario\Documents\180521-198685\Exception\bin\Release\Exceptions.dll
+C:\Users\Usuario\Documents\180521-198685\Exception\bin\Release\Exceptions.pdb
+C:\Users\Usuario\Documents\180521-198685\Exception\obj\Release\Exceptions.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\180521-198685\Exception\obj\Release\Exceptions.dll
+C:\Users\Usuario\Documents\180521-198685\Exception\obj\Release\Exceptions.pdb

@@ -1,0 +1,9 @@
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Release\Persistence.dll
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Release\Persistence.pdb
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Release\Domain.dll
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Release\Exceptions.dll
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Release\Domain.pdb
+C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Release\Exceptions.pdb
+C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Release\Persistence.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Release\Persistence.dll
+C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Release\Persistence.pdb

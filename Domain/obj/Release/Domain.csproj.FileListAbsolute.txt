@@ -1,0 +1,5 @@
+C:\Users\Usuario\Documents\180521-198685\Domain\bin\Release\Domain.dll
+C:\Users\Usuario\Documents\180521-198685\Domain\bin\Release\Domain.pdb
+C:\Users\Usuario\Documents\180521-198685\Domain\obj\Release\Domain.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\180521-198685\Domain\obj\Release\Domain.dll
+C:\Users\Usuario\Documents\180521-198685\Domain\obj\Release\Domain.pdb
