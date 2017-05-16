@@ -24,12 +24,19 @@ namespace Interface
         public BlackboardHandler blackboardHandler { get; set; }
         public TeamAdministratorUI(Session session, Repository repository)
         {
+            this.repository = repository;
             InitializeComponent();
         }
 
         private void BtnCreateTeam_Click(object sender, EventArgs e)
         {
-
+            TeamRegisterUI teamRegister = new TeamRegisterUI(this.repository);
+            teamRegister.administratorHandler = this.administratorHandler;
+            teamRegister.colaboratorHandler = this.colaboratorHandler;
+            teamRegister.teamHandler = this.teamHandler;
+            teamRegister.blackboardHandler = this.blackboardHandler;
+            teamRegister.Show();
+            this.Hide();
         }
 
         private void BtnDeleteTeam_Click(object sender, EventArgs e)

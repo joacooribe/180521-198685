@@ -13,7 +13,7 @@ namespace Exceptions
         public static string userSurnameNull = "El apellido de usuario no puede ser nulo o vacio";
         public static string userBirthdateInvalid = "La fecha de nacimiento no puede ser mayor a la fecha acutal";
         public static string userPasswordInvalid = "La contraseña no puede ser nula o vacia y debe tener almenos 6 caracteres, inlcuyendo numeros y letras";
-        public static string userMailInvail = "El mail no puede ser nulo o vacio, y debe se del estilo: nombreMail@gmail.com";
+        public static string userMailInvalid = "El mail no puede ser nulo o vacio, y debe se del estilo: nombreMail@gmail.com";
         public static string userLogInInvalidPassword = "La contraseña ingresada es incorrecta";
         public static string userAlreadyExist = "El mail que ingreso ya esta registrado";
         public static string userNotExist = "El mail que ingreso no existe";

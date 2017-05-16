@@ -30,5 +30,10 @@ namespace Interface
         {
 
         }
+
+        public void BlackboardUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

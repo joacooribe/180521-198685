@@ -21,11 +21,11 @@ namespace Interface
         public TeamHandler teamHandler { get; set; }
         public Repository repository { get; set; }
         public BlackboardHandler blackboardHandler { get; set; }
-        public ColaboratorUI(Session session, Repository repository)
+        public ColaboratorUI(Session session,Repository repository)
         {
             this.repository = repository;
-
             InitializeComponent();
+
         }
 
         private void ColaboratorUIPanel_Paint(object sender, PaintEventArgs e)
@@ -33,9 +33,9 @@ namespace Interface
 
         }
 
-        private void ColaboratorUI_Load(object sender, EventArgs e)
+        public void ColaboratorUI_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void BtnLogOut_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace Interface
             start.teamHandler = this.teamHandler;
             start.blackboardHandler = this.blackboardHandler;
 
-            this.repository.session.user = null;
+         
             start.repository.session = this.repository.session;
             this.Hide();
             start.Show();
@@ -62,16 +62,24 @@ namespace Interface
         {
             this.ColaboratorUIPanel.Controls.Clear();
             this. ColaboratorUIPanel.Controls.Add(new ModifyUserUI());
-            //arreglar
+          
 
 
         }
 
         private void BtnTeams_Click(object sender, EventArgs e)
         {
+            TeamUI teamUi = new TeamUI(this.repository);
+            teamUi.administratorHandler = this.administratorHandler;
+            teamUi.colaboratorHandler = this.colaboratorHandler;
+            teamUi.teamHandler = this.teamHandler;
+            teamUi.blackboardHandler = this.blackboardHandler;
             this.ColaboratorUIPanel.Controls.Clear();
-            this.ColaboratorUIPanel.Controls.Add(new TeamUI(session, repository));
+            this.ColaboratorUIPanel.Controls.Add(new TeamUI(repository));
+        }
 
+        private void ColaboratorUI_Load(object sender, EventArgs e)
+        {
         }
     }
 }

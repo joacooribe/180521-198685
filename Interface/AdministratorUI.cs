@@ -23,14 +23,18 @@ namespace Interface
         public BlackboardHandler blackboardHandler { get; set; }
         public AdministratorUI(Session session, Repository repository)
         {
-            this.session = session;
             this.repository = repository;
             InitializeComponent();
         }
 
         private void AdministratorUI_Load(object sender, EventArgs e)
         {
-         
+            
+        }
+
+        public void AdministratorUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void BtnLogOut_Click(object sender, EventArgs e)
@@ -41,8 +45,8 @@ namespace Interface
             start.teamHandler = this.teamHandler;
             start.blackboardHandler = this.blackboardHandler;
 
-            this.session.user = null;
-            start.repository.session = this.session;
+            
+            start.repository.session = this.repository.session;
             this.Hide();
             start.Show();
         }
@@ -50,7 +54,13 @@ namespace Interface
         private void BtnTeams_Click(object sender, EventArgs e)
         {
             this.panel1.Controls.Clear();
-            this.panel1.Controls.Add(new TeamAdministratorUI(session, repository));
+            TeamAdministratorUI teamUI = new TeamAdministratorUI(session, repository);
+            teamUI.administratorHandler = this.administratorHandler;
+            teamUI.colaboratorHandler = this.colaboratorHandler;
+            teamUI.teamHandler = this.teamHandler;
+            teamUI.blackboardHandler = this.blackboardHandler;
+
+            this.panel1.Controls.Add(teamUI);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

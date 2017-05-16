@@ -66,7 +66,7 @@ namespace Utility
             
             if (ValidationOfMail(mail))
             {
-                throw new UserException(ExceptionMessage.userMailInvail);
+                throw new UserException(ExceptionMessage.userMailInvalid);
             }
             
         }

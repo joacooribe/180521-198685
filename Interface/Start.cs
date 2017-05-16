@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Domain;
 using Logic;
 using Persistence;
-
+using Exceptions;
 
 namespace Interface
 {
@@ -30,6 +30,7 @@ namespace Interface
         public Start(Repository repository)
         {
             this.repository = repository;
+            
             this.administratorPersistence = new AdministratorPersistenceHandler(this.repository);
             this.colaboratorPersistence = new ColaboratorPersistenceHandler(this.repository);
             this.teamPersistence = new TeamPersistenceHandler(this.repository);
@@ -48,36 +49,51 @@ namespace Interface
 
         private void BtnLogIn_Click(object sender, EventArgs e)
         {
+            this.lblError.Text = "";
             string email = this.TxtEmail.Text;
             string password = this.TxtPassword.Text;
-            if(RdoColaborator.Checked)
+            try
             {
-                this.colaboratorHandler.LoginColaborator(email,password);
-                ColaboratorUI colaboratorUI = new ColaboratorUI(this.repository.session, this.repository);
-                colaboratorUI.administratorHandler = this.administratorHandler;
-                colaboratorUI.colaboratorHandler = this.colaboratorHandler;
-                colaboratorUI.teamHandler = this.teamHandler;
-                colaboratorUI.blackboardHandler = this.blackboardHandler;
-                colaboratorUI.Show();
-                this.Hide();
+                if (RdoColaborator.Checked)
+                {
+                    this.colaboratorHandler.LoginColaborator(email, password);
+                    ColaboratorUI colaboratorUI = new ColaboratorUI(this.repository.session, this.repository);
+                    colaboratorUI.administratorHandler = this.administratorHandler;
+                    colaboratorUI.colaboratorHandler = this.colaboratorHandler;
+                    colaboratorUI.teamHandler = this.teamHandler;
+                    colaboratorUI.blackboardHandler = this.blackboardHandler;
+                    colaboratorUI.Show();
+                    this.Hide();
 
+                }
+                else if (RdoAdmin.Checked)
+                {
+                    this.administratorHandler.LoginAdministrator(email, password);
+                    AdministratorUI administratorUI = new AdministratorUI(this.repository.session, this.repository);
+                    administratorUI.administratorHandler = this.administratorHandler;
+                    administratorUI.colaboratorHandler = this.colaboratorHandler;
+                    administratorUI.teamHandler = this.teamHandler;
+                    administratorUI.blackboardHandler = this.blackboardHandler;
+                    administratorUI.Show();
+                    this.Hide();
+                }
             }
-            else if(RdoAdmin.Checked)
+            catch (UserException ex)
             {
-                this.administratorHandler.LoginAdministrator(email, password);
-                AdministratorUI administratorUI = new AdministratorUI(this.repository.session, this.repository);
-                administratorUI.administratorHandler = this.administratorHandler;
-                administratorUI.colaboratorHandler = this.colaboratorHandler;
-                administratorUI.teamHandler = this.teamHandler;
-                administratorUI.blackboardHandler = this.blackboardHandler;
-                administratorUI.Show();
-                this.Hide();
+                String msgError = ex.Message;
+                this.lblError.Text = msgError;
+                this.lblError.Visible = true;
             }
         }
 
         private void Start_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        public void Start_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void BtnGenerate_Click(object sender, EventArgs e)

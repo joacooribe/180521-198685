@@ -40,6 +40,7 @@
             this.BtnGenerate = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,10 +75,10 @@
             // 
             this.RdoColaborator.AutoSize = true;
             this.RdoColaborator.Checked = true;
-            this.RdoColaborator.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RdoColaborator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RdoColaborator.Location = new System.Drawing.Point(23, 69);
             this.RdoColaborator.Name = "RdoColaborator";
-            this.RdoColaborator.Size = new System.Drawing.Size(96, 18);
+            this.RdoColaborator.Size = new System.Drawing.Size(93, 17);
             this.RdoColaborator.TabIndex = 1;
             this.RdoColaborator.TabStop = true;
             this.RdoColaborator.Text = "Colaborador";
@@ -86,10 +87,10 @@
             // RdoAdmin
             // 
             this.RdoAdmin.AutoSize = true;
-            this.RdoAdmin.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RdoAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RdoAdmin.Location = new System.Drawing.Point(23, 32);
             this.RdoAdmin.Name = "RdoAdmin";
-            this.RdoAdmin.Size = new System.Drawing.Size(105, 18);
+            this.RdoAdmin.Size = new System.Drawing.Size(101, 17);
             this.RdoAdmin.TabIndex = 0;
             this.RdoAdmin.TabStop = true;
             this.RdoAdmin.Text = "Administrador";
@@ -100,7 +101,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(201, 109);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 14);
+            this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "E-mail:";
             // 
@@ -109,17 +110,17 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(169, 185);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 14);
+            this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Contraseña:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(200, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(307, 24);
+            this.label4.Size = new System.Drawing.Size(304, 25);
             this.label4.TabIndex = 11;
             this.label4.Text = "Bienvenido a Pizarrones Uy";
             // 
@@ -150,7 +151,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(565, 386);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 14);
+            this.label3.Size = new System.Drawing.Size(148, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "Generar datos de prueba";
             // 
@@ -160,17 +161,29 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.label5.Location = new System.Drawing.Point(546, 429);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(195, 14);
+            this.label5.Size = new System.Drawing.Size(199, 13);
             this.label5.TabIndex = 15;
             this.label5.Text = "Se generaron los datos de prueba";
             this.label5.Visible = false;
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(309, 222);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(56, 13);
+            this.lblError.TabIndex = 16;
+            this.lblError.Text = "errorMsg";
+            this.lblError.Visible = false;
+            // 
             // Start
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(784, 475);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnGenerate);
@@ -181,7 +194,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TxtEmail);
             this.Controls.Add(this.TxtPassword);
-            this.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Start";
             this.Text = "Start";
             this.Load += new System.EventHandler(this.Start_Load);
@@ -205,5 +218,6 @@
         private System.Windows.Forms.Button BtnGenerate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblError;
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Domain;
 using Persistence;
 using Logic;
+using Exceptions;
 
 namespace Interface
 {
@@ -24,12 +25,18 @@ namespace Interface
 
         public RegisterUI(Session session, Repository repository)
         {
+            this.repository = repository;
             InitializeComponent();
         }
 
         private void RegisterUI_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        public void RegisterUI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -46,31 +53,51 @@ namespace Interface
 
         private void BtnRegister_Click(object sender, EventArgs e)
         {
-            string name = TxtName.ToString();
-            string surname = TxtSurname.ToString();
-            string mail = TxtEmail.ToString();
-            string password = TxtPassword.ToString();
+            string name = TxtName.Text;
+            string surname = TxtSurname.Text;
+            string mail = TxtEmail.Text;
+            string password = TxtPassword.Text;
             DateTime birthdate = DTBirthdate.Value;
-            if (RdoAdmin.Checked)
+            try
             {
-                Administrator adminToAdd = new Administrator();
-                adminToAdd.name = name;
-                adminToAdd.surname = surname;
-                adminToAdd.mail = mail;
-                adminToAdd.password = password;
-                adminToAdd.birthday = birthdate;
-                this.administratorHandler.AddAdministrator(adminToAdd);
+                if (RdoAdmin.Checked)
+                {
+                    Administrator adminToAdd = new Administrator();
+                    adminToAdd.name = name;
+                    adminToAdd.surname = surname;
+                    adminToAdd.mail = mail;
+                    adminToAdd.password = password;
+                    adminToAdd.birthday = birthdate;
+                    this.administratorHandler.AddAdministrator(adminToAdd);
+                }
+                else if (RdoColaborator.Checked)
+                {
+                    Colaborator colabToAdd = new Colaborator();
+                    colabToAdd.name = name;
+                    colabToAdd.surname = surname;
+                    colabToAdd.mail = mail;
+                    colabToAdd.password = password;
+                    colabToAdd.birthday = birthdate;
+                    this.colaboratorHandler.AddColaborator(colabToAdd);
+                }
+                AdministratorUI administratorUI = new AdministratorUI(this.session, this.repository);
+                administratorUI.administratorHandler = this.administratorHandler;
+                administratorUI.colaboratorHandler = this.colaboratorHandler;
+                administratorUI.teamHandler = this.teamHandler;
+                administratorUI.blackboardHandler = this.blackboardHandler;
+                this.Hide();
+                administratorUI.Show();
             }
-            else if (RdoColaborator.Checked)
+            catch (UserException ex)
             {
-                Colaborator colabToAdd = new Colaborator();
-                colabToAdd.name = name;
-                colabToAdd.surname = surname;
-                colabToAdd.mail = mail;
-                colabToAdd.password = password;
-                colabToAdd.birthday = birthdate;
-                this.colaboratorHandler.AddColaborator(colabToAdd);
+                String msgError = ex.Message;
+                MessageBox.Show(msgError, "Informacion",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
