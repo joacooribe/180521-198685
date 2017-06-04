@@ -68,6 +68,7 @@
             this.dataGridViewTeam.Name = "dataGridViewTeam";
             this.dataGridViewTeam.Size = new System.Drawing.Size(344, 190);
             this.dataGridViewTeam.TabIndex = 4;
+            this.dataGridViewTeam.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeam_CellContentClick);
             // 
             // teamName
             // 

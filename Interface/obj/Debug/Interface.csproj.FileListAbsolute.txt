@@ -71,3 +71,4 @@ C:\Users\Usuario\Documents\180521-198685\Interface\obj\Debug\Interface.pdb
 C:\Users\Usuario\Documents\180521-198685\Interface\bin\Debug\Interface.exe
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Debug\Interface.exe
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Debug\Interface.TeamRegisterUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.TeamRegisterUI.resources

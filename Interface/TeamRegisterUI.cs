@@ -69,6 +69,7 @@ namespace Interface
             administratorUI.teamHandler = this.teamHandler;
             administratorUI.blackboardHandler = this.blackboardHandler;
             this.Hide();
+           
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)

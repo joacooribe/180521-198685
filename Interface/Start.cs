@@ -27,6 +27,7 @@ namespace Interface
         public ColaboratorPersistenceHandler colaboratorPersistence { get; set; }
         public TeamPersistenceHandler teamPersistence { get; set; }
         public BlackboardPersistenceHandler blackboardPersistence { get; set; }
+
         public Start(Repository repository)
         {
             this.repository = repository;
@@ -40,8 +41,6 @@ namespace Interface
             this.colaboratorHandler = new ColaboratorHandler() { colaboratorFunctions = colaboratorPersistence };
             this.teamHandler = new TeamHandler() { teamFunctions = teamPersistence };
             this.blackboardHandler = new BlackboardHandler() { blackboardFunctions = blackboardPersistence };
-
-            
 
             InitializeComponent();
         }
@@ -114,7 +113,33 @@ namespace Interface
             administrator1.birthday = new DateTime(1992, 9, 10);
             repository.administratorCollection.Add(administrator1);
 
+            Team team1 = new Team();
+            team1.name = "Team 1";
+            team1.maxUsers = 5;
+            team1.description = "This is the description.";
+            team1.creator = administrator1;
+            team1.creationDate = DateTime.Now;
+            List<User> usersInTeam = new List<User>();
+            usersInTeam.Add(administrator1);
+            team1.usersInTeam = usersInTeam;
+            repository.teamCollection.Add(team1);
+
+            Team team2 = new Team();
+            team2.name = "Team 2";
+            team2.maxUsers = 3;
+            team2.description = "Description";
+            team2.creator = administrator1;
+            team2.creationDate = DateTime.Now;
+            List<User> usersInTeam2 = new List<User>();
+            usersInTeam2.Add(administrator1);
+            usersInTeam2.Add(colaborator1);
+            team2.usersInTeam = usersInTeam2;
+            repository.teamCollection.Add(team2);
+
+
             this.label5.Visible= true;
+            lblGenerate.Visible = false;
+            BtnGenerate.Visible = false;
         }
     }
 }

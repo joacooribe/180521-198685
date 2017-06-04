@@ -35,12 +35,19 @@ namespace Interface
             this.dataGridViewTeam.Rows.Clear();
             foreach (Team team in repository.teamCollection)
             {
-                var rowIndex = this.dataGridViewTeam.Rows.Add(team.name, team.description, team.maxUsers);
-                this.dataGridViewTeam.Rows[rowIndex].Tag = team;
+                if (team.usersInTeam.Contains(repository.session.user)) {
+                    var rowIndex = this.dataGridViewTeam.Rows.Add(team.name, team.description, team.maxUsers);
+                    this.dataGridViewTeam.Rows[rowIndex].Tag = team;
+                }
             }
         }
 
         private void TeamUI_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewTeam_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -57,6 +57,12 @@
     <Compile Include="BlackboardUI.Designer.cs">
       <DependentUpon>BlackboardUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModifyTeamUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyTeamUI.Designer.cs">
+      <DependentUpon>ModifyTeamUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ColaboratorUI.cs">
       <SubType>Form</SubType>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ColaboratorUI.resx">
       <DependentUpon>ColaboratorUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyTeamUI.resx">
+      <DependentUpon>ModifyTeamUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyUserUI.resx">
       <DependentUpon>ModifyUserUI.cs</DependentUpon>

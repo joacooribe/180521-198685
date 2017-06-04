@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Domain;
 using Persistence;
 using Logic;
+using System.Globalization;
 
 
 namespace Interface
@@ -22,10 +23,15 @@ namespace Interface
         public TeamHandler teamHandler { get; set; }
         public Repository repository { get; set; }
         public BlackboardHandler blackboardHandler { get; set; }
+        private List<Team> teams { get; set; }
         public TeamAdministratorUI(Session session, Repository repository)
         {
             this.repository = repository;
             InitializeComponent();
+            teams = new List<Team>();
+            InitializeList();
+            LoadTeams();
+            LoadTeamBelongs();
         }
 
         private void BtnCreateTeam_Click(object sender, EventArgs e)
@@ -36,9 +42,38 @@ namespace Interface
             teamRegister.teamHandler = this.teamHandler;
             teamRegister.blackboardHandler = this.blackboardHandler;
             teamRegister.Show();
-            this.Hide();
+            
         }
-
+        private void LoadTeams()
+        {
+            CultureInfo invariantCulture = CultureInfo.InvariantCulture;
+            this.DataGridViewTeams.Rows.Clear();
+            foreach (Team team in teams)
+            {
+                var rowIndex = this.DataGridViewTeams.Rows.Add(team.name, team.description);
+                this.DataGridViewTeams.Rows[rowIndex].Tag = team;
+            }
+        }
+        private void LoadTeamBelongs()
+        {
+            CultureInfo invariantCulture = CultureInfo.InvariantCulture;
+            this.DataGridViewTeamBelongs.Rows.Clear();
+            foreach (Team team in teams)
+            {
+                if (team.usersInTeam.Contains(repository.session.user)) {
+                    var rowIndex = this.DataGridViewTeamBelongs.Rows.Add(team.name, team.description);
+                    this.DataGridViewTeamBelongs.Rows[rowIndex].Tag = team;
+                }
+            }
+        }
+        private void InitializeList()
+        {
+            foreach (Team team in repository.teamCollection)
+            {
+                teams.Add(team);
+            }
+           
+        }
         private void BtnDeleteTeam_Click(object sender, EventArgs e)
         {
 
@@ -60,6 +95,16 @@ namespace Interface
         }
 
         private void TeamAdministratorUI_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TblTeams_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
