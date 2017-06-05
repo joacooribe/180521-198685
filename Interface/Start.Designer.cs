@@ -74,19 +74,18 @@
             // RdoColaborator
             // 
             this.RdoColaborator.AutoSize = true;
-            this.RdoColaborator.Checked = true;
             this.RdoColaborator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RdoColaborator.Location = new System.Drawing.Point(23, 69);
             this.RdoColaborator.Name = "RdoColaborator";
             this.RdoColaborator.Size = new System.Drawing.Size(93, 17);
             this.RdoColaborator.TabIndex = 1;
-            this.RdoColaborator.TabStop = true;
             this.RdoColaborator.Text = "Colaborador";
             this.RdoColaborator.UseVisualStyleBackColor = true;
             // 
             // RdoAdmin
             // 
             this.RdoAdmin.AutoSize = true;
+            this.RdoAdmin.Checked = true;
             this.RdoAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RdoAdmin.Location = new System.Drawing.Point(23, 32);
             this.RdoAdmin.Name = "RdoAdmin";

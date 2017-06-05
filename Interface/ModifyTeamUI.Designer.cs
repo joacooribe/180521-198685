@@ -47,6 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblUserList = new System.Windows.Forms.Label();
             this.lblUserListInTeam = new System.Windows.Forms.Label();
+            this.BtnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NudMaxUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserInTeam)).BeginInit();
@@ -129,12 +130,13 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(343, 329);
+            this.btnAdd.Location = new System.Drawing.Point(345, 296);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(103, 23);
             this.btnAdd.TabIndex = 29;
             this.btnAdd.Text = "Agregar usuario";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnModify
             // 
@@ -142,8 +144,9 @@
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 30;
-            this.btnModify.Text = "Registrar";
+            this.btnModify.Text = "Modificar";
             this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnCancel
             // 
@@ -205,12 +208,23 @@
             this.lblUserListInTeam.TabIndex = 36;
             this.lblUserListInTeam.Text = "Lista de usuarios en el equipo";
             // 
+            // BtnRemove
+            // 
+            this.BtnRemove.Location = new System.Drawing.Point(345, 344);
+            this.BtnRemove.Name = "BtnRemove";
+            this.BtnRemove.Size = new System.Drawing.Size(106, 23);
+            this.BtnRemove.TabIndex = 37;
+            this.BtnRemove.Text = "Quitar";
+            this.BtnRemove.UseVisualStyleBackColor = true;
+            this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
+            // 
             // ModifyTeamUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(784, 475);
+            this.Controls.Add(this.BtnRemove);
             this.Controls.Add(this.lblUserListInTeam);
             this.Controls.Add(this.lblUserList);
             this.Controls.Add(this.label3);
@@ -256,5 +270,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblUserList;
         private System.Windows.Forms.Label lblUserListInTeam;
+        private System.Windows.Forms.Button BtnRemove;
     }
 }

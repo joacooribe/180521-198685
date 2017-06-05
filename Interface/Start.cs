@@ -43,6 +43,9 @@ namespace Interface
             this.blackboardHandler = new BlackboardHandler() { blackboardFunctions = blackboardPersistence };
 
             InitializeComponent();
+
+            TxtEmail.Text = "admin@admin.com";
+            TxtPassword.Text = "a11111";
         }
 
 
@@ -109,7 +112,7 @@ namespace Interface
             administrator1.name = "Admin";
             administrator1.surname = "Istrator";
             administrator1.mail = "admin@admin.com";
-            administrator1.password = "administrator1";
+            administrator1.password = "a11111";
             administrator1.birthday = new DateTime(1992, 9, 10);
             repository.administratorCollection.Add(administrator1);
 

@@ -33,6 +33,7 @@ namespace Interface
             usersForTeam = new List<User>();
             InitializeList();
             loadUsers();
+            
         }
 
         private void loadUsers()

@@ -132,7 +132,7 @@ namespace Logic
             {
                 throw new TeamException(ExceptionMessage.teamModifyMaxUsers);
             }
-            teamFunctions.ModifyMaxUsers(teamToModify, newMax);
+            teamFunctions.ModifyMaxUsers(teamToModify.name, newMax);
         }
         private bool ValidateNewMaxUsers(Team team, int newMax)
         {
@@ -145,12 +145,12 @@ namespace Logic
         }
         public void ModifyDescription(string nameOfTeam, string newDescription)
         {
-            Team teamToModify = GetTeamFromCollection(nameOfTeam);
+           
             if (ValidateNullOrEmpty(newDescription) || ValidateCorrectLenghtDescription(newDescription.Length))
             {
                 throw new TeamException(ExceptionMessage.teamDescriptionInvalid);
             }
-            teamFunctions.ModifyDescription(teamToModify, newDescription);
+            teamFunctions.ModifyDescription(nameOfTeam, newDescription);
         }
             
     }

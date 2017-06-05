@@ -91,7 +91,14 @@ namespace Interface
 
         private void BtnModifyTeam_Click(object sender, EventArgs e)
         {
-
+            var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
+            var selectedUser = this.DataGridViewTeams.Rows[selectedRow].Tag;
+            ModifyTeamUI modifyTeamUI = new ModifyTeamUI(repository, (Team)selectedUser);
+            modifyTeamUI.administratorHandler = administratorHandler;
+            modifyTeamUI.colaboratorHandler = colaboratorHandler;
+            modifyTeamUI.blackboardHandler = blackboardHandler;
+            modifyTeamUI.teamHandler = teamHandler;
+            modifyTeamUI.Show();
         }
 
         private void TeamAdministratorUI_Load(object sender, EventArgs e)
