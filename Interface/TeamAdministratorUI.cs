@@ -17,16 +17,14 @@ namespace Interface
 {
     public partial class TeamAdministratorUI : UserControl
     {
-        public Session session { get; set; }
-        public AdministratorHandler administratorHandler { get; set; }
-        public ColaboratorHandler colaboratorHandler { get; set; }
-        public TeamHandler teamHandler { get; set; }
-        public Repository repository { get; set; }
-        public BlackboardHandler blackboardHandler { get; set; }
+        private Singleton instance;
         private List<Team> teams { get; set; }
-        public TeamAdministratorUI(Session session, Repository repository)
+
+        private AdministratorUI adminUI;
+        public TeamAdministratorUI(AdministratorUI adminUI)
         {
-            this.repository = repository;
+            instance = Singleton.GetInstance;
+            this.adminUI = adminUI;
             InitializeComponent();
             teams = new List<Team>();
             InitializeList();
@@ -36,11 +34,8 @@ namespace Interface
 
         private void BtnCreateTeam_Click(object sender, EventArgs e)
         {
-            TeamRegisterUI teamRegister = new TeamRegisterUI(this.repository);
-            teamRegister.administratorHandler = this.administratorHandler;
-            teamRegister.colaboratorHandler = this.colaboratorHandler;
-            teamRegister.teamHandler = this.teamHandler;
-            teamRegister.blackboardHandler = this.blackboardHandler;
+            TeamRegisterUI teamRegister = new TeamRegisterUI();
+            adminUI.Hide();
             teamRegister.Show();
             
         }
@@ -60,7 +55,7 @@ namespace Interface
             this.DataGridViewTeamBelongs.Rows.Clear();
             foreach (Team team in teams)
             {
-                if (team.usersInTeam.Contains(repository.session.user)) {
+                if (team.usersInTeam.Contains(instance.repository.session.user)) {
                     var rowIndex = this.DataGridViewTeamBelongs.Rows.Add(team.name, team.description);
                     this.DataGridViewTeamBelongs.Rows[rowIndex].Tag = team;
                 }
@@ -68,7 +63,7 @@ namespace Interface
         }
         private void InitializeList()
         {
-            foreach (Team team in repository.teamCollection)
+            foreach (Team team in instance.repository.teamCollection)
             {
                 teams.Add(team);
             }
@@ -93,11 +88,8 @@ namespace Interface
         {
             var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
             var selectedUser = this.DataGridViewTeams.Rows[selectedRow].Tag;
-            ModifyTeamUI modifyTeamUI = new ModifyTeamUI(repository, (Team)selectedUser);
-            modifyTeamUI.administratorHandler = administratorHandler;
-            modifyTeamUI.colaboratorHandler = colaboratorHandler;
-            modifyTeamUI.blackboardHandler = blackboardHandler;
-            modifyTeamUI.teamHandler = teamHandler;
+            ModifyTeamUI modifyTeamUI = new ModifyTeamUI((Team)selectedUser);
+            adminUI.Hide();
             modifyTeamUI.Show();
         }
 

@@ -15,15 +15,11 @@ namespace Interface
 {
     public partial class AdministratorUI : Form
     {
-        public Session session { get; set; }
-        public AdministratorHandler administratorHandler { get; set; }
-        public ColaboratorHandler colaboratorHandler { get; set; }
-        public TeamHandler teamHandler { get; set; }
-        public Repository repository { get; set; }
-        public BlackboardHandler blackboardHandler { get; set; }
-        public AdministratorUI(Session session, Repository repository)
+        private Singleton instance;
+        public AdministratorUI()
         {
-            this.repository = repository;
+
+            this.instance = Singleton.GetInstance;
             InitializeComponent();
         }
 
@@ -32,21 +28,14 @@ namespace Interface
             
         }
 
-        public void AdministratorUI_FormClosed(object sender, FormClosedEventArgs e)
+        private void btnExitProgram_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
-            Start start = new Start(this.repository);
-            start.administratorHandler = this.administratorHandler;
-            start.colaboratorHandler = this.colaboratorHandler;
-            start.teamHandler = this.teamHandler;
-            start.blackboardHandler = this.blackboardHandler;
-
-            
-            start.repository.session = this.repository.session;
+            Start start = new Start();
             this.Hide();
             start.Show();
         }
@@ -54,11 +43,8 @@ namespace Interface
         private void BtnTeams_Click(object sender, EventArgs e)
         {
             this.panel1.Controls.Clear();
-            TeamAdministratorUI teamUI = new TeamAdministratorUI(session, repository);
-            teamUI.administratorHandler = this.administratorHandler;
-            teamUI.colaboratorHandler = this.colaboratorHandler;
-            teamUI.teamHandler = this.teamHandler;
-            teamUI.blackboardHandler = this.blackboardHandler;
+
+            TeamAdministratorUI teamUI = new TeamAdministratorUI(this);
 
             this.panel1.Controls.Add(teamUI);
         }
@@ -70,11 +56,9 @@ namespace Interface
 
         private void BtnRegister_Click(object sender, EventArgs e)
         {
-            RegisterUI registerUI = new RegisterUI(this.repository.session,this.repository);
-            registerUI.administratorHandler = this.administratorHandler;
-            registerUI.colaboratorHandler = this.colaboratorHandler;
-            registerUI.teamHandler = this.teamHandler;
-            registerUI.blackboardHandler = this.blackboardHandler;
+            RegisterUI registerUI = new RegisterUI();
+
+
             registerUI.Show();
             this.Hide();
         }

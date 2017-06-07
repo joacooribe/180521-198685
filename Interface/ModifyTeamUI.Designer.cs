@@ -48,6 +48,7 @@
             this.lblUserList = new System.Windows.Forms.Label();
             this.lblUserListInTeam = new System.Windows.Forms.Label();
             this.BtnRemove = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NudMaxUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserInTeam)).BeginInit();
@@ -57,6 +58,7 @@
             // 
             this.TxtName.Location = new System.Drawing.Point(324, 79);
             this.TxtName.Name = "TxtName";
+            this.TxtName.ReadOnly = true;
             this.TxtName.Size = new System.Drawing.Size(124, 20);
             this.TxtName.TabIndex = 0;
             // 
@@ -156,6 +158,7 @@
             this.btnCancel.TabIndex = 31;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label1
             // 
@@ -218,12 +221,23 @@
             this.BtnRemove.UseVisualStyleBackColor = true;
             this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Bright", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(289, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(239, 22);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Modificación de equipo";
+            // 
             // ModifyTeamUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(784, 475);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnRemove);
             this.Controls.Add(this.lblUserListInTeam);
             this.Controls.Add(this.lblUserList);
@@ -271,5 +285,6 @@
         private System.Windows.Forms.Label lblUserList;
         private System.Windows.Forms.Label lblUserListInTeam;
         private System.Windows.Forms.Button BtnRemove;
+        private System.Windows.Forms.Label label2;
     }
 }

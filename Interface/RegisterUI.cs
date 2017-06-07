@@ -16,16 +16,10 @@ namespace Interface
 {
     public partial class RegisterUI : Form
     {
-        public Session session { get; set; }
-        public AdministratorHandler administratorHandler { get; set; }
-        public ColaboratorHandler colaboratorHandler { get; set; }
-        public TeamHandler teamHandler { get; set; }
-        public Repository repository { get; set; }
-        public BlackboardHandler blackboardHandler { get; set; }
-
-        public RegisterUI(Session session, Repository repository)
+        private Singleton instance;
+        public RegisterUI()
         {
-            this.repository = repository;
+            instance = Singleton.GetInstance;
             InitializeComponent();
         }
 
@@ -33,20 +27,13 @@ namespace Interface
         {
             
         }
-
-        public void RegisterUI_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
+        
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
 
-            AdministratorUI administratorUI = new AdministratorUI(this.session, this.repository);
-            administratorUI.administratorHandler = this.administratorHandler;
-            administratorUI.colaboratorHandler = this.colaboratorHandler;
-            administratorUI.teamHandler = this.teamHandler;
-            administratorUI.blackboardHandler = this.blackboardHandler;
+            AdministratorUI administratorUI = new AdministratorUI();
+
             this.Hide();
             administratorUI.Show();
         }
@@ -68,7 +55,7 @@ namespace Interface
                     adminToAdd.mail = mail;
                     adminToAdd.password = password;
                     adminToAdd.birthday = birthdate;
-                    this.administratorHandler.AddAdministrator(adminToAdd);
+                    instance.administratorHandler.AddAdministrator(adminToAdd);
                 }
                 else if (RdoColaborator.Checked)
                 {
@@ -78,13 +65,10 @@ namespace Interface
                     colabToAdd.mail = mail;
                     colabToAdd.password = password;
                     colabToAdd.birthday = birthdate;
-                    this.colaboratorHandler.AddColaborator(colabToAdd);
+                    instance.colaboratorHandler.AddColaborator(colabToAdd);
                 }
-                AdministratorUI administratorUI = new AdministratorUI(this.session, this.repository);
-                administratorUI.administratorHandler = this.administratorHandler;
-                administratorUI.colaboratorHandler = this.colaboratorHandler;
-                administratorUI.teamHandler = this.teamHandler;
-                administratorUI.blackboardHandler = this.blackboardHandler;
+                AdministratorUI administratorUI = new AdministratorUI();
+
                 this.Hide();
                 administratorUI.Show();
             }

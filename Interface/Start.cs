@@ -16,35 +16,16 @@ namespace Interface
 {
     public partial class Start : Form
     {
-        ///public Session session { get; set; }
-        public Repository repository { get; set; }
-        public AdministratorHandler administratorHandler { get; set; }
-        public ColaboratorHandler colaboratorHandler { get; set; }
-        public TeamHandler teamHandler { get; set; }
-        public BlackboardHandler blackboardHandler { get; set; }
+        private Singleton instance;
 
-        public AdministratorPersistenceHandler administratorPersistence{get;set;}
-        public ColaboratorPersistenceHandler colaboratorPersistence { get; set; }
-        public TeamPersistenceHandler teamPersistence { get; set; }
-        public BlackboardPersistenceHandler blackboardPersistence { get; set; }
-
-        public Start(Repository repository)
+        public Start()
         {
-            this.repository = repository;
-            
-            this.administratorPersistence = new AdministratorPersistenceHandler(this.repository);
-            this.colaboratorPersistence = new ColaboratorPersistenceHandler(this.repository);
-            this.teamPersistence = new TeamPersistenceHandler(this.repository);
-            this.blackboardPersistence = new BlackboardPersistenceHandler(this.repository);
-
-            this.administratorHandler = new AdministratorHandler() { administratorFunctions = administratorPersistence };
-            this.colaboratorHandler = new ColaboratorHandler() { colaboratorFunctions = colaboratorPersistence };
-            this.teamHandler = new TeamHandler() { teamFunctions = teamPersistence };
-            this.blackboardHandler = new BlackboardHandler() { blackboardFunctions = blackboardPersistence };
-
+            this.instance = Singleton.GetInstance;
+                    
             InitializeComponent();
 
             TxtEmail.Text = "admin@admin.com";
+
             TxtPassword.Text = "a11111";
         }
 
@@ -58,24 +39,16 @@ namespace Interface
             {
                 if (RdoColaborator.Checked)
                 {
-                    this.colaboratorHandler.LoginColaborator(email, password);
-                    ColaboratorUI colaboratorUI = new ColaboratorUI(this.repository.session, this.repository);
-                    colaboratorUI.administratorHandler = this.administratorHandler;
-                    colaboratorUI.colaboratorHandler = this.colaboratorHandler;
-                    colaboratorUI.teamHandler = this.teamHandler;
-                    colaboratorUI.blackboardHandler = this.blackboardHandler;
+                    instance.colaboratorHandler.LoginColaborator(email, password);
+                    ColaboratorUI colaboratorUI = new ColaboratorUI();
                     colaboratorUI.Show();
                     this.Hide();
 
                 }
                 else if (RdoAdmin.Checked)
                 {
-                    this.administratorHandler.LoginAdministrator(email, password);
-                    AdministratorUI administratorUI = new AdministratorUI(this.repository.session, this.repository);
-                    administratorUI.administratorHandler = this.administratorHandler;
-                    administratorUI.colaboratorHandler = this.colaboratorHandler;
-                    administratorUI.teamHandler = this.teamHandler;
-                    administratorUI.blackboardHandler = this.blackboardHandler;
+                    instance.administratorHandler.LoginAdministrator(email, password);
+                    AdministratorUI administratorUI = new AdministratorUI();
                     administratorUI.Show();
                     this.Hide();
                 }
@@ -106,7 +79,7 @@ namespace Interface
             colaborator1.mail = "colab@gmail.com";
             colaborator1.password = "colaborator1";
             colaborator1.birthday = new DateTime(1992, 9, 10);
-            repository.colaboratorCollection.Add(colaborator1);
+            this.instance.repository.colaboratorCollection.Add(colaborator1);
 
             Administrator administrator1 = new Administrator();
             administrator1.name = "Admin";
@@ -114,7 +87,7 @@ namespace Interface
             administrator1.mail = "admin@admin.com";
             administrator1.password = "a11111";
             administrator1.birthday = new DateTime(1992, 9, 10);
-            repository.administratorCollection.Add(administrator1);
+            this.instance.repository.administratorCollection.Add(administrator1);
 
             Team team1 = new Team();
             team1.name = "Team 1";
@@ -125,7 +98,7 @@ namespace Interface
             List<User> usersInTeam = new List<User>();
             usersInTeam.Add(administrator1);
             team1.usersInTeam = usersInTeam;
-            repository.teamCollection.Add(team1);
+            this.instance.repository.teamCollection.Add(team1);
 
             Team team2 = new Team();
             team2.name = "Team 2";
@@ -137,7 +110,7 @@ namespace Interface
             usersInTeam2.Add(administrator1);
             usersInTeam2.Add(colaborator1);
             team2.usersInTeam = usersInTeam2;
-            repository.teamCollection.Add(team2);
+            this.instance.repository.teamCollection.Add(team2);
 
 
             this.label5.Visible= true;

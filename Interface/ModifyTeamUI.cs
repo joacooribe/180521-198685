@@ -18,15 +18,7 @@ namespace Interface
     public partial class ModifyTeamUI : Form
     {
 
-        public AdministratorHandler administratorHandler { get; set; }
-
-        public ColaboratorHandler colaboratorHandler { get; set; }
-
-        public TeamHandler teamHandler { get; set; }
-
-        public Repository repository { get; set; }
-
-        public BlackboardHandler blackboardHandler { get; set; }
+        private Singleton instance;
 
         private List<User> users { get; set; }
 
@@ -34,9 +26,9 @@ namespace Interface
 
         private Team team { get; set; }
 
-        public ModifyTeamUI(Repository repository, Team team)
+        public ModifyTeamUI(Team team)
         {
-            this.repository = repository;
+            instance = Singleton.GetInstance;
             this.team = team;
             users = new List<User>();
             usersInTeam = new List<User>();
@@ -51,14 +43,14 @@ namespace Interface
 
         private void LoadUserList()
         {
-            foreach (Administrator admin in repository.administratorCollection)
+            foreach (Administrator admin in instance.repository.administratorCollection)
             {
                 if (!team.usersInTeam.Contains(admin))
                 {
                     users.Add(admin);
                 }
             }
-            foreach (Colaborator colaborator in repository.colaboratorCollection)
+            foreach (Colaborator colaborator in instance.repository.colaboratorCollection)
             {
                 if (!team.usersInTeam.Contains(colaborator))
                 {
@@ -109,6 +101,8 @@ namespace Interface
 
         }
 
+        
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -147,13 +141,16 @@ namespace Interface
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            string newName = TxtName.Text;
             string newDescription = TxtDescription.Text;
             int newMaxUsers = (int)NudMaxUsers.Value;
             try
             {
-                teamHandler.ModifyDescription(team.name, newDescription);
-                teamHandler.ModifyMaxUsers(team.name, newMaxUsers);
+                instance.teamHandler.ModifyDescription(team.name, newDescription);
+                instance.teamHandler.ModifyMaxUsers(team.name, newMaxUsers);
+                AdministratorUI administratorUI = new AdministratorUI();
+                MessageBox.Show("Equipo modificado correctamente.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                administratorUI.Show();
+                this.Hide();
 
             }
             catch (Exception ex)
@@ -161,6 +158,13 @@ namespace Interface
 
                 throw;
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            AdministratorUI administratorUI = new AdministratorUI();
+            administratorUI.Show();
+            this.Hide();
         }
     }
 }

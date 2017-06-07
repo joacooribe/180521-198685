@@ -14,11 +14,13 @@ namespace Interface
         static void Main(string[] args)
         {
             Application.EnableVisualStyles();
+
             Application.SetCompatibleTextRenderingDefault(false);
-            Repository repository = new Repository();
-            //repository.session = new Domain.Session();
-            Start start = new Interface.Start(repository);
+
+            Start start = new Interface.Start();
+
             start.Show();
+
             Application.Run(start);
         }
     }
