@@ -46,6 +46,7 @@
             this.BtnSelect.TabIndex = 2;
             this.BtnSelect.Text = "Seleccionar Equipo";
             this.BtnSelect.UseVisualStyleBackColor = true;
+            this.BtnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
             // 
             // label1
             // 

@@ -17,9 +17,12 @@ namespace Interface
     public partial class TeamUI : UserControl
     {
         private Singleton instance;
-        public TeamUI()
+
+        private ColaboratorUI colabUI;
+        public TeamUI(ColaboratorUI colabUI)
         {
             instance = Singleton.GetInstance;
+            this.colabUI = colabUI;
             InitializeComponent();
             loadTeams();
         }
@@ -45,6 +48,15 @@ namespace Interface
         private void dataGridViewTeam_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void BtnSelect_Click(object sender, EventArgs e)
+        {
+            var selectedRow = this.dataGridViewTeam.CurrentCell.RowIndex;
+            var selectedTeam = this.dataGridViewTeam.Rows[selectedRow].Tag;
+            TeamMenuUI teamMenuUI = new TeamMenuUI((Team)selectedTeam);
+            colabUI.Hide();
+            teamMenuUI.Show();
         }
     }
 }

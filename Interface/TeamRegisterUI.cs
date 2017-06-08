@@ -62,7 +62,6 @@ namespace Interface
             AdministratorUI administratorUI = new AdministratorUI();
             administratorUI.Show();
             this.Hide();
-           
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)

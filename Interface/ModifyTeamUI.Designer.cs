@@ -87,6 +87,7 @@
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.Size = new System.Drawing.Size(310, 150);
             this.dataGridViewUsers.TabIndex = 27;
+            this.dataGridViewUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsers_CellContentClick);
             // 
             // Mail
             // 

@@ -57,9 +57,9 @@ namespace Interface
 
         private void BtnTeams_Click(object sender, EventArgs e)
         {
-            TeamUI teamUi = new TeamUI();
+            TeamUI teamUi = new TeamUI(this);
             this.ColaboratorUIPanel.Controls.Clear();
-            this.ColaboratorUIPanel.Controls.Add(new TeamUI());
+            this.ColaboratorUIPanel.Controls.Add(teamUi);
         }
 
         private void ColaboratorUI_Load(object sender, EventArgs e)

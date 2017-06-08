@@ -166,5 +166,10 @@ namespace Interface
             administratorUI.Show();
             this.Hide();
         }
+
+        private void dataGridViewUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

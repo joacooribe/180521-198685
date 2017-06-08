@@ -96,6 +96,12 @@
     <Compile Include="TeamAdministratorUI.Designer.cs">
       <DependentUpon>TeamAdministratorUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="TeamMenuUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamMenuUI.Designer.cs">
+      <DependentUpon>TeamMenuUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeamRegisterUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeamAdministratorUI.resx">
       <DependentUpon>TeamAdministratorUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamMenuUI.resx">
+      <DependentUpon>TeamMenuUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeamRegisterUI.resx">
       <DependentUpon>TeamRegisterUI.cs</DependentUpon>

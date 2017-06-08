@@ -113,6 +113,7 @@ namespace Interface
             this.instance.repository.teamCollection.Add(team2);
 
 
+
             this.label5.Visible= true;
             lblGenerate.Visible = false;
             BtnGenerate.Visible = false;

@@ -16,9 +16,12 @@ namespace Interface
     public partial class BlackboardUI : Form
     {
         private Singleton instance;
-        public BlackboardUI(Session session, Repository repository)
+
+        private Blackboard blackboard;
+        public BlackboardUI(Blackboard blackboard)
         {
             instance = Singleton.GetInstance;
+            this.blackboard = blackboard;
             InitializeComponent();
         }
 

@@ -81,14 +81,18 @@ namespace Interface
 
         private void BtnSelect_Click(object sender, EventArgs e)
         {
-
+            var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
+            var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
+            TeamMenuUI teamMenuUI = new TeamMenuUI((Team)selectedTeam);
+            adminUI.Hide();
+            teamMenuUI.Show();
         }
 
         private void BtnModifyTeam_Click(object sender, EventArgs e)
         {
             var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
-            var selectedUser = this.DataGridViewTeams.Rows[selectedRow].Tag;
-            ModifyTeamUI modifyTeamUI = new ModifyTeamUI((Team)selectedUser);
+            var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
+            ModifyTeamUI modifyTeamUI = new ModifyTeamUI((Team)selectedTeam);
             adminUI.Hide();
             modifyTeamUI.Show();
         }
