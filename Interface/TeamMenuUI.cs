@@ -85,9 +85,21 @@ namespace Interface
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            AdministratorUI administratorUI = new AdministratorUI();
-            administratorUI.Show();
-            this.Hide();
+            Type typeOfUser = instance.repository.session.user.GetType();
+
+            if (typeOfUser.Equals(typeof(Administrator)))
+            {
+                AdministratorUI administratorUI = new AdministratorUI();
+                administratorUI.Show();
+                this.Hide();
+            }
+            else
+            {
+                ColaboratorUI colaboratorUI = new ColaboratorUI();
+                colaboratorUI.Show();
+                this.Hide();
+            }
+            
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)

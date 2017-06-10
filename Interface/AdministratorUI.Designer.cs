@@ -34,6 +34,7 @@
             this.BtnLogOut = new System.Windows.Forms.Button();
             this.BtnReports = new System.Windows.Forms.Button();
             this.BtnRegister = new System.Windows.Forms.Button();
+            this.BtnRankUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,7 +60,7 @@
             // BtnModify
             // 
             this.BtnModify.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModify.Location = new System.Drawing.Point(325, 25);
+            this.BtnModify.Location = new System.Drawing.Point(257, 26);
             this.BtnModify.Name = "BtnModify";
             this.BtnModify.Size = new System.Drawing.Size(75, 23);
             this.BtnModify.TabIndex = 2;
@@ -69,7 +70,7 @@
             // BtnLogOut
             // 
             this.BtnLogOut.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLogOut.Location = new System.Drawing.Point(615, 25);
+            this.BtnLogOut.Location = new System.Drawing.Point(645, 24);
             this.BtnLogOut.Name = "BtnLogOut";
             this.BtnLogOut.Size = new System.Drawing.Size(100, 23);
             this.BtnLogOut.TabIndex = 3;
@@ -80,7 +81,7 @@
             // BtnReports
             // 
             this.BtnReports.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReports.Location = new System.Drawing.Point(188, 24);
+            this.BtnReports.Location = new System.Drawing.Point(132, 26);
             this.BtnReports.Name = "BtnReports";
             this.BtnReports.Size = new System.Drawing.Size(75, 23);
             this.BtnReports.TabIndex = 4;
@@ -89,7 +90,7 @@
             // 
             // BtnRegister
             // 
-            this.BtnRegister.Location = new System.Drawing.Point(469, 24);
+            this.BtnRegister.Location = new System.Drawing.Point(530, 24);
             this.BtnRegister.Name = "BtnRegister";
             this.BtnRegister.Size = new System.Drawing.Size(109, 23);
             this.BtnRegister.TabIndex = 5;
@@ -97,12 +98,22 @@
             this.BtnRegister.UseVisualStyleBackColor = true;
             this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
             // 
+            // BtnRankUser
+            // 
+            this.BtnRankUser.Location = new System.Drawing.Point(369, 26);
+            this.BtnRankUser.Name = "BtnRankUser";
+            this.BtnRankUser.Size = new System.Drawing.Size(121, 23);
+            this.BtnRankUser.TabIndex = 6;
+            this.BtnRankUser.Text = "Puntar Usuario";
+            this.BtnRankUser.UseVisualStyleBackColor = true;
+            // 
             // AdministratorUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(757, 478);
+            this.Controls.Add(this.BtnRankUser);
             this.Controls.Add(this.BtnRegister);
             this.Controls.Add(this.BtnReports);
             this.Controls.Add(this.BtnLogOut);
@@ -124,5 +135,6 @@
         private System.Windows.Forms.Button BtnLogOut;
         private System.Windows.Forms.Button BtnReports;
         private System.Windows.Forms.Button BtnRegister;
+        private System.Windows.Forms.Button BtnRankUser;
     }
 }

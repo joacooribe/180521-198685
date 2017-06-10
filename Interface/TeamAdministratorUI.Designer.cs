@@ -39,6 +39,8 @@
             this.DataGridViewTeamBelongs = new System.Windows.Forms.DataGridView();
             this.TeamNameBelongs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeamDescriptionBelongs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTeams)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTeamBelongs)).BeginInit();
             this.SuspendLayout();
@@ -149,10 +151,32 @@
             this.TeamDescriptionBelongs.Name = "TeamDescriptionBelongs";
             this.TeamDescriptionBelongs.ReadOnly = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(465, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(180, 15);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Equipos al que pertenece";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(89, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 15);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Equipos ";
+            // 
             // TeamAdministratorUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.DataGridViewTeamBelongs);
             this.Controls.Add(this.DataGridViewTeams);
             this.Controls.Add(this.BtnModifyTeam);
@@ -182,5 +206,7 @@
         private System.Windows.Forms.DataGridView DataGridViewTeamBelongs;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeamNameBelongs;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeamDescriptionBelongs;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

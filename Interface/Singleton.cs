@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Domain;
 using Logic;
 using Persistence;
-using Exceptions;
 
 namespace Interface
 {

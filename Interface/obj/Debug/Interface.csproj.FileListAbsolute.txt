@@ -74,3 +74,4 @@ C:\Users\Usuario\Documents\180521-198685\Interface\obj\Debug\Interface.TeamRegis
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.TeamRegisterUI.resources
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.ModifyTeamUI.resources
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.TeamMenuUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.RankingAdminUI.resources
