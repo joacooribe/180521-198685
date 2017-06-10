@@ -12,7 +12,6 @@ namespace Test
     [TestClass]
     public class CommentLogicTest
     {
-
         private Colaborator colaboratorCreator;
         private Administrator administratorCreator;
         private readonly string userNameOK = "Joaquin";
@@ -50,15 +49,13 @@ namespace Test
         private readonly string fontOk = "Times New Roman";
         private readonly int fontSizeOk = 14;
 
-        private Repository systemList;
-        private CommentPersistanceHandler commentPersistence;
-        private CommentHandler commentHandler;
+        private ICommentPersistance commentPersistence;
+        private ICommentHandler commentHandler;
 
         public CommentLogicTest()
         {
-            systemList = new Repository();
-            commentPersistence = new CommentPersistanceHandler(systemList);
-            commentHandler = new CommentHandler() { commentFunctions = commentPersistence };
+            commentPersistence = new CommentPersistanceHandler();
+            commentHandler = new CommentHandler();
         }
 
         private TestContext testContextInstance;
@@ -98,7 +95,7 @@ namespace Test
         #endregion
 
         [TestMethod]
-        public void commentOkCreatedByColaboratorForImage()
+        public void CommentOkCreatedByColaboratorForImage()
         {
             usersInTeam = new List<User>();
 
@@ -120,7 +117,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void commentOkCreatedByAdministratorForTextBox()
+        public void CommentOkCreatedByAdministratorForTextBox()
         {
             usersInTeam = new List<User>();
 
@@ -142,7 +139,7 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(CommentException))]
-        public void commentInvaliCreationDate()
+        public void CommentInvaliCreationDate()
         {
             usersInTeam = new List<User>();
 
@@ -164,7 +161,7 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(CommentException))]
-        public void commentDescriptionEmpty()
+        public void CommentDescriptionEmpty()
         {
             usersInTeam = new List<User>();
 
@@ -186,7 +183,7 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(CommentException))]
-        public void commentDescriptionNull()
+        public void CommentDescriptionNull()
         {
             usersInTeam = new List<User>();
 
@@ -208,7 +205,7 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(CommentException))]
-        public void commentDescriptionInvalidSize()
+        public void CommentDescriptionInvalidSize()
         {
             usersInTeam = new List<User>();
 
@@ -230,7 +227,7 @@ namespace Test
 
         [TestMethod]
         [ExpectedException(typeof(CommentException))]
-        public void commentUserCreatorNull()
+        public void CommentUserCreatorNull()
         {
             usersInTeam = new List<User>();
 

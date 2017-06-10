@@ -46,15 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministratorPersistenceHandler.cs" />
-    <Compile Include="BlackboardPersistenceHandler.cs" />
-    <Compile Include="ColaboratorPersistenceHandler.cs" />
-    <Compile Include="CommentPersistanceHandler.cs" />
-    <Compile Include="ImagePersistanceHandler.cs" />
+    <Compile Include="Implementation\AdministratorPersistenceHandler.cs" />
+    <Compile Include="Implementation\BlackboardPersistenceHandler.cs" />
+    <Compile Include="Implementation\ColaboratorPersistenceHandler.cs" />
+    <Compile Include="Implementation\CommentPersistanceHandler.cs" />
+    <Compile Include="Implementation\ImagePersistanceHandler.cs" />
+    <Compile Include="Interface\IAdministratorPersistance.cs" />
+    <Compile Include="Interface\IBlackboardPersistance.cs" />
+    <Compile Include="Interface\IColaboratorPersistance.cs" />
+    <Compile Include="Interface\ICommentPersistance.cs" />
+    <Compile Include="Interface\IImagePersistance.cs" />
+    <Compile Include="Interface\ITeamPersistance.cs" />
+    <Compile Include="Interface\ITextBoxPersistance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
-    <Compile Include="TeamPersistenceHandler.cs" />
-    <Compile Include="TextBoxPersistanceHandler.cs" />
+    <Compile Include="Implementation\Repository.cs" />
+    <Compile Include="Implementation\TeamPersistenceHandler.cs" />
+    <Compile Include="Implementation\TextBoxPersistanceHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
@@ -66,6 +73,7 @@
       <Name>Exceptions</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

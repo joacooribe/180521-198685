@@ -40,14 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdministratorHandler.cs" />
-    <Compile Include="BlackboardHandler.cs" />
-    <Compile Include="ColaboratorHandler.cs" />
-    <Compile Include="CommentHandler.cs" />
-    <Compile Include="ImageHandler.cs" />
+    <Compile Include="Implementation\AdministratorHandler.cs" />
+    <Compile Include="Implementation\BlackboardHandler.cs" />
+    <Compile Include="Implementation\ColaboratorHandler.cs" />
+    <Compile Include="Implementation\CommentHandler.cs" />
+    <Compile Include="Implementation\ImageHandler.cs" />
+    <Compile Include="Implementation\SessionHandler.cs" />
+    <Compile Include="Interface\IAdministratorHandler.cs" />
+    <Compile Include="Interface\IBlackboardHandler.cs" />
+    <Compile Include="Interface\IColaboratorHandler.cs" />
+    <Compile Include="Interface\ICommentHandler.cs" />
+    <Compile Include="Interface\IElementHandler.cs" />
+    <Compile Include="Interface\IImageHandler.cs" />
+    <Compile Include="Interface\ISessionHandler.cs" />
+    <Compile Include="Interface\ITeamHandler.cs" />
+    <Compile Include="Interface\ITextBoxHandler.cs" />
+    <Compile Include="Interface\IUserHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TeamHandler.cs" />
-    <Compile Include="TextBoxHandler.cs" />
+    <Compile Include="Implementation\TeamHandler.cs" />
+    <Compile Include="Implementation\TextBoxHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
@@ -58,11 +69,16 @@
       <Project>{98c139e8-83cc-4e7f-9439-23daacb5980c}</Project>
       <Name>Exceptions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Persistence\Persistence.csproj">
+      <Project>{c32a011b-7894-4436-914a-565eb303dd9b}</Project>
+      <Name>Persistence</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utility\Utility.csproj">
       <Project>{42526951-c227-49de-aad9-98364843c39d}</Project>
       <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

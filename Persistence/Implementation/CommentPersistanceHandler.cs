@@ -8,13 +8,13 @@ using Exceptions;
 
 namespace Persistence
 {
-    public class CommentPersistanceHandler : CommentPersistenceProvider
+    public class CommentPersistanceHandler : ICommentPersistance
     {
         public Repository systemCollection;
 
-        public CommentPersistanceHandler(Repository collection)
+        public CommentPersistanceHandler()
         {
-            systemCollection = collection;
+            systemCollection = Repository.GetInstance;
         }
 
         public void AddComment(Comment comment)
@@ -24,16 +24,17 @@ namespace Persistence
 
         private void AddCommentToElement(Comment comment, Element elementOwner)
         {
-            if (AlreadyExistComment(comment, elementOwner))
-            {
-                throw new CommentException();
-            }
             elementOwner.commentCollection.Add(comment);
         }
 
-        private bool AlreadyExistComment(Comment comment, Element elementOwner)
+        public void DeleteComment(Comment comment)
         {
-            return elementOwner.commentCollection.Contains(comment);
+            DeleteCommentFromElement(comment, comment.elementOwner);
+        }
+
+        private void DeleteCommentFromElement(Comment comment, Element elementOwner)
+        {
+            elementOwner.commentCollection.Remove(comment);
         }
     }
 }

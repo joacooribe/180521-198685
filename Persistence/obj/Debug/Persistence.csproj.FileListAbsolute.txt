@@ -23,3 +23,5 @@ C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Debug\Exceptions.dll
 C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Debug\Exceptions.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\Exceptions.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\Exceptions.pdb
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Exceptions.dll
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Exceptions.pdb

@@ -40,6 +40,7 @@ namespace Exceptions
         public static string blackboardNameSize = "El nombre del pizarron no puede superar los 20 caracteres";
         public static string blackboardUserCreatorNull = "El pizarron debe tener un usuario creador";
         public static string blackboardAlreadyExist = "El nombre de pizarron ingresado ya existe en este equipo";
+        public static string blackboardNotExist = "El pizarron que ingreso no existe";
 
         //Element Exceptions
         public static string elementBlackboardNull = "El elemento debe pertenecer a un pizarron";

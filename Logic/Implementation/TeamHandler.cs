@@ -5,11 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using Exceptions;
+using Persistence;
+
 namespace Logic
 {
-    public class TeamHandler
+    public class TeamHandler : ITeamHandler
     {
-        public TeamPersistenceProvider teamFunctions { get; set; }
+        public ITeamPersistance teamFunctions { get; set; }
+
+        public TeamHandler()
+        {
+            teamFunctions = new TeamPersistenceHandler();
+        }
 
         public void AddTeam(Team team)
         {
@@ -30,12 +37,12 @@ namespace Logic
         
         private static void ValidateNameOfTeam(string name)
         {
-
             if (ValidateNullOrEmpty(name))
             {
                 throw new TeamException(ExceptionMessage.teamNameNullOrEmpty);
             }
         }
+
         private static bool ValidateNullOrEmpty(string element)
         {
             return string.IsNullOrEmpty(element);
@@ -76,6 +83,11 @@ namespace Logic
             }
         }
 
+        private static bool ValidateNumberIsZero(int element)
+        {
+            return element == 0;
+        }
+
         private static void ValiadteNullUserInTeam(ICollection<User> users)
         {
             if(users == null)
@@ -84,14 +96,8 @@ namespace Logic
             }
         }
 
-        private static bool ValidateNumberIsZero(int element)
-        {
-            return element == 0;
-        }
-
         private static void ValidateMaxUsers(int max)
         {
-
             if (ValidateNumberIsZero(max))
             {
                 throw new TeamException(ExceptionMessage.teamMaxUsers);
@@ -100,16 +106,17 @@ namespace Logic
 
         private static void ValidateAmountOnCollectionNotOverMax(ICollection<User> users, int max)
         {
-
             if (ValidateMoreUsersThanMaximum(users,max))
             {
                 throw new TeamException(ExceptionMessage.teamUsersListFull);
             }
         }
+
         private static bool ValidateMoreUsersThanMaximum(ICollection<User> users, int max)
         {
             return users.Count > max;
         }
+
         private static void ValidateCreationDate(DateTime date)
         {
             if (ValidateIsNotFutureDate(date))
@@ -117,23 +124,27 @@ namespace Logic
                 throw new TeamException(ExceptionMessage.teamFutureDate);
             }
         }
+
         private static bool ValidateIsNotFutureDate(DateTime date)
         {
             return date > DateTime.Now;
         }
+
         public Team GetTeamFromCollection(string nameOfTeam)
         {
-            return teamFunctions.GetTeamFromCollection(nameOfTeam);
+            return teamFunctions.GetTeam(nameOfTeam);
         }
-        public void ModifyMaxUsers(string nameOfTeam, int newMax)
+
+        public void ModifyTeamMaxUsers(string nameOfTeam, int newMax)
         {
             Team teamToModify = GetTeamFromCollection(nameOfTeam);
             if (ValidateNewMaxUsers(teamToModify,newMax))
             {
                 throw new TeamException(ExceptionMessage.teamModifyMaxUsers);
             }
-            teamFunctions.ModifyMaxUsers(teamToModify, newMax);
+            teamFunctions.ModifyTeamMaxUsers(nameOfTeam, newMax);
         }
+
         private bool ValidateNewMaxUsers(Team team, int newMax)
         {
             bool invalidNewMax = false;
@@ -143,14 +154,19 @@ namespace Logic
             }
             return invalidNewMax;
         }
-        public void ModifyDescription(string nameOfTeam, string newDescription)
+
+        public void ModifyTeamDescription(string nameOfTeam, string newDescription)
         {
-            Team teamToModify = GetTeamFromCollection(nameOfTeam);
             if (ValidateNullOrEmpty(newDescription) || ValidateCorrectLenghtDescription(newDescription.Length))
             {
                 throw new TeamException(ExceptionMessage.teamDescriptionInvalid);
             }
-            teamFunctions.ModifyDescription(teamToModify, newDescription);
+            teamFunctions.ModifyTeamDescription(nameOfTeam, newDescription);
+        }
+
+        public void DeleteTeam(Team team)
+        {
+            teamFunctions.DeleteTeam(team);
         }
             
     }

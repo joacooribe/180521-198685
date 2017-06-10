@@ -8,15 +8,16 @@
         }
         public override bool Equals(object obj)
         {
+            bool equal = false;
             if (obj != null && obj.GetType().Equals(this.GetType()))
             {
                 Administrator administrator = (Administrator)obj;
                 if (this.mail.Equals(administrator.mail))
                 {
-                    return true;
+                    equal = true;
                 }
             }
-            return false;
+            return equal;
         }
     }
 }

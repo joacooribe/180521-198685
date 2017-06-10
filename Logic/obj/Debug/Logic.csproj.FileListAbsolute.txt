@@ -31,3 +31,5 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Debug\Exceptions.dl
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Debug\Exceptions.pdb
 C:\Users\Usuario\Documents\180521-198685\Logic\bin\Debug\Exceptions.dll
 C:\Users\Usuario\Documents\180521-198685\Logic\bin\Debug\Exceptions.pdb
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\Persistence.dll
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\Persistence.pdb

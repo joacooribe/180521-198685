@@ -33,15 +33,13 @@ namespace Test
         private readonly int heightOk = 20;
         private readonly string blackboardDescriptionOk = "Blackboard Team 1";
 
-        private Repository systemList;
-        private BlackboardPersistenceHandler blackboardPersistence;
-        private BlackboardHandler blackboardHandler;
+        private IBlackboardPersistance blackboardPersistence;
+        private IBlackboardHandler blackboardHandler;
 
         public BlackboardLogicTest()
         {
-            systemList = new Repository();
-            blackboardPersistence = new BlackboardPersistenceHandler(systemList);
-            blackboardHandler = new BlackboardHandler() { blackboardFunctions = blackboardPersistence };
+            blackboardPersistence = new BlackboardPersistenceHandler();
+            blackboardHandler = new BlackboardHandler();
         }
 
         private TestContext testContextInstance;
@@ -339,8 +337,8 @@ namespace Test
 
             blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
-            blackboardPersistence.AddBlackboard(blackboard);
-            blackboardPersistence.AddBlackboard(blackboard);
+            blackboardHandler.AddBlackboard(blackboard);
+            blackboardHandler.AddBlackboard(blackboard);
         }
     }
 }

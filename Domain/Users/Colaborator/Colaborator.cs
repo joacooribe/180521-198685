@@ -9,16 +9,17 @@
 
         public override bool Equals(object obj)
         {
+            bool equal = false;
             if (obj != null && obj.GetType().Equals(this.GetType()))
             {
                 Colaborator colaborator = (Colaborator)obj;
                 if (this.mail.Equals(colaborator.mail))
                 {
-                    return true;
+                    equal = true;
                 }
 
             }
-            return false;
+            return equal;
         }
 
     }

@@ -41,15 +41,13 @@ namespace Test
         private readonly string formatOk = ".jpg";
         private readonly string urlOk = "/image/hola.jpg";
 
-        private Repository systemList;
-        private ImagePersistanceHandler imagePersistence;
-        private ImageHandler imageHandler;
+        private IImagePersistance imagePersistence;
+        private IImageHandler imageHandler;
 
         public ImageTest()
         {
-            systemList = new Repository();
-            imagePersistence = new ImagePersistanceHandler(systemList);
-            imageHandler = new ImageHandler() { imageFunctions = imagePersistence };
+            imagePersistence = new ImagePersistanceHandler();
+            imageHandler = new ImageHandler();
         }
 
         private TestContext testContextInstance;

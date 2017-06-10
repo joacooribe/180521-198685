@@ -5,13 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using Exceptions;
+using Persistence;
 
 namespace Logic
 {
-    public class CommentHandler
+    public class CommentHandler : ICommentHandler
     {
         const int MAMIMUXSIZEDESCRIPTION = 50;
-        public CommentPersistenceProvider commentFunctions { get; set; }
+
+        public ICommentPersistance commentFunctions { get; set; }
+
+        public CommentHandler()
+        {
+            commentFunctions = new CommentPersistanceHandler();
+        }
+
         public void AddComment(Comment comment)
         {
             ValidateComment(comment);
@@ -54,6 +62,7 @@ namespace Logic
                 throw new CommentException();
             }
         }
+
         private static bool ValidateIsNotFutureDate(DateTime creationDate)
         {
             return creationDate > DateTime.Now;
@@ -65,6 +74,12 @@ namespace Logic
             {
                 throw new CommentException();
             }
+        }
+
+        public void DeleteComment(Comment comment)
+        {
+            ValidateComment(comment);
+            commentFunctions.DeleteComment(comment);
         }
     }
 }

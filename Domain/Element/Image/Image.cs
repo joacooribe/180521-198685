@@ -13,16 +13,17 @@ namespace Domain
 
         public override bool Equals(object obj)
         {
+            bool equal = false;
             if (obj != null && obj.GetType().Equals(this.GetType()))
             {
                 Image image = (Image)obj;
                 if (this.id.Equals(image.id) && this.blackboardOwner.Equals(image.blackboardOwner))
                 {
-                    return true;
+                    equal = true;
                 }
 
             }
-            return false;
+            return equal;
         }
     }
 }

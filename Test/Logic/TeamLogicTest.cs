@@ -12,9 +12,8 @@ namespace Test
     [TestClass]
     public class TeamLogicTest
     {
-        private TeamPersistenceHandler teamPersistence;
-        private TeamHandler teamHandler;
-        private Repository systemList;
+        private ITeamPersistance teamPersistence;
+        private ITeamHandler teamHandler;
         private Team team;
         private Administrator administratorCreator;
         private Colaborator colaboratorCreator;
@@ -30,11 +29,11 @@ namespace Test
         private readonly string userPasswordOK = "securePassword123";
         private readonly string userMailOK = "user@gmail.com";
         private readonly DateTime userBirthdayOk = new DateTime(1992, 9, 10);
+
         public TeamLogicTest()
         {
-            systemList = new Repository();
-            teamPersistence = new TeamPersistenceHandler(systemList);
-            teamHandler = new TeamHandler() { teamFunctions = teamPersistence };
+            teamPersistence = new TeamPersistenceHandler();
+            teamHandler = new TeamHandler();
         }
 
         private TestContext testContextInstance;
@@ -212,7 +211,7 @@ namespace Test
 
             teamHandler.AddTeam(team);
             int newMax = 10;
-            teamHandler.ModifyMaxUsers(team.name,newMax);
+            teamHandler.ModifyTeamMaxUsers(team.name,newMax);
             Assert.AreEqual(newMax,team.maxUsers);
 
         }
@@ -228,7 +227,7 @@ namespace Test
 
             teamHandler.AddTeam(team);
             int newMax = 0;
-            teamHandler.ModifyMaxUsers(team.name, newMax);
+            teamHandler.ModifyTeamMaxUsers(team.name, newMax);
         }
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
@@ -242,7 +241,7 @@ namespace Test
 
             teamHandler.AddTeam(team);
             int newMax = -1;
-            teamHandler.ModifyMaxUsers(team.name, newMax);
+            teamHandler.ModifyTeamMaxUsers(team.name, newMax);
         }
         [TestMethod]
         public void TeamModificationOfDescriptionOK()
@@ -255,7 +254,7 @@ namespace Test
 
             teamHandler.AddTeam(team);
             string newDescription = "This is a new description";
-            teamHandler.ModifyDescription(team.name, newDescription);
+            teamHandler.ModifyTeamDescription(team.name, newDescription);
             Assert.AreEqual(newDescription, team.description);
 
         }
@@ -271,7 +270,7 @@ namespace Test
 
             teamHandler.AddTeam(team);
             string newDescription = "This is an invalid description since it passes the limit of 50 characters.";
-            teamHandler.ModifyDescription(team.name, newDescription);
+            teamHandler.ModifyTeamDescription(team.name, newDescription);
         }
 
         [TestMethod]

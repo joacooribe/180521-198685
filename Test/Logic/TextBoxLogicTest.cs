@@ -42,15 +42,13 @@ namespace Test
         private readonly string fontOk = "Times New Roman";
         private readonly int fontSizeOk = 14;
 
-        private Repository systemList;
-        private TextBoxPersistanceHandler textBoxPersistence;
-        private TextBoxHandler textBoxHandler;
+        private ITextBoxPersistance textBoxPersistence;
+        private ITextBoxHandler textBoxHandler;
 
         public TextBoxLogicTest()
         {
-            systemList = new Repository();
-            textBoxPersistence = new TextBoxPersistanceHandler(systemList);
-            textBoxHandler = new TextBoxHandler() { textBoxFunctions = textBoxPersistence };
+            textBoxPersistence = new TextBoxPersistanceHandler();
+            textBoxHandler = new TextBoxHandler();
         }
 
         private TestContext testContextInstance;

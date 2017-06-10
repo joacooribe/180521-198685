@@ -14,9 +14,8 @@ namespace Test
     public class AdministratorLogicTest
     {
         private Administrator administrator;
-        private Repository systemList;
-        private AdministratorPersistenceHandler administratorPersistence;
-        private AdministratorHandler administratorHandler;
+        private IAdministratorPersistance administratorPersistence;
+        private IAdministratorHandler administratorHandler;
 
         private readonly string passwordOK = "securePassword123";
         private readonly string mailOK = "user@gmail.com";
@@ -26,9 +25,8 @@ namespace Test
 
         public AdministratorLogicTest()
         {
-            systemList = new Repository();
-            administratorPersistence = new AdministratorPersistenceHandler(systemList);
-            administratorHandler = new AdministratorHandler() { administratorFunctions = administratorPersistence };
+            administratorPersistence = new AdministratorPersistenceHandler();
+            administratorHandler = new AdministratorHandler();
         }
 
         private TestContext testContextInstance;
@@ -81,7 +79,7 @@ namespace Test
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorPersistence.AddAdministrator(administrator);
-            Assert.AreEqual(administrator, administratorHandler.administratorFunctions.GetUserFromColecction(administrator.mail));
+            Assert.AreEqual(administrator, administratorHandler.GetUserFromColecction(administrator.mail));
 
         }
         [TestMethod]
@@ -409,52 +407,6 @@ namespace Test
             administratorHandler.AddAdministrator(administrator);
             string newPassword = "";
             administratorHandler.ModifyPassword(administrator.mail, newPassword);
-        }
-
-        [TestMethod]
-        public void AdministratorLoginOk()
-        {
-            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
-            administratorHandler.AddAdministrator(administrator);
-
-            administratorHandler.LoginAdministrator(administrator.mail, administrator.password);
-            Assert.AreEqual(administrator, systemList.session.user);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(UserException))]
-        public void AdministratorLoginWrongPassword()
-        {
-            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
-            administratorHandler.AddAdministrator(administrator);
-
-            string invalidPassword = "invalid";
-
-            administratorHandler.LoginAdministrator(administrator.mail, invalidPassword);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(UserException))]
-        public void AdministratorLoginWrongMail()
-        {
-            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
-            administratorHandler.AddAdministrator(administrator);
-
-            string invalidMail = "invalidMail";
-
-            administratorHandler.LoginAdministrator(invalidMail, administrator.mail);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(UserException))]
-        public void AdministratorLoginUserNotExist()
-        {
-            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
-            administratorHandler.AddAdministrator(administrator);
-
-            string notExistUser= "diego@gmail.com";
-
-            administratorHandler.LoginAdministrator(notExistUser, administrator.mail);
         }
 
         [ExpectedException(typeof(UserException))]

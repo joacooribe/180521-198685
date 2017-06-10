@@ -8,13 +8,13 @@ using Exceptions;
 
 namespace Persistence
 {
-    public class TeamPersistenceHandler : TeamPersistenceProvider
+    public class TeamPersistenceHandler : ITeamPersistance
     {
         public Repository systemCollection;
 
-        public TeamPersistenceHandler(Repository collection)
+        public TeamPersistenceHandler()
         {
-            systemCollection = collection;
+            systemCollection = Repository.GetInstance;
         }
 
         public void AddTeam(Team team)
@@ -26,12 +26,12 @@ namespace Persistence
             systemCollection.teamCollection.Add(team);
         }
 
-        private bool ExistsTeam(Team team)
+        public bool ExistsTeam(Team team)
         {
             return systemCollection.teamCollection.Contains(team);
         }
 
-        public Team GetTeamFromCollection(string nameOfTeam)
+        public Team GetTeam(string nameOfTeam)
         {
             Team team = new Team();
             foreach (Team teamFromColecction in systemCollection.teamCollection)
@@ -53,6 +53,29 @@ namespace Persistence
         public void ModifyDescription(Team teamToModify, string newDescription)
         {
             teamToModify.description = newDescription;
+        }
+
+        public void DeleteTeam(Team team)
+        {
+            //Faltan cosas
+            systemCollection.teamCollection.Remove(team);
+        }
+
+        public bool IsEmptyTeamCollection()
+        {
+            return systemCollection.teamCollection.Count == 0;
+        }
+
+        public void ModifyTeamDescription(string nameOfTeam, string newDescription)
+        {
+            Team team = GetTeam(nameOfTeam);
+            team.description = newDescription;
+        }
+
+        public void ModifyTeamMaxUsers(string nameOfTeam, int newMaxUsers)
+        {
+            Team team = GetTeam(nameOfTeam);
+            team.maxUsers = newMaxUsers;
         }
     }
 }
