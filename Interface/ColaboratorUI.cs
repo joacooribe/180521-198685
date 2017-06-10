@@ -15,15 +15,10 @@ namespace Interface
 {
     public partial class ColaboratorUI : Form
     {
-        public Session session { get; set; }
-        public AdministratorHandler administratorHandler { get; set; }
-        public ColaboratorHandler colaboratorHandler { get; set; }
-        public TeamHandler teamHandler { get; set; }
-        public Repository repository { get; set; }
-        public BlackboardHandler blackboardHandler { get; set; }
-        public ColaboratorUI(Session session,Repository repository)
+        private Singleton instance;
+        public ColaboratorUI()
         {
-            this.repository = repository;
+            instance = Singleton.GetInstance;
             InitializeComponent();
 
         }
@@ -40,14 +35,7 @@ namespace Interface
 
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
-            Start start = new Start(this.repository);
-            start.administratorHandler = this.administratorHandler;
-            start.colaboratorHandler = this.colaboratorHandler;
-            start.teamHandler = this.teamHandler;
-            start.blackboardHandler = this.blackboardHandler;
-
-         
-            start.repository.session = this.repository.session;
+            Start start = new Start();
             this.Hide();
             start.Show();
 
@@ -69,17 +57,14 @@ namespace Interface
 
         private void BtnTeams_Click(object sender, EventArgs e)
         {
-            TeamUI teamUi = new TeamUI(this.repository);
-            teamUi.administratorHandler = this.administratorHandler;
-            teamUi.colaboratorHandler = this.colaboratorHandler;
-            teamUi.teamHandler = this.teamHandler;
-            teamUi.blackboardHandler = this.blackboardHandler;
+            TeamUI teamUi = new TeamUI(this);
             this.ColaboratorUIPanel.Controls.Clear();
-            this.ColaboratorUIPanel.Controls.Add(new TeamUI(repository));
+            this.ColaboratorUIPanel.Controls.Add(teamUi);
         }
 
         private void ColaboratorUI_Load(object sender, EventArgs e)
         {
         }
+        
     }
 }

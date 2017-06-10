@@ -16,15 +16,13 @@ namespace Interface
 {
     public partial class TeamUI : UserControl
     {
-        public Session session { get; set; }
-        public AdministratorHandler administratorHandler { get; set; }
-        public ColaboratorHandler colaboratorHandler { get; set; }
-        public TeamHandler teamHandler { get; set; }
-        public Repository repository { get; set; }
-        public BlackboardHandler blackboardHandler { get; set; }
-        public TeamUI(Repository repository)
+        private Singleton instance;
+
+        private ColaboratorUI colabUI;
+        public TeamUI(ColaboratorUI colabUI)
         {
-            this.repository = repository;
+            instance = Singleton.GetInstance;
+            this.colabUI = colabUI;
             InitializeComponent();
             loadTeams();
         }
@@ -33,16 +31,32 @@ namespace Interface
         {
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.dataGridViewTeam.Rows.Clear();
-            foreach (Team team in repository.teamCollection)
+            foreach (Team team in instance.repository.teamCollection)
             {
-                var rowIndex = this.dataGridViewTeam.Rows.Add(team.name, team.description, team.maxUsers);
-                this.dataGridViewTeam.Rows[rowIndex].Tag = team;
+                if (team.usersInTeam.Contains(instance.repository.session.user)) {
+                    var rowIndex = this.dataGridViewTeam.Rows.Add(team.name, team.description, team.maxUsers);
+                    this.dataGridViewTeam.Rows[rowIndex].Tag = team;
+                }
             }
         }
 
         private void TeamUI_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridViewTeam_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void BtnSelect_Click(object sender, EventArgs e)
+        {
+            var selectedRow = this.dataGridViewTeam.CurrentCell.RowIndex;
+            var selectedTeam = this.dataGridViewTeam.Rows[selectedRow].Tag;
+            TeamMenuUI teamMenuUI = new TeamMenuUI((Team)selectedTeam);
+            colabUI.Hide();
+            teamMenuUI.Show();
         }
     }
 }

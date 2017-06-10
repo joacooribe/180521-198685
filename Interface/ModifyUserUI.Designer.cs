@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtActualPassword = new System.Windows.Forms.TextBox();
+            this.txtNewPassword = new System.Windows.Forms.TextBox();
+            this.btnModify = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -66,36 +66,37 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Contraseña nueva:";
             // 
-            // textBox1
+            // txtActualPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(219, 95);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtActualPassword.Location = new System.Drawing.Point(219, 95);
+            this.txtActualPassword.Name = "txtActualPassword";
+            this.txtActualPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtActualPassword.TabIndex = 3;
             // 
-            // textBox2
+            // txtNewPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(219, 153);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtNewPassword.Location = new System.Drawing.Point(219, 153);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtNewPassword.TabIndex = 4;
             // 
-            // button1
+            // btnModify
             // 
-            this.button1.Location = new System.Drawing.Point(143, 210);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Realizar modificación";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnModify.Location = new System.Drawing.Point(219, 221);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(75, 23);
+            this.btnModify.TabIndex = 6;
+            this.btnModify.Text = "Modificar";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // ModifyUserUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnModify);
+            this.Controls.Add(this.txtNewPassword);
+            this.Controls.Add(this.txtActualPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -112,8 +113,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtActualPassword;
+        private System.Windows.Forms.TextBox txtNewPassword;
+        private System.Windows.Forms.Button btnModify;
     }
 }

@@ -45,13 +45,15 @@ namespace Persistence
             throw new Exception();
         }
 
-        public void ModifyMaxUsers(Team teamToModify, int newMax)
+        public void ModifyMaxUsers(string teamToModifyName, int newMax)
         {
+            Team teamToModify = GetTeamFromCollection(teamToModifyName);
             teamToModify.maxUsers = newMax;
         }
 
-        public void ModifyDescription(Team teamToModify, string newDescription)
+        public void ModifyDescription(string teamToModifyName, string newDescription)
         {
+            Team teamToModify = GetTeamFromCollection(teamToModifyName);
             teamToModify.description = newDescription;
         }
 

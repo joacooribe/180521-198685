@@ -46,6 +46,7 @@
             this.BtnSelect.TabIndex = 2;
             this.BtnSelect.Text = "Seleccionar Equipo";
             this.BtnSelect.UseVisualStyleBackColor = true;
+            this.BtnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
             // 
             // label1
             // 
@@ -68,6 +69,7 @@
             this.dataGridViewTeam.Name = "dataGridViewTeam";
             this.dataGridViewTeam.Size = new System.Drawing.Size(344, 190);
             this.dataGridViewTeam.TabIndex = 4;
+            this.dataGridViewTeam.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeam_CellContentClick);
             // 
             // teamName
             // 

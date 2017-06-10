@@ -33,7 +33,6 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.brnAgregar = new System.Windows.Forms.Button();
             this.lblEquipo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtMaxUsers = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblUserListInTeam = new System.Windows.Forms.Label();
@@ -48,6 +47,8 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BtnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserForTeam)).BeginInit();
@@ -76,7 +77,7 @@
             // 
             // brnAgregar
             // 
-            this.brnAgregar.Location = new System.Drawing.Point(328, 313);
+            this.brnAgregar.Location = new System.Drawing.Point(328, 289);
             this.brnAgregar.Name = "brnAgregar";
             this.brnAgregar.Size = new System.Drawing.Size(103, 23);
             this.brnAgregar.TabIndex = 4;
@@ -87,23 +88,13 @@
             // lblEquipo
             // 
             this.lblEquipo.AutoSize = true;
-            this.lblEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEquipo.Font = new System.Drawing.Font("Lucida Bright", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEquipo.Location = new System.Drawing.Point(311, 41);
             this.lblEquipo.Name = "lblEquipo";
-            this.lblEquipo.Size = new System.Drawing.Size(158, 24);
+            this.lblEquipo.Size = new System.Drawing.Size(151, 22);
             this.lblEquipo.TabIndex = 7;
-            this.lblEquipo.Text = "Alta de Equipos";
+            this.lblEquipo.Text = "Alta de Equipo";
             this.lblEquipo.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(268, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Nombre:";
             // 
             // txtMaxUsers
             // 
@@ -222,11 +213,33 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Apellido";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(268, 97);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Nombre:";
+            // 
+            // BtnRemove
+            // 
+            this.BtnRemove.Location = new System.Drawing.Point(328, 339);
+            this.BtnRemove.Name = "BtnRemove";
+            this.BtnRemove.Size = new System.Drawing.Size(106, 23);
+            this.BtnRemove.TabIndex = 38;
+            this.BtnRemove.Text = "Quitar";
+            this.BtnRemove.UseVisualStyleBackColor = true;
+            this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
+            // 
             // TeamRegisterUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(757, 478);
+            this.Controls.Add(this.BtnRemove);
             this.Controls.Add(this.dataGridViewUserForTeam);
             this.Controls.Add(this.dataGridViewUsers);
             this.Controls.Add(this.btnCancelar);
@@ -259,7 +272,6 @@
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button brnAgregar;
         private System.Windows.Forms.Label lblEquipo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label txtMaxUsers;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblUserListInTeam;
@@ -274,5 +286,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button BtnRemove;
     }
 }

@@ -17,25 +17,21 @@ namespace Interface
 {
     public partial class TeamRegisterUI : Form
     {
-        public Session session { get; set; }
-        public AdministratorHandler administratorHandler { get; set; }
-        public ColaboratorHandler colaboratorHandler { get; set; }
-        public TeamHandler teamHandler { get; set; }
-        public Repository repository { get; set; }
-        public BlackboardHandler blackboardHandler { get; set; }
+        private Singleton instance;
         public List<User> users { get; set; }
         public List<User> usersForTeam { get; set; }
-        public TeamRegisterUI(Repository repository)
+        public TeamRegisterUI()
         {
-            this.repository = repository;
+            instance = Singleton.GetInstance;
             InitializeComponent();
             users = new List<User>();
             usersForTeam = new List<User>();
             InitializeList();
-            loadUsers();
+            LoadUsers();
+            
         }
 
-        private void loadUsers()
+        private void LoadUsers()
         {
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.dataGridViewUsers.Rows.Clear();
@@ -47,11 +43,11 @@ namespace Interface
         }
         private void InitializeList()
         {
-            foreach(Administrator admin in repository.administratorCollection)
+            foreach(Administrator admin in instance.repository.administratorCollection)
             {
                 users.Add(admin);
             }
-            foreach (Colaborator colaborator in repository.colaboratorCollection)
+            foreach (Colaborator colaborator in instance.repository.colaboratorCollection)
             {
                 users.Add(colaborator);
             }
@@ -63,11 +59,8 @@ namespace Interface
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            AdministratorUI administratorUI = new AdministratorUI(this.session, this.repository);
-            administratorUI.administratorHandler = this.administratorHandler;
-            administratorUI.colaboratorHandler = this.colaboratorHandler;
-            administratorUI.teamHandler = this.teamHandler;
-            administratorUI.blackboardHandler = this.blackboardHandler;
+            AdministratorUI administratorUI = new AdministratorUI();
+            administratorUI.Show();
             this.Hide();
         }
 
@@ -76,7 +69,7 @@ namespace Interface
             string name = txtTeamName.Text;
             string description = txtDescription.Text;
             int maxUsers = (int)nudMaxUsers.Value;
-            User user = administratorHandler.GetUserFromColecction(this.repository.session.user.mail);
+            User user = instance.administratorHandler.GetUserFromColecction(instance.repository.session.user.mail);
             Administrator adminCreator = (Administrator)user;
             DateTime birthdate = DateTime.Now;
             try
@@ -88,12 +81,9 @@ namespace Interface
                 teamToAdd.creator = adminCreator;
                 teamToAdd.creationDate = birthdate;
                 teamToAdd.usersInTeam = usersForTeam;
-                this.teamHandler.AddTeam(teamToAdd);
-                AdministratorUI administratorUI = new AdministratorUI(this.session, this.repository);
-                administratorUI.administratorHandler = this.administratorHandler;
-                administratorUI.colaboratorHandler = this.colaboratorHandler;
-                administratorUI.teamHandler = this.teamHandler;
-                administratorUI.blackboardHandler = this.blackboardHandler;
+                instance.teamHandler.AddTeam(teamToAdd);
+                AdministratorUI administratorUI = new AdministratorUI();
+                administratorUI.Show();
                 this.Hide();
             }
             catch (TeamException ex)
@@ -113,10 +103,6 @@ namespace Interface
             
         }
 
-        public void TeamRegisterUI_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void lblUserListInTeam_Click(object sender, EventArgs e)
         {
@@ -141,15 +127,15 @@ namespace Interface
                 var selectedUser = this.dataGridViewUsers.Rows[selectedRow].Tag;
                 usersForTeam.Add((User)selectedUser);
                 users.Remove((User)selectedUser);
-                loadUsers();
-                reloadUsersForTeam();
+                LoadUsers();
+                ReloadUsersForTeam();
             }
             catch(Exception ex)
             {
                 MessageBox.Show("No hay mas usuarios para agregar a la lista", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        private void reloadUsersForTeam()
+        private void ReloadUsersForTeam()
         {
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.dataGridViewUserForTeam.Rows.Clear();
@@ -157,6 +143,23 @@ namespace Interface
             {
                 var rowIndex = this.dataGridViewUserForTeam.Rows.Add(user.mail, user.name, user.surname);
                 this.dataGridViewUserForTeam.Rows[rowIndex].Tag = user;
+            }
+        }
+
+        private void BtnRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedRow = this.dataGridViewUserForTeam.CurrentCell.RowIndex;
+                var selectedUser = this.dataGridViewUserForTeam.Rows[selectedRow].Tag;
+                usersForTeam.Remove((User)selectedUser);
+                users.Add((User)selectedUser);
+                LoadUsers();
+                ReloadUsersForTeam();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No puede quitar mas usuarios del equipo.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

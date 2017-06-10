@@ -15,14 +15,13 @@ namespace Interface
 {
     public partial class BlackboardUI : Form
     {
-        public Session session { get; set; }
-        public AdministratorHandler administratorHandler { get; set; }
-        public ColaboratorHandler colaboratorHandler { get; set; }
-        public TeamHandler teamHandler { get; set; }
-        public Repository repository { get; set; }
-        public BlackboardHandler blackboardHandler { get; set; }
-        public BlackboardUI(Session session, Repository repository)
+        private Singleton instance;
+
+        private Blackboard blackboard;
+        public BlackboardUI(Blackboard blackboard)
         {
+            instance = Singleton.GetInstance;
+            this.blackboard = blackboard;
             InitializeComponent();
         }
 
@@ -30,7 +29,10 @@ namespace Interface
         {
 
         }
-
+        private void btnExitProgram_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
         public void BlackboardUI_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();

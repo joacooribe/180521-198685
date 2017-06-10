@@ -38,7 +38,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.BtnLogIn = new System.Windows.Forms.Button();
             this.BtnGenerate = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblGenerate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -74,19 +74,18 @@
             // RdoColaborator
             // 
             this.RdoColaborator.AutoSize = true;
-            this.RdoColaborator.Checked = true;
             this.RdoColaborator.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RdoColaborator.Location = new System.Drawing.Point(23, 69);
             this.RdoColaborator.Name = "RdoColaborator";
             this.RdoColaborator.Size = new System.Drawing.Size(93, 17);
             this.RdoColaborator.TabIndex = 1;
-            this.RdoColaborator.TabStop = true;
             this.RdoColaborator.Text = "Colaborador";
             this.RdoColaborator.UseVisualStyleBackColor = true;
             // 
             // RdoAdmin
             // 
             this.RdoAdmin.AutoSize = true;
+            this.RdoAdmin.Checked = true;
             this.RdoAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RdoAdmin.Location = new System.Drawing.Point(23, 32);
             this.RdoAdmin.Name = "RdoAdmin";
@@ -146,14 +145,14 @@
             this.BtnGenerate.UseVisualStyleBackColor = true;
             this.BtnGenerate.Click += new System.EventHandler(this.BtnGenerate_Click);
             // 
-            // label3
+            // lblGenerate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(565, 386);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Generar datos de prueba";
+            this.lblGenerate.AutoSize = true;
+            this.lblGenerate.Location = new System.Drawing.Point(565, 386);
+            this.lblGenerate.Name = "lblGenerate";
+            this.lblGenerate.Size = new System.Drawing.Size(148, 13);
+            this.lblGenerate.TabIndex = 14;
+            this.lblGenerate.Text = "Generar datos de prueba";
             // 
             // label5
             // 
@@ -185,7 +184,7 @@
             this.ClientSize = new System.Drawing.Size(784, 475);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblGenerate);
             this.Controls.Add(this.BtnGenerate);
             this.Controls.Add(this.BtnLogIn);
             this.Controls.Add(this.label4);
@@ -216,7 +215,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnLogIn;
         private System.Windows.Forms.Button BtnGenerate;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblGenerate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblError;
     }

@@ -15,13 +15,10 @@ namespace Interface
 {
     public partial class ModifyUserUI : UserControl
     {
-        public Session session { get; set; }
-        public AdministratorHandler administratorHandler { get; set; }
-        public ColaboratorHandler colaboratorHandler { get; set; }
-        public Repository repository { get; set; }
+        private Singleton instance;
         public ModifyUserUI()
         {
-
+            instance = Singleton.GetInstance;
             InitializeComponent();
         }
 
@@ -30,5 +27,26 @@ namespace Interface
 
         }
 
+      
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            User user = instance.repository.session.user;
+            if (user.password == txtActualPassword.Text)
+            {
+                try
+                {
+                    instance.colaboratorHandler.ModifyPassword(user.mail, txtNewPassword.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Contraseña nueva invalida, ingrese una correcta.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Contraseña actual invalida, ingrese nuevamente.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
