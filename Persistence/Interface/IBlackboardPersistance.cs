@@ -13,6 +13,7 @@ namespace Persistence
         Blackboard GetBlackboard(string name, Team team);
         bool ExistsBlackboard(Blackboard blackboard);
         void DeleteBlackboard(Blackboard blackboard);
+        void DeleteBlackboardsOfTeam(Team team);
         bool IsEmptyBlackboardCollection();
     }
 }

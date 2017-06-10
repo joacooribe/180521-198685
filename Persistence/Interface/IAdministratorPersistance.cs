@@ -14,5 +14,6 @@ namespace Persistence
         bool ExistsAdministrator(Administrator administrator);
         void DeleteAdministrator(Administrator administrator);
         bool IsEmptyAdministratorCollection();
+        void EmptyAdministrators();
     }
 }

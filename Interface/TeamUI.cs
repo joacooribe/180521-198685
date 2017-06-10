@@ -33,7 +33,7 @@ namespace Interface
             this.dataGridViewTeam.Rows.Clear();
             foreach (Team team in instance.repository.teamCollection)
             {
-                if (team.usersInTeam.Contains(instance.repository.session.user)) {
+                if (team.usersInTeam.Contains(instance.session.user)) {
                     var rowIndex = this.dataGridViewTeam.Rows.Add(team.name, team.description, team.maxUsers);
                     this.dataGridViewTeam.Rows[rowIndex].Tag = team;
                 }

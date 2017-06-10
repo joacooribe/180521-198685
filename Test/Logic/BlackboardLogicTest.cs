@@ -93,6 +93,7 @@ namespace Test
             blackboardPersistence.AddBlackboard(blackboard);
 
             Assert.AreEqual(blackboardNameOk, blackboard.name);
+
         }
 
         [TestMethod]

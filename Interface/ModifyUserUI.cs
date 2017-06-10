@@ -31,7 +31,7 @@ namespace Interface
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            User user = instance.repository.session.user;
+            User user = instance.session.user;
             if (user.password == txtActualPassword.Text)
             {
                 try

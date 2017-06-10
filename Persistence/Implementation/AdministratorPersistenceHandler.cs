@@ -65,5 +65,10 @@ namespace Persistence
             return systemCollection.administratorCollection.Count == 0;
         }
 
+        public void EmptyAdministrators()
+        {
+            systemCollection.administratorCollection.Clear();
+        }
+
     }
 }

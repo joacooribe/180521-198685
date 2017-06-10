@@ -142,15 +142,7 @@ namespace Logic
             {
                 throw new TeamException(ExceptionMessage.teamModifyMaxUsers);
             }
-<<<<<<< HEAD:Logic/Implementation/TeamHandler.cs
-<<<<<<< HEAD:Logic/Implementation/TeamHandler.cs
-            teamFunctions.ModifyTeamMaxUsers(nameOfTeam, newMax);
-=======
-            teamFunctions.ModifyMaxUsers(teamToModify.name, newMax);
->>>>>>> ff27d8aa4d7caa3d617437e81f9af0a2ecfc80f9:Logic/TeamHandler.cs
-=======
-            teamFunctions.ModifyMaxUsers(teamToModify.name, newMax);
->>>>>>> ff27d8aa4d7caa3d617437e81f9af0a2ecfc80f9:Logic/TeamHandler.cs
+            teamFunctions.ModifyTeamMaxUsers(teamToModify.name, newMax);
         }
 
         private bool ValidateNewMaxUsers(Team team, int newMax)
@@ -165,32 +157,16 @@ namespace Logic
 
         public void ModifyTeamDescription(string nameOfTeam, string newDescription)
         {
-<<<<<<< HEAD:Logic/Implementation/TeamHandler.cs
-<<<<<<< HEAD:Logic/Implementation/TeamHandler.cs
-=======
-           
->>>>>>> ff27d8aa4d7caa3d617437e81f9af0a2ecfc80f9:Logic/TeamHandler.cs
-=======
-           
->>>>>>> ff27d8aa4d7caa3d617437e81f9af0a2ecfc80f9:Logic/TeamHandler.cs
             if (ValidateNullOrEmpty(newDescription) || ValidateCorrectLenghtDescription(newDescription.Length))
             {
                 throw new TeamException(ExceptionMessage.teamDescriptionInvalid);
             }
-<<<<<<< HEAD:Logic/Implementation/TeamHandler.cs
-<<<<<<< HEAD:Logic/Implementation/TeamHandler.cs
             teamFunctions.ModifyTeamDescription(nameOfTeam, newDescription);
         }
 
         public void DeleteTeam(Team team)
         {
             teamFunctions.DeleteTeam(team);
-=======
-            teamFunctions.ModifyDescription(nameOfTeam, newDescription);
->>>>>>> ff27d8aa4d7caa3d617437e81f9af0a2ecfc80f9:Logic/TeamHandler.cs
-=======
-            teamFunctions.ModifyDescription(nameOfTeam, newDescription);
->>>>>>> ff27d8aa4d7caa3d617437e81f9af0a2ecfc80f9:Logic/TeamHandler.cs
         }
             
     }

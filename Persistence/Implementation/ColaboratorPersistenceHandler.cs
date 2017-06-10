@@ -59,5 +59,10 @@ namespace Persistence
         {
             return systemCollection.colaboratorCollection.Count == 0;
         }
+
+        public void EmptyColaborators()
+        {
+            systemCollection.colaboratorCollection.Clear();
+        }
     }
 }

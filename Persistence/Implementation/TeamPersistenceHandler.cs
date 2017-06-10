@@ -11,10 +11,12 @@ namespace Persistence
     public class TeamPersistenceHandler : ITeamPersistance
     {
         public Repository systemCollection;
+        private IBlackboardPersistance blackboardFunctions;
 
         public TeamPersistenceHandler()
         {
             systemCollection = Repository.GetInstance;
+            blackboardFunctions = new BlackboardPersistenceHandler();
         }
 
         public void AddTeam(Team team)
@@ -45,22 +47,15 @@ namespace Persistence
             throw new Exception();
         }
 
-        public void ModifyMaxUsers(string teamToModifyName, int newMax)
-        {
-            Team teamToModify = GetTeamFromCollection(teamToModifyName);
-            teamToModify.maxUsers = newMax;
-        }
-
-        public void ModifyDescription(string teamToModifyName, string newDescription)
-        {
-            Team teamToModify = GetTeamFromCollection(teamToModifyName);
-            teamToModify.description = newDescription;
-        }
-
         public void DeleteTeam(Team team)
         {
-            //Faltan cosas
+            DeleteBlackboardsOfTeam(team);
             systemCollection.teamCollection.Remove(team);
+        }
+
+        private void DeleteBlackboardsOfTeam(Team team)
+        {
+            blackboardFunctions.DeleteBlackboardsOfTeam(team);
         }
 
         public bool IsEmptyTeamCollection()
@@ -78,6 +73,11 @@ namespace Persistence
         {
             Team team = GetTeam(nameOfTeam);
             team.maxUsers = newMaxUsers;
+        }
+
+        public void EmptyTeams()
+        {
+            systemCollection.teamCollection.Clear();
         }
     }
 }

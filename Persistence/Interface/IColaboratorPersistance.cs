@@ -14,5 +14,6 @@ namespace Persistence
         bool ExistsColaborator(Colaborator colaborator);
         void DeleteColaborator(Colaborator colaborator);
         bool IsEmptyColaboratorCollection();
+        void EmptyColaborators();
     }
 }

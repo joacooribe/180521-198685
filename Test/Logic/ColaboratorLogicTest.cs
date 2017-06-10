@@ -92,7 +92,7 @@ namespace Test
             colaboratorHandler.AddColaborator(colaborator);
 
             Assert.AreEqual(colaborator, colaboratorHandler.GetUserFromColecction(colaborator.mail));
-
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -104,7 +104,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
-
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -116,7 +116,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
-
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -128,6 +128,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -139,6 +140,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -150,6 +152,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -161,6 +164,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -172,6 +176,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -183,6 +188,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -194,7 +200,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
-
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -206,8 +212,9 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
-
+            colaboratorPersistence.EmptyColaborators();
         }
+
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorSurnameWithSpacesInTheEnd()
@@ -217,6 +224,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -228,6 +236,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -239,6 +248,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -250,6 +260,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -261,6 +272,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -272,6 +284,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -283,6 +296,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -294,6 +308,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -305,7 +320,9 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
+
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordNoLetters()
@@ -315,7 +332,9 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
+
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorPasswordTooSmall()
@@ -325,6 +344,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -336,7 +356,9 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
+
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorNullMail()
@@ -346,6 +368,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -357,6 +380,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -368,6 +392,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -379,7 +404,9 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
+
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorMailNoName()
@@ -389,6 +416,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -400,7 +428,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, invalidBirthday);
 
             colaboratorHandler.AddColaborator(colaborator);
-
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -411,8 +439,9 @@ namespace Test
             string newPassword = "NewPassword123";
             colaboratorHandler.ModifyPassword(colaborator.mail, newPassword);
             Assert.AreEqual(newPassword, colaborator.password);
-
+            colaboratorPersistence.EmptyColaborators();
         }
+
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorInvalidModification()
@@ -421,6 +450,7 @@ namespace Test
             colaboratorHandler.AddColaborator(colaborator);
             string newPassword = "";
             colaboratorHandler.ModifyPassword(colaborator.mail, newPassword);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [ExpectedException(typeof(UserException))]
@@ -430,6 +460,7 @@ namespace Test
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
             colaboratorHandler.AddColaborator(colaborator);
+            colaboratorPersistence.EmptyColaborators();
         }
     }
 }

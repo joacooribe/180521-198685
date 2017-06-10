@@ -145,8 +145,8 @@ namespace Interface
             int newMaxUsers = (int)NudMaxUsers.Value;
             try
             {
-                instance.teamHandler.ModifyDescription(team.name, newDescription);
-                instance.teamHandler.ModifyMaxUsers(team.name, newMaxUsers);
+                instance.teamHandler.ModifyTeamDescription(team.name, newDescription);
+                instance.teamHandler.ModifyTeamMaxUsers(team.name, newMaxUsers);
                 AdministratorUI administratorUI = new AdministratorUI();
                 MessageBox.Show("Equipo modificado correctamente.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 administratorUI.Show();

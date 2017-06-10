@@ -69,7 +69,7 @@ namespace Interface
             string name = txtTeamName.Text;
             string description = txtDescription.Text;
             int maxUsers = (int)nudMaxUsers.Value;
-            User user = instance.administratorHandler.GetUserFromColecction(instance.repository.session.user.mail);
+            User user = instance.administratorHandler.GetUserFromColecction(instance.session.user.mail);
             Administrator adminCreator = (Administrator)user;
             DateTime birthdate = DateTime.Now;
             try

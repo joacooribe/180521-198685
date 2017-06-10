@@ -127,7 +127,7 @@ namespace Logic
             }
         }
 
-        private bool ExistsBlackboard(Blackboard blackboard)
+        public bool ExistsBlackboard(Blackboard blackboard)
         {
             return blackboardFunctions.ExistsBlackboard(blackboard);
         }

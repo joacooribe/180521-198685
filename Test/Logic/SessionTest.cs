@@ -80,6 +80,7 @@ namespace Test
 
             Session actualSession = sessionHandler.LogInAdministrator(administrator.mail, administrator.password);
             Assert.AreEqual(administrator, actualSession.user);
+            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
@@ -92,6 +93,7 @@ namespace Test
             string invalidPassword = "invalid";
 
             sessionHandler.LogInAdministrator(administrator.mail, invalidPassword);
+            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
@@ -104,6 +106,7 @@ namespace Test
             string invalidMail = "invalidMail";
 
             sessionHandler.LogInAdministrator(invalidMail, administrator.mail);
+            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
@@ -116,6 +119,7 @@ namespace Test
             string notExistUser = "diego@gmail.com";
 
             sessionHandler.LogInAdministrator(notExistUser, administrator.mail);
+            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
@@ -126,6 +130,7 @@ namespace Test
 
             Session actualSession = sessionHandler.LogInColaborator(colaborator.mail, colaborator.password);
             Assert.AreEqual(colaborator, actualSession.user);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -138,6 +143,7 @@ namespace Test
             string invalidPassword = "invalid";
 
             sessionHandler.LogInColaborator(colaborator.mail, invalidPassword);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -150,6 +156,7 @@ namespace Test
             string invalidMail = "invalidMail";
 
             sessionHandler.LogInColaborator(invalidMail, colaborator.password);
+            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
@@ -162,6 +169,7 @@ namespace Test
             string notExistUser = "diego@gmail.com";
 
             sessionHandler.LogInColaborator(notExistUser, colaborator.mail);
+            colaboratorPersistence.EmptyColaborators();
         }
     }
 }

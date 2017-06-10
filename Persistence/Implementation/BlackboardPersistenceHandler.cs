@@ -43,7 +43,27 @@ namespace Persistence
 
         public void DeleteBlackboard(Blackboard blackboard)
         {
-            //Falta implementar
+            //DeleteElementOfBlackboard(blackboard);
+            systemCollection.blackboardCollection.Remove(blackboard);
+        }
+
+        private void DeleteElementOfBlackboard(Blackboard blackboard)
+        {
+            //foreach(Element elementOfBlackboard in blackboard.elementsInBlackboard)
+            //{
+
+            //}
+        }
+
+        public void DeleteBlackboardsOfTeam(Team team)
+        {
+            foreach (Blackboard blackboardOfTeam in systemCollection.blackboardCollection)
+            {
+                if (blackboardOfTeam.teamOwner.Equals(team))
+                {
+                    DeleteBlackboard(blackboardOfTeam);
+                }
+            }
         }
 
         public bool IsEmptyBlackboardCollection()

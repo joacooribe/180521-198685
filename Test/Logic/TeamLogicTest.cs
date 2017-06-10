@@ -85,6 +85,7 @@ namespace Test
             teamHandler.AddTeam(team);
 
             Assert.AreEqual(team,teamHandler.GetTeamFromCollection(team.name));
+            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -100,7 +101,9 @@ namespace Test
             team = DataCreation.CreateTeam(invalidName, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
+            teamPersistence.EmptyTeams();
         }
+
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
         public void TeamNullName()
@@ -114,7 +117,9 @@ namespace Test
             team = DataCreation.CreateTeam(invalidName, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
+            teamPersistence.EmptyTeams();
         }
+
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
         public void TeamEmptyDescription()
@@ -128,7 +133,9 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, invalidDescription, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
+            teamPersistence.EmptyTeams();
         }
+
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
         public void TeamNullDescription()
@@ -142,7 +149,9 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, invalidDescription, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
+            teamPersistence.EmptyTeams();
         }
+
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
         public void TeamNoUsers()
@@ -153,6 +162,7 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
+            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -168,7 +178,9 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, invalidMaxUsers, usersInTeam);
 
             teamHandler.AddTeam(team);
+            teamPersistence.EmptyTeams();
         }
+
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
         public void TeamUsersOverMax()
@@ -184,7 +196,9 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsers , usersInTeam);
 
             teamHandler.AddTeam(team);
+            teamPersistence.EmptyTeams();
         }
+
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
         public void TeamInvalidDate()
@@ -198,8 +212,9 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, invalidCreationDate, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
-
+            teamPersistence.EmptyTeams();
         }
+
         [TestMethod]
         public void TeamModificationOfMaxUsersOK()
         {
@@ -213,8 +228,9 @@ namespace Test
             int newMax = 10;
             teamHandler.ModifyTeamMaxUsers(team.name,newMax);
             Assert.AreEqual(newMax,team.maxUsers);
-
+            teamPersistence.EmptyTeams();
         }
+
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
         public void TeamInvalidModificationOfMaxUsers()
@@ -228,7 +244,9 @@ namespace Test
             teamHandler.AddTeam(team);
             int newMax = 0;
             teamHandler.ModifyTeamMaxUsers(team.name, newMax);
+            teamPersistence.EmptyTeams();
         }
+
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
         public void TeamInvalidModificationOfMaxUsersNegative()
@@ -242,7 +260,9 @@ namespace Test
             teamHandler.AddTeam(team);
             int newMax = -1;
             teamHandler.ModifyTeamMaxUsers(team.name, newMax);
+            teamPersistence.EmptyTeams();
         }
+
         [TestMethod]
         public void TeamModificationOfDescriptionOK()
         {
@@ -256,8 +276,9 @@ namespace Test
             string newDescription = "This is a new description";
             teamHandler.ModifyTeamDescription(team.name, newDescription);
             Assert.AreEqual(newDescription, team.description);
-
+            teamPersistence.EmptyTeams();
         }
+
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
         public void TeamInvalidModificationOfDescription()
@@ -271,6 +292,7 @@ namespace Test
             teamHandler.AddTeam(team);
             string newDescription = "This is an invalid description since it passes the limit of 50 characters.";
             teamHandler.ModifyTeamDescription(team.name, newDescription);
+            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -282,7 +304,8 @@ namespace Test
 
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
-            teamHandler.AddTeam(team);  
+            teamHandler.AddTeam(team);
+            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -297,6 +320,7 @@ namespace Test
 
             teamHandler.AddTeam(team);
             teamHandler.AddTeam(team);
+            teamPersistence.EmptyTeams();
         }
     }
 }

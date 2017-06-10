@@ -10,10 +10,12 @@ namespace Persistence
     public class TextBoxPersistanceHandler : ITextBoxPersistance
     {
         public Repository systemCollection;
+        private ICommentPersistance commentFunctions;
 
         public TextBoxPersistanceHandler()
         {
             systemCollection = Repository.GetInstance;
+            commentFunctions = new CommentPersistanceHandler();
         }
 
         public void AddTextBox(TextBox textBox)
@@ -45,7 +47,16 @@ namespace Persistence
 
         public void DeleteTextBox(TextBox textBox)
         {
+            DeleteAllCommentOfTextBox(textBox);
             DeleteTextBoxFromBlackboard(textBox, textBox.blackboardOwner);
+        }
+
+        private void DeleteAllCommentOfTextBox(TextBox textBox)
+        {
+            foreach (Comment commentOfTextBox in textBox.commentCollection)
+            {
+                commentFunctions.DeleteComment(commentOfTextBox);
+            }
         }
 
         private void DeleteTextBoxFromBlackboard(TextBox textBox, Blackboard blackboardOwner)

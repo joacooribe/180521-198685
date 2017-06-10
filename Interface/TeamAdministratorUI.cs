@@ -55,7 +55,7 @@ namespace Interface
             this.DataGridViewTeamBelongs.Rows.Clear();
             foreach (Team team in teams)
             {
-                if (team.usersInTeam.Contains(instance.repository.session.user)) {
+                if (team.usersInTeam.Contains(instance.session.user)) {
                     var rowIndex = this.DataGridViewTeamBelongs.Rows.Add(team.name, team.description);
                     this.DataGridViewTeamBelongs.Rows[rowIndex].Tag = team;
                 }

@@ -39,7 +39,7 @@ namespace Interface
             {
                 if (RdoColaborator.Checked)
                 {
-                    instance.colaboratorHandler.LoginColaborator(email, password);
+                    instance.session = instance.sessionHandler.LogInColaborator(email, password);
                     ColaboratorUI colaboratorUI = new ColaboratorUI();
                     colaboratorUI.Show();
                     this.Hide();
@@ -47,7 +47,7 @@ namespace Interface
                 }
                 else if (RdoAdmin.Checked)
                 {
-                    instance.administratorHandler.LoginAdministrator(email, password);
+                    instance.session = instance.sessionHandler.LogInAdministrator(email, password);
                     AdministratorUI administratorUI = new AdministratorUI();
                     administratorUI.Show();
                     this.Hide();

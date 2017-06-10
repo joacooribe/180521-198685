@@ -17,41 +17,49 @@ namespace Interface
 
         public Repository repository { get; set; }
 
-        public AdministratorHandler administratorHandler { get; set; }
+        public Session session { get; set; }
 
-        public ColaboratorHandler colaboratorHandler { get; set; }
+        public ISessionHandler sessionHandler { get; set; }
 
-        public TeamHandler teamHandler { get; set; }
+        public IAdministratorHandler administratorHandler { get; set; }
 
-        public BlackboardHandler blackboardHandler { get; set; }
+        public IColaboratorHandler colaboratorHandler { get; set; }
 
-        public AdministratorPersistenceHandler administratorPersistence { get; set; }
+        public ITeamHandler teamHandler { get; set; }
 
-        public ColaboratorPersistenceHandler colaboratorPersistence { get; set; }
+        public IBlackboardHandler blackboardHandler { get; set; }
 
-        public TeamPersistenceHandler teamPersistence { get; set; }
+        public IAdministratorPersistance administratorPersistence { get; set; }
 
-        public BlackboardPersistenceHandler blackboardPersistence { get; set; }
+        public IColaboratorPersistance colaboratorPersistence { get; set; }
+
+        public ITeamPersistance teamPersistence { get; set; }
+
+        public IBlackboardPersistance blackboardPersistence { get; set; }
 
         private Singleton()
         {
-            repository = new Repository();
+            repository = Repository.GetInstance;
 
-            this.administratorPersistence = new AdministratorPersistenceHandler(repository);
+            this.session = new Session();
 
-            this.colaboratorPersistence = new ColaboratorPersistenceHandler(repository);
+            this.sessionHandler = new SessionHandler();
 
-            this.teamPersistence = new TeamPersistenceHandler(repository);
+            this.administratorPersistence = new AdministratorPersistenceHandler();
 
-            this.blackboardPersistence = new BlackboardPersistenceHandler(repository);
+            this.colaboratorPersistence = new ColaboratorPersistenceHandler();
 
-            this.administratorHandler = new AdministratorHandler() { administratorFunctions = administratorPersistence };
+            this.teamPersistence = new TeamPersistenceHandler();
 
-            this.colaboratorHandler = new ColaboratorHandler() { colaboratorFunctions = colaboratorPersistence };
+            this.blackboardPersistence = new BlackboardPersistenceHandler();
 
-            this.teamHandler = new TeamHandler() { teamFunctions = teamPersistence };
+            this.administratorHandler = new AdministratorHandler();
 
-            this.blackboardHandler = new BlackboardHandler() { blackboardFunctions = blackboardPersistence };
+            this.colaboratorHandler = new ColaboratorHandler();
+
+            this.teamHandler = new TeamHandler();
+
+            this.blackboardHandler = new BlackboardHandler();
 
         }
 
