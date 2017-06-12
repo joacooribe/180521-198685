@@ -31,10 +31,6 @@
             this.DataGridViewTeams = new System.Windows.Forms.DataGridView();
             this.TeamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeamDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataGridViewUserInTeam = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnSelectTeam = new System.Windows.Forms.Button();
             this.BtnSelectUser = new System.Windows.Forms.Button();
             this.RdoBadRankCreate = new System.Windows.Forms.RadioButton();
@@ -42,7 +38,7 @@
             this.Rdo3GoodCreation = new System.Windows.Forms.RadioButton();
             this.Rdo4VeryGoodCreation = new System.Windows.Forms.RadioButton();
             this.Rdo5ExcelentCreation = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GrpCreateBlackboard = new System.Windows.Forms.GroupBox();
             this.GrpEliminateBlackBoard = new System.Windows.Forms.GroupBox();
             this.Rdo1BadElimination = new System.Windows.Forms.RadioButton();
             this.Rdo5ExcelentElimination = new System.Windows.Forms.RadioButton();
@@ -77,13 +73,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.BtnBack = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.LblUserSelected = new System.Windows.Forms.Label();
+            this.DataGridViewUserInTeam = new System.Windows.Forms.DataGridView();
+            this.UserMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnResetRank = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTeams)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUserInTeam)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.GrpCreateBlackboard.SuspendLayout();
             this.GrpEliminateBlackBoard.SuspendLayout();
             this.GrpAddElement.SuspendLayout();
             this.GrpAddComment.SuspendLayout();
             this.GrpSolvedComments.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUserInTeam)).BeginInit();
             this.SuspendLayout();
             // 
             // DataGridViewTeams
@@ -113,33 +116,6 @@
             this.TeamDescription.Name = "TeamDescription";
             this.TeamDescription.ReadOnly = true;
             // 
-            // DataGridViewUserInTeam
-            // 
-            this.DataGridViewUserInTeam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewUserInTeam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.DataGridViewUserInTeam.Location = new System.Drawing.Point(289, 109);
-            this.DataGridViewUserInTeam.Name = "DataGridViewUserInTeam";
-            this.DataGridViewUserInTeam.Size = new System.Drawing.Size(308, 271);
-            this.DataGridViewUserInTeam.TabIndex = 29;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Mail";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Apellido";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
             // BtnSelectTeam
             // 
             this.BtnSelectTeam.Location = new System.Drawing.Point(69, 408);
@@ -158,6 +134,7 @@
             this.BtnSelectUser.TabIndex = 31;
             this.BtnSelectUser.Text = "Seleccionar usuario";
             this.BtnSelectUser.UseVisualStyleBackColor = true;
+            this.BtnSelectUser.Click += new System.EventHandler(this.BtnSelectUser_Click);
             // 
             // RdoBadRankCreate
             // 
@@ -214,20 +191,20 @@
             this.Rdo5ExcelentCreation.Text = "5";
             this.Rdo5ExcelentCreation.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // GrpCreateBlackboard
             // 
-            this.groupBox1.Controls.Add(this.RdoBadRankCreate);
-            this.groupBox1.Controls.Add(this.Rdo5ExcelentCreation);
-            this.groupBox1.Controls.Add(this.Rdo2RegularCreate);
-            this.groupBox1.Controls.Add(this.Rdo4VeryGoodCreation);
-            this.groupBox1.Controls.Add(this.Rdo3GoodCreation);
-            this.groupBox1.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(632, 109);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(243, 42);
-            this.groupBox1.TabIndex = 37;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Crear pizarrón";
+            this.GrpCreateBlackboard.Controls.Add(this.RdoBadRankCreate);
+            this.GrpCreateBlackboard.Controls.Add(this.Rdo5ExcelentCreation);
+            this.GrpCreateBlackboard.Controls.Add(this.Rdo2RegularCreate);
+            this.GrpCreateBlackboard.Controls.Add(this.Rdo4VeryGoodCreation);
+            this.GrpCreateBlackboard.Controls.Add(this.Rdo3GoodCreation);
+            this.GrpCreateBlackboard.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GrpCreateBlackboard.Location = new System.Drawing.Point(632, 109);
+            this.GrpCreateBlackboard.Name = "GrpCreateBlackboard";
+            this.GrpCreateBlackboard.Size = new System.Drawing.Size(243, 42);
+            this.GrpCreateBlackboard.TabIndex = 37;
+            this.GrpCreateBlackboard.TabStop = false;
+            this.GrpCreateBlackboard.Text = "Crear pizarrón";
             // 
             // GrpEliminateBlackBoard
             // 
@@ -560,9 +537,9 @@
             this.label1.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(687, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 17);
+            this.label1.Size = new System.Drawing.Size(86, 17);
             this.label1.TabIndex = 44;
-            this.label1.Text = "Puntuaciones";
+            this.label1.Text = "Puntuar A:";
             // 
             // label2
             // 
@@ -592,6 +569,7 @@
             this.BtnBack.TabIndex = 47;
             this.BtnBack.Text = "Volver";
             this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // label4
             // 
@@ -603,12 +581,74 @@
             this.label4.TabIndex = 48;
             this.label4.Text = "Puntuar Usuario";
             // 
+            // LblUserSelected
+            // 
+            this.LblUserSelected.AutoSize = true;
+            this.LblUserSelected.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUserSelected.Location = new System.Drawing.Point(779, 73);
+            this.LblUserSelected.Name = "LblUserSelected";
+            this.LblUserSelected.Size = new System.Drawing.Size(78, 15);
+            this.LblUserSelected.TabIndex = 49;
+            this.LblUserSelected.Text = "User name";
+            this.LblUserSelected.Visible = false;
+            // 
+            // DataGridViewUserInTeam
+            // 
+            this.DataGridViewUserInTeam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataGridViewUserInTeam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UserMail,
+            this.UserName,
+            this.UserSurname});
+            this.DataGridViewUserInTeam.Location = new System.Drawing.Point(279, 109);
+            this.DataGridViewUserInTeam.Name = "DataGridViewUserInTeam";
+            this.DataGridViewUserInTeam.Size = new System.Drawing.Size(332, 271);
+            this.DataGridViewUserInTeam.TabIndex = 50;
+            // 
+            // UserMail
+            // 
+            this.UserMail.HeaderText = "Mail";
+            this.UserMail.Name = "UserMail";
+            // 
+            // UserName
+            // 
+            this.UserName.HeaderText = "Nombre";
+            this.UserName.Name = "UserName";
+            // 
+            // UserSurname
+            // 
+            this.UserSurname.HeaderText = "Apellido";
+            this.UserSurname.Name = "UserSurname";
+            // 
+            // BtnResetRank
+            // 
+            this.BtnResetRank.Location = new System.Drawing.Point(534, 451);
+            this.BtnResetRank.Name = "BtnResetRank";
+            this.BtnResetRank.Size = new System.Drawing.Size(99, 23);
+            this.BtnResetRank.TabIndex = 51;
+            this.BtnResetRank.Text = "Resetear Puntaje";
+            this.BtnResetRank.UseVisualStyleBackColor = true;
+            this.BtnResetRank.Click += new System.EventHandler(this.BtnResetRank_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(351, 456);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(183, 15);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Resetear Puntaje a Equipo";
+            // 
             // RankingAdminUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(993, 506);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.BtnResetRank);
+            this.Controls.Add(this.DataGridViewUserInTeam);
+            this.Controls.Add(this.LblUserSelected);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.label3);
@@ -623,17 +663,15 @@
             this.Controls.Add(this.GrpAddComment);
             this.Controls.Add(this.GrpAddElement);
             this.Controls.Add(this.GrpEliminateBlackBoard);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.GrpCreateBlackboard);
             this.Controls.Add(this.BtnSelectUser);
             this.Controls.Add(this.BtnSelectTeam);
-            this.Controls.Add(this.DataGridViewUserInTeam);
             this.Controls.Add(this.DataGridViewTeams);
             this.Name = "RankingAdminUI";
             this.Text = "RankingAdminUI";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTeams)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUserInTeam)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.GrpCreateBlackboard.ResumeLayout(false);
+            this.GrpCreateBlackboard.PerformLayout();
             this.GrpEliminateBlackBoard.ResumeLayout(false);
             this.GrpEliminateBlackBoard.PerformLayout();
             this.GrpAddElement.ResumeLayout(false);
@@ -642,6 +680,7 @@
             this.GrpAddComment.PerformLayout();
             this.GrpSolvedComments.ResumeLayout(false);
             this.GrpSolvedComments.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUserInTeam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -652,10 +691,6 @@
         private System.Windows.Forms.DataGridView DataGridViewTeams;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeamName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeamDescription;
-        private System.Windows.Forms.DataGridView DataGridViewUserInTeam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Button BtnSelectTeam;
         private System.Windows.Forms.Button BtnSelectUser;
         private System.Windows.Forms.RadioButton RdoBadRankCreate;
@@ -663,7 +698,7 @@
         private System.Windows.Forms.RadioButton Rdo3GoodCreation;
         private System.Windows.Forms.RadioButton Rdo4VeryGoodCreation;
         private System.Windows.Forms.RadioButton Rdo5ExcelentCreation;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GrpCreateBlackboard;
         private System.Windows.Forms.GroupBox GrpEliminateBlackBoard;
         private System.Windows.Forms.RadioButton Rdo1BadElimination;
         private System.Windows.Forms.RadioButton Rdo5ExcelentElimination;
@@ -698,5 +733,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnBack;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LblUserSelected;
+        private System.Windows.Forms.DataGridView DataGridViewUserInTeam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserMail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserSurname;
+        private System.Windows.Forms.Button BtnResetRank;
+        private System.Windows.Forms.Label label5;
     }
 }

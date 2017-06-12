@@ -70,7 +70,7 @@
             // BtnLogOut
             // 
             this.BtnLogOut.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnLogOut.Location = new System.Drawing.Point(645, 24);
+            this.BtnLogOut.Location = new System.Drawing.Point(645, 27);
             this.BtnLogOut.Name = "BtnLogOut";
             this.BtnLogOut.Size = new System.Drawing.Size(100, 23);
             this.BtnLogOut.TabIndex = 3;
@@ -90,7 +90,7 @@
             // 
             // BtnRegister
             // 
-            this.BtnRegister.Location = new System.Drawing.Point(530, 24);
+            this.BtnRegister.Location = new System.Drawing.Point(517, 26);
             this.BtnRegister.Name = "BtnRegister";
             this.BtnRegister.Size = new System.Drawing.Size(109, 23);
             this.BtnRegister.TabIndex = 5;
@@ -106,6 +106,7 @@
             this.BtnRankUser.TabIndex = 6;
             this.BtnRankUser.Text = "Puntar Usuario";
             this.BtnRankUser.UseVisualStyleBackColor = true;
+            this.BtnRankUser.Click += new System.EventHandler(this.BtnRankUser_Click);
             // 
             // AdministratorUI
             // 

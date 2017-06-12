@@ -62,5 +62,12 @@ namespace Interface
             registerUI.Show();
             this.Hide();
         }
+
+        private void BtnRankUser_Click(object sender, EventArgs e)
+        {
+            RankingAdminUI rankingAdminUI = new RankingAdminUI();
+            rankingAdminUI.Show();
+            this.Hide();
+        }
     }
 }

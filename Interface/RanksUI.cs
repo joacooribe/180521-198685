@@ -12,34 +12,32 @@ using System.Globalization;
 
 namespace Interface
 {
-    public partial class RankingAdminUI : Form
+    public partial class RanksUI : Form
     {
         private Singleton instance;
 
         private List<Team> teams;
 
         private List<User> usersInTeam;
-
-        private User userToRank;
-        public RankingAdminUI()
+        public RanksUI()
         {
             instance = Singleton.GetInstance;
             teams = new List<Team>();
             usersInTeam = new List<User>();
-            InicializeList();
             InitializeComponent();
-            LoadTeams();
-
+            InitializeList();
+            LoadTeamGrid();
         }
-        private void InicializeList()
+
+       private void InitializeList()
         {
             foreach (Team team in instance.repository.teamCollection)
             {
                 teams.Add(team);
             }
         }
-
-        private void LoadTeams()
+        
+      private void LoadTeamGrid()
         {
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.DataGridViewTeams.Rows.Clear();
@@ -48,16 +46,9 @@ namespace Interface
                 var rowIndex = this.DataGridViewTeams.Rows.Add(team.name, team.description);
                 this.DataGridViewTeams.Rows[rowIndex].Tag = team;
             }
-        }
+        } 
 
-        private void BtnSelectTeam_Click(object sender, EventArgs e)
-        {
-            var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
-            var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
-            LoadUsers((Team)selectedTeam);
-        }
-
-        private void LoadUsers(Team team)
+      private void LoadUserGrid(Team team)
         {
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.DataGridViewUserInTeam.Rows.Clear();
@@ -68,25 +59,16 @@ namespace Interface
             }
         }
 
-        private void BtnSelectUser_Click(object sender, EventArgs e)
+        private void BtnSelectTeam_Click(object sender, EventArgs e)
         {
-            var selectedRow = this.DataGridViewUserInTeam.CurrentCell.RowIndex;
-            var selectedUser = this.DataGridViewUserInTeam.Rows[selectedRow].Tag;
-            userToRank = (User)selectedUser;
-            LblUserSelected.Text = userToRank.name;
-            LblUserSelected.Visible = true;
+            var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
+            var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
+            LoadUserGrid((Team)selectedTeam);
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            AdministratorUI administratorUI = new AdministratorUI();
-            administratorUI.Show();
-            this.Hide();
-        }
-
-        private void BtnResetRank_Click(object sender, EventArgs e)
-        {
-
+            
         }
     }
 }
