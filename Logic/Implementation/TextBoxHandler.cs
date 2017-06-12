@@ -5,28 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using Exceptions;
+using Persistence;
 
 namespace Logic
 {
-    public class TextBoxHandler
+    public class TextBoxHandler : ITextBoxHandler
     {
-        public TextBoxPersistenceProvider textBoxFunctions { get; set; }
+        public ITextBoxPersistance textBoxFunctions { get; set; }
 
-        public void AddElement(Element textBox)
+        public TextBoxHandler()
         {
-            ValidateTextBox(textBox);
-            textBoxFunctions.AddElement(textBox);
+            textBoxFunctions = new TextBoxPersistanceHandler();
         }
 
-        public Element GetElementFromCollection(int idElement, Blackboard blackboardOwner)
-        {
-            Utility.UtilityElement.ValidateBlackboard(blackboardOwner);
-            return textBoxFunctions.GetElementFromCollection(idElement, blackboardOwner);
-        }
-
-        private void ValidateTextBox(Element element)
+        public void AddElement(Element element)
         {
             TextBox textBox = (TextBox)element;
+            ValidateTextBox(textBox);
+            textBoxFunctions.AddTextBox(textBox);
+        }
+
+        private void ValidateTextBox(TextBox textBox)
+        {
             Utility.UtilityElement.ValidateCommentCollection(textBox.commentCollection);
             Utility.UtilityElement.ValidateBlackboard(textBox.blackboardOwner);
             Utility.UtilityElement.ValidateUser(textBox.blackboardOwner, textBox.creator);
@@ -84,6 +84,18 @@ namespace Logic
             {
                 throw new TextBoxException(ExceptionMessage.textBoxContentNull);
             }
+        }
+
+        public Element GetElementFromCollection(int idElement, Blackboard blackboardOwner)
+        {
+            Utility.UtilityElement.ValidateBlackboard(blackboardOwner);
+            return textBoxFunctions.GetTextBox(idElement, blackboardOwner);
+        }
+
+        public void DeleteElement(Element element)
+        {
+            TextBox textBox = (TextBox)element;
+            textBoxFunctions.DeleteTextBox(textBox);
         }
     }
 }

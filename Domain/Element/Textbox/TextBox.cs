@@ -14,15 +14,16 @@ namespace Domain
 
         public override bool Equals(object obj)
         {
+            bool equal = false;
             if (obj != null && obj.GetType().Equals(this.GetType()))
             {
                 TextBox textBox = (TextBox)obj;
                 if (this.id.Equals(textBox.id) && this.blackboardOwner.Equals(textBox.blackboardOwner))
                 {
-                    return true;
+                    equal = true;
                 }
             }
-            return false;
+            return equal;
         }
     }
 }

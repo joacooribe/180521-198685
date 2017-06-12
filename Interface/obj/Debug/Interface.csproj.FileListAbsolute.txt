@@ -12,30 +12,6 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.Start.resources
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.csproj.GenerateResource.Cache
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.pdb
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Interface.dll
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Interface.pdb
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Domain.dll
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Logic.dll
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Persistence.dll
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Utility.dll
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Exceptions.dll
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Domain.pdb
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Logic.pdb
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Persistence.pdb
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Utility.pdb
-C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Exceptions.pdb
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.csprojResolveAssemblyReference.cache
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.AdministratorUI.resources
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.BlackboardUI.resources
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.ColaboratorUI.resources
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.ModifyUserUI.resources
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.RegisterUI.resources
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.Start.resources
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.TeamAdministratorUI.resources
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.TeamUI.resources
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.csproj.GenerateResource.Cache
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.dll
-C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\Exceptions.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\Exceptions.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.AdministratorUI.resources
@@ -76,3 +52,32 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.TeamMenuUI.resources
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.RankingAdminUI.resources
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.RanksUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.csprojResolveAssemblyReference.cache
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.AdministratorUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.BlackboardUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.ColaboratorUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.ModifyTeamUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.ModifyUserUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.RankingAdminUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.RegisterUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.Start.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.TeamAdministratorUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.TeamMenuUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.TeamRegisterUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.TeamUI.resources
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.csproj.GenerateResource.Cache
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Interface.exe
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Interface.pdb
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Domain.dll
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Exceptions.dll
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Logic.dll
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Persistence.dll
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Utility.dll
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Domain.pdb
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Exceptions.pdb
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Logic.pdb
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Persistence.pdb
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Utility.pdb
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.exe
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.pdb
+

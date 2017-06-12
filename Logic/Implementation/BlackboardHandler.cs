@@ -5,16 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using Exceptions;
+using Persistence;
 
 namespace Logic
 {
-    public class BlackboardHandler
+    public class BlackboardHandler : IBlackboardHandler
     {
-        public BlackboardPersistenceProvider blackboardFunctions { get; set; }
+        public IBlackboardPersistance blackboardFunctions { get; set; }
+
+        public BlackboardHandler()
+        {
+            blackboardFunctions = new BlackboardPersistenceHandler();
+        }
 
         public void AddBlackboard(Blackboard blackboard)
         {
             ValidateBlackboard(blackboard);
+            if (ExistsBlackboard(blackboard))
+            {
+                throw new BlackboardException(ExceptionMessage.blackboardAlreadyExist);
+            }
             blackboardFunctions.AddBlackboard(blackboard);
         }
 
@@ -115,6 +125,18 @@ namespace Logic
             {
                 throw new BlackboardException(ExceptionMessage.blackboardNameSize);
             }
+        }
+
+        public bool ExistsBlackboard(Blackboard blackboard)
+        {
+            return blackboardFunctions.ExistsBlackboard(blackboard);
+        }
+
+        public Blackboard GetBlackboard(string name, Team team)
+        {
+            ValidateName(name);
+            ValidateTeam(team);
+            return blackboardFunctions.GetBlackboard(name, team);
         }
     }
 }

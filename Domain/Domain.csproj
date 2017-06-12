@@ -50,25 +50,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blackboard\Blackboard.cs" />
-    <Compile Include="Blackboard\BlackboardPersistenceProvider.cs" />
     <Compile Include="Comment.cs" />
-    <Compile Include="CommentPersistenceProvider.cs" />
     <Compile Include="Element\Element.cs" />
-    <Compile Include="Element\ElementPersistanceProvider.cs" />
     <Compile Include="Element\Image\Image.cs" />
-    <Compile Include="Element\Image\ImagePersistenceProvider.cs" />
     <Compile Include="Element\Textbox\TextBox.cs" />
-    <Compile Include="Element\Textbox\TextBoxPersistenceProvider.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="Users\Administrator\Administrator.cs" />
-    <Compile Include="Users\Administrator\AdministratorPersistenceProvider.cs" />
     <Compile Include="Users\Colaborator\Colaborator.cs" />
-    <Compile Include="Users\Colaborator\ColaboratorPersistenceProvider.cs" />
     <Compile Include="Team.cs" />
-    <Compile Include="TeamPersistenceProvider.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Users\UserPersistenceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

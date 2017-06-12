@@ -9,15 +9,15 @@ namespace Persistence
 {
     public class Repository
     {
-        public Session session { get; set; }
+        private static readonly object padlock = new object();
+        private static Repository instance;
         public ICollection<Colaborator> colaboratorCollection { get; }
         public ICollection<Administrator> administratorCollection { get; }
         public ICollection<Team> teamCollection { get; }
         public ICollection<Blackboard> blackboardCollection { get; }
         private int idElement;
         
-        public Repository() {
-            session = new Session();
+        private Repository() {
             colaboratorCollection = new List<Colaborator>();
             administratorCollection = new List<Administrator>();
             teamCollection = new List<Team>();
@@ -30,6 +30,21 @@ namespace Persistence
             idElement++;
             int number = idElement;
             return number;
+        }
+
+        public static Repository GetInstance
+        {
+            get
+            {
+                lock (padlock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new Repository();
+                    }
+                    return instance;
+                }
+            }
         }
     }
 }

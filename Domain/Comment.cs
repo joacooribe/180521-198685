@@ -18,15 +18,16 @@ namespace Domain
 
         public override bool Equals(object obj)
         {
+            bool equal = false;
             if (obj != null && obj.GetType().Equals(this.GetType()))
             {
                 Comment comment = (Comment)obj;
                 if (HaveTheSameUserCreator(this.userCreator,comment.userCreator) && HaveTheSameCreationDate(this.creationDate,comment.creationDate) && HaveTheSameDescription(this.description,comment.description))
                 {
-                    return true;
+                    equal = true;
                 }
             }
-            return false;
+            return equal;
         }
 
         private bool HaveTheSameDescription(string description, string anotherDescription)

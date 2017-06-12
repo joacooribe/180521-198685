@@ -85,7 +85,7 @@ namespace Interface
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            Type typeOfUser = instance.repository.session.user.GetType();
+            Type typeOfUser = instance.session.user.GetType();
 
             if (typeOfUser.Equals(typeof(Administrator)))
             {
@@ -109,8 +109,8 @@ namespace Interface
             try
             {
                 Blackboard blackboard = (Blackboard)selectedBoard;
-                Type typeOfUser = instance.repository.session.user.GetType();
-                if (blackboard.userCreator.Equals(instance.repository.session) || typeOfUser.Equals(typeof(Administrator)))
+                Type typeOfUser = instance.session.user.GetType();
+                if (blackboard.userCreator.Equals(instance.session) || typeOfUser.Equals(typeof(Administrator)))
                 {
                     //Delete de blackboard.
                 }

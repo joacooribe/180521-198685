@@ -64,6 +64,7 @@
     <Compile Include="Logic\ColaboratorLogicTest.cs" />
     <Compile Include="Logic\CommentLogicTest.cs" />
     <Compile Include="Logic\ImageLogicTest.cs" />
+    <Compile Include="Logic\SessionTest.cs" />
     <Compile Include="Logic\TeamLogicTest.cs" />
     <Compile Include="Logic\TextBoxLogicTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

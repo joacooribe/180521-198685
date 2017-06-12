@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain;
 
-namespace Domain
+namespace Logic
 {
-   public interface UserPersistenceProvider
+   public interface IUserHandler
     {
         User GetUserFromColecction(string mailOfUser);
         void ModifyPassword(string mailOfUser, string newPassword);
-        bool ExistsUser(string mailOfUser);
-        void LogOut();
     }
 }

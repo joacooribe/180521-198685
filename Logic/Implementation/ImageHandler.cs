@@ -5,13 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using Exceptions;
+using Persistence;
 
 namespace Logic
 {
-    public class ImageHandler
+    public class ImageHandler : IImageHandler
     {
-        public ImagePersistenceProvider imageFunctions { get; set; }
+        public IImagePersistance imageFunctions { get; set; }
+
         private List<string> validFormats;
+
+        public ImageHandler()
+        {
+            imageFunctions = new ImagePersistanceHandler();
+        }
 
         private void createListOfValidFormats()
         {
@@ -22,21 +29,15 @@ namespace Logic
             validFormats.Add(".jpg");
         }
 
-        public void AddElement(Element image)
-        {
-            ValidateImage(image);
-            imageFunctions.AddElement(image);
-        }
-
-        public Element GetElementFromCollection(int idElement, Blackboard blackboardOwner)
-        {
-            Utility.UtilityElement.ValidateBlackboard(blackboardOwner);
-            return imageFunctions.GetElementFromCollection(idElement, blackboardOwner);
-        }
-
-        private void ValidateImage(Element element)
+        public void AddElement(Element element)
         {
             Image image = (Image)element;
+            ValidateImage(image);
+            imageFunctions.AddImage(image);
+        }
+
+        private void ValidateImage(Image image)
+        {
             Utility.UtilityElement.ValidateCommentCollection(image.commentCollection);
             Utility.UtilityElement.ValidateBlackboard(image.blackboardOwner);
             Utility.UtilityElement.ValidateUser(image.blackboardOwner, image.creator);
@@ -78,6 +79,18 @@ namespace Logic
         private void ValidateUrl(string url)
         {
             ValidateNullOrEmpty(url);
+        }
+
+        public Element GetElementFromCollection(int idElement, Blackboard blackboardOwner)
+        {
+            Utility.UtilityElement.ValidateBlackboard(blackboardOwner);
+            return imageFunctions.GetImage(idElement, blackboardOwner);
+        }
+
+        public void DeleteElement(Element element)
+        {
+            Image image = (Image)element;
+            imageFunctions.DeleteImage(image);
         }
     }
 }

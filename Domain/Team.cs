@@ -17,13 +17,13 @@ namespace Domain
 
         public override bool Equals(object obj)
         {
-            bool equals = false;
+            bool equal = false;
             if (obj != null && obj.GetType().Equals(this.GetType()))
             {
                 Team team = (Team)obj;
-                equals = team.name.Equals(this.name);
+                equal = team.name.Equals(this.name);
             }
-            return equals;
+            return equal;
         }
 
     }
