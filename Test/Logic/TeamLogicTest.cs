@@ -266,6 +266,7 @@ namespace Test
         [TestMethod]
         public void TeamModificationOfDescriptionOK()
         {
+            teamPersistence.EmptyTeams();
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam = new List<User>();
             usersInTeam.Add(administratorCreator);

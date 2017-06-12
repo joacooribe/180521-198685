@@ -46,7 +46,7 @@ namespace Logic
         public void ModifyPassword(string mailOfAdministrator,string newPassword)
         {
             Utility.Utilites.ValidatePassword(newPassword);
-            User adminToChangePassword = administratorFunctions.GetAdministrator(mailOfAdministrator);
+            Administrator adminToChangePassword = administratorFunctions.GetAdministrator(mailOfAdministrator);
             adminToChangePassword.password = newPassword;
         }
 
@@ -55,9 +55,10 @@ namespace Logic
             return administratorFunctions.ExistsAdministrator(administrator);
         }
 
-        //public void LogOut()
-        //{
-        //    administratorFunctions.LogOut();
-        //}
+        public void DeleteUser(string mailOfAdministrator)
+        {
+            administratorFunctions.DeleteAdministrator(mailOfAdministrator);
+        }
+
     }
 }

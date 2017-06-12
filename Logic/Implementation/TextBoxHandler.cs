@@ -94,8 +94,8 @@ namespace Logic
 
         public void DeleteElement(Element element)
         {
-            TextBox textBox = (TextBox)element;
-            textBoxFunctions.DeleteTextBox(textBox);
+            //TextBox textBox = (TextBox)element;
+            textBoxFunctions.DeleteElement(element);
         }
     }
 }

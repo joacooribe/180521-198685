@@ -46,13 +46,18 @@ namespace Logic
         public void ModifyPassword(string mailOfColaborator, string newPassword)
         {
             Utility.Utilites.ValidatePassword(newPassword);
-            User colaboratorToChangePassword = GetUserFromColecction(mailOfColaborator);
+            Colaborator colaboratorToChangePassword = colaboratorFunctions.GetColaborator(mailOfColaborator);
             colaboratorToChangePassword.password = newPassword;
         }
 
         public bool ExistsColaborator(Colaborator colaborator)
         {
             return colaboratorFunctions.ExistsColaborator(colaborator);
+        }
+
+        public void DeleteUser(string mailOfColaborator)
+        {
+            colaboratorFunctions.DeleteColaborator(mailOfColaborator);
         }
     }
 }

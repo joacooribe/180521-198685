@@ -10,7 +10,8 @@ namespace Persistence
 {
     public class BlackboardPersistenceHandler : IBlackboardPersistance
     {
-        public Repository systemCollection;
+        private Repository systemCollection;
+        private IElementPersistance elementFunctions;
 
         public BlackboardPersistenceHandler()
         {
@@ -43,16 +44,16 @@ namespace Persistence
 
         public void DeleteBlackboard(Blackboard blackboard)
         {
-            //DeleteElementOfBlackboard(blackboard);
+            DeleteElementOfBlackboard(blackboard);
             systemCollection.blackboardCollection.Remove(blackboard);
         }
 
         private void DeleteElementOfBlackboard(Blackboard blackboard)
         {
-            //foreach(Element elementOfBlackboard in blackboard.elementsInBlackboard)
-            //{
-
-            //}
+            foreach(Element elementOfBlackboard in blackboard.elementsInBlackboard)
+            {
+                elementFunctions.DeleteElement(elementOfBlackboard);
+            }
         }
 
         public void DeleteBlackboardsOfTeam(Team team)

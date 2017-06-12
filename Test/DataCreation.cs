@@ -17,6 +17,7 @@ namespace Test
             administrator.mail = mail;
             administrator.password = password;
             administrator.birthday = birthday;
+            administrator.active = true;
             return administrator;
         }
 
@@ -28,6 +29,7 @@ namespace Test
             colaborator.mail = mail;
             colaborator.password = password;
             colaborator.birthday = birthday;
+            colaborator.active = true;
             return colaborator;
         }
 

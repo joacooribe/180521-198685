@@ -13,5 +13,6 @@ namespace Domain
         public string mail { get; set; }
         public string password { get; set; }
         public DateTime birthday { get; set; }
+        public bool active { get; set; }
     }
 }

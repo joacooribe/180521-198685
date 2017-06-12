@@ -75,94 +75,95 @@ namespace Test
         [TestMethod]
         public void AdministratorLoginOk()
         {
+            administratorPersistence.EmptyAdministrators();
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
 
             Session actualSession = sessionHandler.LogInAdministrator(administrator.mail, administrator.password);
             Assert.AreEqual(administrator, actualSession.user);
-            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void AdministratorLoginWrongPassword()
         {
+            administratorPersistence.EmptyAdministrators();
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
 
             string invalidPassword = "invalid";
 
             sessionHandler.LogInAdministrator(administrator.mail, invalidPassword);
-            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void AdministratorLoginWrongMail()
         {
+            administratorPersistence.EmptyAdministrators();
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
 
             string invalidMail = "invalidMail";
 
             sessionHandler.LogInAdministrator(invalidMail, administrator.mail);
-            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void AdministratorLoginUserNotExist()
         {
+            administratorPersistence.EmptyAdministrators();
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
 
             string notExistUser = "diego@gmail.com";
 
             sessionHandler.LogInAdministrator(notExistUser, administrator.mail);
-            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
         public void ColaboratorLoginOk()
         {
+            colaboratorPersistence.EmptyColaborators();
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
 
             Session actualSession = sessionHandler.LogInColaborator(colaborator.mail, colaborator.password);
             Assert.AreEqual(colaborator, actualSession.user);
-            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorLoginWrongPassword()
         {
+            colaboratorPersistence.EmptyColaborators();
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
 
             string invalidPassword = "invalid";
 
             sessionHandler.LogInColaborator(colaborator.mail, invalidPassword);
-            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorLoginWrongMail()
         {
+            colaboratorPersistence.EmptyColaborators();
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
 
             string invalidMail = "invalidMail";
 
             sessionHandler.LogInColaborator(invalidMail, colaborator.password);
-            colaboratorPersistence.EmptyColaborators();
         }
 
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorLoginUserNotExist()
         {
+            colaboratorPersistence.EmptyColaborators();
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
 

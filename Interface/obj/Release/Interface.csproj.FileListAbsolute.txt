@@ -23,3 +23,7 @@ C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.TeamUI.
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.csproj.GenerateResource.Cache
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.exe
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.pdb
+C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.ModifyTeamUI.resources
+C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.RankingAdminUI.resources
+C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.RanksUI.resources
+C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.TeamMenuUI.resources
