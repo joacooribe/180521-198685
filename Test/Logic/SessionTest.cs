@@ -75,6 +75,7 @@ namespace Test
         [TestMethod]
         public void AdministratorLoginOk()
         {
+            administratorPersistence.EmptyAdministrators();
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
 
@@ -125,6 +126,7 @@ namespace Test
         [TestMethod]
         public void ColaboratorLoginOk()
         {
+            colaboratorPersistence.EmptyColaborators();
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
 

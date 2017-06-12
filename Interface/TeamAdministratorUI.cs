@@ -63,6 +63,7 @@ namespace Interface
         }
         private void InitializeList()
         {
+            teams = new List<Team>();
             foreach (Team team in instance.repository.teamCollection)
             {
                 teams.Add(team);
@@ -71,7 +72,12 @@ namespace Interface
         }
         private void BtnDeleteTeam_Click(object sender, EventArgs e)
         {
-
+            var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
+            var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
+            instance.teamHandler.DeleteTeam((Team)selectedTeam);
+            InitializeList();
+            LoadTeams();
+            LoadTeamBelongs();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -81,8 +87,8 @@ namespace Interface
 
         private void BtnSelect_Click(object sender, EventArgs e)
         {
-            var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
-            var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
+            var selectedRow = this.DataGridViewTeamBelongs.CurrentCell.RowIndex;
+            var selectedTeam = this.DataGridViewTeamBelongs.Rows[selectedRow].Tag;
             TeamMenuUI teamMenuUI = new TeamMenuUI((Team)selectedTeam);
             adminUI.Hide();
             teamMenuUI.Show();
