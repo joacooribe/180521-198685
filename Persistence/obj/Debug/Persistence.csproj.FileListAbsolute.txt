@@ -25,3 +25,8 @@ C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Exceptions.pdb
 C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.csprojResolveAssemblyReference.cache
 C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.dll
 C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\Persistence.dll.config
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityFramework.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityFramework.xml
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityFramework.SqlServer.xml

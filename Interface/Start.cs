@@ -21,6 +21,7 @@ namespace Interface
         public Start()
         {
             this.instance = Singleton.GetInstance;
+
                     
             InitializeComponent();
 

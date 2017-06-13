@@ -1,11 +1,16 @@
-﻿namespace Domain
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+namespace Domain
 {
+    [Table("Administrators")]
     public class Administrator:User
     {
+        
         public Administrator()
         {
-
         }
+        
+        
         public override bool Equals(object obj)
         {
             bool equal = false;

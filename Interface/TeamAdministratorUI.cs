@@ -72,13 +72,23 @@ namespace Interface
         }
         private void BtnDeleteTeam_Click(object sender, EventArgs e)
         {
-            var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
-            var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
-            instance.teamHandler.DeleteTeam((Team)selectedTeam);
-            InitializeList();
-            LoadTeams();
-            LoadTeamBelongs();
+            try{
+                var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
+                var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
+                Team teamToDel = (Team)selectedTeam;
+                string nameTeam = teamToDel.name;
+                instance.teamHandler.DeleteTeam(teamToDel);
+                InitializeList();
+                LoadTeams();
+                LoadTeamBelongs();
+                MessageBox.Show("Se ha eliminado el equipo: " + nameTeam, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } catch (Exception ex)
+            {
+                String msgError = ex.Message;
+                MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {

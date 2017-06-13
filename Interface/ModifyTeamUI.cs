@@ -116,7 +116,8 @@ namespace Interface
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No hay mas usuarios para agregar a la lista", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                String msgError = ex.Message;
+                MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -134,9 +135,10 @@ namespace Interface
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("No puede quitar mas usuarios del equipo.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    String msgError = ex.Message;
+                    MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            
+
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -155,8 +157,8 @@ namespace Interface
             }
             catch (Exception ex)
             {
-
-                throw;
+                String msgError = ex.Message;
+                MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

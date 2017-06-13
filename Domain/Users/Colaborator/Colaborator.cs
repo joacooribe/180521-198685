@@ -1,7 +1,12 @@
-﻿namespace Domain
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+namespace Domain
 {
+    [Table("Colaborators")]
     public class Colaborator:User
     {
+        [Key]
+        public int OIDColaborator { get; set; }
         public Colaborator()
         {
 
