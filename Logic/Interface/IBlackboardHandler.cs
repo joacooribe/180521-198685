@@ -7,5 +7,6 @@ namespace Logic
         void AddBlackboard(Blackboard blackboard);
         Blackboard GetBlackboard(string name, Team team);
         bool ExistsBlackboard(Blackboard blackboard);
+        void DeleteBlackboard(Blackboard blackboard);
     }
 }
