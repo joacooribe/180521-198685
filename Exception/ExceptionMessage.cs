@@ -19,6 +19,7 @@ namespace Exceptions
         public static string userNotExist = "El mail que ingreso no existe";
 
         //Team Exceptions
+        public static string teamNotExists = "No Existe el equipo.";
         public static string teamNameNullOrEmpty = "El nombre del equipo no puede ser nulo o vacio";
         public static string teamOwnerNull = "El equipo debe poseer un usuario creador";
         public static string teamDescriptionInvalid = "La descripcion no puede ser nula o vacia y debe ser menor a 51 caracteres";

@@ -25,46 +25,58 @@ namespace Persistence
                 context.Administrators.Add(administrator);
                 context.SaveChanges();
             }
-            systemCollection.administratorCollection.Add(administrator);
+          
         }
 
         public Administrator GetAdministrator(string mailOfAdministrator)
         {
             Administrator administrator = new Administrator();
-            foreach (Administrator administratorFromColecction in systemCollection.administratorCollection)
+            using (ContextDB context = new ContextDB())
             {
-                if (mailOfAdministrator.Equals(administratorFromColecction.mail))
-                {
-                    administrator = administratorFromColecction;
-                    return administrator;
-                }
+                administrator = context.Administrators
+                                                .Where(a => a.mail == mailOfAdministrator)
+                                                .FirstOrDefault();
             }
-            throw new UserException(ExceptionMessage.userNotExist);
+            if (AdministratorNotDefined(administrator))
+            {
+                throw new UserException(ExceptionMessage.userNotExist);
+            }
+            return administrator;
         }
 
-        //public void ModifyPassword(string mailOfAdministrator,string newPassword)
-        //{
-        //    User adminToChangePassword = GetAdministrator(mailOfAdministrator);
-        //    adminToChangePassword.password = newPassword;
-        //}
+
+        public bool AdministratorNotDefined(Administrator admin)
+        {
+            return admin == null;
+        }
         
         public bool ExistsAdministrator(Administrator administrator)
         {
-            bool existsAdministrator = false;
-            foreach (Administrator administratorFromColecction in systemCollection.administratorCollection)
+            bool exists = true;
+            using (ContextDB context = new ContextDB())
             {
-                if (administrator.Equals(administratorFromColecction))
-                {
-                    existsAdministrator = true;
-                }
+                administrator = context.Administrators
+                                                .Where(a => a.mail == administrator.mail)
+                                                .FirstOrDefault(); ;
             }
-            return existsAdministrator;
+            if (AdministratorNotDefined(administrator))
+            {
+                exists = false;
+            }
+            return exists;
         }
 
         public void DeleteAdministrator(string mailOfAdministrator)
         {
-            Administrator adminToChange = GetAdministrator(mailOfAdministrator);
-            adminToChange.active = false;
+            using (ContextDB context = new ContextDB())
+            {
+            context.Administrators
+                                .Where(a => a.mail == mailOfAdministrator)
+                                .FirstOrDefault()
+                                .active=false;
+                context.SaveChanges();
+            }
+               
         }
 
         public bool IsEmptyAdministratorCollection()

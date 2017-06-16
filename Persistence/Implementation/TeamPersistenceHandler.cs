@@ -22,11 +22,12 @@ namespace Persistence
 
         public void AddTeam(Team team)
         {
-            if (ExistsTeam(team))
+            using (ContextDB context = new ContextDB())
             {
-                throw new TeamException(ExceptionMessage.teamAlreadyExist);
+                context.Teams.Add(team);
+                context.SaveChanges();
             }
-            systemCollection.teamCollection.Add(team);
+
         }
 
         public bool ExistsTeam(Team team)
@@ -37,15 +38,22 @@ namespace Persistence
         public Team GetTeam(string nameOfTeam)
         {
             Team team = new Team();
-            foreach (Team teamFromColecction in systemCollection.teamCollection)
+            using (ContextDB context = new ContextDB())
             {
-                if (nameOfTeam.Equals(teamFromColecction.name))
-                {
-                    team = teamFromColecction;
-                    return team;
-                }
+                team = context.Teams
+                                .Where(t => t.name == nameOfTeam)
+                                .FirstOrDefault();
             }
-            throw new Exception();
+            if (TeamNotDefined(team))
+            {
+                throw new TeamException(ExceptionMessage.teamNotExists);
+            }
+            return team;
+        }
+
+        public bool TeamNotDefined(Team team)
+        {
+            return team == null;
         }
 
         public void DeleteTeam(Team team)
@@ -66,14 +74,24 @@ namespace Persistence
 
         public void ModifyTeamDescription(string nameOfTeam, string newDescription)
         {
-            Team team = GetTeam(nameOfTeam);
-            team.description = newDescription;
+            using (ContextDB context = new ContextDB())
+            {
+               context.Teams
+                        .Where(t => t.name == nameOfTeam)
+                        .FirstOrDefault().description = newDescription;
+               context.SaveChanges();
+            }
         }
 
         public void ModifyTeamMaxUsers(string nameOfTeam, int newMaxUsers)
         {
-            Team team = GetTeam(nameOfTeam);
-            team.maxUsers = newMaxUsers;
+            using (ContextDB context = new ContextDB())
+            {
+                context.Teams
+                         .Where(t => t.name == nameOfTeam)
+                         .FirstOrDefault().maxUsers=newMaxUsers;
+                context.SaveChanges();
+            }
         }
 
         public void EmptyTeams()

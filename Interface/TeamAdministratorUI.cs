@@ -29,7 +29,7 @@ namespace Interface
             teams = new List<Team>();
             InitializeList();
             LoadTeams();
-            LoadTeamBelongs();
+           // LoadTeamBelongs();
         }
 
         private void BtnCreateTeam_Click(object sender, EventArgs e)
@@ -64,11 +64,12 @@ namespace Interface
         private void InitializeList()
         {
             teams = new List<Team>();
-            foreach (Team team in instance.repository.teamCollection)
+            teams = new List<Team>();
+            using (ContextDB context = new ContextDB())
             {
-                teams.Add(team);
+                teams = context.Teams.ToList();
             }
-           
+
         }
         private void BtnDeleteTeam_Click(object sender, EventArgs e)
         {
@@ -80,7 +81,7 @@ namespace Interface
                 instance.teamHandler.DeleteTeam(teamToDel);
                 InitializeList();
                 LoadTeams();
-                LoadTeamBelongs();
+               // LoadTeamBelongs();
                 MessageBox.Show("Se ha eliminado el equipo: " + nameTeam, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } catch (Exception ex)
             {

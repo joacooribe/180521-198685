@@ -20,41 +20,61 @@ namespace Persistence
 
         public void AddColaborator(Colaborator colaborator)
         {
-            systemCollection.colaboratorCollection.Add(colaborator);
+            using (ContextDB context = new ContextDB())
+            {
+                context.Colaborators.Add(colaborator);
+                context.SaveChanges();
+            }
         }
 
         public Colaborator GetColaborator(string mailOfColaborator)
         {
 
             Colaborator colaborator = new Colaborator();
-            foreach (Colaborator colaboratorFromColecction in systemCollection.colaboratorCollection)
+            using (ContextDB context = new ContextDB())
             {
-                if (mailOfColaborator.Equals(colaboratorFromColecction.mail))
-                {
-                    colaborator = colaboratorFromColecction;
-                    return colaborator;
-                }
+                colaborator = context.Colaborators
+                                                .Where(a => a.mail == mailOfColaborator)
+                                                .FirstOrDefault();
             }
-            throw new UserException(ExceptionMessage.userNotExist);
+            if (ColaboratorNotDefined(colaborator))
+            {
+                throw new UserException(ExceptionMessage.userNotExist);
+            }
+            return colaborator;
+        }
+
+        public bool ColaboratorNotDefined(Colaborator colab)
+        {
+            return colab == null;
         }
 
         public bool ExistsColaborator(Colaborator colaborator)
         {
-            bool existsColaborator = false;
-            foreach (Colaborator colaboratorFromColecction in systemCollection.colaboratorCollection)
+            bool exists = true;
+            using (ContextDB context = new ContextDB())
             {
-                if (colaborator.Equals(colaboratorFromColecction))
-                {
-                    existsColaborator = true;
-                }
+                colaborator = context.Colaborators
+                                                .Where(a => a.mail == colaborator.mail)
+                                                .FirstOrDefault(); ;
             }
-            return existsColaborator;
+            if (ColaboratorNotDefined(colaborator))
+            {
+                exists = false;
+            }
+            return exists;
         }
 
         public void DeleteColaborator(string mailOfColaborator)
         {
-            Colaborator colaboratorToChange = GetColaborator(mailOfColaborator);
-            colaboratorToChange.active = false;
+            using (ContextDB context = new ContextDB())
+            {
+                context.Colaborators
+                                    .Where(a => a.mail == mailOfColaborator)
+                                    .FirstOrDefault()
+                                    .active = false;
+                context.SaveChanges();
+            }
         }
 
         public bool IsEmptyColaboratorCollection()

@@ -43,13 +43,10 @@ namespace Interface
         }
         private void InitializeList()
         {
-            foreach(Administrator admin in instance.repository.administratorCollection)
+
+            using (ContextDB context = new ContextDB())
             {
-                users.Add(admin);
-            }
-            foreach (Colaborator colaborator in instance.repository.colaboratorCollection)
-            {
-                users.Add(colaborator);
+                users = context.Users.ToList();
             }
         }
         private void label2_Click(object sender, EventArgs e)
@@ -93,11 +90,6 @@ namespace Interface
             }
         }
 
-        private void lstUsers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void TeamRegisterUI_Load(object sender, EventArgs e)
         {
             
@@ -112,11 +104,6 @@ namespace Interface
         private void dataGridViewUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void listEmpty()
-        {
-            
         }
 
         private void brnAgregar_Click(object sender, EventArgs e)
