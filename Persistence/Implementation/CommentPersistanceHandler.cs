@@ -20,7 +20,11 @@ namespace Persistence
 
         public void AddComment(Comment comment)
         {
-            AddCommentToElement(comment,comment.elementOwner);
+            using (ContextDB context = new ContextDB())
+            {
+                context.Comments.Add(comment);
+                context.SaveChanges();
+            }
         }
 
         private void AddCommentToElement(Comment comment, Element elementOwner)
