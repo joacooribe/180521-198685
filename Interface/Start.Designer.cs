@@ -41,6 +41,7 @@
             this.lblGenerate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
+            this.BtnClearDB = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -176,12 +177,23 @@
             this.lblError.Text = "errorMsg";
             this.lblError.Visible = false;
             // 
+            // BtnClearDB
+            // 
+            this.BtnClearDB.Location = new System.Drawing.Point(621, 265);
+            this.BtnClearDB.Name = "BtnClearDB";
+            this.BtnClearDB.Size = new System.Drawing.Size(135, 23);
+            this.BtnClearDB.TabIndex = 17;
+            this.BtnClearDB.Text = "Borrar base de datos";
+            this.BtnClearDB.UseVisualStyleBackColor = true;
+            this.BtnClearDB.Click += new System.EventHandler(this.BtnClearDB_Click);
+            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(784, 475);
+            this.Controls.Add(this.BtnClearDB);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblGenerate);
@@ -218,5 +230,6 @@
         private System.Windows.Forms.Label lblGenerate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Button BtnClearDB;
     }
 }

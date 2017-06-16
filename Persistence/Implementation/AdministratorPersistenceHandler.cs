@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using Exceptions;
+using System.Data.Entity;
 
 namespace Persistence
 {
@@ -19,6 +20,11 @@ namespace Persistence
 
         public void AddAdministrator(Administrator administrator)
         {
+            using (ContextDB context = new ContextDB())
+            {
+                context.Administrators.Add(administrator);
+                context.SaveChanges();
+            }
             systemCollection.administratorCollection.Add(administrator);
         }
 

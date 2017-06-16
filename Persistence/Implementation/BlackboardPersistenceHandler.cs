@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using Exceptions;
+using System.Data.Entity;
 
 namespace Persistence
 {
