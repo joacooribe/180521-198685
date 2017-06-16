@@ -13,7 +13,7 @@ namespace Persistence
     {
         public Repository systemCollection;
         private ICommentPersistance commentFunctions;
-
+        
         public ImagePersistanceHandler()
         {
             systemCollection = Repository.GetInstance;
@@ -42,23 +42,23 @@ namespace Persistence
             throw new ImageException(ExceptionMessage.imageNotFound);
         }
 
-        public void DeleteImage(Image image)
+        public void DeleteElement(Element element)
         {
-            DeleteAllCommentOfImage(image);
-            DeleteImageFromBlackboard(image, image.blackboardOwner);
+            DeleteAllCommentOfImage(element);
+            DeleteImageFromBlackboard(element, element.blackboardOwner);
         }
 
-        private void DeleteAllCommentOfImage(Image image)
+        private void DeleteAllCommentOfImage(Element element)
         {
-            foreach(Comment commentOfImage in image.commentCollection)
+            foreach(Comment commentOfImage in element.commentCollection)
             {
                 commentFunctions.DeleteComment(commentOfImage);
             }
         }
 
-        private void DeleteImageFromBlackboard(Image image, Blackboard blackboardOwner)
+        private void DeleteImageFromBlackboard(Element element, Blackboard blackboardOwner)
         {
-            blackboardOwner.elementsInBlackboard.Remove(image);
+            blackboardOwner.elementsInBlackboard.Remove(element);
         }
     }
 }

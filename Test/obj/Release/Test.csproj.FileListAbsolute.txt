@@ -1,0 +1,15 @@
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Test.dll
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Test.pdb
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Domain.dll
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Exceptions.dll
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Logic.dll
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Persistence.dll
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Utility.dll
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Domain.pdb
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Exceptions.pdb
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Logic.pdb
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Persistence.pdb
+C:\Users\Usuario\Documents\180521-198685\Test\bin\Release\Utility.pdb
+C:\Users\Usuario\Documents\180521-198685\Test\obj\Release\Test.csprojResolveAssemblyReference.cache
+C:\Users\Usuario\Documents\180521-198685\Test\obj\Release\Test.dll
+C:\Users\Usuario\Documents\180521-198685\Test\obj\Release\Test.pdb

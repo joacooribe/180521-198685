@@ -138,5 +138,10 @@ namespace Logic
             ValidateTeam(team);
             return blackboardFunctions.GetBlackboard(name, team);
         }
+
+        public void DeleteBlackboard(Blackboard blackboard)
+        {
+            blackboardFunctions.DeleteBlackboard(blackboard);
+        }
     }
 }

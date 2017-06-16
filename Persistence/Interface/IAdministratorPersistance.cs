@@ -12,7 +12,7 @@ namespace Persistence
         void AddAdministrator(Administrator administrator);
         Administrator GetAdministrator(string mail);
         bool ExistsAdministrator(Administrator administrator);
-        void DeleteAdministrator(Administrator administrator);
+        void DeleteAdministrator(string mail);
         bool IsEmptyAdministratorCollection();
         void EmptyAdministrators();
     }

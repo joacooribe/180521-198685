@@ -46,23 +46,23 @@ namespace Persistence
             throw new Exception();
         }
 
-        public void DeleteTextBox(TextBox textBox)
+        public void DeleteElement(Element element)
         {
-            DeleteAllCommentOfTextBox(textBox);
-            DeleteTextBoxFromBlackboard(textBox, textBox.blackboardOwner);
+            DeleteAllCommentOfTextBox(element);
+            DeleteTextBoxFromBlackboard(element, element.blackboardOwner);
         }
 
-        private void DeleteAllCommentOfTextBox(TextBox textBox)
+        private void DeleteAllCommentOfTextBox(Element element)
         {
-            foreach (Comment commentOfTextBox in textBox.commentCollection)
+            foreach (Comment commentOfTextBox in element.commentCollection)
             {
                 commentFunctions.DeleteComment(commentOfTextBox);
             }
         }
 
-        private void DeleteTextBoxFromBlackboard(TextBox textBox, Blackboard blackboardOwner)
+        private void DeleteTextBoxFromBlackboard(Element element, Blackboard blackboardOwner)
         {
-            blackboardOwner.elementsInBlackboard.Remove(textBox);
+            blackboardOwner.elementsInBlackboard.Remove(element);
         }
     }
 }

@@ -61,9 +61,10 @@ namespace Persistence
             return existsAdministrator;
         }
 
-        public void DeleteAdministrator(Administrator administrator)
+        public void DeleteAdministrator(string mailOfAdministrator)
         {
-            //Falta ver como eliminarlos
+            Administrator adminToChange = GetAdministrator(mailOfAdministrator);
+            adminToChange.active = false;
         }
 
         public bool IsEmptyAdministratorCollection()

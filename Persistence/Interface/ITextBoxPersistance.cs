@@ -7,10 +7,9 @@ using Domain;
 
 namespace Persistence
 {
-    public interface ITextBoxPersistance
+    public interface ITextBoxPersistance : IElementPersistance
     {
         void AddTextBox(TextBox textBox);
         TextBox GetTextBox(int id, Blackboard blackboard);
-        void DeleteTextBox(TextBox textBox);
     }
 }

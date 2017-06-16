@@ -9,3 +9,5 @@ C:\Users\Usuario\Documents\180521-198685\Logic\bin\Release\Utility.pdb
 C:\Users\Usuario\Documents\180521-198685\Logic\obj\Release\Logic.csprojResolveAssemblyReference.cache
 C:\Users\Usuario\Documents\180521-198685\Logic\obj\Release\Logic.dll
 C:\Users\Usuario\Documents\180521-198685\Logic\obj\Release\Logic.pdb
+C:\Users\Usuario\Documents\180521-198685\Logic\bin\Release\Persistence.dll
+C:\Users\Usuario\Documents\180521-198685\Logic\bin\Release\Persistence.pdb

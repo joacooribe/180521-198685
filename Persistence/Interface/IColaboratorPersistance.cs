@@ -12,7 +12,7 @@ namespace Persistence
         void AddColaborator(Colaborator colaborator);
         Colaborator GetColaborator(string mail);
         bool ExistsColaborator(Colaborator colaborator);
-        void DeleteColaborator(Colaborator colaborator);
+        void DeleteColaborator(string mail);
         bool IsEmptyColaboratorCollection();
         void EmptyColaborators();
     }

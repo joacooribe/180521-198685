@@ -51,9 +51,10 @@ namespace Persistence
             return existsColaborator;
         }
 
-        public void DeleteColaborator(Colaborator colaborator)
+        public void DeleteColaborator(string mailOfColaborator)
         {
-            //Falta ver como eliminar
+            Colaborator colaboratorToChange = GetColaborator(mailOfColaborator);
+            colaboratorToChange.active = false;
         }
 
         public bool IsEmptyColaboratorCollection()

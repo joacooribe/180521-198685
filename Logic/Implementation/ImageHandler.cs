@@ -89,8 +89,8 @@ namespace Logic
 
         public void DeleteElement(Element element)
         {
-            Image image = (Image)element;
-            imageFunctions.DeleteImage(image);
+            //Image image = (Image)element;
+            imageFunctions.DeleteElement(element);
         }
     }
 }
