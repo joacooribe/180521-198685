@@ -37,6 +37,9 @@ namespace Interface
                 try
                 {
                     instance.colaboratorHandler.ModifyPassword(user.mail, txtNewPassword.Text);
+                    MessageBox.Show("Modificación exitosa.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtActualPassword.Text = "";
+                    txtNewPassword.Text = "";
                 }
                 catch (Exception ex)
                 {

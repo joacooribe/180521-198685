@@ -21,6 +21,7 @@ namespace Interface
 
             this.instance = Singleton.GetInstance;
             InitializeComponent();
+            GenerateTeamsPanel();
         }
 
         private void AdministratorUI_Load(object sender, EventArgs e)
@@ -41,6 +42,11 @@ namespace Interface
         }
 
         private void BtnTeams_Click(object sender, EventArgs e)
+        {
+            GenerateTeamsPanel();
+        }
+        
+        private void GenerateTeamsPanel()
         {
             this.panel1.Controls.Clear();
 

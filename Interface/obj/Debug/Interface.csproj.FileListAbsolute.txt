@@ -80,4 +80,8 @@ C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Persistence.pdb
 C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Utility.pdb
 C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.exe
 C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.pdb
-
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\EntityFramework.xml
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\Interface.exe.config
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\EntityFramework.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\EntityFramework.SqlServer.xml

@@ -30,7 +30,7 @@ namespace Interface
             LoadBlackboardGrid();
             LoadUsers();
             LoadUsersGrid();
-           
+
         }
 
         private void LoadBlackboardGrid()
@@ -43,16 +43,16 @@ namespace Interface
                 this.dataGridViewBlackboard.Rows[rowIndex].Tag = blackboard;
             }
         }
-        
+
         private void LoadUsers()
         {
             foreach (Administrator admin in instance.repository.administratorCollection)
             {
-                    users.Add(admin);   
+                users.Add(admin);
             }
             foreach (Colaborator colaborator in instance.repository.colaboratorCollection)
             {
-                    users.Add(colaborator);
+                users.Add(colaborator);
             }
         }
 
@@ -62,7 +62,7 @@ namespace Interface
             this.dataGridViewBlackboard.Rows.Clear();
             foreach (User user in team.usersInTeam)
             {
-                var rowIndex = this.dataGridViewUsers.Rows.Add(user.name, user.surname,user.mail);
+                var rowIndex = this.dataGridViewUsers.Rows.Add(user.name, user.surname, user.mail);
                 this.dataGridViewUsers.Rows[rowIndex].Tag = user;
             }
         }
@@ -80,7 +80,7 @@ namespace Interface
 
         private void dataGridViewBlackboard_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-        
+
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -99,7 +99,7 @@ namespace Interface
                 colaboratorUI.Show();
                 this.Hide();
             }
-            
+
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -112,7 +112,7 @@ namespace Interface
                 Type typeOfUser = instance.session.user.GetType();
                 if (blackboard.userCreator.Equals(instance.session) || typeOfUser.Equals(typeof(Administrator)))
                 {
-                    //Delete de blackboard.
+                   //delete blackboard.
                 }
                 else
                 {
@@ -122,9 +122,11 @@ namespace Interface
             catch (Exception ex)
             {
 
-                MessageBox.Show("Seleccione un pizarrón.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                String msgError = ex.Message;
+                MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
-           
+
         }
 
         private void BtnSelect_Click(object sender, EventArgs e)
@@ -139,8 +141,9 @@ namespace Interface
             }
             catch (Exception ex)
             {
+                String msgError = ex.Message;
+                MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                MessageBox.Show("Seleccione un pizarrón.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

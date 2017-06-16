@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain
 {
+    [Table("Teams")]
    public class Team
     {
+        [Key]
+        public int OIDTeam { get; set; }
+
         public string name { get; set; }
         public Administrator creator { get; set; }
         public DateTime creationDate { get; set; }

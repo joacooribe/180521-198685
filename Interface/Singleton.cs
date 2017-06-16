@@ -15,6 +15,8 @@ namespace Interface
 
         private static readonly object padlock = new object();
 
+        public ContextDB contextDB { get; set; }
+
         public Repository repository { get; set; }
 
         public Session session { get; set; }
@@ -39,7 +41,9 @@ namespace Interface
 
         private Singleton()
         {
-            repository = Repository.GetInstance;
+            this.repository = Repository.GetInstance;
+
+            this.contextDB = new ContextDB();
 
             this.session = new Session();
 

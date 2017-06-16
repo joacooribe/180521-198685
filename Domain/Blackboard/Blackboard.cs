@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain
 {
+    [Table("Blackboards")]
     public class Blackboard
     {
+        [Key]
+        public int OIDBlackboard { get; set; }
         public User userCreator { get; set; }
         public string description { get; set; }
         public int height { get; set; }
