@@ -16,22 +16,17 @@ C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Debug\Exceptions.dll
 C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Debug\Exceptions.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\Exceptions.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\Exceptions.pdb
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Persistence.dll
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Persistence.pdb
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Domain.dll
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Exceptions.dll
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Domain.pdb
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Exceptions.pdb
+C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.csprojResolveAssemblyReference.cache
+C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.dll
+C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\Persistence.dll.config
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityFramework.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityFramework.xml
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Persistence.dll.config
-C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Persistence.dll
-C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Persistence.pdb
-C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Domain.dll
-C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\EntityFramework.dll
-C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Exceptions.dll
-C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Domain.pdb
-C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Exceptions.pdb
-C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\EntityFramework.xml
-C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.csprojResolveAssemblyReference.cache
-C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.dll
-C:\Users\Fido\Documents\180521-198685\Persistence\obj\Debug\Persistence.pdb

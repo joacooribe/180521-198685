@@ -16,9 +16,6 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Domain\bin\Debug\EntityFramew
 C:\Users\Fido\Documents\180521-198685\Domain\bin\Debug\Domain.dll.config
 C:\Users\Fido\Documents\180521-198685\Domain\bin\Debug\Domain.dll
 C:\Users\Fido\Documents\180521-198685\Domain\bin\Debug\Domain.pdb
-C:\Users\Fido\Documents\180521-198685\Domain\bin\Debug\EntityFramework.dll
-C:\Users\Fido\Documents\180521-198685\Domain\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Fido\Documents\180521-198685\Domain\bin\Debug\EntityFramework.xml
-C:\Users\Fido\Documents\180521-198685\Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Fido\Documents\180521-198685\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
 C:\Users\Fido\Documents\180521-198685\Domain\obj\Debug\Domain.dll
 C:\Users\Fido\Documents\180521-198685\Domain\obj\Debug\Domain.pdb

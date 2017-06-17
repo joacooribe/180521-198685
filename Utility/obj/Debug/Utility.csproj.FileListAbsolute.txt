@@ -16,22 +16,17 @@ C:\Users\Usuario\Documents\180521-198685\Utility\bin\Debug\Domain.dll
 C:\Users\Usuario\Documents\180521-198685\Utility\bin\Debug\Exceptions.dll
 C:\Users\Usuario\Documents\180521-198685\Utility\bin\Debug\Domain.pdb
 C:\Users\Usuario\Documents\180521-198685\Utility\bin\Debug\Exceptions.pdb
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Utility.dll
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Utility.pdb
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Domain.dll
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Exceptions.dll
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Domain.pdb
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Exceptions.pdb
+C:\Users\Fido\Documents\180521-198685\Utility\obj\Debug\Utility.csprojResolveAssemblyReference.cache
+C:\Users\Fido\Documents\180521-198685\Utility\obj\Debug\Utility.dll
+C:\Users\Fido\Documents\180521-198685\Utility\obj\Debug\Utility.pdb
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\Utility.dll.config
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\EntityFramework.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\EntityFramework.xml
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Utility.dll.config
-C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Utility.dll
-C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Utility.pdb
-C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Domain.dll
-C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\EntityFramework.dll
-C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Exceptions.dll
-C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Domain.pdb
-C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Exceptions.pdb
-C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\EntityFramework.xml
-C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Fido\Documents\180521-198685\Utility\obj\Debug\Utility.csprojResolveAssemblyReference.cache
-C:\Users\Fido\Documents\180521-198685\Utility\obj\Debug\Utility.dll
-C:\Users\Fido\Documents\180521-198685\Utility\obj\Debug\Utility.pdb
