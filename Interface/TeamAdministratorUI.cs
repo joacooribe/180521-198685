@@ -108,7 +108,9 @@ namespace Interface
         {
             var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
             var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
-            ModifyTeamUI modifyTeamUI = new ModifyTeamUI((Team)selectedTeam);
+            Team team = (Team)selectedTeam;
+            team = instance.teamHandler.GetTeamFromCollection(team.name);
+            ModifyTeamUI modifyTeamUI = new ModifyTeamUI(team);
             adminUI.Hide();
             modifyTeamUI.Show();
         }

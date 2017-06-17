@@ -8,6 +8,7 @@ using Exceptions;
 using Logic;
 
 
+
 namespace Test
 {
     [TestClass]
@@ -31,16 +32,11 @@ namespace Test
 
         private TestContext testContextInstance;
 
-        public TestContext TestContext
+        [TestInitialize]
+        public void TestSetUp()
         {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
+            ContextDB context = new ContextDB();
+            context.EmptyTable();
         }
 
         #region Additional test attributes
@@ -79,8 +75,9 @@ namespace Test
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
-            Assert.AreEqual(administrator, administratorHandler.GetUserFromColecction(administrator.mail));
-            administratorPersistence.EmptyAdministrators();
+            Administrator adminFromDB = new Administrator();
+             adminFromDB = (Administrator)administratorHandler.GetUserFromColecction(administrator.mail);
+            Assert.IsTrue(administratorHandler.ExistsAdministrator(adminFromDB));
         }
 
         [TestMethod]

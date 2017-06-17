@@ -56,6 +56,12 @@ namespace Persistence
                 Images.Remove(image);
             }
             SaveChanges();
+        }
+
+        public void EmptyAndCreate()
+        {
+            EmptyTable();
+
             Colaborator colaborator1 = new Colaborator();
             colaborator1.name = "Colab";
             colaborator1.surname = "Orator";
@@ -108,6 +114,7 @@ namespace Persistence
             SaveChanges();
             colaborator1.teams.Add(team2);
             SaveChanges();
+
         }
 
 

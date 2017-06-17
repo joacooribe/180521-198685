@@ -14,5 +14,7 @@ namespace Logic
         void ModifyTeamMaxUsers(string nameOfTeam, int newMax);
         void ModifyTeamDescription(string nameOfTeam, string newDescription);
         void DeleteTeam(Team team);
+        List<User> GetUsersFromTeam(Team team);
+        void RemoveUser(Team team,User user);
     }
 }

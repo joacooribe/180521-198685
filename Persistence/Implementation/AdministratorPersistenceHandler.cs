@@ -45,17 +45,17 @@ namespace Persistence
         }
 
 
-        public bool AdministratorNotDefined(Administrator admin)
+        public bool AdministratorNotDefined(User admin)
         {
             return admin == null;
         }
         
-        public bool ExistsAdministrator(Administrator administrator)
+        public bool ExistsAdministrator(User administrator)
         {
             bool exists = true;
             using (ContextDB context = new ContextDB())
             {
-                administrator = context.Administrators
+                administrator = context.Users
                                                 .Where(a => a.mail == administrator.mail)
                                                 .FirstOrDefault(); ;
             }
@@ -86,7 +86,17 @@ namespace Persistence
 
         public void EmptyAdministrators()
         {
-            systemCollection.administratorCollection.Clear();
+            using (ContextDB context = new ContextDB())
+            {
+                context.SaveChanges();
+                foreach (Administrator admin in context.Administrators)
+                {
+                    context.Administrators.Attach(admin);
+                    context.Entry(admin).State = EntityState.Deleted;
+                    context.SaveChanges();
+                }
+               
+            }
         }
 
         public List<Team> GetTeams(User administrator)

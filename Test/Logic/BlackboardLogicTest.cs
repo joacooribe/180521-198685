@@ -42,18 +42,11 @@ namespace Test
             blackboardHandler = new BlackboardHandler();
         }
 
-        private TestContext testContextInstance;
-
-        public TestContext TestContext
+        [TestInitialize]
+        public void TestSetUp()
         {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
+            ContextDB context = new ContextDB();
+            context.EmptyTable();
         }
 
         #region Additional test attributes

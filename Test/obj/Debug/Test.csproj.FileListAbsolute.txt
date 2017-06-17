@@ -43,3 +43,8 @@ C:\Users\Fido\Documents\180521-198685\Test\bin\Debug\Utility.pdb
 C:\Users\Fido\Documents\180521-198685\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 C:\Users\Fido\Documents\180521-198685\Test\obj\Debug\Test.dll
 C:\Users\Fido\Documents\180521-198685\Test\obj\Debug\Test.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\Test.dll.config
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\EntityFramework.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\EntityFramework.xml
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Test\bin\Debug\EntityFramework.SqlServer.xml

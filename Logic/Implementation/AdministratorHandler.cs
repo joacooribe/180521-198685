@@ -50,7 +50,7 @@ namespace Logic
             adminToChangePassword.password = newPassword;
         }
 
-        public bool ExistsAdministrator(Administrator administrator)
+        public bool ExistsAdministrator(User administrator)
         {
             return administratorFunctions.ExistsAdministrator(administrator);
         }

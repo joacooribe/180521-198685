@@ -98,5 +98,24 @@ namespace Persistence
         {
             systemCollection.teamCollection.Clear();
         }
+
+        public List<User> GetUsersFromTeam(Team team)
+        {
+            using (ContextDB context = new ContextDB())
+            {
+                var query = context.Teams.Find(team.OIDTeam);
+                return query.usersInTeam.ToList();
+            }
+        }
+
+        public void RemoveUser(Team team,User user)
+        {
+            using (ContextDB context = new ContextDB())
+            {
+                var query = context.Teams.Find(team.OIDTeam);
+                query.usersInTeam.Remove(user);
+                context.SaveChanges();
+            }
+        }
     }
 }

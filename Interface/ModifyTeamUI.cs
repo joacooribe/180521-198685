@@ -44,14 +44,22 @@ namespace Interface
         private void LoadUserList()
         {
             users = new List<User>();
-            using (ContextDB context = new ContextDB())
-            {
-                users = context.Users.ToList();
-            }
-            foreach (User user in team.usersInTeam)
+            foreach (User user in instance.teamHandler.GetUsersFromTeam(team))
             {
                 usersInTeam.Add(user);
             }
+            using (ContextDB context = new ContextDB())
+            {
+                foreach (User user in context.Users.ToList())
+                {
+                    if (!usersInTeam.Contains(user))
+                    {
+                        users.Add(user);
+                    }
+                }
+                
+            }
+            
         }
         private void LoadUsersToDataGrid()
         {

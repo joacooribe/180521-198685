@@ -17,5 +17,7 @@ namespace Persistence
         void ModifyTeamDescription(string NameOfTeam, string description);
         void ModifyTeamMaxUsers(string NameOfTeam, int maxUsers);
         void EmptyTeams();
+        List<User> GetUsersFromTeam(Team team);
+        void RemoveUser(Team team,User user);
     }
 }

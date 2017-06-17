@@ -18,6 +18,7 @@ namespace Test
             administrator.password = password;
             administrator.birthday = birthday;
             administrator.active = true;
+            administrator.teams = new List<Team>();
             return administrator;
         }
 
@@ -30,6 +31,7 @@ namespace Test
             colaborator.password = password;
             colaborator.birthday = birthday;
             colaborator.active = true;
+            colaborator.teams = new List<Team>();
             return colaborator;
         }
 

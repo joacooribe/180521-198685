@@ -83,7 +83,7 @@ namespace Interface
 
         private void BtnClearDB_Click(object sender, EventArgs e)
         {
-            this.instance.contextDB.EmptyTable();
+            this.instance.contextDB.EmptyAndCreate();
         }
     }
 }

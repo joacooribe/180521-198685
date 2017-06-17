@@ -168,6 +168,14 @@ namespace Logic
         {
             teamFunctions.DeleteTeam(team);
         }
-            
+        
+        public List<User> GetUsersFromTeam(Team team)
+        {
+            return teamFunctions.GetUsersFromTeam(team);
+        }
+        public void RemoveUser(Team team,User user)
+        {
+            teamFunctions.RemoveUser(team,user);
+        }
     }
 }
