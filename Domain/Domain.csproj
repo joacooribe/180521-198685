@@ -52,6 +52,7 @@
     <Compile Include="Blackboard\Blackboard.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="Element\Element.cs" />
+    <Compile Include="Element\ElementConnection\ElementConnection.cs" />
     <Compile Include="Element\Image\Image.cs" />
     <Compile Include="Element\Textbox\TextBox.cs" />
     <Compile Include="Session.cs" />
