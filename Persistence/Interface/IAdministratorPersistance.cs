@@ -15,5 +15,6 @@ namespace Persistence
         void DeleteAdministrator(string mail);
         bool IsEmptyAdministratorCollection();
         void EmptyAdministrators();
+        List<Team> GetTeams(User administrator);
     }
 }

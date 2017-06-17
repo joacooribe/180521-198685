@@ -60,5 +60,10 @@ namespace Logic
             administratorFunctions.DeleteAdministrator(mailOfAdministrator);
         }
 
+        public List<Team> GetTeams (User administrator)
+        {
+            return administratorFunctions.GetTeams(administrator);
+        }
+
     }
 }

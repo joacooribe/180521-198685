@@ -13,6 +13,11 @@ namespace Logic
     {
         public IColaboratorPersistance colaboratorFunctions { get; set; }
 
+        public List<Team> GetTeams(User colaborator)
+        {
+            return colaboratorFunctions.GetTeams(colaborator);
+        }
+
         public ColaboratorHandler()
         {
             colaboratorFunctions = new ColaboratorPersistenceHandler();

@@ -21,26 +21,49 @@ namespace Persistence
 
         public void AddBlackboard(Blackboard blackboard)
         {
-            systemCollection.blackboardCollection.Add(blackboard);
+            using (ContextDB context = new ContextDB())
+            {
+                context.Blackboards.Add(blackboard);
+                context.SaveChanges();
+            }
         }
 
         public bool ExistsBlackboard(Blackboard blackboard)
         {
-            return systemCollection.blackboardCollection.Contains(blackboard);
+            bool exists = true;
+            using (ContextDB context = new ContextDB())
+            {
+                blackboard = context.Blackboards
+                                                .Where(b => b.name == blackboard.name)
+                                                .FirstOrDefault(); ;
+            }
+            if (BlackboardNotDefined(blackboard))
+            {
+                exists = false;
+            }
+            return exists;
         }
 
         public Blackboard GetBlackboard(string name, Team team)
         {
             Blackboard blackboard = new Blackboard();
-            foreach (Blackboard blackboardFromColecction in systemCollection.blackboardCollection)
+            using (ContextDB context = new ContextDB())
             {
-                if (name.Equals(blackboardFromColecction.name) && team.Equals(blackboardFromColecction.teamOwner))
-                {
-                    blackboard = blackboardFromColecction;
-                    return blackboard;
-                }
+                blackboard = context.Blackboards
+                                                .Where(b => b.name == name)
+                                                .FirstOrDefault();
             }
-            throw new BlackboardException(ExceptionMessage.blackboardNotExist);
+            if (BlackboardNotDefined(blackboard))
+            {
+                throw new BlackboardException(ExceptionMessage.blackboardNotExist);
+            }
+            return blackboard;
+           
+        }
+
+        public bool BlackboardNotDefined(Blackboard blackboard)
+        {
+            return blackboard == null;
         }
 
         public void DeleteBlackboard(Blackboard blackboard)

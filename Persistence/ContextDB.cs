@@ -100,9 +100,27 @@ namespace Persistence
             usersInTeam2.Add(colaborator1);
             team2.usersInTeam = usersInTeam2;
             Teams.Add(team2);
-
-
             SaveChanges();
+
+            administrator1.teams.Add(team1);
+            SaveChanges();
+            administrator1.teams.Add(team2);
+            SaveChanges();
+            colaborator1.teams.Add(team2);
+            SaveChanges();
+        }
+
+
+        protected override void OnModelCreating (DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasMany<Team>(u => u.teams)
+                                       .WithMany(t => t.usersInTeam)
+                                       .Map(ts =>
+                                       {
+                                           ts.MapLeftKey("User");
+                                           ts.MapRightKey("Team");
+                                           ts.ToTable("Teams_And_Users");
+                                       });
         }
 
 

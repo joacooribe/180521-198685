@@ -53,22 +53,22 @@ namespace Interface
         {
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.DataGridViewTeamBelongs.Rows.Clear();
-            foreach (Team team in teams)
+            User user = (User)instance.administratorHandler.GetUserFromColecction(instance.session.user.mail);
+            List<Team> teamsBelongs = (List<Team>)instance.administratorHandler.GetTeams(user);
+            foreach (Team team in teamsBelongs)
             {
-                if (team.usersInTeam.Contains(instance.session.user)) {
-                    var rowIndex = this.DataGridViewTeamBelongs.Rows.Add(team.name, team.description);
-                    this.DataGridViewTeamBelongs.Rows[rowIndex].Tag = team;
-                }
+                var rowIndex = this.DataGridViewTeamBelongs.Rows.Add(team.name, team.description);
+                this.DataGridViewTeamBelongs.Rows[rowIndex].Tag = team;
             }
         }
         private void InitializeList()
         {
             teams = new List<Team>();
-            foreach (Team team in instance.repository.teamCollection)
+            using (ContextDB context = new ContextDB())
             {
-                teams.Add(team);
+                teams = context.Teams.ToList();
             }
-           
+
         }
         private void BtnDeleteTeam_Click(object sender, EventArgs e)
         {

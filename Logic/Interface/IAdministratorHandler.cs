@@ -1,4 +1,5 @@
 ﻿using Domain;
+using System.Collections.Generic;
 
 namespace Logic
 {
@@ -6,5 +7,6 @@ namespace Logic
     {
         void AddAdministrator(Administrator administrator);
         bool ExistsAdministrator(Administrator administrator);
+        List<Team> GetTeams(User administrator);
     }
 }
