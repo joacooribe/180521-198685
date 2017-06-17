@@ -89,5 +89,13 @@ namespace Persistence
             systemCollection.administratorCollection.Clear();
         }
 
+        public List<Team> GetTeams(User administrator)
+        {
+            using (ContextDB context = new ContextDB())
+            {
+                var query = context.Users.Find(administrator.OIDUser);
+                return query.teams.ToList();
+            }
+        }
     }
 }

@@ -86,5 +86,14 @@ namespace Persistence
         {
             systemCollection.colaboratorCollection.Clear();
         }
+
+        public List<Team> GetTeams(User colaborator)
+        {
+            using (ContextDB context = new ContextDB())
+            {
+                var query = context.Users.Find(colaborator.OIDUser);
+                return query.teams.ToList();
+            }
+        }
     }
 }

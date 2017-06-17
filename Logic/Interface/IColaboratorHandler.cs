@@ -1,4 +1,5 @@
 ﻿using Domain;
+using System.Collections.Generic;
 
 namespace Logic
 {
@@ -6,5 +7,6 @@ namespace Logic
     {
         void AddColaborator(Colaborator colaborator);
         bool ExistsColaborator(Colaborator colaborator);
+        List<Team> GetTeams(User colaborator);
     }
 }

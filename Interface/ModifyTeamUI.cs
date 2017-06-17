@@ -43,19 +43,10 @@ namespace Interface
 
         private void LoadUserList()
         {
-            foreach (Administrator admin in instance.repository.administratorCollection)
+            users = new List<User>();
+            using (ContextDB context = new ContextDB())
             {
-                if (!team.usersInTeam.Contains(admin))
-                {
-                    users.Add(admin);
-                }
-            }
-            foreach (Colaborator colaborator in instance.repository.colaboratorCollection)
-            {
-                if (!team.usersInTeam.Contains(colaborator))
-                {
-                    users.Add(colaborator);
-                }
+                users = context.Users.ToList();
             }
             foreach (User user in team.usersInTeam)
             {

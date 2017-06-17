@@ -29,7 +29,7 @@ namespace Interface
             teams = new List<Team>();
             InitializeList();
             LoadTeams();
-           // LoadTeamBelongs();
+            LoadTeamBelongs();
         }
 
         private void BtnCreateTeam_Click(object sender, EventArgs e)
@@ -53,17 +53,16 @@ namespace Interface
         {
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.DataGridViewTeamBelongs.Rows.Clear();
-            foreach (Team team in teams)
+            User user = (User)instance.administratorHandler.GetUserFromColecction(instance.session.user.mail);
+            List<Team> teamsBelongs = (List<Team>)instance.administratorHandler.GetTeams(user);
+            foreach (Team team in teamsBelongs)
             {
-                if (team.usersInTeam.Contains(instance.session.user)) {
-                    var rowIndex = this.DataGridViewTeamBelongs.Rows.Add(team.name, team.description);
-                    this.DataGridViewTeamBelongs.Rows[rowIndex].Tag = team;
-                }
+                var rowIndex = this.DataGridViewTeamBelongs.Rows.Add(team.name, team.description);
+                this.DataGridViewTeamBelongs.Rows[rowIndex].Tag = team;
             }
         }
         private void InitializeList()
         {
-            teams = new List<Team>();
             teams = new List<Team>();
             using (ContextDB context = new ContextDB())
             {
@@ -81,7 +80,7 @@ namespace Interface
                 instance.teamHandler.DeleteTeam(teamToDel);
                 InitializeList();
                 LoadTeams();
-               // LoadTeamBelongs();
+                LoadTeamBelongs();
                 MessageBox.Show("Se ha eliminado el equipo: " + nameTeam, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } catch (Exception ex)
             {

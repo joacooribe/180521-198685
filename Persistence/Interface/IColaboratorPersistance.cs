@@ -15,5 +15,6 @@ namespace Persistence
         void DeleteColaborator(string mail);
         bool IsEmptyColaboratorCollection();
         void EmptyColaborators();
+        List<Team> GetTeams(User colaborador);
     }
 }

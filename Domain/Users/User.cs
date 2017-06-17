@@ -18,7 +18,7 @@ namespace Domain
         public string mail { get; set; }
         public string password { get; set; }
         public DateTime birthday { get; set; }
-        public ICollection<Team> teams { get; set; }
+        public virtual ICollection<Team> teams { get; set; }
         public bool active { get; set; }
     }
 }
