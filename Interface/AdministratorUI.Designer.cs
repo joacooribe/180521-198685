@@ -66,6 +66,7 @@
             this.BtnModify.TabIndex = 2;
             this.BtnModify.Text = "Modificar";
             this.BtnModify.UseVisualStyleBackColor = true;
+            this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
             // 
             // BtnLogOut
             // 

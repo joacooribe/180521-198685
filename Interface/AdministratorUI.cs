@@ -75,5 +75,12 @@ namespace Interface
             rankingAdminUI.Show();
             this.Hide();
         }
+
+        private void BtnModify_Click(object sender, EventArgs e)
+        {
+            ModifyUserUI modifyUserUI = new ModifyUserUI();
+            this.panel1.Controls.Clear();
+            this.panel1.Controls.Add(modifyUserUI);
+        }
     }
 }

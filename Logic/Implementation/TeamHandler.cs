@@ -177,5 +177,9 @@ namespace Logic
         {
             teamFunctions.RemoveUser(team,user);
         }
+        public void AddUser(Team team, User user)
+        {
+            teamFunctions.AddUser(team, user);
+        }
     }
 }

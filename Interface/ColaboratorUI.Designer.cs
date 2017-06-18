@@ -28,22 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnModify = new System.Windows.Forms.Button();
             this.BtnLogOut = new System.Windows.Forms.Button();
             this.ColaboratorUIPanel = new System.Windows.Forms.Panel();
             this.BtnTeams = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // BtnModify
-            // 
-            this.BtnModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnModify.Location = new System.Drawing.Point(326, 35);
-            this.BtnModify.Name = "BtnModify";
-            this.BtnModify.Size = new System.Drawing.Size(113, 23);
-            this.BtnModify.TabIndex = 1;
-            this.BtnModify.Text = "Modificar Usuario";
-            this.BtnModify.UseVisualStyleBackColor = true;
-            this.BtnModify.Click += new System.EventHandler(this.BtnModify_Click);
             // 
             // BtnLogOut
             // 
@@ -85,7 +73,6 @@
             this.Controls.Add(this.BtnTeams);
             this.Controls.Add(this.ColaboratorUIPanel);
             this.Controls.Add(this.BtnLogOut);
-            this.Controls.Add(this.BtnModify);
             this.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Name = "ColaboratorUI";
             this.Text = "ColaboratorUI";
@@ -95,7 +82,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button BtnModify;
         private System.Windows.Forms.Button BtnLogOut;
         private System.Windows.Forms.Panel ColaboratorUIPanel;
         private System.Windows.Forms.Button BtnTeams;

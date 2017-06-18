@@ -24,6 +24,10 @@ namespace Persistence
         {
             using (ContextDB context = new ContextDB())
             {
+                foreach (User user in team.usersInTeam)
+                {
+                    context.Users.Attach(user);   
+                }
                 context.Teams.Add(team);
                 context.SaveChanges();
             }
@@ -113,9 +117,14 @@ namespace Persistence
             using (ContextDB context = new ContextDB())
             {
                 var query = context.Teams.Find(team.OIDTeam);
+                context.Users.Attach(user);
                 query.usersInTeam.Remove(user);
                 context.SaveChanges();
             }
+        }
+        public void AddUser(Team team, User user)
+        {
+
         }
     }
 }

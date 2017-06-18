@@ -51,7 +51,7 @@ namespace Logic
         public void ModifyPassword(string mailOfColaborator, string newPassword)
         {
             Utility.Utilites.ValidatePassword(newPassword);
-            Colaborator colaboratorToChangePassword = colaboratorFunctions.GetColaborator(mailOfColaborator);
+            User colaboratorToChangePassword = colaboratorFunctions.GetColaborator(mailOfColaborator);
             colaboratorToChangePassword.password = newPassword;
         }
 

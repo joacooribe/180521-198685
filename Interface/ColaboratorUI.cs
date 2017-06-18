@@ -48,11 +48,6 @@ namespace Interface
 
         private void BtnModify_Click(object sender, EventArgs e)
         {
-            this.ColaboratorUIPanel.Controls.Clear();
-            this. ColaboratorUIPanel.Controls.Add(new ModifyUserUI());
-          
-
-
         }
 
         private void BtnTeams_Click(object sender, EventArgs e)

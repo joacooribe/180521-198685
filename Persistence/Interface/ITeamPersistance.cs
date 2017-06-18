@@ -19,5 +19,6 @@ namespace Persistence
         void EmptyTeams();
         List<User> GetUsersFromTeam(Team team);
         void RemoveUser(Team team,User user);
+        void AddUser(Team team, User user);
     }
 }

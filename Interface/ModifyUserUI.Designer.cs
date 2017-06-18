@@ -34,6 +34,12 @@
             this.txtActualPassword = new System.Windows.Forms.TextBox();
             this.txtNewPassword = new System.Windows.Forms.TextBox();
             this.btnModify = new System.Windows.Forms.Button();
+            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
+            this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnSelect = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -70,6 +76,7 @@
             // 
             this.txtActualPassword.Location = new System.Drawing.Point(219, 95);
             this.txtActualPassword.Name = "txtActualPassword";
+            this.txtActualPassword.ReadOnly = true;
             this.txtActualPassword.Size = new System.Drawing.Size(100, 20);
             this.txtActualPassword.TabIndex = 3;
             // 
@@ -90,10 +97,49 @@
             this.btnModify.UseVisualStyleBackColor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
+            // dataGridViewUsers
+            // 
+            this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Mail,
+            this.Nombre,
+            this.Apellido});
+            this.dataGridViewUsers.Location = new System.Drawing.Point(349, 76);
+            this.dataGridViewUsers.Name = "dataGridViewUsers";
+            this.dataGridViewUsers.Size = new System.Drawing.Size(310, 233);
+            this.dataGridViewUsers.TabIndex = 28;
+            // 
+            // Mail
+            // 
+            this.Mail.HeaderText = "Mail";
+            this.Mail.Name = "Mail";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            // 
+            // BtnSelect
+            // 
+            this.BtnSelect.Location = new System.Drawing.Point(470, 315);
+            this.BtnSelect.Name = "BtnSelect";
+            this.BtnSelect.Size = new System.Drawing.Size(75, 23);
+            this.BtnSelect.TabIndex = 29;
+            this.BtnSelect.Text = "Seleccionar";
+            this.BtnSelect.UseVisualStyleBackColor = true;
+            this.BtnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
+            // 
             // ModifyUserUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BtnSelect);
+            this.Controls.Add(this.dataGridViewUsers);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.txtNewPassword);
             this.Controls.Add(this.txtActualPassword);
@@ -103,6 +149,7 @@
             this.Name = "ModifyUserUI";
             this.Size = new System.Drawing.Size(680, 361);
             this.Load += new System.EventHandler(this.ModifyUserUI_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,5 +163,10 @@
         private System.Windows.Forms.TextBox txtActualPassword;
         private System.Windows.Forms.TextBox txtNewPassword;
         private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.DataGridView dataGridViewUsers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.Button BtnSelect;
     }
 }
