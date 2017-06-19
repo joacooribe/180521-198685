@@ -30,3 +30,8 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityF
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityFramework.xml
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\Persistence.dll.config
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\EntityFramework.dll
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\EntityFramework.xml
+C:\Users\Fido\Documents\180521-198685\Persistence\bin\Debug\EntityFramework.SqlServer.xml

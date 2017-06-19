@@ -14,8 +14,6 @@ namespace Test
         {
   
         }
-
-        private TestContext testContextInstance;
         
         private readonly string nameOK = "Joaquin";
         private readonly string surnameOK = "Oribe";
@@ -23,18 +21,6 @@ namespace Test
         private readonly string anotherMailOK = "pepito@gmail.com";
         private readonly string passwordOK = "securePassword123";
         private readonly DateTime birthdayOk = new DateTime(1992, 9, 10);
-
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
 
         #region Additional test attributes
         //
@@ -74,6 +60,16 @@ namespace Test
             administrator1 = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
 
             administrator2 = DataCreation.CreateAdministrator(nameOK, surnameOK, anotherMailOK, passwordOK, birthdayOk);
+
+            Assert.IsFalse(administrator1.Equals(administrator2));
+        }
+
+        [TestMethod]
+        public void AdministratorNull()
+        {
+            administrator1 = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
+            administrator2 = null;
 
             Assert.IsFalse(administrator1.Equals(administrator2));
         }

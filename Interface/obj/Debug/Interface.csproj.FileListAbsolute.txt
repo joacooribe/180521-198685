@@ -85,3 +85,9 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\Interface
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\EntityFramework.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\Interface.exe.config
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\EntityFramework.dll
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\EntityFramework.xml
+C:\Users\Fido\Documents\180521-198685\Interface\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.RanksUI.resources

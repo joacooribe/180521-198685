@@ -5,8 +5,6 @@ namespace Domain
     [Table("Colaborators")]
     public class Colaborator:User
     {
-        [Key]
-        public int OIDColaborator { get; set; }
         public Colaborator()
         {
 

@@ -24,20 +24,6 @@ namespace Test
 
         }
 
-        private TestContext testContextInstance;
-
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         #region Additional test attributes
         //
         // You can use the following additional attributes as you write your tests:
@@ -76,6 +62,16 @@ namespace Test
             colaborator1 = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
 
             colaborator2 = DataCreation.CreateColaborator(nameOK, surnameOK, anotherMailOK, passwordOK, birthdayOk);
+
+            Assert.IsFalse(colaborator1.Equals(colaborator2));
+        }
+
+        [TestMethod]
+        public void ColaboratorNull()
+        {
+            colaborator1 = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
+            colaborator2 = null;
 
             Assert.IsFalse(colaborator1.Equals(colaborator2));
         }

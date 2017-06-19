@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Domain;
 using Exceptions;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 
 namespace Persistence
 {
@@ -25,7 +26,6 @@ namespace Persistence
                 context.Administrators.Add(administrator);
                 context.SaveChanges();
             }
-          
         }
 
         public Administrator GetAdministrator(string mailOfAdministrator)
@@ -35,7 +35,9 @@ namespace Persistence
             {
                 administrator = context.Administrators
                                                 .Where(a => a.mail == mailOfAdministrator)
+                                                .Include(a => a.teams)
                                                 .FirstOrDefault();
+                //var admin = ObjectContext.GetObjectType(administrator.GetType());
             }
             if (AdministratorNotDefined(administrator))
             {
@@ -57,7 +59,7 @@ namespace Persistence
             {
                 administrator = context.Users
                                                 .Where(a => a.mail == administrator.mail)
-                                                .FirstOrDefault(); ;
+                                                .FirstOrDefault();
             }
             if (AdministratorNotDefined(administrator))
             {
@@ -70,7 +72,7 @@ namespace Persistence
         {
             using (ContextDB context = new ContextDB())
             {
-            context.Administrators
+                context.Administrators
                                 .Where(a => a.mail == mailOfAdministrator)
                                 .FirstOrDefault()
                                 .active=false;
@@ -104,7 +106,9 @@ namespace Persistence
             using (ContextDB context = new ContextDB())
             {
                 var query = context.Users.Find(administrator.OIDUser);
-                return query.teams.ToList();
+                List<Team> teams = new List<Team>();
+                teams = query.teams.ToList();
+                return teams;
             }
         }
     }

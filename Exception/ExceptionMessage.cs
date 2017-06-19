@@ -22,6 +22,7 @@ namespace Exceptions
         public static string teamNotExists = "No Existe el equipo.";
         public static string teamNameNullOrEmpty = "El nombre del equipo no puede ser nulo o vacio";
         public static string teamOwnerNull = "El equipo debe poseer un usuario creador";
+        public static string teamUserNull = "Seleccione un usuario para borrar";
         public static string teamDescriptionInvalid = "La descripcion no puede ser nula o vacia y debe ser menor a 51 caracteres";
         public static string teamUserListEmpty = "El equipo debe tener al menos 1 usuario";
         public static string teamMaxUsers = "El equipo debe tener un maximo de usuario mayor a 0";

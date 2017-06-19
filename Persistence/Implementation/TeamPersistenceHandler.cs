@@ -22,11 +22,12 @@ namespace Persistence
 
         public void AddTeam(Team team)
         {
-            using (ContextDB context = new ContextDB())
+            using (var context = new ContextDB())
             {
                 foreach (User user in team.usersInTeam)
                 {
-                    context.Users.Attach(user);   
+                    context.Users.Attach(user);
+                    user.teams.Add(team); 
                 }
                 context.Teams.Add(team);
                 context.SaveChanges();
@@ -36,7 +37,18 @@ namespace Persistence
 
         public bool ExistsTeam(Team team)
         {
-            return systemCollection.teamCollection.Contains(team);
+            bool exist = true;
+            using (ContextDB context = new ContextDB())
+            {
+                team = context.Teams
+                                .Where(t => t.name == team.name)
+                                .FirstOrDefault();
+            }
+            if (TeamNotDefined(team))
+            {
+                exist = false;
+            }
+            return exist;
         }
 
         public Team GetTeam(string nameOfTeam)
@@ -46,6 +58,7 @@ namespace Persistence
             {
                 team = context.Teams
                                 .Where(t => t.name == nameOfTeam)
+                                .Include(t => t.usersInTeam)
                                 .FirstOrDefault();
             }
             if (TeamNotDefined(team))
@@ -82,7 +95,8 @@ namespace Persistence
             {
                context.Teams
                         .Where(t => t.name == nameOfTeam)
-                        .FirstOrDefault().description = newDescription;
+                        .FirstOrDefault()
+                        .description = newDescription;
                context.SaveChanges();
             }
         }
@@ -116,9 +130,18 @@ namespace Persistence
         {
             using (ContextDB context = new ContextDB())
             {
-                var query = context.Teams.Find(team.OIDTeam);
-                context.Users.Attach(user);
-                query.usersInTeam.Remove(user);
+                context.Configuration.ProxyCreationEnabled = false;
+                List<User> users = context.Teams
+                            .Where(t => t.name == team.name)
+                            .Include(t => t.usersInTeam)
+                            .FirstOrDefault()
+                            .usersInTeam.ToList();
+                users.Remove(user);
+                context.Teams
+                            .Where(t => t.name == team.name)
+                            .Include(t => t.usersInTeam)
+                            .FirstOrDefault()
+                            .usersInTeam = users;
                 context.SaveChanges();
             }
         }

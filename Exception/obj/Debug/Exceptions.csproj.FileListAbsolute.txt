@@ -17,3 +17,9 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Debug\EntityFra
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Debug\EntityFramework.xml
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Fido\Documents\180521-198685\Exception\bin\Debug\Exceptions.dll.config
+C:\Users\Fido\Documents\180521-198685\Exception\bin\Debug\EntityFramework.dll
+C:\Users\Fido\Documents\180521-198685\Exception\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Fido\Documents\180521-198685\Exception\bin\Debug\EntityFramework.xml
+C:\Users\Fido\Documents\180521-198685\Exception\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Fido\Documents\180521-198685\Exception\obj\Debug\Exceptions.csprojResolveAssemblyReference.cache

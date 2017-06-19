@@ -16,5 +16,6 @@ namespace Logic
         void DeleteTeam(Team team);
         List<User> GetUsersFromTeam(Team team);
         void RemoveUser(Team team,User user);
+        bool ExistsTeam(Team team);
     }
 }

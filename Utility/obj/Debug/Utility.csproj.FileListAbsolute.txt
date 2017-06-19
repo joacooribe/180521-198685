@@ -30,3 +30,8 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\EntityFrame
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\EntityFramework.xml
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Utility\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\Utility.dll.config
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\EntityFramework.dll
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\EntityFramework.xml
+C:\Users\Fido\Documents\180521-198685\Utility\bin\Debug\EntityFramework.SqlServer.xml

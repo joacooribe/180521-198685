@@ -14,6 +14,7 @@ namespace Test
     {
         private ITeamPersistance teamPersistence;
         private ITeamHandler teamHandler;
+        private IAdministratorHandler administratorHandler;
         private Team team;
         private Administrator administratorCreator;
         private Colaborator colaboratorCreator;
@@ -28,12 +29,14 @@ namespace Test
         private readonly string userSurnameOK = "Oribe";
         private readonly string userPasswordOK = "securePassword123";
         private readonly string userMailOK = "user@gmail.com";
+        private readonly string anotherUserMailOK = "user1@gmail.com";
         private readonly DateTime userBirthdayOk = new DateTime(1992, 9, 10);
 
         public TeamLogicTest()
         {
             teamPersistence = new TeamPersistenceHandler();
             teamHandler = new TeamHandler();
+            administratorHandler = new AdministratorHandler();
         }
 
         [TestInitialize]
@@ -69,15 +72,18 @@ namespace Test
         public void TeamOKCreatedByAdministrator()
         {
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+           
             usersInTeam = new List<User>();
+
             usersInTeam.Add(administratorCreator);
+
+            administratorHandler.AddAdministrator(administratorCreator);
 
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
 
-            Assert.AreEqual(team,teamHandler.GetTeamFromCollection(team.name));
-            teamPersistence.EmptyTeams();
+            Assert.IsTrue(teamPersistence.ExistsTeam(teamHandler.GetTeamFromCollection(team.name)));
         }
 
         [TestMethod]
@@ -93,7 +99,6 @@ namespace Test
             team = DataCreation.CreateTeam(invalidName, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
-            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -109,7 +114,6 @@ namespace Test
             team = DataCreation.CreateTeam(invalidName, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
-            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -125,7 +129,6 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, invalidDescription, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
-            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -141,7 +144,6 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, invalidDescription, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
-            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -154,7 +156,6 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
-            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -170,7 +171,6 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, invalidMaxUsers, usersInTeam);
 
             teamHandler.AddTeam(team);
-            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -188,7 +188,6 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsers , usersInTeam);
 
             teamHandler.AddTeam(team);
-            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -204,7 +203,6 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, invalidCreationDate, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
-            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -214,13 +212,15 @@ namespace Test
             usersInTeam = new List<User>();
             usersInTeam.Add(administratorCreator);
 
+            administratorHandler.AddAdministrator(administratorCreator);
+
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
             int newMax = 10;
             teamHandler.ModifyTeamMaxUsers(team.name,newMax);
-            Assert.AreEqual(newMax,team.maxUsers);
-            teamPersistence.EmptyTeams();
+
+            Assert.AreEqual(newMax,teamHandler.GetTeamFromCollection(team.name).maxUsers);
         }
 
         [TestMethod]
@@ -231,12 +231,13 @@ namespace Test
             usersInTeam = new List<User>();
             usersInTeam.Add(administratorCreator);
 
+            administratorHandler.AddAdministrator(administratorCreator);
+
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
             int newMax = 0;
             teamHandler.ModifyTeamMaxUsers(team.name, newMax);
-            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -247,12 +248,13 @@ namespace Test
             usersInTeam = new List<User>();
             usersInTeam.Add(administratorCreator);
 
+            administratorHandler.AddAdministrator(administratorCreator);
+
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
             int newMax = -1;
             teamHandler.ModifyTeamMaxUsers(team.name, newMax);
-            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -263,29 +265,49 @@ namespace Test
             usersInTeam = new List<User>();
             usersInTeam.Add(administratorCreator);
 
+            administratorHandler.AddAdministrator(administratorCreator);
+
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
             string newDescription = "This is a new description";
             teamHandler.ModifyTeamDescription(team.name, newDescription);
-            Assert.AreEqual(newDescription, team.description);
-            teamPersistence.EmptyTeams();
+            
+            Assert.AreEqual(newDescription, teamHandler.GetTeamFromCollection(team.name).description);
         }
 
         [TestMethod]
         [ExpectedException(typeof(TeamException))]
-        public void TeamInvalidModificationOfDescription()
+        public void TeamInvalidModificationOfDescriptionSize()
         {
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
             usersInTeam = new List<User>();
             usersInTeam.Add(administratorCreator);
 
+            administratorHandler.AddAdministrator(administratorCreator);
+
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
-            string newDescription = "This is an invalid description since it passes the limit of 50 characters.";
+            string newDescription = "This is an invalid description size it passes the limit of 50 characters.";
             teamHandler.ModifyTeamDescription(team.name, newDescription);
-            teamPersistence.EmptyTeams();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamInvalidModificationOfDescriptionNull()
+        {
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam = new List<User>();
+            usersInTeam.Add(administratorCreator);
+
+            administratorHandler.AddAdministrator(administratorCreator);
+
+            team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
+
+            teamHandler.AddTeam(team);
+            string newDescription = null;
+            teamHandler.ModifyTeamDescription(team.name, newDescription);
         }
 
         [TestMethod]
@@ -298,7 +320,6 @@ namespace Test
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
-            teamPersistence.EmptyTeams();
         }
 
         [TestMethod]
@@ -309,11 +330,50 @@ namespace Test
             usersInTeam = new List<User>();
             usersInTeam.Add(administratorCreator);
 
+            administratorHandler.AddAdministrator(administratorCreator);
+
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
             teamHandler.AddTeam(team);
             teamHandler.AddTeam(team);
-            teamPersistence.EmptyTeams();
         }
+
+        [TestMethod]
+        public void TeamRemoveUserOk()
+        {
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            Administrator administrator1 = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, anotherUserMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam = new List<User>();
+            usersInTeam.Add(administratorCreator);
+            usersInTeam.Add(administrator1);
+
+            administratorHandler.AddAdministrator(administratorCreator);
+            administratorHandler.AddAdministrator(administrator1);
+
+            team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
+
+            teamHandler.AddTeam(team);
+            teamHandler.RemoveUser(team, administrator1);
+            
+            Assert.IsFalse(teamHandler.GetTeamFromCollection(team.name).usersInTeam.Contains(administrator1));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(TeamException))]
+        public void TeamRemoveUserNull()
+        {
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            Administrator administrator1 = null;
+            usersInTeam = new List<User>();
+            usersInTeam.Add(administratorCreator);
+
+            administratorHandler.AddAdministrator(administratorCreator);
+
+            team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
+
+            teamHandler.AddTeam(team);
+            teamHandler.RemoveUser(team, administrator1);
+        }
+
     }
 }

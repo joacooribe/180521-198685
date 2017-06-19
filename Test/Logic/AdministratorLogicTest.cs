@@ -30,8 +30,6 @@ namespace Test
             administratorHandler = new AdministratorHandler();
         }
 
-        private TestContext testContextInstance;
-
         [TestInitialize]
         public void TestSetUp()
         {
@@ -75,9 +73,7 @@ namespace Test
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
-            Administrator adminFromDB = new Administrator();
-             adminFromDB = (Administrator)administratorHandler.GetUserFromColecction(administrator.mail);
-            Assert.IsTrue(administratorHandler.ExistsAdministrator(adminFromDB));
+            Assert.IsTrue(administratorHandler.ExistsAdministrator(administratorHandler.GetUserFromColecction(administrator.mail)));
         }
 
         [TestMethod]
@@ -89,7 +85,6 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
         }
 
 
@@ -102,7 +97,6 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
@@ -114,7 +108,6 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
@@ -126,7 +119,6 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
             
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
@@ -138,7 +130,6 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
@@ -150,7 +141,6 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
         }
 
         [TestMethod]
@@ -162,7 +152,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -174,7 +164,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(invalidName, surnameOK, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -186,7 +176,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -198,7 +188,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -210,7 +200,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -222,7 +212,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -234,7 +224,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -246,7 +236,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -258,7 +248,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -270,7 +260,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, invalidSurname, mailOK, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -282,7 +272,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -294,7 +284,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -306,7 +296,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
@@ -317,7 +307,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
@@ -328,7 +318,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, invalidPassword, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -340,7 +330,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
@@ -351,7 +341,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -363,7 +353,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -375,7 +365,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -387,7 +377,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
         [TestMethod]
         [ExpectedException(typeof(UserException))]
@@ -398,7 +388,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, invalidMail, passwordOK, birthdayOk);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -410,7 +400,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, invalidBirthday);
 
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -421,7 +411,7 @@ namespace Test
             string newPassword = "NewPassword123";
             administratorHandler.ModifyPassword(administrator.mail, newPassword);
             Assert.AreEqual(newPassword,administrator.password);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [TestMethod]
@@ -432,7 +422,7 @@ namespace Test
             administratorHandler.AddAdministrator(administrator);
             string newPassword = "";
             administratorHandler.ModifyPassword(administrator.mail, newPassword);
-            administratorPersistence.EmptyAdministrators();
+            
         }
 
         [ExpectedException(typeof(UserException))]
@@ -442,7 +432,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
             administratorHandler.AddAdministrator(administrator);
-            administratorPersistence.EmptyAdministrators();
+            
         }
     }
 }

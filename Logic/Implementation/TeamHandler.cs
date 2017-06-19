@@ -21,6 +21,10 @@ namespace Logic
         public void AddTeam(Team team)
         {
             ValidateTeam(team);
+            if (ExistsTeam(team))
+            {
+                throw new TeamException(ExceptionMessage.teamAlreadyExist);
+            }
             teamFunctions.AddTeam(team);
         }
 
@@ -71,7 +75,7 @@ namespace Logic
 
         private static void ValidateUsersInTeam(ICollection<User> users)
         {
-            ValiadteNullUserInTeam(users);
+            ValidateNullUserInTeam(users);
             ValidateEmptyTeam(users);
         }
 
@@ -88,7 +92,7 @@ namespace Logic
             return element == 0;
         }
 
-        private static void ValiadteNullUserInTeam(ICollection<User> users)
+        private static void ValidateNullUserInTeam(ICollection<User> users)
         {
             if(users == null)
             {
@@ -175,11 +179,26 @@ namespace Logic
         }
         public void RemoveUser(Team team,User user)
         {
+            ValidateUser(user);
             teamFunctions.RemoveUser(team,user);
         }
+
+        private void ValidateUser(User user)
+        {
+            if(user == null)
+            {
+                throw new TeamException(ExceptionMessage.teamUserNull);
+            }
+        }
+
         public void AddUser(Team team, User user)
         {
             teamFunctions.AddUser(team, user);
+        }
+
+        public bool ExistsTeam(Team team)
+        {
+            return teamFunctions.ExistsTeam(team);
         }
     }
 }

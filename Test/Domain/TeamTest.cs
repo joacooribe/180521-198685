@@ -96,5 +96,20 @@ namespace Test
 
             Assert.IsFalse(team.Equals(anotherTeam));
         }
+
+        [TestMethod]
+        public void TeamNull()
+        {
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam = new List<User>();
+
+            usersInTeam.Add(administratorCreator);
+
+            team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
+
+            anotherTeam = null;
+
+            Assert.IsFalse(team.Equals(anotherTeam));
+        }
     }
 }

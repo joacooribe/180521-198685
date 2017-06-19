@@ -40,3 +40,8 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Debug\EntityFramewo
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Debug\Logic.dll.config
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\Logic.dll.config
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\EntityFramework.dll
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\EntityFramework.xml
+C:\Users\Fido\Documents\180521-198685\Logic\bin\Debug\EntityFramework.SqlServer.xml
