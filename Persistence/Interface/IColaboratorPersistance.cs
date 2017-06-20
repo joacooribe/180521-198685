@@ -10,11 +10,5 @@ namespace Persistence
     public interface IColaboratorPersistance
     {
         void AddColaborator(Colaborator colaborator);
-        Colaborator GetColaborator(string mail);
-        bool ExistsColaborator(Colaborator colaborator);
-        void DeleteColaborator(string mail);
-        bool IsEmptyColaboratorCollection();
-        void EmptyColaborators();
-        List<Team> GetTeams(User colaborador);
     }
 }

@@ -113,7 +113,6 @@
             this.DataGridViewTeams.ReadOnly = true;
             this.DataGridViewTeams.Size = new System.Drawing.Size(244, 271);
             this.DataGridViewTeams.TabIndex = 9;
-            this.DataGridViewTeams.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TblTeams_CellContentClick);
             // 
             // TeamName
             // 
@@ -137,7 +136,6 @@
             this.DataGridViewTeamBelongs.Name = "DataGridViewTeamBelongs";
             this.DataGridViewTeamBelongs.Size = new System.Drawing.Size(243, 271);
             this.DataGridViewTeamBelongs.TabIndex = 10;
-            this.DataGridViewTeamBelongs.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // TeamNameBelongs
             // 
@@ -186,7 +184,6 @@
             this.Controls.Add(this.BtnSelect);
             this.Name = "TeamAdministratorUI";
             this.Size = new System.Drawing.Size(680, 361);
-            this.Load += new System.EventHandler(this.TeamAdministratorUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTeams)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTeamBelongs)).EndInit();
             this.ResumeLayout(false);

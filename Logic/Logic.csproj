@@ -55,6 +55,7 @@
     <Compile Include="Implementation\CommentHandler.cs" />
     <Compile Include="Implementation\ImageHandler.cs" />
     <Compile Include="Implementation\SessionHandler.cs" />
+    <Compile Include="Implementation\UserHandler.cs" />
     <Compile Include="Interface\IAdministratorHandler.cs" />
     <Compile Include="Interface\IBlackboardHandler.cs" />
     <Compile Include="Interface\IColaboratorHandler.cs" />

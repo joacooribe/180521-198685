@@ -25,20 +25,12 @@ namespace Persistence
             using (ContextDB context = new ContextDB())
             {
                 context.Users.Attach(team.creator);
-                if (team.usersInTeam.Contains(team.creator))
-                {
-                    team.creator.teams.Add(team);
-                }
-                context.Entry(team.creator).State = EntityState.Modified;
-                context.SaveChanges();
 
                 foreach (User user in team.usersInTeam)
                 {
-                    if (!team.creator.Equals(user))
+                    if (!user.mail.Equals(team.creator.mail))
                     {
                         context.Users.Attach(user);
-                        user.teams.Add(team);
-                        context.Entry(user).State = EntityState.Modified;
                     }
                 }
                 context.Teams.Add(team);
@@ -161,14 +153,12 @@ namespace Persistence
         {
             using (ContextDB context = new ContextDB())
             {
-                context.Teams.Attach(team);
+                context.Users.Attach(team.creator);
                 foreach (User user in users)
                 {
                     if (!user.teams.Contains(team))
                     {
                         context.Users.Attach(user);
-                        user.teams.Add(team);
-                        context.Entry(user).State = EntityState.Modified;
                     }
                 }
                 context.Teams

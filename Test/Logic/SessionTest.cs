@@ -30,9 +30,7 @@ namespace Test
         public SessionTest()
         {
             sessionHandler = new SessionHandler();
-            administratorPersistence = new AdministratorPersistenceHandler();
             administratorHandler = new AdministratorHandler();
-            colaboratorPersistence = new ColaboratorPersistenceHandler();
             colaboratorHandler = new ColaboratorHandler();
         }
 
@@ -68,19 +66,17 @@ namespace Test
         [TestMethod]
         public void AdministratorLoginOk()
         {
-            administratorPersistence.EmptyAdministrators();
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
 
             Session actualSession = sessionHandler.LogInAdministrator(administrator.mail, administrator.password);
-            Assert.AreEqual(administrator, actualSession.user);
+            Assert.AreEqual(administrator.mail, actualSession.user.mail);
         }
 
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void AdministratorLoginWrongPassword()
         {
-            administratorPersistence.EmptyAdministrators();
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
 
@@ -93,7 +89,6 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorLoginWrongMail()
         {
-            administratorPersistence.EmptyAdministrators();
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
 
@@ -106,7 +101,6 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void AdministratorLoginUserNotExist()
         {
-            administratorPersistence.EmptyAdministrators();
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
 
@@ -118,19 +112,17 @@ namespace Test
         [TestMethod]
         public void ColaboratorLoginOk()
         {
-            colaboratorPersistence.EmptyColaborators();
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
 
             Session actualSession = sessionHandler.LogInColaborator(colaborator.mail, colaborator.password);
-            Assert.AreEqual(colaborator, actualSession.user);
+            Assert.AreEqual(colaborator.mail, actualSession.user.mail);
         }
 
         [TestMethod]
         [ExpectedException(typeof(UserException))]
         public void ColaboratorLoginWrongPassword()
         {
-            colaboratorPersistence.EmptyColaborators();
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
 
@@ -143,7 +135,6 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorLoginWrongMail()
         {
-            colaboratorPersistence.EmptyColaborators();
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
 
@@ -156,14 +147,12 @@ namespace Test
         [ExpectedException(typeof(UserException))]
         public void ColaboratorLoginUserNotExist()
         {
-            colaboratorPersistence.EmptyColaborators();
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             colaboratorHandler.AddColaborator(colaborator);
 
             string notExistUser = "diego@gmail.com";
 
             sessionHandler.LogInColaborator(notExistUser, colaborator.mail);
-            colaboratorPersistence.EmptyColaborators();
         }
     }
 }

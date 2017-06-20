@@ -12,22 +12,23 @@ namespace Logic
     public class AdministratorHandler : IAdministratorHandler
     {
         private IAdministratorPersistance administratorFunctions { get; set; }
+        private IUserPersistance userFunctions { get; set; }
 
         public AdministratorHandler()
         {
             administratorFunctions = new AdministratorPersistenceHandler();
+            userFunctions = new UserPersistanceHandler();
         }
 
         public void AddAdministrator(Administrator administrator)
         {
             ValidateAdministrator(administrator);
-            if (ExistsAdministrator(administrator))
+            if (userFunctions.ExistsUser(administrator))
             {
                 throw new UserException(ExceptionMessage.userAlreadyExist);
             }
             administratorFunctions.AddAdministrator(administrator);
         }
-
         private void ValidateAdministrator(Administrator administrator)
         {
             Utility.Utilites.ValidateName(administrator.name);
@@ -36,34 +37,5 @@ namespace Logic
             Utility.Utilites.ValidateMail(administrator.mail);
             Utility.Utilites.ValidateBirthDate(administrator.birthday);
         }
-
-        public User GetUserFromColecction(string mailOfAdministrator)
-        {
-            Utility.Utilites.ValidateMail(mailOfAdministrator);
-            return administratorFunctions.GetAdministrator(mailOfAdministrator);
-        }
-        
-        public void ModifyPassword(string mailOfAdministrator,string newPassword)
-        {
-            Utility.Utilites.ValidatePassword(newPassword);
-            User adminToChangePassword = administratorFunctions.GetAdministrator(mailOfAdministrator);
-            adminToChangePassword.password = newPassword;
-        }
-
-        public bool ExistsAdministrator(User administrator)
-        {
-            return administratorFunctions.ExistsAdministrator(administrator);
-        }
-
-        public void DeleteUser(string mailOfAdministrator)
-        {
-            administratorFunctions.DeleteAdministrator(mailOfAdministrator);
-        }
-
-        public List<Team> GetTeams (User administrator)
-        {
-            return administratorFunctions.GetTeams(administrator);
-        }
-
     }
 }

@@ -54,8 +54,8 @@ namespace Interface
 
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.DataGridViewTeamBelongs.Rows.Clear();
-            User user = (User)instance.administratorHandler.GetUserFromColecction(instance.session.user.mail);
-            List<Team> teamsBelongs = (List<Team>)instance.administratorHandler.GetTeams(user);
+            User user = (User)instance.userHandler.GetUserFromColecction(instance.session.user.mail);
+            List<Team> teamsBelongs = (List<Team>)instance.userHandler.GetTeams(user);
             foreach (Team team in teamsBelongs)
             {
                 var rowIndex = this.DataGridViewTeamBelongs.Rows.Add(team.name, team.description);
@@ -116,19 +116,5 @@ namespace Interface
             modifyTeamUI.Show();
         }
 
-        private void TeamAdministratorUI_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TblTeams_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
