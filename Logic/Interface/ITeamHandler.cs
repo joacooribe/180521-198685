@@ -17,5 +17,6 @@ namespace Logic
         List<User> GetUsersFromTeam(Team team);
         void RemoveUser(Team team,User user);
         bool ExistsTeam(Team team);
+        void ModifyTeamUsers(Team team, ICollection<User> users);
     }
 }

@@ -15,6 +15,7 @@ namespace Test
         private ITeamPersistance teamPersistence;
         private ITeamHandler teamHandler;
         private IAdministratorHandler administratorHandler;
+        private IColaboratorHandler colaboratorHandler;
         private Team team;
         private Administrator administratorCreator;
         private Colaborator colaboratorCreator;
@@ -37,6 +38,7 @@ namespace Test
             teamPersistence = new TeamPersistenceHandler();
             teamHandler = new TeamHandler();
             administratorHandler = new AdministratorHandler();
+            colaboratorHandler = new ColaboratorHandler();
         }
 
         [TestInitialize]
@@ -72,16 +74,21 @@ namespace Test
         public void TeamOKCreatedByAdministrator()
         {
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
-           
+            colaboratorCreator = DataCreation.CreateColaborator(userNameOK, userSurnameOK, anotherUserMailOK, userPasswordOK, userBirthdayOk);
+            
             usersInTeam = new List<User>();
 
             usersInTeam.Add(administratorCreator);
+            usersInTeam.Add(colaboratorCreator);
 
             administratorHandler.AddAdministrator(administratorCreator);
-
+            colaboratorHandler.AddColaborator(colaboratorCreator);
             team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
 
+            Team team1 = DataCreation.CreateTeam("team2", dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
+
             teamHandler.AddTeam(team);
+            teamHandler.AddTeam(team1);
 
             Assert.IsTrue(teamPersistence.ExistsTeam(teamHandler.GetTeamFromCollection(team.name)));
         }
@@ -373,6 +380,40 @@ namespace Test
 
             teamHandler.AddTeam(team);
             teamHandler.RemoveUser(team, administrator1);
+        }
+
+        [TestMethod]
+        public void TeamModifyUsersOk()
+        {
+            //PASA PERO CLONA TEAMS
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam = new List<User>();
+            usersInTeam.Add(administratorCreator);
+
+            administratorHandler.AddAdministrator(administratorCreator);
+
+            team = DataCreation.CreateTeam(nameOK, dateOK, administratorCreator, descriptionOK, maxUsersOK, usersInTeam);
+
+            teamHandler.AddTeam(team);
+
+            Administrator administrator1 = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, anotherUserMailOK, userPasswordOK, userBirthdayOk);
+            administratorHandler.AddAdministrator(administrator1);
+
+            usersInTeam = new List<User>();
+            usersInTeam.Add(administrator1);
+            usersInTeam.Add(administratorCreator);
+            
+            teamHandler.ModifyTeamUsers(team, usersInTeam);
+            bool areEquals = true;
+            Team teamInDB = teamHandler.GetTeamFromCollection(team.name);
+            foreach(User user in teamInDB.usersInTeam)
+            {
+                if (!usersInTeam.Contains(user))
+                {
+                    areEquals = false;
+                }
+            }
+            Assert.IsTrue(areEquals);
         }
 
     }

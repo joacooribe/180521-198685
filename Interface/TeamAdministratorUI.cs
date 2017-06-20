@@ -51,6 +51,7 @@ namespace Interface
         }
         private void LoadTeamBelongs()
         {
+
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.DataGridViewTeamBelongs.Rows.Clear();
             User user = (User)instance.administratorHandler.GetUserFromColecction(instance.session.user.mail);
