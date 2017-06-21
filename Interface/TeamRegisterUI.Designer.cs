@@ -94,7 +94,6 @@
             this.lblEquipo.Size = new System.Drawing.Size(151, 22);
             this.lblEquipo.TabIndex = 7;
             this.lblEquipo.Text = "Alta de Equipo";
-            this.lblEquipo.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtMaxUsers
             // 
@@ -125,7 +124,6 @@
             this.lblUserListInTeam.Size = new System.Drawing.Size(157, 13);
             this.lblUserListInTeam.TabIndex = 22;
             this.lblUserListInTeam.Text = "Lista de usuario a ingresar";
-            this.lblUserListInTeam.Click += new System.EventHandler(this.lblUserListInTeam_Click);
             // 
             // lblUserList
             // 
@@ -169,7 +167,6 @@
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.Size = new System.Drawing.Size(310, 150);
             this.dataGridViewUsers.TabIndex = 26;
-            this.dataGridViewUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsers_CellContentClick);
             // 
             // Mail
             // 
@@ -256,7 +253,6 @@
             this.Controls.Add(this.nudMaxUsers);
             this.Name = "TeamRegisterUI";
             this.Text = "TeamRegisterUI";
-            this.Load += new System.EventHandler(this.TeamRegisterUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudMaxUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserForTeam)).EndInit();

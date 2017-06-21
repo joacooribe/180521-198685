@@ -254,7 +254,6 @@
             this.Controls.Add(this.TxtName);
             this.Name = "ModifyTeamUI";
             this.Text = "ModifyTeamUI";
-            this.Load += new System.EventHandler(this.ModifyTeamUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NudMaxUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUserInTeam)).EndInit();

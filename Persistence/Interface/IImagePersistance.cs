@@ -7,9 +7,8 @@ using Domain;
 
 namespace Persistence
 {
-    public interface IImagePersistance : IElementPersistance
+    public interface IImagePersistance
     {
         void AddImage(Image image);
-        Image GetImage(int id, Blackboard blackboard);
     }
 }

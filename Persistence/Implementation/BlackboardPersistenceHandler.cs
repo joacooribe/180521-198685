@@ -17,6 +17,7 @@ namespace Persistence
         public BlackboardPersistenceHandler()
         {
             systemCollection = Repository.GetInstance;
+            elementFunctions = new ElementPersistenceHandler();
         }
 
         public void AddBlackboard(Blackboard blackboard)

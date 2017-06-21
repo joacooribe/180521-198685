@@ -11,10 +11,12 @@ namespace Logic
 {
     public class TextBoxHandler : ITextBoxHandler
     {
+        public IElementPersistance elementFunctions { get; set; }
         public ITextBoxPersistance textBoxFunctions { get; set; }
 
         public TextBoxHandler()
         {
+            elementFunctions = new ElementPersistenceHandler();
             textBoxFunctions = new TextBoxPersistanceHandler();
         }
 
@@ -89,13 +91,13 @@ namespace Logic
         public Element GetElementFromCollection(int idElement, Blackboard blackboardOwner)
         {
             Utility.UtilityElement.ValidateBlackboard(blackboardOwner);
-            return textBoxFunctions.GetTextBox(idElement, blackboardOwner);
+            return elementFunctions.GetElement(idElement, blackboardOwner);
         }
 
         public void DeleteElement(Element element)
         {
-            //TextBox textBox = (TextBox)element;
-            textBoxFunctions.DeleteElement(element);
+            ValidateTextBox((TextBox)element);
+            elementFunctions.DeleteElement(element);
         }
     }
 }

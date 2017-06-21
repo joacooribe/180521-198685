@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain;
-using Logic;
 using Persistence;
-using Exceptions;
 using System.Globalization;
 
 namespace Interface
@@ -24,27 +17,26 @@ namespace Interface
 
         private List<User> usersInTeam { get; set; }
 
-        private Team team { get; set; }
+        private Team teamToModify { get; set; }
 
         public ModifyTeamUI(Team team)
         {
             instance = Singleton.GetInstance;
-            this.team = team;
-            users = new List<User>();
+            teamToModify = team;
             usersInTeam = new List<User>();
             InitializeComponent();
             LoadUserList();
             LoadUsersInTeamToDataGrid();
             LoadUsersToDataGrid();
-            TxtName.Text =team.name;
+            TxtName.Text = team.name;
+            NudMaxUsers.Value = team.maxUsers;
             TxtDescription.Text = team.description;
-            
         }
 
         private void LoadUserList()
         {
             users = new List<User>();
-            foreach (User user in instance.teamHandler.GetUsersFromTeam(team))
+            foreach (User user in instance.teamHandler.GetUsersFromTeam(teamToModify))
             {
                 usersInTeam.Add(user);
             }
@@ -57,20 +49,17 @@ namespace Interface
                         users.Add(user);
                     }
                 }
-                
             }
-            
         }
+
         private void LoadUsersToDataGrid()
         {
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
-            this.dataGridViewUsers.Rows.Clear();
+            dataGridViewUsers.Rows.Clear();
             foreach (User user in users)
             {
-                
-                    var rowIndex = this.dataGridViewUsers.Rows.Add(user.mail, user.name, user.surname);
-                    this.dataGridViewUsers.Rows[rowIndex].Tag = user;
-                
+                var rowIndex = dataGridViewUsers.Rows.Add(user.mail, user.name, user.surname);
+                dataGridViewUsers.Rows[rowIndex].Tag = user;
             }
         }
         private void LoadUsersInTeamToDataGrid()
@@ -79,35 +68,28 @@ namespace Interface
             this.dataGridViewUserInTeam.Rows.Clear();
             foreach (User user in usersInTeam)
             {
-                var rowIndex = this.dataGridViewUserInTeam.Rows.Add(user.mail, user.name, user.surname);
-                this.dataGridViewUsers.Rows[rowIndex].Tag = user;
+                var rowIndex = dataGridViewUserInTeam.Rows.Add(user.mail, user.name, user.surname);
+                dataGridViewUserInTeam.Rows[rowIndex].Tag = user;
             }
         }
-        
+
         private void ReloadUsersInTeam()
         {
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.dataGridViewUserInTeam.Rows.Clear();
             foreach (User user in usersInTeam)
             {
-                var rowIndex = this.dataGridViewUserInTeam.Rows.Add(user.mail, user.name, user.surname);
-                this.dataGridViewUserInTeam.Rows[rowIndex].Tag = user;
+                var rowIndex = dataGridViewUserInTeam.Rows.Add(user.mail, user.name, user.surname);
+                dataGridViewUserInTeam.Rows[rowIndex].Tag = user;
             }
         }
-
-        private void ModifyTeamUI_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                var selectedRow = this.dataGridViewUsers.CurrentCell.RowIndex;
-                var selectedUser = this.dataGridViewUsers.Rows[selectedRow].Tag;
+                var selectedRow = dataGridViewUsers.CurrentCell.RowIndex;
+                var selectedUser = dataGridViewUsers.Rows[selectedRow].Tag;
                 usersInTeam.Add((User)selectedUser);
                 users.Remove((User)selectedUser);
                 LoadUsersToDataGrid();
@@ -122,21 +104,20 @@ namespace Interface
 
         private void BtnRemove_Click(object sender, EventArgs e)
         {
-            
-                try
-                {
-                    var selectedRow = this.dataGridViewUserInTeam.CurrentCell.RowIndex;
-                    var selectedUser = this.dataGridViewUserInTeam.Rows[selectedRow].Tag;
-                    usersInTeam.Remove((User)selectedUser);
-                    users.Add((User)selectedUser);
-                    LoadUsersToDataGrid();
-                    ReloadUsersInTeam();
-                }
-                catch (Exception ex)
-                {
-                    String msgError = ex.Message;
-                    MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            try
+            {
+                var selectedRow = this.dataGridViewUserInTeam.CurrentCell.RowIndex;
+                var selectedUser = this.dataGridViewUserInTeam.Rows[selectedRow].Tag;
+                usersInTeam.Remove((User)selectedUser);
+                users.Add((User)selectedUser);
+                LoadUsersToDataGrid();
+                ReloadUsersInTeam();
+            }
+            catch (Exception ex)
+            {
+                String msgError = ex.Message;
+                MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
@@ -146,13 +127,13 @@ namespace Interface
             int newMaxUsers = (int)NudMaxUsers.Value;
             try
             {
-                instance.teamHandler.ModifyTeamDescription(team.name, newDescription);
-                instance.teamHandler.ModifyTeamMaxUsers(team.name, newMaxUsers);
+                instance.teamHandler.ModifyTeamDescription(teamToModify.name, newDescription);
+                instance.teamHandler.ModifyTeamMaxUsers(teamToModify.name, newMaxUsers);
+                instance.teamHandler.ModifyTeamUsers(teamToModify,usersInTeam);
                 AdministratorUI administratorUI = new AdministratorUI();
                 MessageBox.Show("Equipo modificado correctamente.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 administratorUI.Show();
-                this.Hide();
-
+                Hide();
             }
             catch (Exception ex)
             {
@@ -165,7 +146,7 @@ namespace Interface
         {
             AdministratorUI administratorUI = new AdministratorUI();
             administratorUI.Show();
-            this.Hide();
+            Hide();
         }
     }
 }

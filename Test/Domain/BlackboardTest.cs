@@ -35,25 +35,6 @@ namespace Test
         private readonly int heightOk = 20;
         private readonly string blackboardDescriptionOk = "Blackboard Team 1";
 
-        public BlackboardTest()
-        {
-
-        }
-
-        private TestContext testContextInstance;
-
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         #region Additional test attributes
         //
         // You can use the following additional attributes as you write your tests:
@@ -144,6 +125,23 @@ namespace Test
             blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
             blackboard2 = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, anotherTeamOwner);
+
+            Assert.IsFalse(blackboard1.Equals(blackboard2));
+        }
+
+        [TestMethod]
+        public void BlackbordNull()
+        {
+            usersInTeam = new List<User>();
+
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(administratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboard1 = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
+
+            blackboard2 = null;
 
             Assert.IsFalse(blackboard1.Equals(blackboard2));
         }

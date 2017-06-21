@@ -25,7 +25,6 @@ namespace Persistence
             using (ContextDB context = new ContextDB())
             {
                 context.Users.Attach(team.creator);
-
                 foreach (User user in team.usersInTeam)
                 {
                     if (!user.mail.Equals(team.creator.mail))
@@ -125,8 +124,11 @@ namespace Persistence
         {
             using (ContextDB context = new ContextDB())
             {
-                var query = context.Teams.Find(team.OIDTeam);
-                return query.usersInTeam.ToList();
+                List<User> query = context.Teams.Where(t => t.name == team.name)
+                                         .Include(t => t.usersInTeam)
+                                         .FirstOrDefault()
+                                         .usersInTeam.ToList();
+                return query;
             }
         }
 
@@ -153,19 +155,18 @@ namespace Persistence
         {
             using (ContextDB context = new ContextDB())
             {
-                context.Users.Attach(team.creator);
+                List<User> newUsersInTeam = new List<User>();
+                var teamToModify = context.Teams.Find(team.OIDTeam);
                 foreach (User user in users)
                 {
-                    if (!user.teams.Contains(team))
-                    {
-                        context.Users.Attach(user);
-                    }
+                    var userToAdd = context.Users.Find(user.OIDUser);
+                    newUsersInTeam.Add(userToAdd);
                 }
                 context.Teams
                             .Where(t => t.name == team.name)
                             .Include(t => t.usersInTeam)
                             .FirstOrDefault()
-                            .usersInTeam = users;
+                            .usersInTeam = newUsersInTeam;
                 context.SaveChanges();
             }
         }

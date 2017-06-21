@@ -10,5 +10,6 @@ namespace Persistence
     public interface IElementPersistance
     {
         void DeleteElement(Element element);
+        Element GetElement(int id, Blackboard blackboard);
     }
 }

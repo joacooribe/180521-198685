@@ -60,6 +60,7 @@
     <Compile Include="Implementation\BlackboardPersistenceHandler.cs" />
     <Compile Include="Implementation\ColaboratorPersistenceHandler.cs" />
     <Compile Include="Implementation\CommentPersistanceHandler.cs" />
+    <Compile Include="Implementation\ElementPersistenceHandler.cs" />
     <Compile Include="Implementation\ImagePersistanceHandler.cs" />
     <Compile Include="Implementation\UserPersistanceHandler.cs" />
     <Compile Include="Interface\IElementPersistance.cs" />

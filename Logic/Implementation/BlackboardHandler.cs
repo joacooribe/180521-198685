@@ -21,7 +21,7 @@ namespace Logic
         public void AddBlackboard(Blackboard blackboard)
         {
             ValidateBlackboard(blackboard);
-            if (ExistsBlackboard(blackboard))
+            if (blackboardFunctions.ExistsBlackboard(blackboard))
             {
                 throw new BlackboardException(ExceptionMessage.blackboardAlreadyExist);
             }
@@ -127,11 +127,6 @@ namespace Logic
             }
         }
 
-        public bool ExistsBlackboard(Blackboard blackboard)
-        {
-            return blackboardFunctions.ExistsBlackboard(blackboard);
-        }
-
         public Blackboard GetBlackboard(string name, Team team)
         {
             ValidateName(name);
@@ -141,6 +136,7 @@ namespace Logic
 
         public void DeleteBlackboard(Blackboard blackboard)
         {
+            ValidateBlackboard(blackboard);
             blackboardFunctions.DeleteBlackboard(blackboard);
         }
     }

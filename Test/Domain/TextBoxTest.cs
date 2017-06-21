@@ -44,29 +44,6 @@ namespace Test
         private readonly string fontOk = "Times New Roman";
         private readonly int fontSizeOk = 14;
 
-        private ITextBoxPersistance textBoxPersistence;
-        private ITextBoxHandler textBoxHandler;
-
-        public TextBoxTest()
-        {
-            textBoxPersistence = new TextBoxPersistanceHandler();
-            textBoxHandler = new TextBoxHandler();
-        }
-
-        private TestContext testContextInstance;
-
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         #region Additional test attributes
         //
         // You can use the following additional attributes as you write your tests:
@@ -102,7 +79,6 @@ namespace Test
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
 
             textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
-            textBoxHandler.AddElement(textBox);
 
             anotherTextBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
             anotherTextBox.id = textBox.id;
@@ -123,10 +99,10 @@ namespace Test
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
 
             textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
-            textBoxHandler.AddElement(textBox);
+            textBox.id = 0;
 
             anotherTextBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
-            textBoxHandler.AddElement(anotherTextBox);
+            anotherTextBox.id = 1;
 
             Assert.IsFalse(textBox.Equals(anotherTextBox));
         }
@@ -144,8 +120,7 @@ namespace Test
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
             anotherBlackboardOwner = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
 
-            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
-            textBoxHandler.AddElement(textBox);
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);;
 
             anotherTextBox = DataCreation.CreateTextBox(administratorCreator, anotherBlackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
             anotherTextBox.id = textBox.id;
@@ -168,10 +143,29 @@ namespace Test
             anotherBlackboardOwner = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
 
             textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
-            textBoxHandler.AddElement(textBox);
+            textBox.id = 0;
 
             anotherTextBox = DataCreation.CreateTextBox(administratorCreator, anotherBlackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
-            textBoxHandler.AddElement(anotherTextBox);
+            anotherTextBox.id = 1;
+
+            Assert.IsFalse(textBox.Equals(anotherTextBox));
+        }
+
+        [TestMethod]
+        public void TextBoxNull()
+        {
+            usersInTeam = new List<User>();
+
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(administratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
+
+            textBox = DataCreation.CreateTextBox(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, contentOk, fontOk, fontSizeOk);
+
+            anotherTextBox = null;
 
             Assert.IsFalse(textBox.Equals(anotherTextBox));
         }

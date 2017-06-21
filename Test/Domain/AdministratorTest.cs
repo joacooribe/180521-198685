@@ -10,10 +10,6 @@ namespace Test
     {
         private Administrator administrator1;
         private Administrator administrator2;
-        public AdministratorTest()
-        {
-  
-        }
         
         private readonly string nameOK = "Joaquin";
         private readonly string surnameOK = "Oribe";

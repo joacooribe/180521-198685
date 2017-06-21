@@ -41,29 +41,6 @@ namespace Test
         private readonly string formatOk = ".jpg";
         private readonly string urlOk = "/image/hola.jpg";
 
-        private IImagePersistance imagePersistence;
-        private IImageHandler imageHandler;
-
-        public ImageTest()
-        {
-            imagePersistence = new ImagePersistanceHandler();
-            imageHandler = new ImageHandler();
-        }
-
-        private TestContext testContextInstance;
-
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         #region Additional test attributes
         //
         // You can use the following additional attributes as you write your tests:
@@ -99,7 +76,6 @@ namespace Test
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
 
             image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
-            imageHandler.AddElement(image);
 
             anotherImage = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
             anotherImage.id = image.id;
@@ -120,10 +96,10 @@ namespace Test
             blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
 
             image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
-            imageHandler.AddElement(image);
+            image.id = 0;
 
             anotherImage = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
-            imageHandler.AddElement(anotherImage);
+            anotherImage.id = 1;
 
             Assert.IsFalse(image.Equals(anotherImage));
         }
@@ -142,7 +118,6 @@ namespace Test
             anotherBlackboardOwner = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
 
             image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
-            imageHandler.AddElement(image);
 
             anotherImage = DataCreation.CreateImage(administratorCreator, anotherBlackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
             anotherImage.id = image.id;
@@ -164,10 +139,30 @@ namespace Test
             anotherBlackboardOwner = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
 
             image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
-            imageHandler.AddElement(image);
+            image.id = 0;
 
             anotherImage = DataCreation.CreateImage(administratorCreator, anotherBlackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
-            imageHandler.AddElement(anotherImage);
+            anotherImage.id = 1;
+
+            Assert.IsFalse(image.Equals(anotherImage));
+        }
+
+        [TestMethod]
+        public void ImageNull()
+        {
+            usersInTeam = new List<User>();
+
+            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+            usersInTeam.Add(administratorCreator);
+
+            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
+
+            blackboardOwner = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
+            anotherBlackboardOwner = DataCreation.CreateBlackboard(anotherBlackboardNameOk, blackboardDescriptionOk, blackboardHeightOk, blackboardWidthOk, administratorCreator, teamOwner);
+
+            image = DataCreation.CreateImage(administratorCreator, blackboardOwner, widthOk, heightOk, originPointOk, urlOk, formatOk);
+
+            anotherImage = null;
 
             Assert.IsFalse(image.Equals(anotherImage));
         }

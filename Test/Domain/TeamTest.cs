@@ -26,25 +26,6 @@ namespace Test
         private readonly string userMailOK = "user@gmail.com";
         private readonly DateTime userBirthdayOk = new DateTime(1992, 9, 10);
 
-        public TeamTest()
-        {
-
-        }
-
-        private TestContext testContextInstance;
-
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
         #region Additional test attributes
         //
         // You can use the following additional attributes as you write your tests:

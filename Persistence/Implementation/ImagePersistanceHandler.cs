@@ -25,40 +25,5 @@ namespace Persistence
             image.id = systemCollection.AsignNumberToElement();
             image.blackboardOwner.elementsInBlackboard.Add(image);
         }
-
-        public Image GetImage(int idElement, Blackboard blackboardOwner)
-        {
-            Image image = new Image();
-            image.id = idElement;
-            image.blackboardOwner = blackboardOwner;
-            foreach (Element elementFromColecction in blackboardOwner.elementsInBlackboard)
-            {
-                if (elementFromColecction.Equals(image))
-                {
-                    image = (Image)elementFromColecction;
-                    return image;
-                }
-            }
-            throw new ImageException(ExceptionMessage.imageNotFound);
-        }
-
-        public void DeleteElement(Element element)
-        {
-            DeleteAllCommentOfImage(element);
-            DeleteImageFromBlackboard(element, element.blackboardOwner);
-        }
-
-        private void DeleteAllCommentOfImage(Element element)
-        {
-            foreach(Comment commentOfImage in element.commentCollection)
-            {
-                commentFunctions.DeleteComment(commentOfImage);
-            }
-        }
-
-        private void DeleteImageFromBlackboard(Element element, Blackboard blackboardOwner)
-        {
-            blackboardOwner.elementsInBlackboard.Remove(element);
-        }
     }
 }

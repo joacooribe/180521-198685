@@ -19,11 +19,6 @@ namespace Test
         private readonly string passwordOK = "securePassword123";
         private readonly DateTime birthdayOk = new DateTime(1992, 9, 10);
 
-        public ColaboratorTest()
-        {
-
-        }
-
         #region Additional test attributes
         //
         // You can use the following additional attributes as you write your tests:
