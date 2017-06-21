@@ -78,11 +78,6 @@ namespace Interface
                 teamToAdd.creator = adminCreator;
                 teamToAdd.creationDate = birthdate;
                 teamToAdd.usersInTeam = usersForTeam;
-                teamToAdd.valueAddComment = 0;
-                teamToAdd.valueAddelement = 0;
-                teamToAdd.valueCreateBlackboard = 0;
-                teamToAdd.valueDeleteBlackboard = 0;
-                teamToAdd.valueResolvedcomment = 0;
                 instance.teamHandler.AddTeam(teamToAdd);
                 AdministratorUI administratorUI = new AdministratorUI();
                 administratorUI.Show();
