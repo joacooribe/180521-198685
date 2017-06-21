@@ -66,7 +66,7 @@ namespace Interface
             string name = txtTeamName.Text;
             string description = txtDescription.Text;
             int maxUsers = (int)nudMaxUsers.Value;
-            User user = instance.administratorHandler.GetUserFromColecction(instance.session.user.mail);
+            User user = instance.session.user;
             Administrator adminCreator = (Administrator)user;
             DateTime birthdate = DateTime.Now;
             try
@@ -122,7 +122,7 @@ namespace Interface
                 LoadUsers();
                 ReloadUsersForTeam();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 MessageBox.Show("No hay mas usuarios para agregar a la lista", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -149,7 +149,7 @@ namespace Interface
                 LoadUsers();
                 ReloadUsersForTeam();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("No puede quitar mas usuarios del equipo.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

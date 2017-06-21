@@ -12,5 +12,6 @@ namespace Logic
         User GetUserFromColecction(string mailOfUser);
         void ModifyPassword(string mailOfUser, string newPassword);
         void DeleteUser(string mailOfUser);
+        List<Team> GetTeams(User user);
     }
 }

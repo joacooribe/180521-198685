@@ -31,13 +31,11 @@ namespace Interface
 
         public IBlackboardHandler blackboardHandler { get; set; }
 
-        public IAdministratorPersistance administratorPersistence { get; set; }
-
-        public IColaboratorPersistance colaboratorPersistence { get; set; }
-
         public ITeamPersistance teamPersistence { get; set; }
 
         public IBlackboardPersistance blackboardPersistence { get; set; }
+
+        public IUserHandler userHandler { get; set; }
 
         private Singleton()
         {
@@ -48,10 +46,6 @@ namespace Interface
             this.session = new Session();
 
             this.sessionHandler = new SessionHandler();
-
-            this.administratorPersistence = new AdministratorPersistenceHandler();
-
-            this.colaboratorPersistence = new ColaboratorPersistenceHandler();
 
             this.teamPersistence = new TeamPersistenceHandler();
 
@@ -65,6 +59,7 @@ namespace Interface
 
             this.blackboardHandler = new BlackboardHandler();
 
+            this.userHandler = new UserHandler();
         }
 
         public static Singleton GetInstance

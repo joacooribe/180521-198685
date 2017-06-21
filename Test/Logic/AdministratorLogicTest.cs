@@ -15,8 +15,9 @@ namespace Test
     public class AdministratorLogicTest
     {
         private Administrator administrator;
-        private IAdministratorPersistance administratorPersistence;
         private IAdministratorHandler administratorHandler;
+        private IUserHandler userHandler;
+        private IUserPersistance userPersistance;
 
         private readonly string passwordOK = "securePassword123";
         private readonly string mailOK = "user@gmail.com";
@@ -26,8 +27,9 @@ namespace Test
 
         public AdministratorLogicTest()
         {
-            administratorPersistence = new AdministratorPersistenceHandler();
             administratorHandler = new AdministratorHandler();
+            userHandler = new UserHandler();
+            userPersistance = new UserPersistanceHandler();
         }
 
         [TestInitialize]
@@ -73,7 +75,7 @@ namespace Test
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
-            Assert.IsTrue(administratorHandler.ExistsAdministrator(administratorHandler.GetUserFromColecction(administrator.mail)));
+            Assert.IsTrue(userPersistance.ExistsUser(userHandler.GetUserFromColecction(administrator.mail)));
         }
 
         [TestMethod]
@@ -409,9 +411,8 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
             string newPassword = "NewPassword123";
-            administratorHandler.ModifyPassword(administrator.mail, newPassword);
-            Assert.AreEqual(newPassword,administrator.password);
-            
+            userHandler.ModifyPassword(administrator.mail, newPassword);
+            Assert.AreEqual(newPassword,userHandler.GetUserFromColecction(administrator.mail).password);
         }
 
         [TestMethod]
@@ -421,8 +422,7 @@ namespace Test
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
             administratorHandler.AddAdministrator(administrator);
             string newPassword = "";
-            administratorHandler.ModifyPassword(administrator.mail, newPassword);
-            
+            userHandler.ModifyPassword(administrator.mail, newPassword);
         }
 
         [ExpectedException(typeof(UserException))]

@@ -10,22 +10,20 @@ namespace Logic
 {
     public class SessionHandler : ISessionHandler
     {
-        IAdministratorHandler administratorHandler { get; set; }
-        IColaboratorHandler colaboratorHandler { get; set; }
+        IUserHandler userHandler { get; set; }
 
         public SessionHandler()
         {
-            administratorHandler = new AdministratorHandler();
-            colaboratorHandler = new ColaboratorHandler();
+            userHandler = new UserHandler();
         }
 
         public Session LogInAdministrator(string mail, string password)
         {
-            User administratorLogIn = administratorHandler.GetUserFromColecction(mail);
+            User administratorLogIn = userHandler.GetUserFromColecction(mail);
             ValidateDifferentPassword(administratorLogIn.password, password);
             Session session = new Session
             {
-                user = (Administrator)administratorLogIn,
+                user = administratorLogIn,
             };
             return session;
         }
@@ -41,11 +39,11 @@ namespace Logic
 
         public Session LogInColaborator(string mail, string password)
         {
-            User colaboratorLogIn = colaboratorHandler.GetUserFromColecction(mail);
+            User colaboratorLogIn = userHandler.GetUserFromColecction(mail);
             ValidateDifferentPassword(colaboratorLogIn.password, password);
             Session session = new Session
             {
-                user = (Colaborator)colaboratorLogIn,
+                user = colaboratorLogIn,
             };
             return session;
         }

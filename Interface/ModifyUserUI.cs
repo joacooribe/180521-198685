@@ -41,12 +41,12 @@ namespace Interface
             User user = (User)selectedUser;
                 try
                 {
-                    instance.colaboratorHandler.ModifyPassword(user.mail, txtNewPassword.Text);
+                    instance.userHandler.ModifyPassword(user.mail, txtNewPassword.Text);
                     MessageBox.Show("Modificación exitosa.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtActualPassword.Text = "";
                     txtNewPassword.Text = "";
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Contraseña nueva invalida, ingrese una correcta.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

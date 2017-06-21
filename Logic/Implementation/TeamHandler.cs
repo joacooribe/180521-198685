@@ -191,9 +191,14 @@ namespace Logic
             }
         }
 
-        public void AddUser(Team team, User user)
+        public void ModifyTeamUsers(Team team, ICollection<User> users)
         {
-            teamFunctions.AddUser(team, user);
+            ValidateMoreUsersThanMaximum(users, team.maxUsers);
+            foreach(User user in users)
+            {
+                ValidateUser(user);
+            }
+            teamFunctions.ModifyTeamUsers(team, users);
         }
 
         public bool ExistsTeam(Team team)

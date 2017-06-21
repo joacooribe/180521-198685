@@ -25,27 +25,17 @@ namespace Persistence
             using (ContextDB context = new ContextDB())
             {
                 context.Users.Attach(team.creator);
-                context.Administrators.Attach(team.creator);
 
                 foreach (User user in team.usersInTeam)
                 {
-                    if (!team.creator.Equals(user))
+                    if (!user.mail.Equals(team.creator.mail))
                     {
                         context.Users.Attach(user);
-                        user.teams.Add(team);
-                        context.Entry(user).State = EntityState.Modified;
                     }
                 }
-                context.SaveChanges();
-                if (team.usersInTeam.Contains(team.creator))
-                {
-                    team.creator.teams.Add(team);
-                    context.Entry(team.creator).State = EntityState.Modified;
-                }
-
+                context.Teams.Add(team);
                 context.SaveChanges();
             }
-
         }
 
         public bool ExistsTeam(Team team)
@@ -69,6 +59,7 @@ namespace Persistence
             Team team = new Team();
             using (ContextDB context = new ContextDB())
             {
+                context.Configuration.ProxyCreationEnabled = false;
                 team = context.Teams
                                 .Where(t => t.name == nameOfTeam)
                                 .Include(t => t.usersInTeam)
@@ -158,9 +149,25 @@ namespace Persistence
                 context.SaveChanges();
             }
         }
-        public void AddUser(Team team, User user)
+        public void ModifyTeamUsers(Team team,ICollection<User> users)
         {
-
+            using (ContextDB context = new ContextDB())
+            {
+                context.Users.Attach(team.creator);
+                foreach (User user in users)
+                {
+                    if (!user.teams.Contains(team))
+                    {
+                        context.Users.Attach(user);
+                    }
+                }
+                context.Teams
+                            .Where(t => t.name == team.name)
+                            .Include(t => t.usersInTeam)
+                            .FirstOrDefault()
+                            .usersInTeam = users;
+                context.SaveChanges();
+            }
         }
     }
 }
