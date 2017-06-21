@@ -15,7 +15,7 @@ namespace Domain
         public int OIDTeam { get; set; }
 
         public string name { get; set; }
-        public Administrator creator { get; set; }
+        public virtual Administrator creator { get; set; }
         public DateTime creationDate { get; set; }
         public string description { get; set; }
         public int maxUsers { get; set; }

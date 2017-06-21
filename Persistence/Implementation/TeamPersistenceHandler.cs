@@ -96,11 +96,11 @@ namespace Persistence
         {
             using (ContextDB context = new ContextDB())
             {
-               context.Teams
-                        .Where(t => t.name == nameOfTeam)
-                        .FirstOrDefault()
-                        .description = newDescription;
-               context.SaveChanges();
+                context.Teams
+                         .Where(t => t.name == nameOfTeam)
+                         .FirstOrDefault()
+                         .description = newDescription;
+                context.SaveChanges();
             }
         }
 
@@ -110,7 +110,7 @@ namespace Persistence
             {
                 context.Teams
                          .Where(t => t.name == nameOfTeam)
-                         .FirstOrDefault().maxUsers=newMaxUsers;
+                         .FirstOrDefault().maxUsers = newMaxUsers;
                 context.SaveChanges();
             }
         }
@@ -132,7 +132,7 @@ namespace Persistence
             }
         }
 
-        public void RemoveUser(Team team,User user)
+        public void RemoveUser(Team team, User user)
         {
             using (ContextDB context = new ContextDB())
             {

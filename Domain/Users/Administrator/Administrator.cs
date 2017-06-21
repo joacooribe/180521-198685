@@ -5,8 +5,7 @@ namespace Domain
 {
     [Table("Administrators")]
     public class Administrator:User
-    {
-        
+    { 
         public Administrator()
         {
         }
