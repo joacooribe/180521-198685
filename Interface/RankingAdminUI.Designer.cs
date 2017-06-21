@@ -32,7 +32,6 @@
             this.TeamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeamDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnSelectTeam = new System.Windows.Forms.Button();
-            this.BtnSelectUser = new System.Windows.Forms.Button();
             this.RdoBadRankCreate = new System.Windows.Forms.RadioButton();
             this.Rdo2RegularCreate = new System.Windows.Forms.RadioButton();
             this.Rdo3GoodCreation = new System.Windows.Forms.RadioButton();
@@ -69,15 +68,10 @@
             this.BtnRankAddComment = new System.Windows.Forms.Button();
             this.BtnRankResolve = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnBack = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.LblUserSelected = new System.Windows.Forms.Label();
-            this.DataGridViewUserInTeam = new System.Windows.Forms.DataGridView();
-            this.UserMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnResetRank = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTeams)).BeginInit();
@@ -86,7 +80,6 @@
             this.GrpAddElement.SuspendLayout();
             this.GrpAddComment.SuspendLayout();
             this.GrpSolvedComments.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUserInTeam)).BeginInit();
             this.SuspendLayout();
             // 
             // DataGridViewTeams
@@ -98,7 +91,7 @@
             this.DataGridViewTeams.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TeamName,
             this.TeamDescription});
-            this.DataGridViewTeams.Location = new System.Drawing.Point(12, 109);
+            this.DataGridViewTeams.Location = new System.Drawing.Point(103, 109);
             this.DataGridViewTeams.Name = "DataGridViewTeams";
             this.DataGridViewTeams.ReadOnly = true;
             this.DataGridViewTeams.Size = new System.Drawing.Size(244, 271);
@@ -118,23 +111,13 @@
             // 
             // BtnSelectTeam
             // 
-            this.BtnSelectTeam.Location = new System.Drawing.Point(69, 408);
+            this.BtnSelectTeam.Location = new System.Drawing.Point(164, 406);
             this.BtnSelectTeam.Name = "BtnSelectTeam";
             this.BtnSelectTeam.Size = new System.Drawing.Size(123, 23);
             this.BtnSelectTeam.TabIndex = 30;
             this.BtnSelectTeam.Text = "Seleccionar equipo";
             this.BtnSelectTeam.UseVisualStyleBackColor = true;
             this.BtnSelectTeam.Click += new System.EventHandler(this.BtnSelectTeam_Click);
-            // 
-            // BtnSelectUser
-            // 
-            this.BtnSelectUser.Location = new System.Drawing.Point(389, 408);
-            this.BtnSelectUser.Name = "BtnSelectUser";
-            this.BtnSelectUser.Size = new System.Drawing.Size(145, 23);
-            this.BtnSelectUser.TabIndex = 31;
-            this.BtnSelectUser.Text = "Seleccionar usuario";
-            this.BtnSelectUser.UseVisualStyleBackColor = true;
-            this.BtnSelectUser.Click += new System.EventHandler(this.BtnSelectUser_Click);
             // 
             // RdoBadRankCreate
             // 
@@ -199,7 +182,7 @@
             this.GrpCreateBlackboard.Controls.Add(this.Rdo4VeryGoodCreation);
             this.GrpCreateBlackboard.Controls.Add(this.Rdo3GoodCreation);
             this.GrpCreateBlackboard.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrpCreateBlackboard.Location = new System.Drawing.Point(632, 109);
+            this.GrpCreateBlackboard.Location = new System.Drawing.Point(506, 111);
             this.GrpCreateBlackboard.Name = "GrpCreateBlackboard";
             this.GrpCreateBlackboard.Size = new System.Drawing.Size(243, 42);
             this.GrpCreateBlackboard.TabIndex = 37;
@@ -214,7 +197,7 @@
             this.GrpEliminateBlackBoard.Controls.Add(this.Rdo4VeryGoodElimination);
             this.GrpEliminateBlackBoard.Controls.Add(this.Rdo3GoodElimination);
             this.GrpEliminateBlackBoard.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrpEliminateBlackBoard.Location = new System.Drawing.Point(632, 172);
+            this.GrpEliminateBlackBoard.Location = new System.Drawing.Point(506, 174);
             this.GrpEliminateBlackBoard.Name = "GrpEliminateBlackBoard";
             this.GrpEliminateBlackBoard.Size = new System.Drawing.Size(243, 42);
             this.GrpEliminateBlackBoard.TabIndex = 38;
@@ -284,7 +267,7 @@
             this.GrpAddElement.Controls.Add(this.Rdo4VeryGoodAddElement);
             this.GrpAddElement.Controls.Add(this.Rdo3GoodAddElement);
             this.GrpAddElement.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrpAddElement.Location = new System.Drawing.Point(632, 241);
+            this.GrpAddElement.Location = new System.Drawing.Point(506, 243);
             this.GrpAddElement.Name = "GrpAddElement";
             this.GrpAddElement.Size = new System.Drawing.Size(243, 42);
             this.GrpAddElement.TabIndex = 38;
@@ -354,7 +337,7 @@
             this.GrpAddComment.Controls.Add(this.Rdo4VeryGoodAddComment);
             this.GrpAddComment.Controls.Add(this.Rdo3GoodAddComment);
             this.GrpAddComment.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrpAddComment.Location = new System.Drawing.Point(632, 304);
+            this.GrpAddComment.Location = new System.Drawing.Point(506, 306);
             this.GrpAddComment.Name = "GrpAddComment";
             this.GrpAddComment.Size = new System.Drawing.Size(243, 42);
             this.GrpAddComment.TabIndex = 38;
@@ -424,7 +407,7 @@
             this.GrpSolvedComments.Controls.Add(this.Rdo4VeryGoodResolved);
             this.GrpSolvedComments.Controls.Add(this.RdoGoodResolved);
             this.GrpSolvedComments.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GrpSolvedComments.Location = new System.Drawing.Point(632, 371);
+            this.GrpSolvedComments.Location = new System.Drawing.Point(506, 373);
             this.GrpSolvedComments.Name = "GrpSolvedComments";
             this.GrpSolvedComments.Size = new System.Drawing.Size(243, 42);
             this.GrpSolvedComments.TabIndex = 38;
@@ -488,7 +471,7 @@
             // 
             // BtnRankCreate
             // 
-            this.BtnRankCreate.Location = new System.Drawing.Point(906, 128);
+            this.BtnRankCreate.Location = new System.Drawing.Point(780, 130);
             this.BtnRankCreate.Name = "BtnRankCreate";
             this.BtnRankCreate.Size = new System.Drawing.Size(75, 23);
             this.BtnRankCreate.TabIndex = 39;
@@ -497,7 +480,7 @@
             // 
             // BtnRankEliminate
             // 
-            this.BtnRankEliminate.Location = new System.Drawing.Point(906, 191);
+            this.BtnRankEliminate.Location = new System.Drawing.Point(780, 193);
             this.BtnRankEliminate.Name = "BtnRankEliminate";
             this.BtnRankEliminate.Size = new System.Drawing.Size(75, 23);
             this.BtnRankEliminate.TabIndex = 40;
@@ -506,7 +489,7 @@
             // 
             // BtnRankAddElement
             // 
-            this.BtnRankAddElement.Location = new System.Drawing.Point(906, 260);
+            this.BtnRankAddElement.Location = new System.Drawing.Point(780, 262);
             this.BtnRankAddElement.Name = "BtnRankAddElement";
             this.BtnRankAddElement.Size = new System.Drawing.Size(75, 23);
             this.BtnRankAddElement.TabIndex = 41;
@@ -515,7 +498,7 @@
             // 
             // BtnRankAddComment
             // 
-            this.BtnRankAddComment.Location = new System.Drawing.Point(906, 323);
+            this.BtnRankAddComment.Location = new System.Drawing.Point(780, 325);
             this.BtnRankAddComment.Name = "BtnRankAddComment";
             this.BtnRankAddComment.Size = new System.Drawing.Size(75, 23);
             this.BtnRankAddComment.TabIndex = 42;
@@ -524,7 +507,7 @@
             // 
             // BtnRankResolve
             // 
-            this.BtnRankResolve.Location = new System.Drawing.Point(906, 390);
+            this.BtnRankResolve.Location = new System.Drawing.Point(780, 392);
             this.BtnRankResolve.Name = "BtnRankResolve";
             this.BtnRankResolve.Size = new System.Drawing.Size(75, 23);
             this.BtnRankResolve.TabIndex = 43;
@@ -535,27 +518,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(687, 71);
+            this.label1.Location = new System.Drawing.Point(561, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 17);
             this.label1.TabIndex = 44;
             this.label1.Text = "Puntuar A:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(421, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 17);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "Usuario";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(100, 71);
+            this.label3.Location = new System.Drawing.Point(190, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 17);
             this.label3.TabIndex = 46;
@@ -585,39 +558,12 @@
             // 
             this.LblUserSelected.AutoSize = true;
             this.LblUserSelected.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUserSelected.Location = new System.Drawing.Point(779, 73);
+            this.LblUserSelected.Location = new System.Drawing.Point(653, 75);
             this.LblUserSelected.Name = "LblUserSelected";
-            this.LblUserSelected.Size = new System.Drawing.Size(78, 15);
+            this.LblUserSelected.Size = new System.Drawing.Size(83, 15);
             this.LblUserSelected.TabIndex = 49;
-            this.LblUserSelected.Text = "User name";
+            this.LblUserSelected.Text = "Team name";
             this.LblUserSelected.Visible = false;
-            // 
-            // DataGridViewUserInTeam
-            // 
-            this.DataGridViewUserInTeam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewUserInTeam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UserMail,
-            this.UserName,
-            this.UserSurname});
-            this.DataGridViewUserInTeam.Location = new System.Drawing.Point(279, 109);
-            this.DataGridViewUserInTeam.Name = "DataGridViewUserInTeam";
-            this.DataGridViewUserInTeam.Size = new System.Drawing.Size(332, 271);
-            this.DataGridViewUserInTeam.TabIndex = 50;
-            // 
-            // UserMail
-            // 
-            this.UserMail.HeaderText = "Mail";
-            this.UserMail.Name = "UserMail";
-            // 
-            // UserName
-            // 
-            this.UserName.HeaderText = "Nombre";
-            this.UserName.Name = "UserName";
-            // 
-            // UserSurname
-            // 
-            this.UserSurname.HeaderText = "Apellido";
-            this.UserSurname.Name = "UserSurname";
             // 
             // BtnResetRank
             // 
@@ -647,12 +593,10 @@
             this.ClientSize = new System.Drawing.Size(993, 506);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnResetRank);
-            this.Controls.Add(this.DataGridViewUserInTeam);
             this.Controls.Add(this.LblUserSelected);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnRankResolve);
             this.Controls.Add(this.BtnRankAddComment);
@@ -664,7 +608,6 @@
             this.Controls.Add(this.GrpAddElement);
             this.Controls.Add(this.GrpEliminateBlackBoard);
             this.Controls.Add(this.GrpCreateBlackboard);
-            this.Controls.Add(this.BtnSelectUser);
             this.Controls.Add(this.BtnSelectTeam);
             this.Controls.Add(this.DataGridViewTeams);
             this.Name = "RankingAdminUI";
@@ -680,7 +623,6 @@
             this.GrpAddComment.PerformLayout();
             this.GrpSolvedComments.ResumeLayout(false);
             this.GrpSolvedComments.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUserInTeam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -692,7 +634,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TeamName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeamDescription;
         private System.Windows.Forms.Button BtnSelectTeam;
-        private System.Windows.Forms.Button BtnSelectUser;
         private System.Windows.Forms.RadioButton RdoBadRankCreate;
         private System.Windows.Forms.RadioButton Rdo2RegularCreate;
         private System.Windows.Forms.RadioButton Rdo3GoodCreation;
@@ -729,15 +670,10 @@
         private System.Windows.Forms.Button BtnRankAddComment;
         private System.Windows.Forms.Button BtnRankResolve;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnBack;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label LblUserSelected;
-        private System.Windows.Forms.DataGridView DataGridViewUserInTeam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserMail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserSurname;
         private System.Windows.Forms.Button BtnResetRank;
         private System.Windows.Forms.Label label5;
     }

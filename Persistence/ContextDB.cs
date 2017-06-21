@@ -92,6 +92,11 @@ namespace Persistence
             List<User> usersInTeam = new List<User>();
             usersInTeam.Add(administrator1);
             team1.usersInTeam = usersInTeam;
+            team1.valueAddComment = 0;
+            team1.valueAddelement = 0;
+            team1.valueCreateBlackboard = 0;
+            team1.valueDeleteBlackboard = 0;
+            team1.valueResolvedcomment = 0;
             Teams.Add(team1);
             SaveChanges();
 
@@ -105,6 +110,11 @@ namespace Persistence
             usersInTeam2.Add(administrator1);
             usersInTeam2.Add(colaborator1);
             team2.usersInTeam = usersInTeam2;
+            team2.valueAddComment = 0;
+            team2.valueAddelement = 0;
+            team2.valueCreateBlackboard = 0;
+            team2.valueDeleteBlackboard = 0;
+            team2.valueResolvedcomment = 0;
             Teams.Add(team2);
             SaveChanges();
 

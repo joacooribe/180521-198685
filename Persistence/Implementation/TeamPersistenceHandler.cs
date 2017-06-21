@@ -22,14 +22,27 @@ namespace Persistence
 
         public void AddTeam(Team team)
         {
-            using (var context = new ContextDB())
+            using (ContextDB context = new ContextDB())
             {
+                context.Users.Attach(team.creator);
+                context.Administrators.Attach(team.creator);
+
                 foreach (User user in team.usersInTeam)
                 {
-                    context.Users.Attach(user);
-                    user.teams.Add(team); 
+                    if (!team.creator.Equals(user))
+                    {
+                        context.Users.Attach(user);
+                        user.teams.Add(team);
+                        context.Entry(user).State = EntityState.Modified;
+                    }
                 }
-                context.Teams.Add(team);
+                context.SaveChanges();
+                if (team.usersInTeam.Contains(team.creator))
+                {
+                    team.creator.teams.Add(team);
+                    context.Entry(team.creator).State = EntityState.Modified;
+                }
+
                 context.SaveChanges();
             }
 
@@ -93,11 +106,11 @@ namespace Persistence
         {
             using (ContextDB context = new ContextDB())
             {
-               context.Teams
-                        .Where(t => t.name == nameOfTeam)
-                        .FirstOrDefault()
-                        .description = newDescription;
-               context.SaveChanges();
+                context.Teams
+                         .Where(t => t.name == nameOfTeam)
+                         .FirstOrDefault()
+                         .description = newDescription;
+                context.SaveChanges();
             }
         }
 
@@ -107,7 +120,7 @@ namespace Persistence
             {
                 context.Teams
                          .Where(t => t.name == nameOfTeam)
-                         .FirstOrDefault().maxUsers=newMaxUsers;
+                         .FirstOrDefault().maxUsers = newMaxUsers;
                 context.SaveChanges();
             }
         }
@@ -126,7 +139,7 @@ namespace Persistence
             }
         }
 
-        public void RemoveUser(Team team,User user)
+        public void RemoveUser(Team team, User user)
         {
             using (ContextDB context = new ContextDB())
             {

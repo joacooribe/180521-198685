@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain;
+using Persistence;
 using System.Globalization;
 
 namespace Interface
@@ -19,23 +20,24 @@ namespace Interface
         private List<Team> teams;
 
         private List<User> usersInTeam;
-
-        private User userToRank;
         public RankingAdminUI()
         {
             instance = Singleton.GetInstance;
             teams = new List<Team>();
             usersInTeam = new List<User>();
-            InicializeList();
+            
             InitializeComponent();
+            InicializeList();
             LoadTeams();
 
         }
         private void InicializeList()
         {
-            foreach (Team team in instance.repository.teamCollection)
+
+            teams = new List<Team>();
+            using (ContextDB context = new ContextDB())
             {
-                teams.Add(team);
+                teams = context.Teams.ToList();
             }
         }
 
@@ -54,27 +56,18 @@ namespace Interface
         {
             var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
             var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
-            LoadUsers((Team)selectedTeam);
+            Team team = (Team)selectedTeam;
+            LblUserSelected.Text = team.name;
+            LblUserSelected.Visible = true;
         }
 
         private void LoadUsers(Team team)
         {
-            CultureInfo invariantCulture = CultureInfo.InvariantCulture;
-            this.DataGridViewUserInTeam.Rows.Clear();
-            foreach (User user in team.usersInTeam)
-            {
-                var rowIndex = this.DataGridViewUserInTeam.Rows.Add(user.mail, user.name, user.surname);
-                this.DataGridViewUserInTeam.Rows[rowIndex].Tag = user;
-            }
         }
 
         private void BtnSelectUser_Click(object sender, EventArgs e)
         {
-            var selectedRow = this.DataGridViewUserInTeam.CurrentCell.RowIndex;
-            var selectedUser = this.DataGridViewUserInTeam.Rows[selectedRow].Tag;
-            userToRank = (User)selectedUser;
-            LblUserSelected.Text = userToRank.name;
-            LblUserSelected.Visible = true;
+           
         }
 
         private void BtnBack_Click(object sender, EventArgs e)

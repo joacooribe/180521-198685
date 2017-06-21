@@ -44,6 +44,11 @@ namespace Test
             team.description = description;
             team.maxUsers = maxUsers;
             team.usersInTeam = usersInTeam;
+            team.valueAddComment = 0;
+            team.valueAddelement = 0;
+            team.valueCreateBlackboard = 0;
+            team.valueDeleteBlackboard = 0;
+            team.valueResolvedcomment = 0;
             return team;
         }
 

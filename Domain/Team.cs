@@ -15,10 +15,15 @@ namespace Domain
         public int OIDTeam { get; set; }
 
         public string name { get; set; }
-        public Administrator creator { get; set; }
+        public virtual Administrator creator { get; set; }
         public DateTime creationDate { get; set; }
         public string description { get; set; }
         public int maxUsers { get; set; }
+        public int valueCreateBlackboard { get; set; }
+        public int valueDeleteBlackboard { get; set; }
+        public int valueAddelement { get; set; }
+        public int valueAddComment { get; set; }
+        public int valueResolvedcomment { get; set; }
         public virtual ICollection<User> usersInTeam { get; set; }
 
         public override bool Equals(object obj)
