@@ -78,18 +78,17 @@ namespace Persistence
 
         public void DeleteTeam(Team team)
         {
-            DeleteBlackboardsOfTeam(team);
-            systemCollection.teamCollection.Remove(team);
+            using (ContextDB context = new ContextDB())
+            {
+                var query = context.Teams.Find(team.OIDTeam);
+                context.Teams.Remove(query);
+                context.SaveChanges();
+            }
         }
 
         private void DeleteBlackboardsOfTeam(Team team)
         {
             blackboardFunctions.DeleteBlackboardsOfTeam(team);
-        }
-
-        public bool IsEmptyTeamCollection()
-        {
-            return systemCollection.teamCollection.Count == 0;
         }
 
         public void ModifyTeamDescription(string nameOfTeam, string newDescription)
@@ -115,11 +114,6 @@ namespace Persistence
             }
         }
 
-        public void EmptyTeams()
-        {
-            systemCollection.teamCollection.Clear();
-        }
-
         public List<User> GetUsersFromTeam(Team team)
         {
             using (ContextDB context = new ContextDB())
@@ -134,21 +128,27 @@ namespace Persistence
 
         public void RemoveUser(Team team, User user)
         {
+            Team teamDataBase = new Team();
             using (ContextDB context = new ContextDB())
             {
                 context.Configuration.ProxyCreationEnabled = false;
+                teamDataBase = context.Teams.Find(team.OIDTeam);
                 List<User> users = context.Teams
-                            .Where(t => t.name == team.name)
+                            .Where(t => t.name == teamDataBase.name)
                             .Include(t => t.usersInTeam)
                             .FirstOrDefault()
                             .usersInTeam.ToList();
                 users.Remove(user);
                 context.Teams
-                            .Where(t => t.name == team.name)
+                            .Where(t => t.name == teamDataBase.name)
                             .Include(t => t.usersInTeam)
                             .FirstOrDefault()
                             .usersInTeam = users;
                 context.SaveChanges();
+            }
+            if(teamDataBase.usersInTeam.Count - 1 == 0)
+            {
+                DeleteTeam(team);
             }
         }
         public void ModifyTeamUsers(Team team,ICollection<User> users)

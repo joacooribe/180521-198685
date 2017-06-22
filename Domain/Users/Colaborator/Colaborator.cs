@@ -7,7 +7,7 @@ namespace Domain
     {
         public Colaborator()
         {
-
+            active = true;
         }
 
         public override bool Equals(object obj)

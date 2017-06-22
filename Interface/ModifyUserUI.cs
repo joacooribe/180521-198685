@@ -74,7 +74,11 @@ namespace Interface
             {
                 foreach (User user in context.Users.ToList())
                 {
+                    if (user.active)
+                    {
                         users.Add(user);
+                    }
+                        
                 }
 
             }
@@ -86,10 +90,21 @@ namespace Interface
             this.dataGridViewUsers.Rows.Clear();
             foreach (User user in users)
             {
+                
                 var rowIndex = this.dataGridViewUsers.Rows.Add(user.mail, user.name, user.surname);
                 this.dataGridViewUsers.Rows[rowIndex].Tag = user;
 
             }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            var selectedRow = this.dataGridViewUsers.CurrentCell.RowIndex;
+            var selectedUser = this.dataGridViewUsers.Rows[selectedRow].Tag;
+            User user = (User)selectedUser;
+            instance.userHandler.DeleteUser(user.mail);
+            LoadUserList();
+            LoadUsersToDataGrid();
         }
     }
 }

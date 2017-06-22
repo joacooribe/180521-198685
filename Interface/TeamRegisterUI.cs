@@ -42,9 +42,17 @@ namespace Interface
         }
         private void InitializeList()
         {
+            List<User> allUsers = new List<User>();
             using (ContextDB context = new ContextDB())
             {
-                users = context.Users.ToList();
+                allUsers = context.Users.ToList();
+            }
+            foreach(User user in allUsers)
+            {
+                if (user.active)
+                {
+                    users.Add(user);
+                }
             }
         }
 

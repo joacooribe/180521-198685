@@ -12,6 +12,13 @@ namespace Persistence
 {
     public class UserPersistanceHandler : IUserPersistance
     {
+        private ITeamPersistance teamFunctions { get; set; }
+
+        public UserPersistanceHandler()
+        {
+            teamFunctions = new TeamPersistenceHandler();
+        }
+
         public User GetUser(string mailOfUser)
         {
             User user = null;
@@ -53,13 +60,22 @@ namespace Persistence
 
         public void DeleteUser(string mailOfUser)
         {
+            User user = null;
             using (ContextDB context = new ContextDB())
             {
+                user = context.Users
+                                    .Where(a => a.mail == mailOfUser)
+                                    .Include(a => a.teams)
+                                    .FirstOrDefault();
                 context.Users
                                 .Where(a => a.mail == mailOfUser)
                                 .FirstOrDefault()
                                 .active = false;
                 context.SaveChanges();
+            }
+            foreach(Team team in user.teams)
+            {
+                teamFunctions.RemoveUser(team, user);
             }
         }
 

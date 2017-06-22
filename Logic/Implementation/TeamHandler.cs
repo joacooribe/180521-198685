@@ -175,11 +175,13 @@ namespace Logic
         
         public List<User> GetUsersFromTeam(Team team)
         {
+            ValidateTeam(team);
             return teamFunctions.GetUsersFromTeam(team);
         }
         public void RemoveUser(Team team,User user)
         {
             ValidateUser(user);
+            ValidateTeam(team);
             teamFunctions.RemoveUser(team,user);
         }
 
@@ -194,6 +196,7 @@ namespace Logic
         public void ModifyTeamUsers(Team team, ICollection<User> users)
         {
             ValidateMoreUsersThanMaximum(users, team.maxUsers);
+            ValidateUsersInTeam(users);
             foreach(User user in users)
             {
                 ValidateUser(user);

@@ -44,7 +44,7 @@ namespace Interface
             {
                 foreach (User user in context.Users.ToList())
                 {
-                    if (!usersInTeam.Contains(user))
+                    if (!usersInTeam.Contains(user) && user.active)
                     {
                         users.Add(user);
                     }
