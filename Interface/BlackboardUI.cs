@@ -15,12 +15,12 @@ namespace Interface
 {
     public partial class BlackboardUI : Form
     {
-        private Singleton instance;
+        private Instance instance;
 
         private Blackboard blackboard;
         public BlackboardUI(Blackboard blackboard)
         {
-            instance = Singleton.GetInstance;
+            instance = Instance.GetInstance;
             this.blackboard = blackboard;
             InitializeComponent();
         }
@@ -29,13 +29,10 @@ namespace Interface
         {
 
         }
-        private void btnExitProgram_Click(object sender, EventArgs e)
+
+        private void BtnSolve_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-        public void BlackboardUI_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
+
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain;
+using Persistence;
 using System.Globalization;
 
 
@@ -15,44 +16,60 @@ namespace Interface
 {
     public partial class TeamMenuUI : Form
     {
-        private Singleton instance;
+        private Instance instance;
 
         private Team team { get; set; }
 
         private List<User> users { get; set; }
 
+        private List<Blackboard> blackboards { get; set; }
+
         public TeamMenuUI(Team team)
         {
-            instance = Singleton.GetInstance;
+            instance = Instance.GetInstance;
             this.team = team;
             users = new List<User>();
             InitializeComponent();
             LoadBlackboardGrid();
             LoadUsers();
             LoadUsersGrid();
-
         }
 
         private void LoadBlackboardGrid()
         {
+           blackboards = new List<Blackboard>();
+            using (ContextDB context = new ContextDB())
+            {
+                blackboards = context.Blackboards.ToList();
+            }
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.dataGridViewBlackboard.Rows.Clear();
-            foreach (Blackboard blackboard in instance.repository.blackboardCollection)
+            foreach (Blackboard blackboard in blackboards)
             {
-                var rowIndex = this.dataGridViewBlackboard.Rows.Add(blackboard.name, blackboard.description);
-                this.dataGridViewBlackboard.Rows[rowIndex].Tag = blackboard;
-            }
+                if (blackboard.teamOwner.Equals(team))
+                {
+                    var rowIndex = this.dataGridViewBlackboard.Rows.Add(blackboard.name, blackboard.description);
+                    this.dataGridViewBlackboard.Rows[rowIndex].Tag = blackboard;
+                }
+            }        
         }
 
         private void LoadUsers()
         {
-            foreach (Administrator admin in instance.repository.administratorCollection)
+            users= new List<User>();
+            using (ContextDB context = new ContextDB())
             {
-                users.Add(admin);
+                users = context.Users.ToList();
             }
-            foreach (Colaborator colaborator in instance.repository.colaboratorCollection)
+            CultureInfo invariantCulture = CultureInfo.InvariantCulture;
+            this.dataGridViewUsers.Rows.Clear();
+            foreach (User user in users)
             {
-                users.Add(colaborator);
+                if (user.teams.Contains(team))
+                {
+                    var rowIndex = this.dataGridViewUsers.Rows.Add(user.name, user.surname,user.mail);
+                    this.dataGridViewUsers.Rows[rowIndex].Tag = user;
+                }
             }
         }
 
@@ -67,26 +84,9 @@ namespace Interface
             }
         }
 
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TeamMenuUI_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridViewBlackboard_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            Type typeOfUser = instance.session.user.GetType();
-
+            Type typeOfUser = instance.Session.user.GetType();
             if (typeOfUser.Equals(typeof(Administrator)))
             {
                 AdministratorUI administratorUI = new AdministratorUI();
@@ -99,7 +99,6 @@ namespace Interface
                 colaboratorUI.Show();
                 this.Hide();
             }
-
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -109,10 +108,10 @@ namespace Interface
             try
             {
                 Blackboard blackboard = (Blackboard)selectedBoard;
-                Type typeOfUser = instance.session.user.GetType();
-                if (blackboard.userCreator.Equals(instance.session) || typeOfUser.Equals(typeof(Administrator)))
+                Type typeOfUser = instance.Session.user.GetType();
+                if (blackboard.userCreator.Equals(instance.Session) || typeOfUser.Equals(typeof(Administrator)))
                 {
-                   //delete blackboard.
+                    instance.BlackboardHandler.DeleteBlackboard(blackboard);
                 }
                 else
                 {
@@ -121,12 +120,9 @@ namespace Interface
             }
             catch (Exception ex)
             {
-
                 String msgError = ex.Message;
                 MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
-
         }
 
         private void BtnSelect_Click(object sender, EventArgs e)
@@ -143,7 +139,6 @@ namespace Interface
             {
                 String msgError = ex.Message;
                 MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
         }
     }

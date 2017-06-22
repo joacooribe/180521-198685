@@ -62,10 +62,6 @@
             this.Rdo2RegularResolved = new System.Windows.Forms.RadioButton();
             this.Rdo4VeryGoodResolved = new System.Windows.Forms.RadioButton();
             this.RdoGoodResolved = new System.Windows.Forms.RadioButton();
-            this.BtnRankCreate = new System.Windows.Forms.Button();
-            this.BtnRankEliminate = new System.Windows.Forms.Button();
-            this.BtnRankAddElement = new System.Windows.Forms.Button();
-            this.BtnRankAddComment = new System.Windows.Forms.Button();
             this.BtnRankResolve = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -111,12 +107,14 @@
             // 
             // BtnSelectTeam
             // 
+            this.BtnSelectTeam.BackColor = System.Drawing.Color.Orange;
+            this.BtnSelectTeam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnSelectTeam.Location = new System.Drawing.Point(164, 406);
             this.BtnSelectTeam.Name = "BtnSelectTeam";
             this.BtnSelectTeam.Size = new System.Drawing.Size(123, 23);
             this.BtnSelectTeam.TabIndex = 30;
             this.BtnSelectTeam.Text = "Seleccionar equipo";
-            this.BtnSelectTeam.UseVisualStyleBackColor = true;
+            this.BtnSelectTeam.UseVisualStyleBackColor = false;
             this.BtnSelectTeam.Click += new System.EventHandler(this.BtnSelectTeam_Click);
             // 
             // RdoBadRankCreate
@@ -469,50 +467,16 @@
             this.RdoGoodResolved.Text = "3";
             this.RdoGoodResolved.UseVisualStyleBackColor = true;
             // 
-            // BtnRankCreate
-            // 
-            this.BtnRankCreate.Location = new System.Drawing.Point(780, 130);
-            this.BtnRankCreate.Name = "BtnRankCreate";
-            this.BtnRankCreate.Size = new System.Drawing.Size(75, 23);
-            this.BtnRankCreate.TabIndex = 39;
-            this.BtnRankCreate.Text = "Puntuar";
-            this.BtnRankCreate.UseVisualStyleBackColor = true;
-            // 
-            // BtnRankEliminate
-            // 
-            this.BtnRankEliminate.Location = new System.Drawing.Point(780, 193);
-            this.BtnRankEliminate.Name = "BtnRankEliminate";
-            this.BtnRankEliminate.Size = new System.Drawing.Size(75, 23);
-            this.BtnRankEliminate.TabIndex = 40;
-            this.BtnRankEliminate.Text = "Puntuar";
-            this.BtnRankEliminate.UseVisualStyleBackColor = true;
-            // 
-            // BtnRankAddElement
-            // 
-            this.BtnRankAddElement.Location = new System.Drawing.Point(780, 262);
-            this.BtnRankAddElement.Name = "BtnRankAddElement";
-            this.BtnRankAddElement.Size = new System.Drawing.Size(75, 23);
-            this.BtnRankAddElement.TabIndex = 41;
-            this.BtnRankAddElement.Text = "Puntuar";
-            this.BtnRankAddElement.UseVisualStyleBackColor = true;
-            // 
-            // BtnRankAddComment
-            // 
-            this.BtnRankAddComment.Location = new System.Drawing.Point(780, 325);
-            this.BtnRankAddComment.Name = "BtnRankAddComment";
-            this.BtnRankAddComment.Size = new System.Drawing.Size(75, 23);
-            this.BtnRankAddComment.TabIndex = 42;
-            this.BtnRankAddComment.Text = "Puntuar";
-            this.BtnRankAddComment.UseVisualStyleBackColor = true;
-            // 
             // BtnRankResolve
             // 
-            this.BtnRankResolve.Location = new System.Drawing.Point(780, 392);
+            this.BtnRankResolve.BackColor = System.Drawing.Color.Orange;
+            this.BtnRankResolve.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnRankResolve.Location = new System.Drawing.Point(827, 262);
             this.BtnRankResolve.Name = "BtnRankResolve";
             this.BtnRankResolve.Size = new System.Drawing.Size(75, 23);
             this.BtnRankResolve.TabIndex = 43;
             this.BtnRankResolve.Text = "Puntuar";
-            this.BtnRankResolve.UseVisualStyleBackColor = true;
+            this.BtnRankResolve.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -536,12 +500,14 @@
             // 
             // BtnBack
             // 
+            this.BtnBack.BackColor = System.Drawing.Color.Orange;
+            this.BtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnBack.Location = new System.Drawing.Point(719, 452);
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Size = new System.Drawing.Size(75, 23);
             this.BtnBack.TabIndex = 47;
             this.BtnBack.Text = "Volver";
-            this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.UseVisualStyleBackColor = false;
             this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // label4
@@ -550,9 +516,9 @@
             this.label4.Font = new System.Drawing.Font("Lucida Bright", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(432, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(165, 22);
+            this.label4.Size = new System.Drawing.Size(138, 22);
             this.label4.TabIndex = 48;
-            this.label4.Text = "Puntuar Usuario";
+            this.label4.Text = "Puntuaciones";
             // 
             // LblUserSelected
             // 
@@ -567,12 +533,14 @@
             // 
             // BtnResetRank
             // 
+            this.BtnResetRank.BackColor = System.Drawing.Color.Orange;
+            this.BtnResetRank.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnResetRank.Location = new System.Drawing.Point(534, 451);
             this.BtnResetRank.Name = "BtnResetRank";
             this.BtnResetRank.Size = new System.Drawing.Size(99, 23);
             this.BtnResetRank.TabIndex = 51;
             this.BtnResetRank.Text = "Resetear Puntaje";
-            this.BtnResetRank.UseVisualStyleBackColor = true;
+            this.BtnResetRank.UseVisualStyleBackColor = false;
             this.BtnResetRank.Click += new System.EventHandler(this.BtnResetRank_Click);
             // 
             // label5
@@ -599,10 +567,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnRankResolve);
-            this.Controls.Add(this.BtnRankAddComment);
-            this.Controls.Add(this.BtnRankAddElement);
-            this.Controls.Add(this.BtnRankEliminate);
-            this.Controls.Add(this.BtnRankCreate);
             this.Controls.Add(this.GrpSolvedComments);
             this.Controls.Add(this.GrpAddComment);
             this.Controls.Add(this.GrpAddElement);
@@ -664,10 +628,6 @@
         private System.Windows.Forms.RadioButton Rdo2RegularResolved;
         private System.Windows.Forms.RadioButton Rdo4VeryGoodResolved;
         private System.Windows.Forms.RadioButton RdoGoodResolved;
-        private System.Windows.Forms.Button BtnRankCreate;
-        private System.Windows.Forms.Button BtnRankEliminate;
-        private System.Windows.Forms.Button BtnRankAddElement;
-        private System.Windows.Forms.Button BtnRankAddComment;
         private System.Windows.Forms.Button BtnRankResolve;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;

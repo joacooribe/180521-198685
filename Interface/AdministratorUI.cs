@@ -15,18 +15,13 @@ namespace Interface
 {
     public partial class AdministratorUI : Form
     {
-        private Singleton instance;
+        private Instance instance;
         public AdministratorUI()
         {
 
-            this.instance = Singleton.GetInstance;
+            this.instance = Instance.GetInstance;
             InitializeComponent();
             GenerateTeamsPanel();
-        }
-
-        private void AdministratorUI_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnExitProgram_Click(object sender, EventArgs e)
@@ -55,16 +50,9 @@ namespace Interface
             this.panel1.Controls.Add(teamUI);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void BtnRegister_Click(object sender, EventArgs e)
         {
             RegisterUI registerUI = new RegisterUI();
-
-
             registerUI.Show();
             this.Hide();
         }

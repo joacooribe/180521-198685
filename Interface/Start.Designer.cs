@@ -126,7 +126,8 @@
             // 
             // BtnLogIn
             // 
-            this.BtnLogIn.BackColor = System.Drawing.SystemColors.Info;
+            this.BtnLogIn.BackColor = System.Drawing.Color.Orange;
+            this.BtnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnLogIn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BtnLogIn.Location = new System.Drawing.Point(290, 403);
             this.BtnLogIn.Name = "BtnLogIn";
@@ -208,7 +209,6 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Start";
             this.Text = "Start";
-            this.Load += new System.EventHandler(this.Start_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

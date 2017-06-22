@@ -39,13 +39,15 @@
             // 
             // BtnSelect
             // 
+            this.BtnSelect.BackColor = System.Drawing.Color.Orange;
+            this.BtnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSelect.Location = new System.Drawing.Point(284, 303);
             this.BtnSelect.Name = "BtnSelect";
             this.BtnSelect.Size = new System.Drawing.Size(163, 23);
             this.BtnSelect.TabIndex = 2;
             this.BtnSelect.Text = "Seleccionar Equipo";
-            this.BtnSelect.UseVisualStyleBackColor = true;
+            this.BtnSelect.UseVisualStyleBackColor = false;
             this.BtnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
             // 
             // label1
@@ -69,7 +71,6 @@
             this.dataGridViewTeam.Name = "dataGridViewTeam";
             this.dataGridViewTeam.Size = new System.Drawing.Size(344, 190);
             this.dataGridViewTeam.TabIndex = 4;
-            this.dataGridViewTeam.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeam_CellContentClick);
             // 
             // teamName
             // 
@@ -95,7 +96,6 @@
             this.Controls.Add(this.BtnSelect);
             this.Name = "TeamUI";
             this.Size = new System.Drawing.Size(680, 361);
-            this.Load += new System.EventHandler(this.TeamUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

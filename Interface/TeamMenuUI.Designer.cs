@@ -32,6 +32,9 @@
             this.Blackboard = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,9 +43,6 @@
             this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnCreate = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBlackboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +57,6 @@
             this.dataGridViewBlackboard.Name = "dataGridViewBlackboard";
             this.dataGridViewBlackboard.Size = new System.Drawing.Size(240, 273);
             this.dataGridViewBlackboard.TabIndex = 0;
-            this.dataGridViewBlackboard.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBlackboard_CellContentClick);
             // 
             // Blackboard
             // 
@@ -80,6 +79,21 @@
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.Size = new System.Drawing.Size(332, 273);
             this.dataGridViewUsers.TabIndex = 1;
+            // 
+            // UserName
+            // 
+            this.UserName.HeaderText = "Nombre";
+            this.UserName.Name = "UserName";
+            // 
+            // Surname
+            // 
+            this.Surname.HeaderText = "Apellido";
+            this.Surname.Name = "Surname";
+            // 
+            // Mail
+            // 
+            this.Mail.HeaderText = "Mail";
+            this.Mail.Name = "Mail";
             // 
             // label1
             // 
@@ -113,66 +127,62 @@
             // 
             // BtnSelect
             // 
+            this.BtnSelect.BackColor = System.Drawing.Color.Orange;
+            this.BtnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnSelect.Location = new System.Drawing.Point(294, 140);
             this.BtnSelect.Name = "BtnSelect";
             this.BtnSelect.Size = new System.Drawing.Size(102, 23);
             this.BtnSelect.TabIndex = 5;
             this.BtnSelect.Text = "Seleccionar";
-            this.BtnSelect.UseVisualStyleBackColor = true;
+            this.BtnSelect.UseVisualStyleBackColor = false;
             this.BtnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
             // 
             // BtnModify
             // 
+            this.BtnModify.BackColor = System.Drawing.Color.Orange;
+            this.BtnModify.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnModify.Location = new System.Drawing.Point(294, 207);
             this.BtnModify.Name = "BtnModify";
             this.BtnModify.Size = new System.Drawing.Size(102, 23);
             this.BtnModify.TabIndex = 6;
             this.BtnModify.Text = "Modificar";
-            this.BtnModify.UseVisualStyleBackColor = true;
+            this.BtnModify.UseVisualStyleBackColor = false;
             // 
             // BtnDelete
             // 
+            this.BtnDelete.BackColor = System.Drawing.Color.Orange;
+            this.BtnDelete.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnDelete.Location = new System.Drawing.Point(294, 270);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(102, 23);
             this.BtnDelete.TabIndex = 7;
             this.BtnDelete.Text = "Eliminar";
-            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.UseVisualStyleBackColor = false;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnCreate
             // 
+            this.BtnCreate.BackColor = System.Drawing.Color.Orange;
+            this.BtnCreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCreate.Location = new System.Drawing.Point(294, 342);
             this.BtnCreate.Name = "BtnCreate";
             this.BtnCreate.Size = new System.Drawing.Size(102, 23);
             this.BtnCreate.TabIndex = 8;
             this.BtnCreate.Text = "Crear nuevo";
-            this.BtnCreate.UseVisualStyleBackColor = true;
+            this.BtnCreate.UseVisualStyleBackColor = false;
             // 
             // BtnCancel
             // 
+            this.BtnCancel.BackColor = System.Drawing.Color.Orange;
+            this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCancel.Location = new System.Drawing.Point(294, 426);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(102, 23);
             this.BtnCancel.TabIndex = 9;
             this.BtnCancel.Text = "Cancelar";
-            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
-            // 
-            // UserName
-            // 
-            this.UserName.HeaderText = "Nombre";
-            this.UserName.Name = "UserName";
-            // 
-            // Surname
-            // 
-            this.Surname.HeaderText = "Apellido";
-            this.Surname.Name = "Surname";
-            // 
-            // Mail
-            // 
-            this.Mail.HeaderText = "Mail";
-            this.Mail.Name = "Mail";
             // 
             // TeamMenuUI
             // 
@@ -192,7 +202,6 @@
             this.Controls.Add(this.dataGridViewBlackboard);
             this.Name = "TeamMenuUI";
             this.Text = "TeamMenuUI";
-            this.Load += new System.EventHandler(this.TeamMenuUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBlackboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);

@@ -16,11 +16,11 @@ namespace Interface
 {
     public partial class Start : Form
     {
-        private Singleton instance;
+        private Instance instance;
 
         public Start()
         {
-            this.instance = Singleton.GetInstance;
+            this.instance = Instance.GetInstance;
 
                     
             InitializeComponent();
@@ -40,7 +40,7 @@ namespace Interface
             {
                 if (RdoColaborator.Checked)
                 {
-                    instance.session = instance.sessionHandler.LogInColaborator(email, password);
+                    instance.Session = instance.SessionHandler.LogInColaborator(email, password);
                     ColaboratorUI colaboratorUI = new ColaboratorUI();
                     colaboratorUI.Show();
                     this.Hide();
@@ -48,7 +48,7 @@ namespace Interface
                 }
                 else if (RdoAdmin.Checked)
                 {
-                    instance.session = instance.sessionHandler.LogInAdministrator(email, password);
+                    instance.Session = instance.SessionHandler.LogInAdministrator(email, password);
                     AdministratorUI administratorUI = new AdministratorUI();
                     administratorUI.Show();
                     this.Hide();
@@ -74,8 +74,6 @@ namespace Interface
 
         private void BtnGenerate_Click(object sender, EventArgs e)
         {
-          
-
             this.label5.Visible= true;
             lblGenerate.Visible = false;
             BtnGenerate.Visible = false;
@@ -83,7 +81,7 @@ namespace Interface
 
         private void BtnClearDB_Click(object sender, EventArgs e)
         {
-            this.instance.contextDB.EmptyAndCreate();
+            this.instance.ContextDB.EmptyAndCreate();
         }
     }
 }

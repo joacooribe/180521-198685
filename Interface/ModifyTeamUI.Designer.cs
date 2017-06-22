@@ -132,32 +132,38 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.Orange;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Location = new System.Drawing.Point(345, 296);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(103, 23);
             this.btnAdd.TabIndex = 29;
             this.btnAdd.Text = "Agregar usuario";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnModify
             // 
+            this.btnModify.BackColor = System.Drawing.Color.Orange;
+            this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnModify.Location = new System.Drawing.Point(247, 421);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 30;
             this.btnModify.Text = "Modificar";
-            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.UseVisualStyleBackColor = false;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.Orange;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancel.Location = new System.Drawing.Point(443, 421);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 31;
             this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label1
@@ -213,12 +219,14 @@
             // 
             // BtnRemove
             // 
+            this.BtnRemove.BackColor = System.Drawing.Color.Orange;
+            this.BtnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnRemove.Location = new System.Drawing.Point(345, 344);
             this.BtnRemove.Name = "BtnRemove";
             this.BtnRemove.Size = new System.Drawing.Size(106, 23);
             this.BtnRemove.TabIndex = 37;
             this.BtnRemove.Text = "Quitar";
-            this.BtnRemove.UseVisualStyleBackColor = true;
+            this.BtnRemove.UseVisualStyleBackColor = false;
             this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
             // label2

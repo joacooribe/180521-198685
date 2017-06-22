@@ -15,17 +15,14 @@ namespace Interface
 {
     public partial class ColaboratorUI : Form
     {
-        private Singleton instance;
+        private Instance instance;
         public ColaboratorUI()
         {
-            instance = Singleton.GetInstance;
+            instance = Instance.GetInstance;
             InitializeComponent();
-
-        }
-
-        private void ColaboratorUIPanel_Paint(object sender, PaintEventArgs e)
-        {
-
+            TeamUI teamUi = new TeamUI(this);
+            this.ColaboratorUIPanel.Controls.Clear();
+            this.ColaboratorUIPanel.Controls.Add(teamUi);
         }
 
         public void ColaboratorUI_FormClosed(object sender, FormClosedEventArgs e)
@@ -41,25 +38,11 @@ namespace Interface
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnModify_Click(object sender, EventArgs e)
-        {
-        }
-
         private void BtnTeams_Click(object sender, EventArgs e)
         {
             TeamUI teamUi = new TeamUI(this);
             this.ColaboratorUIPanel.Controls.Clear();
             this.ColaboratorUIPanel.Controls.Add(teamUi);
         }
-
-        private void ColaboratorUI_Load(object sender, EventArgs e)
-        {
-        }
-        
     }
 }

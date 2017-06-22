@@ -16,12 +16,12 @@ namespace Interface
 {
     public partial class TeamUI : UserControl
     {
-        private Singleton instance;
-
+        private Instance instance;
+        List<Team> teams;
         private ColaboratorUI colabUI;
         public TeamUI(ColaboratorUI colabUI)
         {
-            instance = Singleton.GetInstance;
+            instance = Instance.GetInstance;
             this.colabUI = colabUI;
             InitializeComponent();
             loadTeams();
@@ -29,25 +29,18 @@ namespace Interface
 
         private void loadTeams()
         {
+            teams = new List<Team>();
+            using (ContextDB context = new ContextDB())
+            {
+                teams = context.Teams.ToList();
+            }
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.dataGridViewTeam.Rows.Clear();
-            foreach (Team team in instance.repository.teamCollection)
+            foreach (Team team in teams)
             {
-                if (team.usersInTeam.Contains(instance.session.user)) {
-                    var rowIndex = this.dataGridViewTeam.Rows.Add(team.name, team.description, team.maxUsers);
-                    this.dataGridViewTeam.Rows[rowIndex].Tag = team;
-                }
+                var rowIndex = this.dataGridViewTeam.Rows.Add(team.name, team.description,team.maxUsers);
+                this.dataGridViewTeam.Rows[rowIndex].Tag = team;
             }
-        }
-
-        private void TeamUI_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridViewTeam_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void BtnSelect_Click(object sender, EventArgs e)

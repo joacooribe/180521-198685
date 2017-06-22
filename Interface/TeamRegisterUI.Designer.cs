@@ -77,12 +77,14 @@
             // 
             // brnAgregar
             // 
+            this.brnAgregar.BackColor = System.Drawing.Color.Orange;
+            this.brnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.brnAgregar.Location = new System.Drawing.Point(328, 289);
             this.brnAgregar.Name = "brnAgregar";
             this.brnAgregar.Size = new System.Drawing.Size(103, 23);
             this.brnAgregar.TabIndex = 4;
             this.brnAgregar.Text = "Agregar usuario";
-            this.brnAgregar.UseVisualStyleBackColor = true;
+            this.brnAgregar.UseVisualStyleBackColor = false;
             this.brnAgregar.Click += new System.EventHandler(this.brnAgregar_Click);
             // 
             // lblEquipo
@@ -138,22 +140,26 @@
             // 
             // btnRegistrar
             // 
+            this.btnRegistrar.BackColor = System.Drawing.Color.Orange;
+            this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRegistrar.Location = new System.Drawing.Point(296, 413);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrar.TabIndex = 24;
             this.btnRegistrar.Text = "Registrar";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Orange;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Location = new System.Drawing.Point(394, 413);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 25;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // dataGridViewUsers
@@ -222,12 +228,14 @@
             // 
             // BtnRemove
             // 
+            this.BtnRemove.BackColor = System.Drawing.Color.Orange;
+            this.BtnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnRemove.Location = new System.Drawing.Point(328, 339);
             this.BtnRemove.Name = "BtnRemove";
             this.BtnRemove.Size = new System.Drawing.Size(106, 23);
             this.BtnRemove.TabIndex = 38;
             this.BtnRemove.Text = "Quitar";
-            this.BtnRemove.UseVisualStyleBackColor = true;
+            this.BtnRemove.UseVisualStyleBackColor = false;
             this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
             // TeamRegisterUI

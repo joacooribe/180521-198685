@@ -15,14 +15,14 @@ namespace Interface
 {
     public partial class RankingAdminUI : Form
     {
-        private Singleton instance;
+        private Instance instance;
 
         private List<Team> teams;
 
         private List<User> usersInTeam;
         public RankingAdminUI()
         {
-            instance = Singleton.GetInstance;
+            instance = Instance.GetInstance;
             teams = new List<Team>();
             usersInTeam = new List<User>();
             
@@ -59,15 +59,6 @@ namespace Interface
             Team team = (Team)selectedTeam;
             LblUserSelected.Text = team.name;
             LblUserSelected.Visible = true;
-        }
-
-        private void LoadUsers(Team team)
-        {
-        }
-
-        private void BtnSelectUser_Click(object sender, EventArgs e)
-        {
-           
         }
 
         private void BtnBack_Click(object sender, EventArgs e)

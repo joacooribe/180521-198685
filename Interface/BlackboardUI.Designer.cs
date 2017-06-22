@@ -50,21 +50,25 @@
             // 
             // BtnCreateText
             // 
+            this.BtnCreateText.BackColor = System.Drawing.Color.Orange;
+            this.BtnCreateText.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCreateText.Location = new System.Drawing.Point(309, 30);
             this.BtnCreateText.Name = "BtnCreateText";
             this.BtnCreateText.Size = new System.Drawing.Size(75, 23);
             this.BtnCreateText.TabIndex = 1;
             this.BtnCreateText.Text = "Crear Texto";
-            this.BtnCreateText.UseVisualStyleBackColor = true;
+            this.BtnCreateText.UseVisualStyleBackColor = false;
             // 
             // BtnCreateImage
             // 
+            this.BtnCreateImage.BackColor = System.Drawing.Color.Orange;
+            this.BtnCreateImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCreateImage.Location = new System.Drawing.Point(423, 30);
             this.BtnCreateImage.Name = "BtnCreateImage";
             this.BtnCreateImage.Size = new System.Drawing.Size(92, 23);
             this.BtnCreateImage.TabIndex = 2;
             this.BtnCreateImage.Text = "Crear Imagen";
-            this.BtnCreateImage.UseVisualStyleBackColor = true;
+            this.BtnCreateImage.UseVisualStyleBackColor = false;
             // 
             // dataGridView1
             // 
@@ -89,30 +93,39 @@
             // 
             // BtnSolve
             // 
+            this.BtnSolve.BackColor = System.Drawing.Color.Orange;
+            this.BtnSolve.Cursor = System.Windows.Forms.Cursors.Default;
+            this.BtnSolve.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnSolve.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BtnSolve.Location = new System.Drawing.Point(12, 30);
             this.BtnSolve.Name = "BtnSolve";
             this.BtnSolve.Size = new System.Drawing.Size(113, 23);
             this.BtnSolve.TabIndex = 4;
             this.BtnSolve.Text = "Resolver comentario";
-            this.BtnSolve.UseVisualStyleBackColor = true;
+            this.BtnSolve.UseVisualStyleBackColor = false;
+            this.BtnSolve.Click += new System.EventHandler(this.BtnSolve_Click);
             // 
             // BtnDeleteComment
             // 
+            this.BtnDeleteComment.BackColor = System.Drawing.Color.Orange;
+            this.BtnDeleteComment.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnDeleteComment.Location = new System.Drawing.Point(150, 30);
             this.BtnDeleteComment.Name = "BtnDeleteComment";
             this.BtnDeleteComment.Size = new System.Drawing.Size(106, 23);
             this.BtnDeleteComment.TabIndex = 5;
             this.BtnDeleteComment.Text = "Eliminar comentario";
-            this.BtnDeleteComment.UseVisualStyleBackColor = true;
+            this.BtnDeleteComment.UseVisualStyleBackColor = false;
             // 
             // BtnElement
             // 
+            this.BtnElement.BackColor = System.Drawing.Color.Orange;
+            this.BtnElement.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnElement.Location = new System.Drawing.Point(561, 29);
             this.BtnElement.Name = "BtnElement";
             this.BtnElement.Size = new System.Drawing.Size(94, 23);
             this.BtnElement.TabIndex = 6;
             this.BtnElement.Text = "Borrar Elemento";
-            this.BtnElement.UseVisualStyleBackColor = true;
+            this.BtnElement.UseVisualStyleBackColor = false;
             // 
             // BlackboardUI
             // 

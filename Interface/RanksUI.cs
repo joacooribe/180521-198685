@@ -14,14 +14,14 @@ namespace Interface
 {
     public partial class RanksUI : Form
     {
-        private Singleton instance;
+        private Instance instance;
 
         private List<Team> teams;
 
         private List<User> usersInTeam;
         public RanksUI()
         {
-            instance = Singleton.GetInstance;
+            instance = Instance.GetInstance;
             teams = new List<Team>();
             usersInTeam = new List<User>();
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace Interface
 
        private void InitializeList()
         {
-            foreach (Team team in instance.repository.teamCollection)
+            foreach (Team team in instance.Repository.teamCollection)
             {
                 teams.Add(team);
             }

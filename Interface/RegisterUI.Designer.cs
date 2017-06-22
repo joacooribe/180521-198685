@@ -106,7 +106,6 @@
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 17;
             this.label1.Text = "Nombre:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // DTBirthdate
             // 
@@ -146,24 +145,28 @@
             // 
             // BtnRegister
             // 
+            this.BtnRegister.BackColor = System.Drawing.Color.Orange;
+            this.BtnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRegister.Location = new System.Drawing.Point(250, 427);
             this.BtnRegister.Name = "BtnRegister";
             this.BtnRegister.Size = new System.Drawing.Size(75, 23);
             this.BtnRegister.TabIndex = 23;
             this.BtnRegister.Text = "Registrar";
-            this.BtnRegister.UseVisualStyleBackColor = true;
+            this.BtnRegister.UseVisualStyleBackColor = false;
             this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
             // 
             // BtnCancel
             // 
+            this.BtnCancel.BackColor = System.Drawing.Color.Orange;
+            this.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancel.Location = new System.Drawing.Point(397, 427);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(75, 23);
             this.BtnCancel.TabIndex = 24;
             this.BtnCancel.Text = "Cancelar";
-            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // groupBox1
@@ -225,7 +228,6 @@
             this.Controls.Add(this.TxtName);
             this.Name = "RegisterUI";
             this.Text = "RegisterAdministratorUI";
-            this.Load += new System.EventHandler(this.RegisterUI_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

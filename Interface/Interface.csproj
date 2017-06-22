@@ -105,7 +105,7 @@
     <Compile Include="RegisterUI.Designer.cs">
       <DependentUpon>RegisterUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Singleton.cs" />
+    <Compile Include="Instance.cs" />
     <Compile Include="Start.cs">
       <SubType>Form</SubType>
     </Compile>

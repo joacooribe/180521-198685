@@ -34,10 +34,10 @@
             this.TeamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeamDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridViewUserInTeam = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.UserMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserRank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             this.BtnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewTeams)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewUserInTeam)).BeginInit();
@@ -55,12 +55,14 @@
             // 
             // BtnSelectTeam
             // 
+            this.BtnSelectTeam.BackColor = System.Drawing.Color.Orange;
+            this.BtnSelectTeam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnSelectTeam.Location = new System.Drawing.Point(92, 385);
             this.BtnSelectTeam.Name = "BtnSelectTeam";
             this.BtnSelectTeam.Size = new System.Drawing.Size(123, 23);
             this.BtnSelectTeam.TabIndex = 48;
             this.BtnSelectTeam.Text = "Seleccionar equipo";
-            this.BtnSelectTeam.UseVisualStyleBackColor = true;
+            this.BtnSelectTeam.UseVisualStyleBackColor = false;
             this.BtnSelectTeam.Click += new System.EventHandler(this.BtnSelectTeam_Click);
             // 
             // DataGridViewTeams
@@ -102,16 +104,6 @@
             this.DataGridViewUserInTeam.Size = new System.Drawing.Size(332, 271);
             this.DataGridViewUserInTeam.TabIndex = 52;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(485, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 17);
-            this.label2.TabIndex = 51;
-            this.label2.Text = "Usuario";
-            // 
             // UserMail
             // 
             this.UserMail.HeaderText = "Mail";
@@ -127,14 +119,26 @@
             this.UserRank.HeaderText = "Puntaje";
             this.UserRank.Name = "UserRank";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(485, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 17);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "Usuario";
+            // 
             // BtnBack
             // 
+            this.BtnBack.BackColor = System.Drawing.Color.Orange;
+            this.BtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnBack.Location = new System.Drawing.Point(557, 384);
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Size = new System.Drawing.Size(75, 23);
             this.BtnBack.TabIndex = 53;
             this.BtnBack.Text = "Volver";
-            this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.UseVisualStyleBackColor = false;
             this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // RanksUI

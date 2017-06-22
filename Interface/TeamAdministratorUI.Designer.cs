@@ -47,24 +47,28 @@
             // 
             // BtnSelect
             // 
+            this.BtnSelect.BackColor = System.Drawing.Color.Orange;
+            this.BtnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnSelect.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSelect.Location = new System.Drawing.Point(263, 233);
             this.BtnSelect.Name = "BtnSelect";
             this.BtnSelect.Size = new System.Drawing.Size(163, 23);
             this.BtnSelect.TabIndex = 3;
             this.BtnSelect.Text = "Seleccionar Equipo";
-            this.BtnSelect.UseVisualStyleBackColor = true;
+            this.BtnSelect.UseVisualStyleBackColor = false;
             this.BtnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
             // 
             // BtnDeleteTeam
             // 
+            this.BtnDeleteTeam.BackColor = System.Drawing.Color.Orange;
+            this.BtnDeleteTeam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnDeleteTeam.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDeleteTeam.Location = new System.Drawing.Point(263, 109);
             this.BtnDeleteTeam.Name = "BtnDeleteTeam";
             this.BtnDeleteTeam.Size = new System.Drawing.Size(163, 23);
             this.BtnDeleteTeam.TabIndex = 5;
             this.BtnDeleteTeam.Text = "Eliminar Equipo";
-            this.BtnDeleteTeam.UseVisualStyleBackColor = true;
+            this.BtnDeleteTeam.UseVisualStyleBackColor = false;
             this.BtnDeleteTeam.Click += new System.EventHandler(this.BtnDeleteTeam_Click);
             // 
             // label1
@@ -79,24 +83,28 @@
             // 
             // BtnCreateTeam
             // 
+            this.BtnCreateTeam.BackColor = System.Drawing.Color.Orange;
+            this.BtnCreateTeam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCreateTeam.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCreateTeam.Location = new System.Drawing.Point(263, 54);
             this.BtnCreateTeam.Name = "BtnCreateTeam";
             this.BtnCreateTeam.Size = new System.Drawing.Size(163, 23);
             this.BtnCreateTeam.TabIndex = 7;
             this.BtnCreateTeam.Text = "Crear Equipo";
-            this.BtnCreateTeam.UseVisualStyleBackColor = true;
+            this.BtnCreateTeam.UseVisualStyleBackColor = false;
             this.BtnCreateTeam.Click += new System.EventHandler(this.BtnCreateTeam_Click);
             // 
             // BtnModifyTeam
             // 
+            this.BtnModifyTeam.BackColor = System.Drawing.Color.Orange;
+            this.BtnModifyTeam.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnModifyTeam.Font = new System.Drawing.Font("Lucida Bright", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnModifyTeam.Location = new System.Drawing.Point(263, 168);
             this.BtnModifyTeam.Name = "BtnModifyTeam";
             this.BtnModifyTeam.Size = new System.Drawing.Size(163, 23);
             this.BtnModifyTeam.TabIndex = 8;
             this.BtnModifyTeam.Text = "Modificar Equipo";
-            this.BtnModifyTeam.UseVisualStyleBackColor = true;
+            this.BtnModifyTeam.UseVisualStyleBackColor = false;
             this.BtnModifyTeam.Click += new System.EventHandler(this.BtnModifyTeam_Click);
             // 
             // DataGridViewTeams
@@ -111,7 +119,7 @@
             this.DataGridViewTeams.Location = new System.Drawing.Point(3, 54);
             this.DataGridViewTeams.Name = "DataGridViewTeams";
             this.DataGridViewTeams.ReadOnly = true;
-            this.DataGridViewTeams.Size = new System.Drawing.Size(244, 271);
+            this.DataGridViewTeams.Size = new System.Drawing.Size(244, 202);
             this.DataGridViewTeams.TabIndex = 9;
             // 
             // TeamName
@@ -134,7 +142,7 @@
             this.TeamDescriptionBelongs});
             this.DataGridViewTeamBelongs.Location = new System.Drawing.Point(432, 54);
             this.DataGridViewTeamBelongs.Name = "DataGridViewTeamBelongs";
-            this.DataGridViewTeamBelongs.Size = new System.Drawing.Size(243, 271);
+            this.DataGridViewTeamBelongs.Size = new System.Drawing.Size(243, 202);
             this.DataGridViewTeamBelongs.TabIndex = 10;
             // 
             // TeamNameBelongs

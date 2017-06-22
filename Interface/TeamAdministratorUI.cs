@@ -17,13 +17,13 @@ namespace Interface
 {
     public partial class TeamAdministratorUI : UserControl
     {
-        private Singleton instance;
+        private Instance instance;
         private List<Team> teams { get; set; }
 
         private AdministratorUI adminUI;
         public TeamAdministratorUI(AdministratorUI adminUI)
         {
-            instance = Singleton.GetInstance;
+            instance = Instance.GetInstance;
             this.adminUI = adminUI;
             InitializeComponent();
             teams = new List<Team>();
@@ -54,8 +54,8 @@ namespace Interface
 
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.DataGridViewTeamBelongs.Rows.Clear();
-            User user = (User)instance.userHandler.GetUserFromColecction(instance.session.user.mail);
-            List<Team> teamsBelongs = (List<Team>)instance.userHandler.GetTeams(user);
+            User user = (User)instance.UserHandler.GetUserFromColecction(instance.Session.user.mail);
+            List<Team> teamsBelongs = (List<Team>)instance.UserHandler.GetTeams(user);
             foreach (Team team in teamsBelongs)
             {
                 var rowIndex = this.DataGridViewTeamBelongs.Rows.Add(team.name, team.description);
@@ -78,7 +78,7 @@ namespace Interface
                 var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
                 Team teamToDel = (Team)selectedTeam;
                 string nameTeam = teamToDel.name;
-                instance.teamHandler.DeleteTeam(teamToDel);
+                instance.TeamHandler.DeleteTeam(teamToDel);
                 InitializeList();
                 LoadTeams();
                 LoadTeamBelongs();
@@ -88,12 +88,6 @@ namespace Interface
                 String msgError = ex.Message;
                 MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-        
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void BtnSelect_Click(object sender, EventArgs e)
@@ -110,7 +104,7 @@ namespace Interface
             var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
             var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
             Team team = (Team)selectedTeam;
-            team = instance.teamHandler.GetTeamFromCollection(team.name);
+            team = instance.TeamHandler.GetTeamFromCollection(team.name);
             ModifyTeamUI modifyTeamUI = new ModifyTeamUI(team);
             adminUI.Hide();
             modifyTeamUI.Show();

@@ -17,12 +17,12 @@ namespace Interface
 {
     public partial class TeamRegisterUI : Form
     {
-        private Singleton instance;
+        private Instance instance;
         public List<User> users { get; set; }
         public List<User> usersForTeam { get; set; }
         public TeamRegisterUI()
         {
-            instance = Singleton.GetInstance;
+            instance = Instance.GetInstance;
             InitializeComponent();
             users = new List<User>();
             usersForTeam = new List<User>();
@@ -68,7 +68,7 @@ namespace Interface
             string name = txtTeamName.Text;
             string description = txtDescription.Text;
             int maxUsers = (int)nudMaxUsers.Value;
-            User user = instance.session.user;
+            User user = instance.Session.user;
             Administrator adminCreator = (Administrator)user;
             DateTime birthdate = DateTime.Now;
             try
@@ -80,7 +80,7 @@ namespace Interface
                 teamToAdd.creator = adminCreator;
                 teamToAdd.creationDate = birthdate;
                 teamToAdd.usersInTeam = usersForTeam;
-                instance.teamHandler.AddTeam(teamToAdd);
+                instance.TeamHandler.AddTeam(teamToAdd);
                 AdministratorUI administratorUI = new AdministratorUI();
                 administratorUI.Show();
                 Hide();

@@ -16,24 +16,15 @@ namespace Interface
 {
     public partial class RegisterUI : Form
     {
-        private Singleton instance;
+        private Instance instance;
         public RegisterUI()
         {
-            instance = Singleton.GetInstance;
+            instance = Instance.GetInstance;
             InitializeComponent();
         }
-
-        private void RegisterUI_Load(object sender, EventArgs e)
-        {
-            
-        }
-        
-
         private void BtnCancel_Click(object sender, EventArgs e)
-        {
-
+        { 
             AdministratorUI administratorUI = new AdministratorUI();
-
             this.Hide();
             administratorUI.Show();
         }
@@ -55,7 +46,7 @@ namespace Interface
                     adminToAdd.mail = mail;
                     adminToAdd.password = password;
                     adminToAdd.birthday = birthdate;
-                    instance.administratorHandler.AddAdministrator(adminToAdd);
+                    instance.AdministratorHandler.AddAdministrator(adminToAdd);
                 }
                 else if (RdoColaborator.Checked)
                 {
@@ -65,7 +56,7 @@ namespace Interface
                     colabToAdd.mail = mail;
                     colabToAdd.password = password;
                     colabToAdd.birthday = birthdate;
-                    instance.colaboratorHandler.AddColaborator(colabToAdd);
+                    instance.ColaboratorHandler.AddColaborator(colabToAdd);
                 }
                 AdministratorUI administratorUI = new AdministratorUI();
 
@@ -77,11 +68,6 @@ namespace Interface
                 String msgError = ex.Message;
                 MessageBox.Show(msgError, "Informacion",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

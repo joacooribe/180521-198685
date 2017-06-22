@@ -63,6 +63,8 @@ namespace Persistence
             User user = null;
             using (ContextDB context = new ContextDB())
             {
+                context.Configuration.ProxyCreationEnabled = false;
+                context.Users.Include(a => a.teams).Load();
                 user = context.Users
                                     .Where(a => a.mail == mailOfUser)
                                     .Include(a => a.teams)

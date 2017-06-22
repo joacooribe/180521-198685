@@ -11,7 +11,7 @@ namespace Interface
     public partial class ModifyTeamUI : Form
     {
 
-        private Singleton instance;
+        private Instance instance;
 
         private List<User> users { get; set; }
 
@@ -21,7 +21,7 @@ namespace Interface
 
         public ModifyTeamUI(Team team)
         {
-            instance = Singleton.GetInstance;
+            instance = Instance.GetInstance;
             teamToModify = team;
             usersInTeam = new List<User>();
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace Interface
         private void LoadUserList()
         {
             users = new List<User>();
-            foreach (User user in instance.teamHandler.GetUsersFromTeam(teamToModify))
+            foreach (User user in instance.TeamHandler.GetUsersFromTeam(teamToModify))
             {
                 usersInTeam.Add(user);
             }
@@ -127,9 +127,9 @@ namespace Interface
             int newMaxUsers = (int)NudMaxUsers.Value;
             try
             {
-                instance.teamHandler.ModifyTeamDescription(teamToModify.name, newDescription);
-                instance.teamHandler.ModifyTeamMaxUsers(teamToModify.name, newMaxUsers);
-                instance.teamHandler.ModifyTeamUsers(teamToModify,usersInTeam);
+                instance.TeamHandler.ModifyTeamDescription(teamToModify.name, newDescription);
+                instance.TeamHandler.ModifyTeamMaxUsers(teamToModify.name, newMaxUsers);
+                instance.TeamHandler.ModifyTeamUsers(teamToModify,usersInTeam);
                 AdministratorUI administratorUI = new AdministratorUI();
                 MessageBox.Show("Equipo modificado correctamente.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 administratorUI.Show();

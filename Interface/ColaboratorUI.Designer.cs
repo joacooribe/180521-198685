@@ -35,33 +35,36 @@
             // 
             // BtnLogOut
             // 
+            this.BtnLogOut.BackColor = System.Drawing.Color.Orange;
+            this.BtnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnLogOut.Location = new System.Drawing.Point(610, 35);
             this.BtnLogOut.Name = "BtnLogOut";
             this.BtnLogOut.Size = new System.Drawing.Size(105, 23);
             this.BtnLogOut.TabIndex = 2;
             this.BtnLogOut.Text = "Cerrar Sesión";
-            this.BtnLogOut.UseVisualStyleBackColor = true;
+            this.BtnLogOut.UseVisualStyleBackColor = false;
             this.BtnLogOut.Click += new System.EventHandler(this.BtnLogOut_Click);
             // 
             // ColaboratorUIPanel
             // 
-            this.ColaboratorUIPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.ColaboratorUIPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ColaboratorUIPanel.Location = new System.Drawing.Point(35, 86);
             this.ColaboratorUIPanel.Name = "ColaboratorUIPanel";
             this.ColaboratorUIPanel.Size = new System.Drawing.Size(680, 361);
             this.ColaboratorUIPanel.TabIndex = 4;
-            this.ColaboratorUIPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ColaboratorUIPanel_Paint);
             // 
             // BtnTeams
             // 
+            this.BtnTeams.BackColor = System.Drawing.Color.Orange;
+            this.BtnTeams.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnTeams.Location = new System.Drawing.Point(54, 35);
             this.BtnTeams.Name = "BtnTeams";
             this.BtnTeams.Size = new System.Drawing.Size(75, 23);
             this.BtnTeams.TabIndex = 5;
             this.BtnTeams.Text = "Equipos";
-            this.BtnTeams.UseVisualStyleBackColor = true;
+            this.BtnTeams.UseVisualStyleBackColor = false;
             this.BtnTeams.Click += new System.EventHandler(this.BtnTeams_Click);
             // 
             // ColaboratorUI
@@ -76,7 +79,6 @@
             this.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Name = "ColaboratorUI";
             this.Text = "ColaboratorUI";
-            this.Load += new System.EventHandler(this.ColaboratorUI_Load);
             this.ResumeLayout(false);
 
         }

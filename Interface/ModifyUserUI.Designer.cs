@@ -90,12 +90,14 @@
             // 
             // btnModify
             // 
+            this.btnModify.BackColor = System.Drawing.Color.Orange;
+            this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnModify.Location = new System.Drawing.Point(219, 221);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 6;
             this.btnModify.Text = "Modificar";
-            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.UseVisualStyleBackColor = false;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // dataGridViewUsers
@@ -127,22 +129,26 @@
             // 
             // BtnSelect
             // 
+            this.BtnSelect.BackColor = System.Drawing.Color.Orange;
+            this.BtnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnSelect.Location = new System.Drawing.Point(470, 315);
             this.BtnSelect.Name = "BtnSelect";
             this.BtnSelect.Size = new System.Drawing.Size(75, 23);
             this.BtnSelect.TabIndex = 29;
             this.BtnSelect.Text = "Seleccionar";
-            this.BtnSelect.UseVisualStyleBackColor = true;
+            this.BtnSelect.UseVisualStyleBackColor = false;
             this.BtnSelect.Click += new System.EventHandler(this.BtnSelect_Click);
             // 
             // BtnDelete
             // 
-            this.BtnDelete.Location = new System.Drawing.Point(137, 285);
+            this.BtnDelete.BackColor = System.Drawing.Color.Orange;
+            this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnDelete.Location = new System.Drawing.Point(219, 286);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(75, 23);
             this.BtnDelete.TabIndex = 30;
             this.BtnDelete.Text = "Eliminar";
-            this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.UseVisualStyleBackColor = false;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // ModifyUserUI
@@ -160,7 +166,6 @@
             this.Controls.Add(this.label1);
             this.Name = "ModifyUserUI";
             this.Size = new System.Drawing.Size(680, 361);
-            this.Load += new System.EventHandler(this.ModifyUserUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

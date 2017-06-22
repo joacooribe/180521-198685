@@ -24,14 +24,21 @@ namespace Persistence
         {
             using (ContextDB context = new ContextDB())
             {
-                context.Users.Attach(team.creator);
-                foreach (User user in team.usersInTeam)
+                team.creator = (Administrator)context.Users.Find(team.creator.OIDUser);
+                List<User> newUsers = new List<User>();
+                for (int i = 0; i < team.usersInTeam.Count; i++)
                 {
+                    var user = team.usersInTeam.ToList()[i];
                     if (!user.mail.Equals(team.creator.mail))
                     {
-                        context.Users.Attach(user);
+                        newUsers.Add(context.Users.Find(user.OIDUser));
+                    }
+                    else
+                    {
+                        newUsers.Add(team.creator);
                     }
                 }
+                team.usersInTeam = newUsers;
                 context.Teams.Add(team);
                 context.SaveChanges();
             }
@@ -146,12 +153,12 @@ namespace Persistence
                             .usersInTeam = users;
                 context.SaveChanges();
             }
-            if(teamDataBase.usersInTeam.Count - 1 == 0)
+            if (teamDataBase.usersInTeam.Count == 0)
             {
                 DeleteTeam(team);
             }
         }
-        public void ModifyTeamUsers(Team team,ICollection<User> users)
+        public void ModifyTeamUsers(Team team, ICollection<User> users)
         {
             using (ContextDB context = new ContextDB())
             {
