@@ -208,5 +208,10 @@ namespace Logic
         {
             return teamFunctions.ExistsTeam(team);
         }
+
+        public List<Team> LoadTeams()
+        {
+            return teamFunctions.LoadTeams();
+        }
     }
 }

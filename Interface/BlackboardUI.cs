@@ -8,15 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain;
-using Persistence;
-using Logic;
 
 namespace Interface
 {
     public partial class BlackboardUI : Form
     {
         private Instance instance;
-
         private Blackboard blackboard;
         public BlackboardUI(Blackboard blackboard)
         {

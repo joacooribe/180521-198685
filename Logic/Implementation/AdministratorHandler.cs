@@ -11,23 +11,23 @@ namespace Logic
 {
     public class AdministratorHandler : IAdministratorHandler
     {
-        private IAdministratorPersistance administratorFunctions { get; set; }
-        private IUserPersistance userFunctions { get; set; }
+        private IAdministratorPersistance AdministratorFunctions { get; set; }
+        private IUserPersistance UserFunctions { get; set; }
 
         public AdministratorHandler()
         {
-            administratorFunctions = new AdministratorPersistenceHandler();
-            userFunctions = new UserPersistanceHandler();
+            AdministratorFunctions = new AdministratorPersistenceHandler();
+            UserFunctions = new UserPersistanceHandler();
         }
 
         public void AddAdministrator(Administrator administrator)
         {
             ValidateAdministrator(administrator);
-            if (userFunctions.ExistsUser(administrator))
+            if (UserFunctions.ExistsUser(administrator))
             {
                 throw new UserException(ExceptionMessage.userAlreadyExist);
             }
-            administratorFunctions.AddAdministrator(administrator);
+            AdministratorFunctions.AddAdministrator(administrator);
         }
         private void ValidateAdministrator(Administrator administrator)
         {

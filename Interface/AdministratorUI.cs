@@ -7,9 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Domain;
-using Logic;
-using Persistence;
 
 namespace Interface
 {
@@ -18,7 +15,6 @@ namespace Interface
         private Instance instance;
         public AdministratorUI()
         {
-
             this.instance = Instance.GetInstance;
             InitializeComponent();
             GenerateTeamsPanel();
@@ -44,9 +40,7 @@ namespace Interface
         private void GenerateTeamsPanel()
         {
             this.panel1.Controls.Clear();
-
             TeamAdministratorUI teamUI = new TeamAdministratorUI(this);
-
             this.panel1.Controls.Add(teamUI);
         }
 

@@ -55,6 +55,7 @@ namespace Test
         public CommentLogicTest()
         {
             commentPersistence = new CommentPersistanceHandler();
+
             commentHandler = new CommentHandler();
         }
 
@@ -62,6 +63,7 @@ namespace Test
         public void TestSetUp()
         {
             ContextDB context = new ContextDB();
+
             context.EmptyTable();
         }
 
@@ -87,48 +89,7 @@ namespace Test
         //
         #endregion
 
-        [TestMethod]
-        public void CommentOkCreatedByColaboratorForImage()
-        {
-            usersInTeam = new List<User>();
 
-            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
-            colaboratorCreator = DataCreation.CreateColaborator(userNameOK, userSurnameOK, anotherUserMailOK, userPasswordOK, userBirthdayOk);
-            usersInTeam.Add(colaboratorCreator);
-
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
-
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, colaboratorCreator, teamOwner);
-
-            image = DataCreation.CreateImage(administratorCreator, blackboard, imageWidthOk, imageHeightOk, originPointOk, urlOk, formatOk);
-
-            comment = DataCreation.CreateComment(commentDescriptionOk, creationDateOk, colaboratorCreator, image);
-
-            commentHandler.AddComment(comment);
-
-            Assert.AreEqual(commentDescriptionOk,comment.description);
-        }
-
-        [TestMethod]
-        public void CommentOkCreatedByAdministratorForTextBox()
-        {
-            usersInTeam = new List<User>();
-
-            administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
-            usersInTeam.Add(colaboratorCreator);
-
-            teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
-
-            blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
-
-            textBox = DataCreation.CreateTextBox(administratorCreator, blackboard, imageWidthOk, imageHeightOk, originPointOk, contentOk, fontOk, fontSizeOk);
-
-            comment = DataCreation.CreateComment(commentDescriptionOk, creationDateOk, administratorCreator, textBox);
-
-            commentHandler.AddComment(comment);
-
-            Assert.AreEqual(commentDescriptionOk, comment.description);
-        }
 
         [TestMethod]
         [ExpectedException(typeof(CommentException))]
@@ -137,6 +98,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(colaboratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -159,6 +121,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(colaboratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -181,6 +144,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(colaboratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -203,6 +167,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(colaboratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -225,6 +190,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(colaboratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);

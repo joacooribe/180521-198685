@@ -11,23 +11,23 @@ namespace Logic
 {
     public class ColaboratorHandler : IColaboratorHandler
     {
-        private IColaboratorPersistance colaboratorFunctions { get; set; }
-        private IUserPersistance userFunctions { get; set; }
+        private IColaboratorPersistance ColaboratorFunctions { get; set; }
+        private IUserPersistance UserFunctions { get; set; }
 
         public ColaboratorHandler()
         {
-            colaboratorFunctions = new ColaboratorPersistenceHandler();
-            userFunctions = new UserPersistanceHandler();
+            ColaboratorFunctions = new ColaboratorPersistenceHandler();
+            UserFunctions = new UserPersistanceHandler();
         }
 
         public void AddColaborator(Colaborator colaborator)
         {
             ValidateColaborator(colaborator);
-            if (userFunctions.ExistsUser(colaborator))
+            if (UserFunctions.ExistsUser(colaborator))
             {
                 throw new UserException(ExceptionMessage.userAlreadyExist);
             }
-            colaboratorFunctions.AddColaborator(colaborator);
+            ColaboratorFunctions.AddColaborator(colaborator);
         }
         private void ValidateColaborator(Colaborator colaborator)
         {

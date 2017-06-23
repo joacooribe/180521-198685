@@ -11,11 +11,11 @@ namespace Persistence
 {
     public class CommentPersistanceHandler : ICommentPersistance
     {
-        public Repository systemCollection;
+        public Repository SystemCollection;
 
         public CommentPersistanceHandler()
         {
-            systemCollection = Repository.GetInstance;
+            SystemCollection = Repository.GetInstance;
         }
 
         public void AddComment(Comment comment)

@@ -541,7 +541,6 @@
             this.BtnResetRank.TabIndex = 51;
             this.BtnResetRank.Text = "Resetear Puntaje";
             this.BtnResetRank.UseVisualStyleBackColor = false;
-            this.BtnResetRank.Click += new System.EventHandler(this.BtnResetRank_Click);
             // 
             // label5
             // 

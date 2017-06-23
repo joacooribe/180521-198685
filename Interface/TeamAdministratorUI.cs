@@ -1,15 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain;
-using Persistence;
-using Logic;
 using System.Globalization;
 
 
@@ -19,7 +11,6 @@ namespace Interface
     {
         private Instance instance;
         private List<Team> teams { get; set; }
-
         private AdministratorUI adminUI;
         public TeamAdministratorUI(AdministratorUI adminUI)
         {
@@ -37,7 +28,6 @@ namespace Interface
             TeamRegisterUI teamRegister = new TeamRegisterUI();
             adminUI.Hide();
             teamRegister.Show();
-            
         }
         private void LoadTeams()
         {
@@ -51,7 +41,6 @@ namespace Interface
         }
         private void LoadTeamBelongs()
         {
-
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.DataGridViewTeamBelongs.Rows.Clear();
             User user = (User)instance.UserHandler.GetUserFromColecction(instance.Session.user.mail);
@@ -64,25 +53,24 @@ namespace Interface
         }
         private void InitializeList()
         {
-            teams = new List<Team>();
-            using (ContextDB context = new ContextDB())
-            {
-                teams = context.Teams.ToList();
-            }
-
+            teams = instance.TeamHandler.LoadTeams();
         }
         private void BtnDeleteTeam_Click(object sender, EventArgs e)
         {
-            try{
+            try {
                 var selectedRow = this.DataGridViewTeams.CurrentCell.RowIndex;
                 var selectedTeam = this.DataGridViewTeams.Rows[selectedRow].Tag;
                 Team teamToDel = (Team)selectedTeam;
-                string nameTeam = teamToDel.name;
-                instance.TeamHandler.DeleteTeam(teamToDel);
-                InitializeList();
-                LoadTeams();
-                LoadTeamBelongs();
-                MessageBox.Show("Se ha eliminado el equipo: " + nameTeam, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult result = MessageBox.Show("Desea eliminar el " + teamToDel.name + "?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    string nameTeam = teamToDel.name;
+                    instance.TeamHandler.DeleteTeam(teamToDel);
+                    InitializeList();
+                    LoadTeams();
+                    LoadTeamBelongs();
+                    MessageBox.Show("Se ha eliminado el equipo " + nameTeam + " correctamente.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             } catch (Exception ex)
             {
                 String msgError = ex.Message;
@@ -109,6 +97,5 @@ namespace Interface
             adminUI.Hide();
             modifyTeamUI.Show();
         }
-
     }
 }

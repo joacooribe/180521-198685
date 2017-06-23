@@ -10,18 +10,18 @@ namespace Persistence
     public class Repository
     {
         private static readonly object padlock = new object();
-        private static Repository instance;
-        public ICollection<Colaborator> colaboratorCollection { get; }
-        public ICollection<Administrator> administratorCollection { get; }
-        public ICollection<Team> teamCollection { get; }
-        public ICollection<Blackboard> blackboardCollection { get; }
+        private static Repository Instance;
+        public ICollection<Colaborator> ColaboratorCollection;
+        public ICollection<Administrator> AdministratorCollection;
+        public ICollection<Team> TeamCollection;
+        public ICollection<Blackboard> BlackboardCollection;
         private int idElement;
         
         private Repository() {
-            colaboratorCollection = new List<Colaborator>();
-            administratorCollection = new List<Administrator>();
-            teamCollection = new List<Team>();
-            blackboardCollection = new List<Blackboard>();
+            ColaboratorCollection = new List<Colaborator>();
+            AdministratorCollection = new List<Administrator>();
+            TeamCollection = new List<Team>();
+            BlackboardCollection = new List<Blackboard>();
             idElement = 0;
         }
 
@@ -38,11 +38,11 @@ namespace Persistence
             {
                 lock (padlock)
                 {
-                    if (instance == null)
+                    if (Instance == null)
                     {
-                        instance = new Repository();
+                        Instance = new Repository();
                     }
-                    return instance;
+                    return Instance;
                 }
             }
         }

@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain;
-using Persistence;
 using System.Globalization;
 
 namespace Interface
@@ -16,29 +9,20 @@ namespace Interface
     public partial class RankingAdminUI : Form
     {
         private Instance instance;
-
         private List<Team> teams;
-
         private List<User> usersInTeam;
         public RankingAdminUI()
         {
             instance = Instance.GetInstance;
             teams = new List<Team>();
             usersInTeam = new List<User>();
-            
             InitializeComponent();
             InicializeList();
             LoadTeams();
-
         }
         private void InicializeList()
         {
-
-            teams = new List<Team>();
-            using (ContextDB context = new ContextDB())
-            {
-                teams = context.Teams.ToList();
-            }
+            teams = instance.TeamHandler.LoadTeams();
         }
 
         private void LoadTeams()
@@ -66,11 +50,6 @@ namespace Interface
             AdministratorUI administratorUI = new AdministratorUI();
             administratorUI.Show();
             this.Hide();
-        }
-
-        private void BtnResetRank_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -15,21 +15,32 @@ namespace Test
     public class AdministratorLogicTest
     {
         private Administrator administrator;
+        private Administrator administrator1;
+        private Team team;
         private IAdministratorHandler administratorHandler;
         private IUserHandler userHandler;
         private IUserPersistance userPersistance;
+        private ITeamHandler teamHandler;
 
         private readonly string passwordOK = "securePassword123";
         private readonly string mailOK = "user@gmail.com";
+        private readonly string anotherMailOk = "user1@gmail.com";
         private readonly string nameOK = "Joaquin";
         private readonly string surnameOK = "Oribe";
         private readonly DateTime birthdayOk = new DateTime(1992, 9, 10);
+
+        private readonly string teamNameOK = "Team 1";
+        private readonly DateTime teamDateOK = DateTime.Now;
+        private readonly string descriptionOK = "this is team 1";
+        private readonly int maxUsersOK = 5;
+        private ICollection<User> usersInTeam;
 
         public AdministratorLogicTest()
         {
             administratorHandler = new AdministratorHandler();
             userHandler = new UserHandler();
             userPersistance = new UserPersistanceHandler();
+            teamHandler = new TeamHandler();
         }
 
         [TestInitialize]
@@ -65,8 +76,11 @@ namespace Test
         public void AdminOKName()
         {
             administrator = new Administrator();
+
             string name = "Joaquin";
+
             administrator.name = name;
+
             Assert.AreEqual(name, administrator.name);
         }
 
@@ -74,7 +88,9 @@ namespace Test
         public void AdminisitratorOK()
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             administratorHandler.AddAdministrator(administrator);
+
             Assert.IsTrue(userPersistance.ExistsUser(userHandler.GetUserFromColecction(administrator.mail)));
         }
 
@@ -409,9 +425,13 @@ namespace Test
         public void AdministratorModification()
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             administratorHandler.AddAdministrator(administrator);
+
             string newPassword = "NewPassword123";
+
             userHandler.ModifyPassword(administrator.mail, newPassword);
+
             Assert.AreEqual(newPassword,userHandler.GetUserFromColecction(administrator.mail).password);
         }
 
@@ -420,8 +440,11 @@ namespace Test
         public void AdministratorInvalidModification()
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             administratorHandler.AddAdministrator(administrator);
+
             string newPassword = "";
+
             userHandler.ModifyPassword(administrator.mail, newPassword);
         }
 
@@ -430,9 +453,129 @@ namespace Test
         public void AddTheSameAdministrator()
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             administratorHandler.AddAdministrator(administrator);
+
             administratorHandler.AddAdministrator(administrator);
             
+        }
+
+        [TestMethod]
+        public void AdminisitratorDeleteOk()
+        {
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
+            administratorHandler.AddAdministrator(administrator);
+
+            userHandler.DeleteUser(administrator.mail);
+
+            Assert.IsFalse(userHandler.GetUserFromColecction(administrator.mail).active);
+        }
+
+        [TestMethod]
+        public void AdminisitratorDeleteAndTeamDeleteOk()
+        {
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
+            usersInTeam = new List<User>();
+
+            usersInTeam.Add(administrator);
+
+            team = DataCreation.CreateTeam(teamNameOK, teamDateOK, administrator, descriptionOK, maxUsersOK, usersInTeam);
+
+            administratorHandler.AddAdministrator(administrator);
+
+            teamHandler.AddTeam(team);
+
+            userHandler.DeleteUser(administrator.mail);
+
+            bool isUserActive = userHandler.GetUserFromColecction(administrator.mail).active;
+
+            bool existsTeam = teamHandler.ExistsTeam(team);
+
+            Assert.IsTrue(!existsTeam && !isUserActive);
+        }
+
+        [ExpectedException(typeof(UserException))]
+        [TestMethod]
+        public void AdminisitratorDeleteMailInvalid()
+        {
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
+            administratorHandler.AddAdministrator(administrator);
+
+            string mailInvalid = "notValidMail";
+
+            userHandler.DeleteUser(mailInvalid);
+        }
+
+        [TestMethod]
+        public void LoadAdministratorsOk()
+        {
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
+            administrator1 = DataCreation.CreateAdministrator(nameOK, surnameOK, anotherMailOk, passwordOK, birthdayOk);
+
+            administratorHandler.AddAdministrator(administrator);
+
+            administratorHandler.AddAdministrator(administrator1);
+
+            List<User> allUsers = new List<User>();
+
+            allUsers.Add(administrator);
+
+            allUsers.Add(administrator1);
+
+            bool loadOk = true;
+
+            foreach(User user in userHandler.LoadUsers())
+            {
+                if (!allUsers.Contains(user))
+                {
+                    loadOk = false;
+                }
+            }
+
+            Assert.IsTrue(loadOk);
+        }
+
+        [TestMethod]
+        public void AdminisitratorGetTeamsOk()
+        {
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
+            usersInTeam = new List<User>();
+
+            usersInTeam.Add(administrator);
+
+            team = DataCreation.CreateTeam(teamNameOK, teamDateOK, administrator, descriptionOK, maxUsersOK, usersInTeam);
+
+            administratorHandler.AddAdministrator(administrator);
+
+            teamHandler.AddTeam(team);
+
+            administrator.teams.Add(team);
+
+            bool getTeamOk = true;
+
+            foreach(Team teamFromUser in userHandler.GetTeams(administrator))
+            {
+                if (!administrator.teams.Contains(teamFromUser))
+                {
+                    getTeamOk = false;
+                }
+            }
+
+            Assert.IsTrue(getTeamOk);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(UserException))]
+        public void AdminisitratorGetUserNotDefined()
+        {
+            administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
+            userHandler.GetUserFromColecction(administrator.mail);      
         }
     }
 }

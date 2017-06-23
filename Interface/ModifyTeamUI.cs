@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Domain;
-using Persistence;
 using System.Globalization;
 
 namespace Interface
@@ -12,13 +11,9 @@ namespace Interface
     {
 
         private Instance instance;
-
         private List<User> users { get; set; }
-
         private List<User> usersInTeam { get; set; }
-
         private Team teamToModify { get; set; }
-
         public ModifyTeamUI(Team team)
         {
             instance = Instance.GetInstance;
@@ -40,9 +35,9 @@ namespace Interface
             {
                 usersInTeam.Add(user);
             }
-            using (ContextDB context = new ContextDB())
+            List<User> allUsers = instance.UserHandler.LoadUsers();
             {
-                foreach (User user in context.Users.ToList())
+                foreach (User user in allUsers)
                 {
                     if (!usersInTeam.Contains(user) && user.active)
                     {
@@ -118,7 +113,6 @@ namespace Interface
                 String msgError = ex.Message;
                 MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
         private void btnModify_Click(object sender, EventArgs e)

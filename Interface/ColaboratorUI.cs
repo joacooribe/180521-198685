@@ -7,9 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Domain;
-using Logic;
-using Persistence;
 
 namespace Interface
 {
@@ -35,7 +32,6 @@ namespace Interface
             Start start = new Start();
             this.Hide();
             start.Show();
-
         }
 
         private void BtnTeams_Click(object sender, EventArgs e)

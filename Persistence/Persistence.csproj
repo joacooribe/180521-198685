@@ -73,7 +73,7 @@
     <Compile Include="Interface\ITextBoxPersistance.cs" />
     <Compile Include="Interface\IUserPersistance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Implementation\Repository.cs" />
+    <Compile Include="Repository.cs" />
     <Compile Include="Implementation\TeamPersistenceHandler.cs" />
     <Compile Include="Implementation\TextBoxPersistanceHandler.cs" />
   </ItemGroup>

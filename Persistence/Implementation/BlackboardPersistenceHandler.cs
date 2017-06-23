@@ -11,13 +11,13 @@ namespace Persistence
 {
     public class BlackboardPersistenceHandler : IBlackboardPersistance
     {
-        private Repository systemCollection;
-        private IElementPersistance elementFunctions;
+        private Repository SystemCollection;
+        private IElementPersistance ElementFunctions;
 
         public BlackboardPersistenceHandler()
         {
-            systemCollection = Repository.GetInstance;
-            elementFunctions = new ElementPersistenceHandler();
+            SystemCollection = Repository.GetInstance;
+            ElementFunctions = new ElementPersistenceHandler();
         }
 
         public void AddBlackboard(Blackboard blackboard)
@@ -59,7 +59,6 @@ namespace Persistence
                 throw new BlackboardException(ExceptionMessage.blackboardNotExist);
             }
             return blackboard;
-           
         }
 
         public bool BlackboardNotDefined(Blackboard blackboard)
@@ -70,20 +69,20 @@ namespace Persistence
         public void DeleteBlackboard(Blackboard blackboard)
         {
             DeleteElementOfBlackboard(blackboard);
-            systemCollection.blackboardCollection.Remove(blackboard);
+            SystemCollection.BlackboardCollection.Remove(blackboard);
         }
 
         private void DeleteElementOfBlackboard(Blackboard blackboard)
         {
             foreach(Element elementOfBlackboard in blackboard.elementsInBlackboard)
             {
-                elementFunctions.DeleteElement(elementOfBlackboard);
+                ElementFunctions.DeleteElement(elementOfBlackboard);
             }
         }
 
         public void DeleteBlackboardsOfTeam(Team team)
         {
-            foreach (Blackboard blackboardOfTeam in systemCollection.blackboardCollection)
+            foreach (Blackboard blackboardOfTeam in SystemCollection.BlackboardCollection)
             {
                 if (blackboardOfTeam.teamOwner.Equals(team))
                 {
@@ -94,7 +93,7 @@ namespace Persistence
 
         public bool IsEmptyBlackboardCollection()
         {
-            return systemCollection.blackboardCollection.Count == 0;
+            return SystemCollection.BlackboardCollection.Count == 0;
         }
     }
 }

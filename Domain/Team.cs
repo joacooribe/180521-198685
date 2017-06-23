@@ -13,7 +13,6 @@ namespace Domain
     {
         [Key]
         public int OIDTeam { get; set; }
-
         public string name { get; set; }
         public virtual Administrator creator { get; set; }
         public DateTime creationDate { get; set; }
@@ -31,6 +30,5 @@ namespace Domain
             }
             return equal;
         }
-
     }
 }

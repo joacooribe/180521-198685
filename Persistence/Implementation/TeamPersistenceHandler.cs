@@ -11,13 +11,13 @@ namespace Persistence
 {
     public class TeamPersistenceHandler : ITeamPersistance
     {
-        public Repository systemCollection;
-        private IBlackboardPersistance blackboardFunctions;
+        public Repository SystemCollection;
+        private IBlackboardPersistance BlackboardFunctions;
 
         public TeamPersistenceHandler()
         {
-            systemCollection = Repository.GetInstance;
-            blackboardFunctions = new BlackboardPersistenceHandler();
+            SystemCollection = Repository.GetInstance;
+            BlackboardFunctions = new BlackboardPersistenceHandler();
         }
 
         public void AddTeam(Team team)
@@ -95,7 +95,7 @@ namespace Persistence
 
         private void DeleteBlackboardsOfTeam(Team team)
         {
-            blackboardFunctions.DeleteBlackboardsOfTeam(team);
+            BlackboardFunctions.DeleteBlackboardsOfTeam(team);
         }
 
         public void ModifyTeamDescription(string nameOfTeam, string newDescription)
@@ -176,6 +176,16 @@ namespace Persistence
                             .usersInTeam = newUsersInTeam;
                 context.SaveChanges();
             }
+        }
+
+        public List<Team> LoadTeams()
+        {
+            List<Team> allTeams = new List<Team>();
+            using (ContextDB context = new ContextDB())
+            {
+                allTeams = context.Teams.ToList();
+            }
+            return allTeams;
         }
     }
 }

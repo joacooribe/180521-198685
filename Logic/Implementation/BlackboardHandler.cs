@@ -11,21 +11,21 @@ namespace Logic
 {
     public class BlackboardHandler : IBlackboardHandler
     {
-        public IBlackboardPersistance blackboardFunctions { get; set; }
+        public IBlackboardPersistance BlackboardFunctions { get; set; }
 
         public BlackboardHandler()
         {
-            blackboardFunctions = new BlackboardPersistenceHandler();
+            BlackboardFunctions = new BlackboardPersistenceHandler();
         }
 
         public void AddBlackboard(Blackboard blackboard)
         {
             ValidateBlackboard(blackboard);
-            if (blackboardFunctions.ExistsBlackboard(blackboard))
+            if (BlackboardFunctions.ExistsBlackboard(blackboard))
             {
                 throw new BlackboardException(ExceptionMessage.blackboardAlreadyExist);
             }
-            blackboardFunctions.AddBlackboard(blackboard);
+            BlackboardFunctions.AddBlackboard(blackboard);
         }
 
         private void ValidateBlackboard(Blackboard blackboard)
@@ -131,13 +131,13 @@ namespace Logic
         {
             ValidateName(name);
             ValidateTeam(team);
-            return blackboardFunctions.GetBlackboard(name, team);
+            return BlackboardFunctions.GetBlackboard(name, team);
         }
 
         public void DeleteBlackboard(Blackboard blackboard)
         {
             ValidateBlackboard(blackboard);
-            blackboardFunctions.DeleteBlackboard(blackboard);
+            BlackboardFunctions.DeleteBlackboard(blackboard);
         }
     }
 }

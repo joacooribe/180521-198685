@@ -37,11 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnLogIn = new System.Windows.Forms.Button();
-            this.BtnGenerate = new System.Windows.Forms.Button();
-            this.lblGenerate = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblError = new System.Windows.Forms.Label();
-            this.BtnClearDB = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,68 +132,12 @@
             this.BtnLogIn.UseVisualStyleBackColor = false;
             this.BtnLogIn.Click += new System.EventHandler(this.BtnLogIn_Click);
             // 
-            // BtnGenerate
-            // 
-            this.BtnGenerate.Location = new System.Drawing.Point(598, 403);
-            this.BtnGenerate.Name = "BtnGenerate";
-            this.BtnGenerate.Size = new System.Drawing.Size(75, 23);
-            this.BtnGenerate.TabIndex = 13;
-            this.BtnGenerate.Text = "Generar";
-            this.BtnGenerate.UseVisualStyleBackColor = true;
-            this.BtnGenerate.Click += new System.EventHandler(this.BtnGenerate_Click);
-            // 
-            // lblGenerate
-            // 
-            this.lblGenerate.AutoSize = true;
-            this.lblGenerate.Location = new System.Drawing.Point(565, 386);
-            this.lblGenerate.Name = "lblGenerate";
-            this.lblGenerate.Size = new System.Drawing.Size(148, 13);
-            this.lblGenerate.TabIndex = 14;
-            this.lblGenerate.Text = "Generar datos de prueba";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label5.Location = new System.Drawing.Point(546, 429);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(199, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Se generaron los datos de prueba";
-            this.label5.Visible = false;
-            // 
-            // lblError
-            // 
-            this.lblError.AutoSize = true;
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(309, 222);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(56, 13);
-            this.lblError.TabIndex = 16;
-            this.lblError.Text = "errorMsg";
-            this.lblError.Visible = false;
-            // 
-            // BtnClearDB
-            // 
-            this.BtnClearDB.Location = new System.Drawing.Point(621, 265);
-            this.BtnClearDB.Name = "BtnClearDB";
-            this.BtnClearDB.Size = new System.Drawing.Size(135, 23);
-            this.BtnClearDB.TabIndex = 17;
-            this.BtnClearDB.Text = "Borrar base de datos";
-            this.BtnClearDB.UseVisualStyleBackColor = true;
-            this.BtnClearDB.Click += new System.EventHandler(this.BtnClearDB_Click);
-            // 
             // Start
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(784, 475);
-            this.Controls.Add(this.BtnClearDB);
-            this.Controls.Add(this.lblError);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblGenerate);
-            this.Controls.Add(this.BtnGenerate);
             this.Controls.Add(this.BtnLogIn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -226,10 +165,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnLogIn;
-        private System.Windows.Forms.Button BtnGenerate;
-        private System.Windows.Forms.Label lblGenerate;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblError;
-        private System.Windows.Forms.Button BtnClearDB;
     }
 }

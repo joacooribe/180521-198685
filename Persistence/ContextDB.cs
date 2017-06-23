@@ -20,7 +20,6 @@ namespace Persistence
         public DbSet<TextBox> TextBoxes { get; set; }
         public DbSet<Image> Images { get; set; }
 
-
         public void EmptyTable()
         {
             foreach (Blackboard board in Blackboards)
@@ -82,7 +81,6 @@ namespace Persistence
             Administrators.Add(administrator1);
             SaveChanges();
 
-
             Team team1 = new Team();
             team1.name = "Team 1";
             team1.maxUsers = 5;
@@ -114,7 +112,6 @@ namespace Persistence
             SaveChanges();
             colaborator1.teams.Add(team2);
             SaveChanges();
-
         }
 
 

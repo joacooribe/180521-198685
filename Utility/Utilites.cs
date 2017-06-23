@@ -68,7 +68,6 @@ namespace Utility
             {
                 throw new UserException(ExceptionMessage.userMailInvalid);
             }
-            
         }
 
         private static bool ValidationOfMail(string element)
@@ -94,6 +93,13 @@ namespace Utility
         {
             return date > DateTime.Now;
         }
-        
+
+        public static void ValidateActive(bool active)
+        {
+            if (!active)
+            {
+                throw new UserException(ExceptionMessage.userIsDeleted);
+            }
+        }
     }
 }

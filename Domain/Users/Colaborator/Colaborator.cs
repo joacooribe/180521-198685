@@ -20,10 +20,8 @@ namespace Domain
                 {
                     equal = true;
                 }
-
             }
             return equal;
         }
-
     }
 }

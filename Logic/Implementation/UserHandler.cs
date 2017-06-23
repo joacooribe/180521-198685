@@ -11,36 +11,36 @@ namespace Logic
 {
     public class UserHandler : IUserHandler
     {
-        private IUserPersistance userFunctions { get; set; }
+        private IUserPersistance UserFunctions { get; set; }
 
         public UserHandler()
         {
-            userFunctions = new UserPersistanceHandler();
+            UserFunctions = new UserPersistanceHandler();
         }
 
         public User GetUserFromColecction(string mailOfUser)
         {
             Utility.Utilites.ValidateMail(mailOfUser);
-            return userFunctions.GetUser(mailOfUser);
+            return UserFunctions.GetUser(mailOfUser);
         }
 
         public void ModifyPassword(string mailOfUser, string newPassword)
         {
             Utility.Utilites.ValidateMail(mailOfUser);
             Utility.Utilites.ValidatePassword(newPassword);
-            userFunctions.ModifyUserPassword(mailOfUser, newPassword);
+            UserFunctions.ModifyUserPassword(mailOfUser, newPassword);
         }
 
         public void DeleteUser(string mailOfUser)
         {
             Utility.Utilites.ValidateMail(mailOfUser);
-            userFunctions.DeleteUser(mailOfUser);
+            UserFunctions.DeleteUser(mailOfUser);
         }
 
         public List<Team> GetTeams(User user)
         {
             ValidateUser(user);
-            return userFunctions.GetTeams(user);
+            return UserFunctions.GetTeams(user);
         }
 
         private void ValidateUser(User user)
@@ -50,6 +50,11 @@ namespace Logic
             Utility.Utilites.ValidatePassword(user.password);
             Utility.Utilites.ValidateMail(user.mail);
             Utility.Utilites.ValidateBirthDate(user.birthday);
+        }
+
+        public List<User> LoadUsers()
+        {
+            return UserFunctions.LoadUsers();
         }
     }
 }

@@ -1,15 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain;
-using Persistence;
-using Logic;
 using System.Globalization;
 
 namespace Interface
@@ -30,10 +22,8 @@ namespace Interface
         private void loadTeams()
         {
             teams = new List<Team>();
-            using (ContextDB context = new ContextDB())
-            {
-                teams = context.Teams.ToList();
-            }
+            User user = instance.Session.user;
+            teams = instance.UserHandler.GetTeams(user);
             CultureInfo invariantCulture = CultureInfo.InvariantCulture;
             this.dataGridViewTeam.Rows.Clear();
             foreach (Team team in teams)

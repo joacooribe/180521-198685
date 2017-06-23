@@ -10,11 +10,11 @@ namespace Persistence
 {
     public class TextBoxPersistanceHandler : ITextBoxPersistance
     {
-        public Repository systemCollection;
+        public Repository SystemCollection;
 
         public TextBoxPersistanceHandler()
         {
-            systemCollection = Repository.GetInstance;
+            SystemCollection = Repository.GetInstance;
         }
 
         public void AddTextBox(TextBox textBox)
@@ -24,7 +24,7 @@ namespace Persistence
 
         private void AddTextBoxToTheBlackboard(TextBox textBox, Blackboard blackboardOwner)
         {
-            textBox.id = systemCollection.AsignNumberToElement();
+            textBox.id = SystemCollection.AsignNumberToElement();
             blackboardOwner.elementsInBlackboard.Add(textBox);
         }
     }

@@ -46,6 +46,7 @@ namespace Test
         public void TestSetUp()
         {
             ContextDB context = new ContextDB();
+
             context.EmptyTable();
         }
 
@@ -77,6 +78,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             colaboratorCreator = DataCreation.CreateColaborator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(colaboratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -95,6 +97,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -113,6 +116,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -131,6 +135,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -149,6 +154,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -167,6 +173,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -185,6 +192,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -203,6 +211,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -221,6 +230,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -237,6 +247,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -255,6 +266,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -273,6 +285,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -291,6 +304,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -309,6 +323,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator,  teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -325,6 +340,7 @@ namespace Test
             usersInTeam = new List<User>();
 
             administratorCreator = DataCreation.CreateAdministrator(userNameOK, userSurnameOK, userMailOK, userPasswordOK, userBirthdayOk);
+
             usersInTeam.Add(administratorCreator);
 
             teamOwner = DataCreation.CreateTeam(teamNameOK, teamDateOK, administratorCreator, teamDescriptionOK, teamMaxUsersOK, usersInTeam);
@@ -332,6 +348,7 @@ namespace Test
             blackboard = DataCreation.CreateBlackboard(blackboardNameOk, blackboardDescriptionOk, heightOk, widthOk, administratorCreator, teamOwner);
 
             blackboardHandler.AddBlackboard(blackboard);
+
             blackboardHandler.AddBlackboard(blackboard);
         }
     }

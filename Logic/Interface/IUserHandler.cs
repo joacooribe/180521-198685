@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Domain;
 
 namespace Logic
@@ -13,5 +9,6 @@ namespace Logic
         void ModifyPassword(string mailOfUser, string newPassword);
         void DeleteUser(string mailOfUser);
         List<Team> GetTeams(User user);
+        List<User> LoadUsers();
     }
 }

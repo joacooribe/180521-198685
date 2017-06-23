@@ -10,13 +10,13 @@ namespace Persistence
 {
     public class ElementPersistenceHandler : IElementPersistance
     {
-        public Repository systemCollection;
-        private ICommentPersistance commentFunctions;
+        public Repository SystemCollection;
+        private ICommentPersistance CommentFunctions;
 
         public ElementPersistenceHandler()
         {
-            systemCollection = Repository.GetInstance;
-            commentFunctions = new CommentPersistanceHandler();
+            SystemCollection = Repository.GetInstance;
+            CommentFunctions = new CommentPersistanceHandler();
         }
         public Element GetElement(int idElement, Blackboard blackboardOwner)
         {
@@ -40,7 +40,7 @@ namespace Persistence
         {
             foreach (Comment commentOfImage in element.commentCollection)
             {
-                commentFunctions.DeleteComment(commentOfImage);
+                CommentFunctions.DeleteComment(commentOfImage);
             }
         }
 

@@ -11,18 +11,18 @@ namespace Persistence
 {
     public class ImagePersistanceHandler : IImagePersistance
     {
-        public Repository systemCollection;
-        private ICommentPersistance commentFunctions;
+        public Repository SystemCollection;
+        private ICommentPersistance CommentFunctions;
         
         public ImagePersistanceHandler()
         {
-            systemCollection = Repository.GetInstance;
-            commentFunctions = new CommentPersistanceHandler();
+            SystemCollection = Repository.GetInstance;
+            CommentFunctions = new CommentPersistanceHandler();
         }
 
         public void AddImage(Image image)
         {
-            image.id = systemCollection.AsignNumberToElement();
+            image.id = SystemCollection.AsignNumberToElement();
             image.blackboardOwner.elementsInBlackboard.Add(image);
         }
     }

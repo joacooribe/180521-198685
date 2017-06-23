@@ -40,6 +40,7 @@
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnSelect = new System.Windows.Forms.Button();
             this.BtnDelete = new System.Windows.Forms.Button();
+            this.lblDeleteUser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,7 @@
             // 
             this.btnModify.BackColor = System.Drawing.Color.Orange;
             this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnModify.Location = new System.Drawing.Point(219, 221);
+            this.btnModify.Location = new System.Drawing.Point(229, 192);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 6;
@@ -143,7 +144,7 @@
             // 
             this.BtnDelete.BackColor = System.Drawing.Color.Orange;
             this.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnDelete.Location = new System.Drawing.Point(219, 286);
+            this.BtnDelete.Location = new System.Drawing.Point(229, 315);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(75, 23);
             this.BtnDelete.TabIndex = 30;
@@ -151,10 +152,24 @@
             this.BtnDelete.UseVisualStyleBackColor = false;
             this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
+            // lblDeleteUser
+            // 
+            this.lblDeleteUser.AutoSize = true;
+            this.lblDeleteUser.BackColor = System.Drawing.SystemColors.Control;
+            this.lblDeleteUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDeleteUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeleteUser.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblDeleteUser.Location = new System.Drawing.Point(102, 248);
+            this.lblDeleteUser.Name = "lblDeleteUser";
+            this.lblDeleteUser.Size = new System.Drawing.Size(239, 36);
+            this.lblDeleteUser.TabIndex = 31;
+            this.lblDeleteUser.Text = "Si el usuario eliminado es el ultimo\r\ndel equipo, este se borrara tambien.";
+            // 
             // ModifyUserUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblDeleteUser);
             this.Controls.Add(this.BtnDelete);
             this.Controls.Add(this.BtnSelect);
             this.Controls.Add(this.dataGridViewUsers);
@@ -186,5 +201,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.Button BtnSelect;
         private System.Windows.Forms.Button BtnDelete;
+        private System.Windows.Forms.Label lblDeleteUser;
     }
 }

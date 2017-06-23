@@ -10,8 +10,7 @@ namespace Domain
         {
             active = true;
         }
-        
-        
+
         public override bool Equals(object obj)
         {
             bool equal = false;

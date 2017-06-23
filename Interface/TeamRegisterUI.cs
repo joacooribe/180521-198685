@@ -1,15 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Domain;
-using Logic;
-using Persistence;
 using Exceptions;
 using System.Globalization;
 
@@ -42,11 +34,7 @@ namespace Interface
         }
         private void InitializeList()
         {
-            List<User> allUsers = new List<User>();
-            using (ContextDB context = new ContextDB())
-            {
-                allUsers = context.Users.ToList();
-            }
+            List<User> allUsers = instance.UserHandler.LoadUsers();
             foreach(User user in allUsers)
             {
                 if (user.active)

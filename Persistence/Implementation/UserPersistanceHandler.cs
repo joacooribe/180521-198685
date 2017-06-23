@@ -12,11 +12,11 @@ namespace Persistence
 {
     public class UserPersistanceHandler : IUserPersistance
     {
-        private ITeamPersistance teamFunctions { get; set; }
+        private ITeamPersistance TeamFunctions { get; set; }
 
         public UserPersistanceHandler()
         {
-            teamFunctions = new TeamPersistenceHandler();
+            TeamFunctions = new TeamPersistenceHandler();
         }
 
         public User GetUser(string mailOfUser)
@@ -77,7 +77,7 @@ namespace Persistence
             }
             foreach(Team team in user.teams)
             {
-                teamFunctions.RemoveUser(team, user);
+                TeamFunctions.RemoveUser(team, user);
             }
         }
 
@@ -93,28 +93,30 @@ namespace Persistence
             }
         }
 
-        public void EmptyUsers()
-        {
-            using (ContextDB context = new ContextDB())
-            {
-                foreach (User user in context.Users)
-                {
-                    context.Users.Attach(user);
-                    context.Entry(user).State = EntityState.Deleted;
-                    context.SaveChanges();
-                }
-            }
-        }
-
         public List<Team> GetTeams(User user)
         {
             using (ContextDB context = new ContextDB())
             {
-                var query = context.Users.Find(user.OIDUser);
+                context.Configuration.ProxyCreationEnabled = false;
+                var query = context.Users
+                                         .Where(u => u.mail == user.mail)
+                                         .Include(u => u.teams)
+                                         .FirstOrDefault();
                 List<Team> teams = new List<Team>();
                 teams = query.teams.ToList();
                 return teams;
             }
+        }
+
+        public List<User> LoadUsers()
+        {
+            List<User> allUsers = new List<User>();
+            using (ContextDB context = new ContextDB())
+            {
+                context.Configuration.ProxyCreationEnabled = false;
+                allUsers = context.Users.ToList();
+            }
+            return allUsers;
         }
     }
 }

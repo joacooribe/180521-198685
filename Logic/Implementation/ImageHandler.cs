@@ -11,15 +11,15 @@ namespace Logic
 {
     public class ImageHandler : IImageHandler
     {
-        public IElementPersistance elementFunctions { get; set; }
-        public IImagePersistance imageFunctions { get; set; }
+        public IElementPersistance ElementFunctions { get; set; }
+        public IImagePersistance ImageFunctions { get; set; }
 
         private List<string> validFormats;
 
         public ImageHandler()
         {
-            elementFunctions = new ElementPersistenceHandler();
-            imageFunctions = new ImagePersistanceHandler();
+            ElementFunctions = new ElementPersistenceHandler();
+            ImageFunctions = new ImagePersistanceHandler();
         }
 
         private void createListOfValidFormats()
@@ -35,7 +35,7 @@ namespace Logic
         {
             Image image = (Image)element;
             ValidateImage(image);
-            imageFunctions.AddImage(image);
+            ImageFunctions.AddImage(image);
         }
 
         private void ValidateImage(Image image)
@@ -86,14 +86,14 @@ namespace Logic
         public Element GetElementFromCollection(int idElement, Blackboard blackboardOwner)
         {
             Utility.UtilityElement.ValidateBlackboard(blackboardOwner);
-            return elementFunctions.GetElement(idElement, blackboardOwner);
+            return ElementFunctions.GetElement(idElement, blackboardOwner);
         }
 
         public void DeleteElement(Element element)
         {
             //Image image = (Image)element;
             ValidateImage((Image)element);
-            elementFunctions.DeleteElement(element);
+            ElementFunctions.DeleteElement(element);
         }
     }
 }

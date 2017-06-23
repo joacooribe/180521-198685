@@ -51,7 +51,6 @@ C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.ModifyTeamUI.resources
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.TeamMenuUI.resources
 C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.RankingAdminUI.resources
-C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Debug\Interface.RanksUI.resources
 C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.csprojResolveAssemblyReference.cache
 C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.AdministratorUI.resources
 C:\Users\Fido\Documents\180521-198685\Interface\obj\Debug\Interface.BlackboardUI.resources

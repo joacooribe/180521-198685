@@ -12,8 +12,8 @@ namespace Persistence
         User GetUser(string mail);
         bool ExistsUser(User user);
         void DeleteUser(string mail);
-        void EmptyUsers();
         void ModifyUserPassword(string mail, string newPassword);
         List<Team> GetTeams(User user);
+        List<User> LoadUsers();
     }
 }

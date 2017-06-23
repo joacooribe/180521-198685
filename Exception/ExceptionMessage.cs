@@ -17,6 +17,7 @@ namespace Exceptions
         public static string userLogInInvalidPassword = "La contraseña ingresada es incorrecta";
         public static string userAlreadyExist = "El mail que ingreso ya esta registrado";
         public static string userNotExist = "El mail que ingreso no existe";
+        public static string userIsDeleted = "El usuario fue eliminado, no puede iniciar sesión.";
 
         //Team Exceptions
         public static string teamNotExists = "No Existe el equipo.";

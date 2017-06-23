@@ -18,5 +18,6 @@ namespace Persistence
         List<User> GetUsersFromTeam(Team team);
         void RemoveUser(Team team,User user);
         void ModifyTeamUsers(Team team, ICollection<User> users);
+        List<Team> LoadTeams();
     }
 }

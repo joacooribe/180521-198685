@@ -11,3 +11,21 @@ C:\Users\Usuario\Documents\180521-198685\Logic\obj\Release\Logic.dll
 C:\Users\Usuario\Documents\180521-198685\Logic\obj\Release\Logic.pdb
 C:\Users\Usuario\Documents\180521-198685\Logic\bin\Release\Persistence.dll
 C:\Users\Usuario\Documents\180521-198685\Logic\bin\Release\Persistence.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\Logic.dll.config
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\Logic.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\Logic.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\Domain.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\EntityFramework.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\Exceptions.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\Persistence.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\Utility.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\Domain.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\Exceptions.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\Persistence.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\Utility.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\EntityFramework.xml
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\obj\Release\Logic.csprojResolveAssemblyReference.cache
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\obj\Release\Logic.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Logic\obj\Release\Logic.pdb

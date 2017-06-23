@@ -15,10 +15,8 @@ namespace Test
     {
         private ISessionHandler sessionHandler;
         private Administrator administrator;
-        private IAdministratorPersistance administratorPersistence;
         private IAdministratorHandler administratorHandler;
         private Colaborator colaborator;
-        private IColaboratorPersistance colaboratorPersistence;
         private IColaboratorHandler colaboratorHandler;
 
         private readonly string passwordOK = "securePassword123";
@@ -30,7 +28,9 @@ namespace Test
         public SessionTest()
         {
             sessionHandler = new SessionHandler();
+
             administratorHandler = new AdministratorHandler();
+
             colaboratorHandler = new ColaboratorHandler();
         }
 
@@ -38,6 +38,7 @@ namespace Test
         public void TestSetUp()
         {
             ContextDB context = new ContextDB();
+
             context.EmptyTable();
         }
 
@@ -67,9 +68,11 @@ namespace Test
         public void AdministratorLoginOk()
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             administratorHandler.AddAdministrator(administrator);
 
             Session actualSession = sessionHandler.LogInAdministrator(administrator.mail, administrator.password);
+
             Assert.AreEqual(administrator.mail, actualSession.user.mail);
         }
 
@@ -78,6 +81,7 @@ namespace Test
         public void AdministratorLoginWrongPassword()
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             administratorHandler.AddAdministrator(administrator);
 
             string invalidPassword = "invalid";
@@ -90,6 +94,7 @@ namespace Test
         public void AdministratorLoginWrongMail()
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             administratorHandler.AddAdministrator(administrator);
 
             string invalidMail = "invalidMail";
@@ -102,6 +107,7 @@ namespace Test
         public void AdministratorLoginUserNotExist()
         {
             administrator = DataCreation.CreateAdministrator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             administratorHandler.AddAdministrator(administrator);
 
             string notExistUser = "diego@gmail.com";
@@ -113,9 +119,11 @@ namespace Test
         public void ColaboratorLoginOk()
         {
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             colaboratorHandler.AddColaborator(colaborator);
 
             Session actualSession = sessionHandler.LogInColaborator(colaborator.mail, colaborator.password);
+
             Assert.AreEqual(colaborator.mail, actualSession.user.mail);
         }
 
@@ -124,6 +132,7 @@ namespace Test
         public void ColaboratorLoginWrongPassword()
         {
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             colaboratorHandler.AddColaborator(colaborator);
 
             string invalidPassword = "invalid";
@@ -136,6 +145,7 @@ namespace Test
         public void ColaboratorLoginWrongMail()
         {
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             colaboratorHandler.AddColaborator(colaborator);
 
             string invalidMail = "invalidMail";
@@ -148,6 +158,7 @@ namespace Test
         public void ColaboratorLoginUserNotExist()
         {
             colaborator = DataCreation.CreateColaborator(nameOK, surnameOK, mailOK, passwordOK, birthdayOk);
+
             colaboratorHandler.AddColaborator(colaborator);
 
             string notExistUser = "diego@gmail.com";

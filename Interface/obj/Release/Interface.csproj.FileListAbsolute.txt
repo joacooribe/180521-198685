@@ -27,3 +27,36 @@ C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.ModifyT
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.RankingAdminUI.resources
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.RanksUI.resources
 C:\Users\Usuario\Documents\180521-198685\Interface\obj\Release\Interface.TeamMenuUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Interface.exe.config
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Interface.exe
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Interface.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Domain.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\EntityFramework.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Exceptions.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Logic.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Persistence.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Utility.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Domain.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Exceptions.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Logic.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Persistence.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\EntityFramework.xml
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\bin\Release\Utility.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.csprojResolveAssemblyReference.cache
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.AdministratorUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.BlackboardUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.ColaboratorUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.ModifyTeamUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.ModifyUserUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.RankingAdminUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.RegisterUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.Start.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.TeamAdministratorUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.TeamMenuUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.TeamRegisterUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.TeamUI.resources
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.csproj.GenerateResource.Cache
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.exe
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Interface\obj\Release\Interface.pdb

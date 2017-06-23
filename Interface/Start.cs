@@ -1,15 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Domain;
-using Logic;
-using Persistence;
 using Exceptions;
 
 namespace Interface
@@ -21,19 +11,12 @@ namespace Interface
         public Start()
         {
             this.instance = Instance.GetInstance;
-
-                    
             InitializeComponent();
-
-            TxtEmail.Text = "admin@admin.com";
-
-            TxtPassword.Text = "a11111";
         }
 
 
         private void BtnLogIn_Click(object sender, EventArgs e)
         {
-            this.lblError.Text = "";
             string email = this.TxtEmail.Text;
             string password = this.TxtPassword.Text;
             try
@@ -44,7 +27,6 @@ namespace Interface
                     ColaboratorUI colaboratorUI = new ColaboratorUI();
                     colaboratorUI.Show();
                     this.Hide();
-
                 }
                 else if (RdoAdmin.Checked)
                 {
@@ -57,31 +39,13 @@ namespace Interface
             catch (UserException ex)
             {
                 String msgError = ex.Message;
-                this.lblError.Text = msgError;
-                this.lblError.Visible = true;
+                MessageBox.Show(msgError, "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-        private void Start_Load(object sender, EventArgs e)
-        {
-            
         }
 
         public void Start_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void BtnGenerate_Click(object sender, EventArgs e)
-        {
-            this.label5.Visible= true;
-            lblGenerate.Visible = false;
-            BtnGenerate.Visible = false;
-        }
-
-        private void BtnClearDB_Click(object sender, EventArgs e)
-        {
-            this.instance.ContextDB.EmptyAndCreate();
         }
     }
 }

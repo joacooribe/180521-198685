@@ -7,3 +7,17 @@ C:\Users\Usuario\Documents\180521-198685\Persistence\bin\Release\Exceptions.pdb
 C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Release\Persistence.csprojResolveAssemblyReference.cache
 C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Release\Persistence.dll
 C:\Users\Usuario\Documents\180521-198685\Persistence\obj\Release\Persistence.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Release\Persistence.dll.config
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Release\Persistence.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Release\Persistence.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Release\Domain.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Release\EntityFramework.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Release\Exceptions.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Release\Domain.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Release\Exceptions.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Release\EntityFramework.xml
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\obj\Release\Persistence.csprojResolveAssemblyReference.cache
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\obj\Release\Persistence.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Persistence\obj\Release\Persistence.pdb

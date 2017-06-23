@@ -63,7 +63,9 @@ namespace Test
         public void ColaboratorOKName()
         {
             colaborator = new Colaborator();
+
             string name = nameOK;
+
             colaborator.name = name;
 
             Assert.AreEqual(name, colaborator.name);
@@ -73,7 +75,9 @@ namespace Test
         public void ColaboratorOKSurname()
         {
             colaborator = new Colaborator();
+
             string surname = surnameOK;
+
             colaborator.surname = surname;
 
             Assert.AreEqual(surname, colaborator.surname);

@@ -13,17 +13,17 @@ namespace Logic
     {
         const int MAMIMUXSIZEDESCRIPTION = 50;
 
-        public ICommentPersistance commentFunctions { get; set; }
+        public ICommentPersistance CommentFunctions { get; set; }
 
         public CommentHandler()
         {
-            commentFunctions = new CommentPersistanceHandler();
+            CommentFunctions = new CommentPersistanceHandler();
         }
 
         public void AddComment(Comment comment)
         {
             ValidateComment(comment);
-            commentFunctions.AddComment(comment);
+            CommentFunctions.AddComment(comment);
         }
 
         private void ValidateComment(Comment comment)
@@ -79,7 +79,7 @@ namespace Logic
         public void DeleteComment(Comment comment)
         {
             ValidateComment(comment);
-            commentFunctions.DeleteComment(comment);
+            CommentFunctions.DeleteComment(comment);
         }
     }
 }

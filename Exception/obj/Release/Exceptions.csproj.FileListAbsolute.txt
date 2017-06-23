@@ -3,3 +3,13 @@ C:\Users\Usuario\Documents\180521-198685\Exception\bin\Release\Exceptions.pdb
 C:\Users\Usuario\Documents\180521-198685\Exception\obj\Release\Exceptions.csprojResolveAssemblyReference.cache
 C:\Users\Usuario\Documents\180521-198685\Exception\obj\Release\Exceptions.dll
 C:\Users\Usuario\Documents\180521-198685\Exception\obj\Release\Exceptions.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Release\Exceptions.dll.config
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Release\Exceptions.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Release\Exceptions.pdb
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Release\EntityFramework.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Release\EntityFramework.xml
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\obj\Release\Exceptions.csprojResolveAssemblyReference.cache
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\obj\Release\Exceptions.dll
+C:\Users\joaco\Desktop\Facu ing\diseno\Obligatorio\Exception\obj\Release\Exceptions.pdb

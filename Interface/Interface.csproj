@@ -93,12 +93,6 @@
     <Compile Include="RankingAdminUI.Designer.cs">
       <DependentUpon>RankingAdminUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="RanksUI.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RanksUI.Designer.cs">
-      <DependentUpon>RanksUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="RegisterUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,9 +149,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RankingAdminUI.resx">
       <DependentUpon>RankingAdminUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RanksUI.resx">
-      <DependentUpon>RanksUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterUI.resx">
       <DependentUpon>RegisterUI.cs</DependentUpon>
